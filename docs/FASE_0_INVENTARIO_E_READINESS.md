@@ -3,9 +3,9 @@
 ## FASE 0 — INVENTÁRIO E READINESS
 
 **Documento mestre de diagnóstico, decisões e liberação de execução**  
-**Versão:** 1.0  
+**Versão:** 1.1  
 **Data:** 08 de setembro de 2026  
-**Status:** FASE 0 CONCLUÍDA COM BLOQUEIOS — PROGRAMAÇÃO NÃO LIBERADA  
+**Status:** FASE 0 ATUALIZADA — NO-GO PARA PROGRAMAÇÃO  
 **Repositório auditado:** `faabio3131/fm-tecnologia-web-platform`  
 **Autoridade principal:** pasta “07 — ARQUITETURA DO SITE COMERCIAL FM TECNOLOGIA”
 
@@ -17,15 +17,15 @@ O projeto não deve ser tratado como um site institucional. A arquitetura oficia
 
 O desenho conceitual é sólido e coerente com a ambição de suportar dezenas de produtos. A separação entre identidade central, domínio comercial e dados operacionais dos SaaS está explicitamente protegida. A arquitetura também autoriza começar com um monólito modular, desde que contratos e limites de domínio estejam claros.
 
-Entretanto, o estado atual **não está pronto para programação definitiva**. A pasta oficial contém somente um PDF de arquitetura, sem fichas oficiais dos produtos, identidade visual, logos, screenshots, vídeos, preços, políticas comerciais, domínios, documentos legais, contratos de provisionamento ou integrações detalhadas. O repositório existe, mas contém apenas `.gitignore` e `README.md`; não há código, assets, CI/CD ou documentação complementar.
+Entretanto, o estado atual **não está pronto para programação definitiva**. Após a auditoria, foram oficialmente fechadas a nomenclatura canônica de Kordena e a identidade visual da FM Tecnologia. Permanecem ausentes os dossiês completos dos produtos, preços, políticas comerciais, domínios, documentos legais, contratos de provisionamento e integrações detalhadas. O pacote de identidade e assets foi produzido, mas sua incorporação ao repositório oficial ainda é uma ação operacional pendente.
 
-O documento oficial afirma que o ecossistema possui ou receberá vários produtos, porém confirma nominalmente apenas **Iron Fit** e **Kordena/Coordena** como candidatos ao marketplace. Ele não documenta de forma suficiente posicionamento, proposta de valor, estágio comercial, preço, política de trial e prontidão técnica de nenhum deles. A variação “Kordena/Coordena” é uma contradição de nomenclatura que precisa ser resolvida antes de URLs, SEO, identidade e conteúdos.
+O Product Registry Mestre passa a registrar **Kordena** e **Iron Fit**. **Kordena é o nome canônico oficial**; “Coordena” é nomenclatura antiga/erro documental e não deve ser usada como marca ativa. Demais produtos permanecem como **A IDENTIFICAR**, sem criação de nomes. Posicionamento, proposta de valor, estágio comercial, preço, política de trial e prontidão técnica de cada produto ainda exigem dossiês aprovados.
 
 **Decisão de readiness:**
 
 - **FASE 0 documental:** concluída por este inventário.
 - **Readiness para iniciar código definitivo:** **NO-GO**.
-- **Próximo bloco recomendado:** fechamento do Baseline Comercial e dos Dossiês de Produto, seguido do congelamento das decisões obrigatórias.
+- **Próximo bloco recomendado:** completar o Product Registry e os Dossiês de Produto, incorporar os assets finais ao repositório oficial e fechar as decisões P0 ainda abertas.
 - **Primeiro bloco de programação após o GO:** fundação do repositório, contratos arquiteturais e Design System FM — sem implementar trial, billing ou integrações operacionais antes dos respectivos contratos.
 
 ---
@@ -41,6 +41,7 @@ O documento oficial afirma que o ecossistema possui ou receberá vários produto
 | FONTE-03 | Repositório `faabio3131/fm-tecnologia-web-platform`, branch `main` | Apenas `.gitignore` e `README.md` | Evidência do estado técnico atual |
 | FONTE-04 | README do repositório | Confirma o propósito da plataforma | Evidência suplementar, consistente com FONTE-01 |
 | FONTE-05 | Documentação oficial do Next.js, NestJS, PostgreSQL e OpenID Connect | Consulta de viabilidade da stack | Suporte somente à recomendação técnica; não altera a arquitetura oficial |
+| FONTE-06 | Decisões oficialmente fechadas após a auditoria, registradas em 08/09/2026 | Incorporadas nesta versão 1.1 | Autoridade para nomenclatura, identidade visual e estado dos blockers/decisões relacionados |
 
 ### 1.2 Legenda de classificação
 
@@ -48,11 +49,12 @@ O documento oficial afirma que o ecossistema possui ou receberá vários produto
 - **[INFERÊNCIA]** Interpretação coerente com os fatos, mas ainda não formalmente aprovada.
 - **[PENDENTE]** Decisão, dado, contrato ou asset necessário que não foi encontrado.
 - **[RECOMENDAÇÃO]** Proposta deste inventário para fechar lacunas sem alterar silenciosamente a arquitetura.
+- **[DECISÃO OFICIAL]** Deliberação fechada após a auditoria e incorporada ao baseline documental.
 
 ### 1.3 Limites respeitados
 
 - Nenhum código foi criado ou alterado.
-- Nenhuma decisão de produto, preço, domínio, trial, provedor ou branding foi inventada.
+- Nenhuma decisão de produto, preço, domínio, trial ou provedor foi inventada; somente as decisões oficiais de nomenclatura e branding recebidas após a auditoria foram incorporadas.
 - Nenhuma arquitetura oficial foi substituída.
 - Produtos não documentados não foram apresentados como atuais.
 - O GitHub foi usado em modo de auditoria e documentação; o estado vazio do repositório foi preservado.
@@ -68,12 +70,12 @@ O documento oficial afirma que o ecossistema possui ou receberá vários produto
 | Dimensão | Estado observado | Readiness | Evidência / impacto |
 |---|---|---:|---|
 | Arquitetura conceitual | Existe e cobre 15 camadas, jornadas, serviços, eventos e roadmap | Parcialmente pronta | Boa direção, ainda sem contratos detalhados |
-| Inventário de produtos | Apenas Iron Fit e Kordena/Coordena são citados nominalmente | Bloqueado | Não existe lista canônica dos produtos atuais |
+| Inventário de produtos | Product Registry Mestre criado com Kordena, Iron Fit e demais produtos como A IDENTIFICAR | Parcialmente pronto | Lista inicial existe; catálogo completo, status e owners ainda pendentes |
 | Posicionamento dos produtos | Não documentado por produto | Bloqueado | Impede conteúdo, IA, SEO, páginas e design correto |
 | Estágio comercial | Não documentado | Bloqueado | Produto não pronto não pode ser exibido como disponível |
 | Arquitetura da informação | Macro definida | Parcialmente pronta | Taxonomia, slugs, conteúdo e navegação detalhada pendentes |
-| Marca e Design System | Atributos desejados definidos; identidade concreta ausente | Bloqueado | Sem logos, paleta, tipografia, motion ou regras de uso |
-| Assets | Nenhum asset localizado na pasta oficial | Bloqueado | Hero, páginas de produto e demos não podem ser produzidos com verdade |
+| Marca e Design System | Identidade oficial aprovada | Resolvido | Connected Modular refinado v1.0, Brand Baseline v1.0, paleta, tipografia, tokens e versões dark/light aprovados |
+| Assets | Pacote de assets produzido | Parcialmente pronto | Assets finais precisam ser incorporados ao repositório oficial e inventariados por manifest |
 | Domínio e subdomínios | Modelo conceitual definido; nomes finais ausentes | Bloqueado | A própria arquitetura exige decisão antes da implementação |
 | Trial e onboarding | Jornada e capacidades conceituais definidas | Bloqueado | Políticas, elegibilidade, estados e adapters não definidos por produto |
 | Identidade / Conta FM | Modelo conceitual definido | Bloqueado | IdP, login, recuperação, MFA e federação não decididos |
@@ -107,10 +109,13 @@ O documento oficial afirma que o ecossistema possui ou receberá vários produto
 16. **[FATO]** A experiência deve ser premium, limpa, tecnológica, humana, rápida e confiável, sem estética genérica de template de IA.
 17. **[FATO]** Não podem ser publicados números, clientes, credenciais ou certificações inventadas.
 18. **[FATO]** Antes do código definitivo devem ser confirmados domínio, produtos, status comercial, público, trial, preços, identidade, assets, legal, suporte, stack/hosting e integração com os produtos.
+19. **[DECISÃO OFICIAL]** Kordena é o nome canônico; “Coordena” é nomenclatura antiga/erro documental.
+20. **[DECISÃO OFICIAL]** A identidade visual oficial foi aprovada: símbolo Connected Modular refinado v1.0, Brand Baseline v1.0, paleta, tipografia, tokens e versões dark/light.
+21. **[DECISÃO OFICIAL]** O pacote de assets foi produzido e deve ser incorporado ao repositório oficial.
 
 ### 2.3 O que ainda não está decidido
 
-O projeto possui uma arquitetura de intenção bem formada, mas ainda não possui o **baseline executável**. Estão ausentes dados comerciais, decisões de marca, contratos de domínio e integração. O risco maior não é técnico: é programar uma plataforma correta para um catálogo, uma identidade visual ou uma política comercial que depois mudará.
+O projeto possui uma arquitetura de intenção bem formada e uma identidade visual aprovada, mas ainda não possui o **baseline executável completo**. Estão ausentes dados comerciais, contratos de domínio e integração; o catálogo ainda é parcial e os assets finais ainda precisam entrar no repositório oficial. O risco maior não é técnico: é programar uma plataforma para políticas comerciais e contratos ainda não fechados.
 
 ---
 
@@ -209,14 +214,22 @@ O “core comercial modular” representa Identity, Organization, Catalog, Trial
 
 ### 4.1 Resultado objetivo
 
-**[FATO]** A documentação oficial não contém um inventário completo dos produtos SaaS atuais da FM Tecnologia. O documento nomeia dois produtos para o catálogo — Iron Fit e Kordena/Coordena — e menciona AI Web Builder e Super Core Extreme apenas como integrações futuras. Não há base documental para afirmar quais seriam os cinco produtos atuais ou declarar outros produtos como comercializáveis.
+**[FATO]** A arquitetura original não contém um inventário completo dos produtos SaaS atuais. Após a auditoria, o Product Registry Mestre foi iniciado oficialmente com **Kordena** e **Iron Fit**. Quaisquer outros produtos permanecem como **A IDENTIFICAR**. AI Web Builder e Super Core Extreme continuam tratados apenas como capacidades/integrações futuras citadas na arquitetura, não como produtos atuais.
 
-### 4.2 Produtos nominalmente documentados
+### 4.2 Product Registry Mestre
 
-| Produto | Nome | Posicionamento | Público-alvo | Proposta de valor | Estágio | Classificação |
-|---|---|---|---|---|---|---|
-| Iron Fit | **Iron Fit** | Não documentado em frase comercial | Academias é suportado pelo contexto de solução e exemplo de onboarding | Não documentada | Não documentado | Nome e segmento: fato; demais itens: pendentes |
-| Kordena/Coordena | **Conflito: “Kordena/Coordena”** | Não documentado | Restaurantes é uma inferência forte a partir do contexto do ecossistema e das soluções, mas não está amarrado formalmente no PDF | Não documentada | Não documentado | Nome: contraditório; público/valor/estágio: pendentes |
+| Registry ID | Nome canônico | Alias / nomenclatura antiga | Posicionamento | Público-alvo | Proposta de valor | Estágio | Estado do registro |
+|---|---|---|---|---|---|---|---|
+| PRD-001 | **Kordena** | “Coordena” — nomenclatura antiga/erro documental; não usar como marca ativa | A IDENTIFICAR | A IDENTIFICAR | A IDENTIFICAR | A IDENTIFICAR | Nome resolvido; dossiê pendente |
+| PRD-002 | **Iron Fit** | Nenhum documentado | A IDENTIFICAR | Academias — indicação contextual da arquitetura; vínculo comercial formal pendente | A IDENTIFICAR | A IDENTIFICAR | Nome registrado; dossiê pendente |
+| PRD-PENDENTE-* | **A IDENTIFICAR** | A IDENTIFICAR | A IDENTIFICAR | A IDENTIFICAR | A IDENTIFICAR | A IDENTIFICAR | Placeholder governado para demais produtos; não publicar |
+
+Regras vivas do registry:
+
+1. Somente nomes aprovados entram como produtos identificados.
+2. “Coordena” pode aparecer apenas em histórico, migração ou correção documental, sempre remetendo a Kordena.
+3. O placeholder **A IDENTIFICAR** não autoriza publicação, criação de slug, branding ou trial.
+4. Cada novo produto exige dossiê, owners e estado comercial antes de entrar no marketplace.
 
 ### 4.3 Capacidades futuras que não podem ser classificadas como produtos atuais
 
@@ -513,24 +526,23 @@ Cada SaaS deve entrar na plataforma por um `Product Integration Contract` conten
 
 ## 8. Inventário de assets
 
-### 8.1 Assets existentes na pasta oficial
+### 8.1 Estado dos assets
 
-| Tipo | Quantidade localizada | Estado |
-|---|---:|---|
-| Documento de arquitetura | 1 PDF | Existente |
-| Logos FM | 0 | Faltante |
-| Logos de produtos | 0 | Faltante |
-| Ícones/favicons | 0 | Faltante |
-| Paleta/tokens | 0 | Faltante |
-| Tipografia/licenças | 0 | Faltante |
-| Screenshots | 0 | Faltante |
-| Vídeos/microdemos | 0 | Faltante |
-| Tours interativos | 0 | Faltante |
-| Ilustrações/fotografia | 0 | Faltante |
-| Templates Open Graph | 0 | Faltante |
-| Brand book | 0 | Faltante |
-| Copy deck | 0 | Faltante |
-| Cases/depoimentos autorizados | 0 | Faltante |
+| Tipo | Fato documentado | Estado atual |
+|---|---|---|
+| Documento de arquitetura | 1 PDF localizado na pasta oficial durante a auditoria | Existente |
+| Símbolo FM | Connected Modular refinado v1.0 aprovado | Produzido; incorporação ao repositório pendente |
+| Brand Baseline | Brand Baseline v1.0 aprovado | Produzido; incorporação ao repositório pendente |
+| Paleta, tipografia e tokens | Conjunto oficial aprovado | Produzido; incorporação ao repositório pendente |
+| Versões dark/light | Versões oficiais aprovadas | Produzidas; incorporação ao repositório pendente |
+| Pacote institucional de assets | Pacote produzido no contexto da identidade aprovada | Incorporar ao repositório com manifest, formatos, versões e licenças |
+| Logos/ícones específicos dos produtos | Não documentados nesta atualização | A IDENTIFICAR por produto |
+| Screenshots e workflows demonstráveis | Não documentados nesta atualização | Faltantes por produto |
+| Vídeos, microdemos e tours | Não documentados nesta atualização | Faltantes por produto |
+| Imagens Open Graph por rota/produto | Não documentadas nesta atualização | Faltantes |
+| Copy deck e cases/depoimentos autorizados | Não documentados nesta atualização | Faltantes |
+
+**Controle de evidência:** a auditoria inicial não localizou esses arquivos na pasta oficial. A decisão posterior confirma que o pacote foi produzido e aprovado, mas não informa nesta atualização sua composição arquivo a arquivo. Por isso, a incorporação ao repositório oficial e o Asset Manifest continuam obrigatórios.
 
 ### 8.2 Pacote mínimo de assets por produto
 
@@ -610,26 +622,26 @@ Sem fixar nomes ainda, avaliar:
 
 ## 11. Riscos, contradições e blockers
 
-### 11.1 Blockers críticos — impedem programação definitiva
+### 11.1 Blockers críticos — estado vivo
 
-| ID | Blocker | Risco de retrabalho | Ação de desbloqueio |
-|---|---|---|---|
-| BLK-01 | Inventário canônico dos produtos inexistente | Navegação, conteúdo e modelo de dados incorretos | Aprovar lista, nomes e status |
-| BLK-02 | Kordena versus Coordena | URLs, SEO, logos e marca duplicados | Escolher nome canônico e política de transição |
-| BLK-03 | Posicionamento/público/valor/estágio ausentes | Copy genérica ou enganosa | Aprovar dossiês de produto |
-| BLK-04 | Domínio principal e subdomínios indefinidos | Reconfiguração de auth, cookies, SEO e infraestrutura | Decisão e verificação de titularidade |
-| BLK-05 | Identidade visual e Design System concretos ausentes | Interface com aparência de template e rework total | Criar/aprovar brand baseline e tokens |
-| BLK-06 | Assets reais ausentes | Hero e páginas não demonstram o produto | Produzir pacote mínimo por produto |
-| BLK-07 | Política de trial por produto ausente | Fluxo de conversão impossível de fechar | Aprovar dias, cartão, elegibilidade, limites e expiração |
-| BLK-08 | Planos e preços ausentes | Página de preços, billing e entitlement indefinidos | Catálogo comercial aprovado |
-| BLK-09 | Contratos de provisionamento/entitlement inexistentes | Acoplamento às bases operacionais e falhas de acesso | Desenhar adapters e contratos versionados |
-| BLK-10 | Legal/LGPD sem textos e owners | Cadastro e tracking sem base segura | Aprovação jurídica e matriz de dados |
-| BLK-11 | Suporte e operação indefinidos | Trials sem atendimento e incidentes sem owner | Definir canais, SLA e escalonamento |
-| BLK-12 | Stack/hosting e threat model não aprovados | Fundação técnica instável | ADRs, threat model e NFRs |
+| ID | Blocker | Estado | Evidência / ação remanescente |
+|---|---|---:|---|
+| BLK-01 | Inventário canônico dos produtos inexistente | PARCIAL | Product Registry criado com Kordena, Iron Fit e demais como A IDENTIFICAR; completar lista, status e owners |
+| BLK-02 | Kordena versus Coordena | **RESOLVIDO** | Kordena é o nome canônico; “Coordena” é nomenclatura antiga/erro documental |
+| BLK-03 | Posicionamento/público/valor/estágio ausentes | ABERTO | Aprovar dossiês de produto |
+| BLK-04 | Domínio principal e subdomínios indefinidos | ABERTO | Decisão e verificação de titularidade |
+| BLK-05 | Identidade visual e Design System concretos ausentes | **RESOLVIDO** | Connected Modular refinado v1.0, Brand Baseline v1.0, paleta, tipografia, tokens e dark/light aprovados; incorporar assets finais ao repositório oficial |
+| BLK-06 | Assets reais de produto ausentes | ABERTO | Produzir/validar pacote mínimo por produto: screenshots, vídeos, tours e Open Graph |
+| BLK-07 | Política de trial por produto ausente | ABERTO | Aprovar dias, cartão, elegibilidade, limites e expiração |
+| BLK-08 | Planos e preços ausentes | ABERTO | Aprovar catálogo comercial |
+| BLK-09 | Contratos de provisionamento/entitlement inexistentes | ABERTO | Desenhar adapters e contratos versionados |
+| BLK-10 | Legal/LGPD sem textos e owners | ABERTO | Aprovação jurídica e matriz de dados |
+| BLK-11 | Suporte e operação indefinidos | ABERTO | Definir canais, SLA e escalonamento |
+| BLK-12 | Stack/hosting e threat model não aprovados | ABERTO | ADRs, threat model e NFRs |
 
 ### 11.2 Contradições ou ambiguidades
 
-1. **Kordena/Coordena:** o documento registra duas grafias. Proposta: decidir um nome canônico e documentar se o outro é nome antigo, marca, erro ou alias temporário.
+1. **Kordena/Coordena — RESOLVIDO:** Kordena é o nome canônico oficial. “Coordena” é nomenclatura antiga/erro documental e não deve gerar rota, identidade, catálogo ou conteúdo paralelo.
 2. **“Produtos” versus “Marketplace”:** o menu cita Produtos, enquanto a camada chama Product Marketplace. Proposta: escolher uma rota canônica e usar o outro termo como conceito/editorial, evitando páginas duplicadas.
 3. **MVP versus gates:** o roadmap sugere Design System e páginas na Fase 1, mas os gates exigem identidade, assets e integração confirmados antes do código definitivo. Não é conflito real se a Fase 1 só começar depois do fechamento dos gates desta Fase 0.
 4. **Trial do Iron Fit:** o documento diz que a arquitetura deve suportar trial sem cartão “se essa for a decisão comercial”. Portanto, “sem cartão” não é decisão aprovada.
@@ -655,26 +667,26 @@ Sem fixar nomes ainda, avaliar:
 
 # D) DECISÕES NECESSÁRIAS
 
-## 12. Registro de decisões antes do GO
+## 12. Decision Register de decisões P0
 
 ### 12.1 Decisões P0 — obrigatórias antes de qualquer código definitivo
 
-| ID | Decisão | Owner sugerido | Evidência de conclusão |
-|---|---|---|---|
-| DEC-01 | Nome oficial da plataforma/site e mensagem principal | Direção/Marca | Brand brief aprovado |
-| DEC-02 | Domínio principal e mapa de subdomínios | Direção/Técnico | ADR + titularidade/DNS confirmados |
-| DEC-03 | Lista canônica de produtos e status comercial | Direção/Produto | Product Registry aprovado |
-| DEC-04 | Resolver Kordena/Coordena | Direção/Marca/Produto | Nome e regra de migração aprovados |
-| DEC-05 | Produto(s) do lançamento/MVP | Direção/Comercial | Release scope assinado |
-| DEC-06 | Público, posicionamento e proposta de valor por produto | Produto/Marketing | Dossiês completos |
-| DEC-07 | Política de trial por produto | Produto/Comercial/Risco | TrialPolicy aprovada |
-| DEC-08 | Planos, preços e Enterprise | Comercial/Financeiro | Catálogo comercial aprovado |
-| DEC-09 | Identidade visual e direção de arte | Direção/Design | Brand baseline + tokens aprovados |
-| DEC-10 | Pacote mínimo de assets | Produto/Design | Asset manifest validado |
-| DEC-11 | Domínios de identidade, dados e consentimentos | Segurança/Legal | Data map + threat model + legal checklist |
-| DEC-12 | Suporte e contato comercial | Operações/Comercial | Canais, SLA, owner e horários |
-| DEC-13 | Stack, hosting e ambientes | Arquitetura/Operações | ADRs aprovados |
-| DEC-14 | Estratégia de integração com SaaS | Arquitetura/Times dos produtos | Contratos de provisionamento, SSO e entitlement |
+| ID | Decisão | Estado | Owner sugerido | Evidência / próxima ação |
+|---|---|---:|---|---|
+| DEC-01 | Nome oficial da plataforma/site e mensagem principal | ABERTO | Direção/Marca | Brand brief aprovado |
+| DEC-02 | Domínio principal e mapa de subdomínios | ABERTO | Direção/Técnico | ADR + titularidade/DNS confirmados |
+| DEC-03 | Lista canônica de produtos e status comercial | PARCIAL | Direção/Produto | Registry inicial criado; completar demais produtos, status e aprovação |
+| DEC-04 | Resolver Kordena/Coordena | **RESOLVIDO** | Direção/Marca/Produto | Kordena canônico; “Coordena” como nomenclatura antiga/erro documental |
+| DEC-05 | Produto(s) do lançamento/MVP | ABERTO | Direção/Comercial | Release scope assinado |
+| DEC-06 | Público, posicionamento e proposta de valor por produto | ABERTO | Produto/Marketing | Dossiês completos |
+| DEC-07 | Política de trial por produto | ABERTO | Produto/Comercial/Risco | TrialPolicy aprovada |
+| DEC-08 | Planos, preços e Enterprise | ABERTO | Comercial/Financeiro | Catálogo comercial aprovado |
+| DEC-09 | Identidade visual e direção de arte | **RESOLVIDO** | Direção/Design | Connected Modular refinado v1.0, Brand Baseline v1.0, paleta, tipografia, tokens e dark/light aprovados; pacote de assets produzido; incorporar assets finais ao repositório oficial |
+| DEC-10 | Pacote mínimo de assets por produto | ABERTO | Produto/Design | Asset manifest por produto validado; não confundir com o pacote institucional aprovado |
+| DEC-11 | Domínios de identidade, dados e consentimentos | ABERTO | Segurança/Legal | Data map + threat model + legal checklist |
+| DEC-12 | Suporte e contato comercial | ABERTO | Operações/Comercial | Canais, SLA, owner e horários |
+| DEC-13 | Stack, hosting e ambientes | ABERTO | Arquitetura/Operações | ADRs aprovados |
+| DEC-14 | Estratégia de integração com SaaS | ABERTO | Arquitetura/Times dos produtos | Contratos de provisionamento, SSO e entitlement |
 
 ### 12.2 Decisões P1 — necessárias antes dos respectivos blocos
 
@@ -698,7 +710,7 @@ Sem fixar nomes ainda, avaliar:
 ### Bloco 0 — Baseline executivo e fechamento dos blockers
 
 **Objetivo:** transformar a arquitetura conceitual em baseline aprovado.  
-**Entregas:** Decision Register, Product Registry, escopo do lançamento, owners, domínio e calendário de aprovações.  
+**Entregas:** manutenção do Decision Register e Product Registry, escopo do lançamento, owners, domínio e calendário de aprovações.  
 **Definition of Done:** todas as DEC P0 possuem owner, resposta, evidência e data; contradições resolvidas; documento mestre versionado.  
 **Gate G0:** zero blockers P0 abertos. Sem G0, não há programação.
 
@@ -709,12 +721,12 @@ Sem fixar nomes ainda, avaliar:
 **Definition of Done:** cada claim aponta para funcionalidade/evidência; produtos não prontos têm publicação bloqueada; nome canônico aprovado.  
 **Gate G1:** dossiê 100% preenchido e assinado para cada produto do MVP.
 
-### Bloco 2 — Marca, direção visual e Design System
+### Bloco 2 — Incorporação e governança da identidade visual
 
-**Objetivo:** criar identidade de grande empresa global sem estética genérica.  
-**Entregas:** brand principles, logos, tipografia/licenças, cores, grid, spacing, radius, motion, iconografia, componentes-base, accents por produto e regras de acessibilidade.  
+**Objetivo:** incorporar e operacionalizar a identidade aprovada, preservando o nível de grande empresa global sem estética genérica.  
+**Entregas:** pacote oficial versionado no repositório, manifest de assets, licenças, Brand Baseline v1.0, logos/símbolo Connected Modular refinado v1.0, tipografia, cores, tokens, dark/light, regras de uso, motion, iconografia e acessibilidade.  
 **Definition of Done:** protótipos de Home e página de produto aprovados em desktop/mobile; AA de contraste; motion reduced; nenhuma dependência de template visual genérico.  
-**Gate G2:** revisão executiva, design e acessibilidade aprovada.
+**Gate G2:** assets incorporados e versionados; revisão executiva, design e acessibilidade aprovada.
 
 ### Bloco 3 — Arquitetura da informação, conteúdo e SEO
 
@@ -887,16 +899,16 @@ Essas escolhas exigem ADR com custo, requisitos brasileiros, portabilidade, regi
 
 ### Antes da programação: Bloco 0 + Bloco 1
 
-O primeiro trabalho recomendado é **fechar o Baseline Executivo e os Dossiês dos Produtos do MVP**. O Codex deve organizar um questionário/registro de decisão, consolidar respostas fornecidas pelos owners e produzir:
+O primeiro trabalho recomendado é **completar o Baseline Executivo e os Dossiês dos Produtos do MVP**. O Codex deve organizar um questionário/registro de decisão, consolidar respostas fornecidas pelos owners e produzir:
 
-1. Product Registry canônico.
+1. Completar e aprovar o Product Registry Mestre já iniciado.
 2. Dossiê completo de Iron Fit.
-3. Dossiê completo de Kordena ou do nome aprovado.
-4. Relação oficial dos demais produtos atuais, se existirem.
+3. Dossiê completo de Kordena.
+4. Identificação oficial dos demais produtos atuais, mantendo A IDENTIFICAR até decisão.
 5. Escopo do lançamento e status de publicação.
 6. TrialPolicy e pricing baseline.
-7. Asset manifest e plano de produção.
-8. Decision Register fechado.
+7. Incorporação do pacote institucional aprovado ao repositório e Asset Manifest; assets de produto em trilha separada.
+8. Atualização contínua do Decision Register até 18/18 resolvidos.
 
 Esse bloco não programa e reduz o maior risco de retrabalho.
 
@@ -908,30 +920,32 @@ Após G0–G4 aprovados, o Codex deve executar o **Bloco 5 — Fundação do rep
 
 # G) CRITÉRIOS OBJETIVOS PARA LIBERAR A PROGRAMAÇÃO
 
-## 17. Checklist GO / NO-GO
+## 17. Decision Register vivo — 18 critérios GO / NO-GO
 
-A programação definitiva somente será liberada quando todos os itens abaixo estiverem **SIM**:
+A programação definitiva somente será liberada quando todos os itens abaixo estiverem **RESOLVIDO**. Estados permitidos: **RESOLVIDO**, **PARCIAL** e **ABERTO**.
 
-| # | Critério | Estado atual |
-|---:|---|---:|
-| 1 | Lista canônica de produtos atuais aprovada | NÃO |
-| 2 | Nome Kordena/Coordena resolvido | NÃO |
-| 3 | Produtos do MVP e status comercial aprovados | NÃO |
-| 4 | Posicionamento, público e proposta de valor por produto aprovados | NÃO |
-| 5 | Domínio principal e subdomínios definidos/verificados | NÃO |
-| 6 | Brand baseline e Design System direcionados | NÃO |
-| 7 | Assets mínimos reais disponíveis ou cronograma bloqueante aprovado | NÃO |
-| 8 | TrialPolicy por produto aprovada | NÃO |
-| 9 | Planos/preços/Enterprise aprovados | NÃO |
-| 10 | Conta FM: requisitos, IdP direction, MFA e sessão definidos | NÃO |
-| 11 | Provisioning e entitlement contracts do primeiro produto aprovados | NÃO |
-| 12 | Mapa de dados, LGPD, consentimentos e textos legais encaminhados/aprovados | NÃO |
-| 13 | Suporte, contato, SLA e ownership definidos | NÃO |
-| 14 | Stack/hosting/ambientes aprovados por ADR | NÃO |
-| 15 | Threat model e NFRs aprovados | NÃO |
-| 16 | Sitemap, URLs e content model aprovados | NÃO |
-| 17 | Backlog dos primeiros blocos rastreável e estimável | NÃO |
-| 18 | Definition of Done e gates incorporados ao processo | SIM — definidos neste documento; falta adoção formal |
+| ID | Critério | Estado atual | Evidência / ação para fechamento |
+|---|---|---:|---|
+| GO-01 | Lista canônica de produtos atuais aprovada | PARCIAL | Registry inicial contém Kordena e Iron Fit; demais produtos seguem A IDENTIFICAR |
+| GO-02 | Nome Kordena/Coordena resolvido | **RESOLVIDO** | Kordena canônico; “Coordena” é nomenclatura antiga/erro documental |
+| GO-03 | Produtos do MVP e status comercial aprovados | ABERTO | Definir release scope e status por produto |
+| GO-04 | Posicionamento, público e proposta de valor por produto aprovados | ABERTO | Aprovar dossiês dos produtos do MVP |
+| GO-05 | Domínio principal e subdomínios definidos/verificados | ABERTO | ADR, titularidade e DNS |
+| GO-06 | Brand Baseline e Design System direcionados | **RESOLVIDO** | Identidade oficial aprovada, incluindo Connected Modular refinado v1.0, Brand Baseline v1.0, paleta, tipografia, tokens e dark/light |
+| GO-07 | Assets mínimos reais disponíveis ou cronograma bloqueante aprovado | PARCIAL | Pacote institucional produzido; incorporar ao repositório e completar assets por produto |
+| GO-08 | TrialPolicy por produto aprovada | ABERTO | Política por produto |
+| GO-09 | Planos/preços/Enterprise aprovados | ABERTO | Catálogo comercial |
+| GO-10 | Conta FM: requisitos, direção de IdP, MFA e sessão definidos | ABERTO | ADR de identidade e requisitos |
+| GO-11 | Contratos de provisionamento e entitlement do primeiro produto aprovados | ABERTO | Contratos versionados e owners |
+| GO-12 | Mapa de dados, LGPD, consentimentos e textos legais encaminhados/aprovados | ABERTO | Data map, legal checklist e responsáveis |
+| GO-13 | Suporte, contato, SLA e ownership definidos | ABERTO | Modelo operacional aprovado |
+| GO-14 | Stack/hosting/ambientes aprovados por ADR | ABERTO | ADRs técnicos |
+| GO-15 | Threat model e NFRs aprovados | ABERTO | Revisão de segurança, privacidade e operações |
+| GO-16 | Sitemap, URLs e content model aprovados | ABERTO | IA detalhada e rotas congeladas |
+| GO-17 | Backlog dos primeiros blocos rastreável e estimável | ABERTO | Backlog priorizado com dependências e estimativas |
+| GO-18 | Definition of Done e gates incorporados ao processo | PARCIAL | Definidos neste documento; adoção formal pendente |
+
+**Resumo vivo:** 2 RESOLVIDOS, 3 PARCIAIS e 13 ABERTOS — 18 critérios no total.
 
 ### Regra de liberação
 
@@ -947,7 +961,6 @@ A programação definitiva somente será liberada quando todos os itens abaixo e
 
 A FM Tecnologia já possui uma boa arquitetura-mãe: ela protege a separação entre plataforma comercial e operação dos SaaS, prevê escala multiproduto, sustenta trial e conversão ponta a ponta e estabelece uma ambição visual e técnica correta. O que falta não é “mais código”; é transformar intenções em decisões, contratos, conteúdo e evidências.
 
-Programar agora produziria telas antes de existir verdade comercial, marca, assets e contratos de integração. O caminho mais rápido para um resultado premium é fechar os blockers desta Fase 0, aprovar a arquitetura técnica detalhada e somente então iniciar a fundação do repositório sob gates objetivos.
+A identidade visual e o nome Kordena já estão resolvidos, mas programar agora ainda produziria telas antes de existir verdade comercial completa, assets versionados por produto e contratos de integração. O caminho mais rápido para um resultado premium é fechar os blockers remanescentes, incorporar os assets finais ao repositório, aprovar a arquitetura técnica detalhada e somente então iniciar a fundação sob gates objetivos.
 
 **Ordem mestre:** nenhum bloco posterior deve contornar G0–G4. Trial, billing, entitlement e provisionamento nunca devem ser incorporados diretamente às bases operacionais dos produtos nem controlados por conteúdo/CMS.
-
