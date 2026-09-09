@@ -4,7 +4,7 @@
 
 ## Autoridade
 
-Fonte consolidada: `docs/FASE_0_INVENTARIO_E_READINESS.md`, commit `34a71f5886ebfaf278be106205284f14eba54664`.
+Fonte consolidada: `docs/FASE_0_INVENTARIO_E_READINESS.md`, commit `262fb3fd65c35ae89520fd262386a07ea5d576fc`.
 
 ## Controle
 
