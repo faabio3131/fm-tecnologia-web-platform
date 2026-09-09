@@ -10,18 +10,18 @@ A consolidação oficial vigente é a **Fase 0 v1.2**, registrada no commit `6b9
 
 ### Hierarquia obrigatória
 
-1. Decisões executivas do Diretor.
+1. Decisões executivas expressas do Diretor.
 2. **“01 - ARQUITETURA MESTRE - SITE COMERCIAL FM TECNOLOGIA.pdf”**.
 3. Fase 0 v1.2 (`docs/FASE_0_INVENTARIO_E_READINESS.md`).
 4. Este Baseline Executivo (`docs/baseline-executivo/**`).
 
 Em qualquer divergência, o documento de nível inferior deve ser corrigido. A Fase 0 v1.2 registra a Arquitetura Mestre como fonte encontrada e lida integralmente, com 7 páginas; o Baseline herda esse fato da consolidação oficial e não o reinterpreta com base na disponibilidade local do PDF.
 
-Use `PENDENTE_EVIDENCIA` quando faltar evidência específica; não presuma nem complete o dado. **Kordena** é o nome canônico. Toda divergência deve ser registrada no Decision Register, e identificadores estáveis não devem codificar informação comercial mutável.
+Use `PENDENTE_EVIDENCIA` quando faltar evidência específica; não presuma nem complete o dado. **Kordena** é o nome canônico. As decisões `DEC-15` a `DEC-21` são as referências executivas canônicas desta reconciliação. Identificadores estáveis não devem codificar informação comercial mutável.
 
 ### Conteúdo efetivamente verificado nesta reconciliação
 
-A referência, o commit, o caminho, a branch, a leitura integral do PDF e os números de readiness foram fornecidos pela Direção como estado oficial da Fase 0 v1.2. O commit e o arquivo da Fase 0 não estão presentes neste checkout local; por isso, esta execução verificou diretamente somente os documentos do Baseline, preservando como herdadas as declarações oficiais da Fase 0.
+O conteúdo da Fase 0 v1.2 foi consultado diretamente na PR #1, branch `docs/fase-0-inventario-readiness`, commit `6b923ce320d415a4dec5cc3eadd4dc92cb6bbb01`, e comparado integralmente com os dez documentos desta pasta na PR #2. O arquivo da Fase 0 permanece em branch separada e não é duplicado neste Baseline.
 
 ### Restrições da autoridade
 
@@ -29,16 +29,17 @@ A referência, o commit, o caminho, a branch, a leitura integral do PDF e os nú
 - A estrutura deve crescer para muitos produtos sem redesenho estrutural.
 - Fatos, clientes e credenciais não podem ser inventados.
 - Presença no portfólio não autoriza venda, trial, preço, pagamento, produção, SLA ou certificação.
+- Prioridade editorial não equivale a disponibilidade comercial.
 
 ## Diretriz documental para Home e Marketplace — futura Fase 1
 
 | Grupo | Itens | Regra de apresentação |
 | --- | --- | --- |
-| Produtos disponíveis / produtos principais | Kordena; Iron Fit | Prioridade e destaque de produto principal; “disponível” continua condicionado à certificação final |
+| Produtos Principais | Kordena; Iron Fit | Prioridade e destaque editorial; disponibilidade comercial continua condicionada a certificação e evidência específicas |
 | O que estamos construindo | Vendedor IA; CampaIA; ERP Core | Identificar explicitamente como “Em desenvolvimento” |
-| Tecnologia/P&D | Super Core Extreme | Tecnologia/plataforma estratégica de P&D, distinta de SaaS comercial disponível |
+| Tecnologia & P&D | Super Core Extreme | Tecnologia/plataforma estratégica de P&D, distinta de SaaS comercial disponível |
 
-O Marketplace deverá filtrar estados e permitir a promoção `in_development` → `beta` → `available` sem redesenho estrutural. Esta é uma regra documental para a Fase 1 e não autoriza implementação nesta entrega.
+O Marketplace deverá filtrar estados e permitir a promoção `research_and_development` → `in_development` → `beta` → `available` sem redesenho estrutural. A mudança de estado altera conteúdo, badge, CTA e permissões comerciais. Esta é uma regra documental para a Fase 1 e não autoriza implementação nesta entrega.
 
 ## Artefatos
 
