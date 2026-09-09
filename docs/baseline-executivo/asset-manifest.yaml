@@ -1,0 +1,80 @@
+# MANIFESTO DOCUMENTAL. Slots não representam arquivos existentes.
+schema_version: "2.0"
+manifest_status: em_revisao
+authority:
+  phase_0_registry: docs/FASE_0_INVENTARIO_E_READINESS.md
+  phase_0_commit: 6b923ce320d415a4dec5cc3eadd4dc92cb6bbb01
+  master_architecture: "01 - ARQUITETURA MESTRE - SITE COMERCIAL FM TECNOLOGIA.pdf"
+  master_architecture_read_status: "herdado da Fase 0 v1.2: encontrado e lido integralmente, 7 páginas"
+  portfolio_decision: D-003
+
+# `missing` descreve ausência de arquivo comprovado; `pending` descreve aprovação pendente.
+products:
+  - product_id: fm-product-kordena
+    assets:
+      logo: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      product_icon: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      hero_visual: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      screenshots: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      short_demo_video: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      long_demo_video: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      product_page_visuals: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      social_preview: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+  - product_id: fm-product-iron-fit
+    assets:
+      logo: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      product_icon: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      hero_visual: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      screenshots: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      short_demo_video: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      long_demo_video: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      product_page_visuals: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      social_preview: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+  - product_id: fm-product-vendedor-ia
+    assets:
+      logo: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      product_icon: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      hero_visual: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      screenshots: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      short_demo_video: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      long_demo_video: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      product_page_visuals: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      social_preview: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+  - product_id: fm-product-campaia
+    assets:
+      logo: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      product_icon: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      hero_visual: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      screenshots: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      short_demo_video: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      long_demo_video: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      product_page_visuals: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      social_preview: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+  - product_id: fm-product-super-core-extreme
+    assets:
+      logo: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      product_icon: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      hero_visual: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      screenshots: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      short_demo_video: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      long_demo_video: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      product_page_visuals: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      social_preview: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+  - product_id: fm-product-erp-core
+    assets:
+      logo: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      product_icon: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      hero_visual: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      screenshots: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      short_demo_video: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      long_demo_video: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      product_page_visuals: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+      social_preview: {availability: missing, approval: pending, reference: PENDENTE_EVIDENCIA}
+
+asset_entry_schema:
+  availability: missing
+  approval: pending
+  reference: PENDENTE_EVIDENCIA
+  rights_owner: PENDENTE_EVIDENCIA
+  usage_rights_evidence: PENDENTE_EVIDENCIA
+  integrity_reference: PENDENTE_EVIDENCIA

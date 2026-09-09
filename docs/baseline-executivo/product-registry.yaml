@@ -1,0 +1,143 @@
+# REGISTRO DOCUMENTAL. Não completar fatos sem Arquitetura Mestre/Fase 0 ou decisão registrada.
+schema_version: "2.0"
+registry_status: em_revisao
+authority:
+  hierarchy:
+    - level: 1
+      source: decisões executivas do Diretor
+    - level: 2
+      source: "01 - ARQUITETURA MESTRE - SITE COMERCIAL FM TECNOLOGIA.pdf"
+      phase_0_v1_2_read_status: "encontrado e lido integralmente, 7 páginas"
+    - level: 3
+      source: docs/FASE_0_INVENTARIO_E_READINESS.md
+      commit: 6b923ce320d415a4dec5cc3eadd4dc92cb6bbb01
+      publication_branch: docs/fase-0-inventario-readiness
+    - level: 4
+      source: docs/baseline-executivo/**
+  reconciliation_note: "A leitura integral da Arquitetura Mestre é herdada da consolidação oficial da Fase 0 v1.2."
+  locally_verified_scope: "Somente os arquivos do Baseline; commit e arquivo da Fase 0 ausentes neste checkout."
+  executive_decisions: [D-003, D-004, D-005, D-006, D-007, D-008]
+  reconciled_at: "2026-09-08"
+  reconciled_by: PENDENTE_EVIDENCIA
+
+# IDs e slugs são normalizações documentais estáveis derivadas dos nomes aprovados.
+products:
+  - product_id: fm-product-kordena
+    canonical_name: Kordena
+    slug: kordena
+    category: PENDENTE_EVIDENCIA
+    positioning: produto principal da FM
+    product_lifecycle_status: active_product
+    website_visibility: public
+    commercial_availability: PENDENTE_EVIDENCIA
+    trial_availability: PENDENTE_EVIDENCIA
+    trial_policy: PENDENTE_EVIDENCIA
+    pricing_status: PENDENTE_EVIDENCIA
+    certification_status: PENDENTE_EVIDENCIA
+    dedicated_product_page: true
+    commercial_highlight: true
+    allowed_ctas: PENDENTE_EVIDENCIA
+    evidence: [D-003, D-005, D-007]
+    notes: "Posicionamento como produto pronto/principal não equivale a certificação técnica ou comercial. Disponibilidade exige evidência de certificação final."
+    dependencies: [final_product_certification_evidence]
+    evidence_gaps: [category, allowed_ctas, commercial_availability, trial, pricing, certification]
+
+  - product_id: fm-product-iron-fit
+    canonical_name: Iron Fit
+    slug: iron-fit
+    category: PENDENTE_EVIDENCIA
+    positioning: produto principal da FM
+    product_lifecycle_status: active_product
+    website_visibility: public
+    commercial_availability: PENDENTE_EVIDENCIA
+    trial_availability: PENDENTE_EVIDENCIA
+    trial_policy: PENDENTE_EVIDENCIA
+    pricing_status: PENDENTE_EVIDENCIA
+    certification_status: PENDENTE_EVIDENCIA
+    dedicated_product_page: true
+    commercial_highlight: true
+    allowed_ctas: PENDENTE_EVIDENCIA
+    evidence: [D-003, D-005, D-007]
+    notes: "Posicionamento como produto pronto/principal não equivale a certificação técnica ou comercial. Disponibilidade exige evidência de certificação final."
+    dependencies: [final_product_certification_evidence]
+    evidence_gaps: [category, allowed_ctas, commercial_availability, trial, pricing, certification]
+
+  - product_id: fm-product-vendedor-ia
+    canonical_name: Vendedor IA
+    slug: vendedor-ia
+    category: PENDENTE_EVIDENCIA
+    positioning: "Em desenvolvimento"
+    product_lifecycle_status: in_development
+    website_visibility: public
+    commercial_availability: false
+    trial_availability: PENDENTE_EVIDENCIA
+    trial_policy: PENDENTE_EVIDENCIA
+    pricing_status: PENDENTE_EVIDENCIA
+    certification_status: PENDENTE_EVIDENCIA
+    dedicated_product_page: true
+    commercial_highlight: false
+    allowed_ctas: [conhecer_o_projeto, demonstrar_interesse, falar_com_a_fm]
+    evidence: [D-003, D-004, D-007]
+    notes: "Não oferecer compra ou trial como disponível."
+    dependencies: []
+    evidence_gaps: [category, trial, pricing, certification]
+
+  - product_id: fm-product-campaia
+    canonical_name: CampaIA
+    slug: campaia
+    category: PENDENTE_EVIDENCIA
+    positioning: "Em desenvolvimento"
+    product_lifecycle_status: in_development
+    website_visibility: public
+    commercial_availability: false
+    trial_availability: PENDENTE_EVIDENCIA
+    trial_policy: PENDENTE_EVIDENCIA
+    pricing_status: PENDENTE_EVIDENCIA
+    certification_status: PENDENTE_EVIDENCIA
+    dedicated_product_page: true
+    commercial_highlight: false
+    allowed_ctas: [conhecer_o_projeto, demonstrar_interesse, falar_com_a_fm]
+    evidence: [D-003, D-004, D-007]
+    notes: "Não oferecer compra ou trial como disponível."
+    dependencies: []
+    evidence_gaps: [category, trial, pricing, certification]
+
+  - product_id: fm-product-super-core-extreme
+    canonical_name: Super Core Extreme
+    slug: super-core-extreme
+    category: PENDENTE_EVIDENCIA
+    positioning: tecnologia/plataforma estratégica de P&D da FM Tecnologia
+    product_lifecycle_status: research_and_development
+    website_visibility: public
+    commercial_availability: false
+    trial_availability: PENDENTE_EVIDENCIA
+    trial_policy: PENDENTE_EVIDENCIA
+    pricing_status: PENDENTE_EVIDENCIA
+    certification_status: PENDENTE_EVIDENCIA
+    dedicated_product_page: true
+    commercial_highlight: false
+    allowed_ctas: [conhecer_a_tecnologia, acompanhar_evolucao, falar_com_a_fm]
+    evidence: [D-003, D-006, D-007]
+    notes: "Não tratar como SaaS comercial disponível."
+    dependencies: []
+    evidence_gaps: [category, trial, pricing, certification]
+
+  - product_id: fm-product-erp-core
+    canonical_name: ERP Core
+    slug: erp-core
+    category: PENDENTE_EVIDENCIA
+    positioning: "Em desenvolvimento"
+    product_lifecycle_status: in_development
+    website_visibility: public
+    commercial_availability: false
+    trial_availability: PENDENTE_EVIDENCIA
+    trial_policy: PENDENTE_EVIDENCIA
+    pricing_status: PENDENTE_EVIDENCIA
+    certification_status: PENDENTE_EVIDENCIA
+    dedicated_product_page: true
+    commercial_highlight: false
+    allowed_ctas: [conhecer_o_projeto, demonstrar_interesse, falar_com_a_fm]
+    evidence: [D-003, D-004, D-007]
+    notes: "Não oferecer compra ou trial como disponível."
+    dependencies: []
+    evidence_gaps: [category, trial, pricing, certification]
