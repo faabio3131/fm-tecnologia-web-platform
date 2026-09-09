@@ -6,7 +6,7 @@ Esta pasta reúne exclusivamente os artefatos de engenharia necessários para pr
 
 ## Autoridade e regras de preenchimento
 
-A consolidação oficial vigente é a **Fase 0 v1.3**, registrada no commit `34a71f5886ebfaf278be106205284f14eba54664`, arquivo `docs/FASE_0_INVENTARIO_E_READINESS.md`, branch `docs/fase-0-inventario-readiness`.
+A consolidação oficial vigente é a **Fase 0 v1.3**, registrada no commit `262fb3fd65c35ae89520fd262386a07ea5d576fc`, arquivo `docs/FASE_0_INVENTARIO_E_READINESS.md`, branch `docs/fase-0-inventario-readiness`.
 
 ### Hierarquia obrigatória
 
@@ -21,7 +21,7 @@ Use `PENDENTE_EVIDENCIA` somente quando a Fase 0 v1.3 ainda não tenha fechado o
 
 ### Conteúdo efetivamente verificado nesta reconciliação
 
-A Fase 0 v1.3 foi consultada na PR #1, branch `docs/fase-0-inventario-readiness`, commit `34a71f5886ebfaf278be106205284f14eba54664`, e usada como autoridade superior para reconciliar os documentos desta pasta na PR #2. O arquivo da Fase 0 permanece em branch separada e não é duplicado neste Baseline.
+A Fase 0 v1.3 foi consultada na PR #1, branch `docs/fase-0-inventario-readiness`, commit `262fb3fd65c35ae89520fd262386a07ea5d576fc`, e usada como autoridade superior para reconciliar os documentos desta pasta na PR #2. O arquivo da Fase 0 permanece em branch separada e não é duplicado neste Baseline.
 
 ### Restrições da autoridade
 
