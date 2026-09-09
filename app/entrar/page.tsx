@@ -1,0 +1,3 @@
+import { createMetadata } from "@/src/lib/seo/metadata";
+export const metadata=createMetadata("Entrar","Fundação visual da Conta FM.","/entrar");
+export default function Page(){return <main className="account-page"><section className="account-panel"><span className="eyebrow">Conta FM</span><h1>Seu acesso ao ecossistema.</h1><p>A experiência de autenticação será integrada em uma etapa futura.</p><div className="account-note"><b>Ativação da conta</b><span>A Conta FM será considerada plenamente ativa após a validação de e-mail e WhatsApp.</span></div><button className="button button--primary" disabled>Entrar em breve</button></section><aside><span>FM / CONTA</span><h2>Uma identidade.<br/>Todo o ecossistema.</h2></aside></main>}

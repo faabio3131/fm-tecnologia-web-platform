@@ -1,0 +1,3 @@
+import { products } from "@/src/catalog/products"; import { ProductCard } from "@/src/components/marketing/product-card"; import { ContentPage } from "@/src/components/marketing/content-page"; import { createMetadata } from "@/src/lib/seo/metadata";
+export const metadata=createMetadata("Produtos","Conheça o ecossistema de produtos da FM Tecnologia.","/produtos");
+export default function Produtos(){return <ContentPage eyebrow="Ecossistema FM" title="Produtos com uma visão em comum." intro="Um portfólio de tecnologia, inteligência e automação organizado para evoluir."><section className="section"><div className="container cards cards--three">{products.map(p=><ProductCard key={p.id} product={p}/>)}</div></section></ContentPage>}

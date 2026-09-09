@@ -1,0 +1,4 @@
+import test from "node:test"; import assert from "node:assert/strict"; import { products,getProduct } from "../src/catalog/products.ts";
+test("catálogo contém exatamente os seis produtos oficiais com slugs únicos",()=>{assert.equal(products.length,6);assert.equal(new Set(products.map(p=>p.slug)).size,6);assert.deepEqual(products.map(p=>p.name),["Kordena","Iron Fit","Vendedor IA","CampaIA","Super Core Extreme","ERP Core"])});
+test("produtos essenciais têm preços aprovados",()=>{assert.deepEqual(getProduct("kordena")?.pricing,{monthly:299,annual:2990,enterprise:true});assert.deepEqual(getProduct("iron-fit")?.pricing,{monthly:269,annual:2690,enterprise:true})});
+test("somente produtos principais possuem preço e trial",()=>{for(const p of products){assert.equal(Boolean(p.pricing),p.lifecycle==="principal");assert.equal(Boolean(p.trial),p.lifecycle==="principal")}});
