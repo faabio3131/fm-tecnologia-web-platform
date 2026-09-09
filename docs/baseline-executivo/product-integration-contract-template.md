@@ -6,7 +6,7 @@
 
 `Diretor → Arquitetura Mestre → Fase 0 v1.3 → Baseline Executivo`
 
-Fonte: `docs/FASE_0_INVENTARIO_E_READINESS.md`, commit `34a71f5886ebfaf278be106205284f14eba54664`.
+Fonte: `docs/FASE_0_INVENTARIO_E_READINESS.md`, commit `262fb3fd65c35ae89520fd262386a07ea5d576fc`.
 
 ## Modelo de desacoplamento para os seis produtos
 
@@ -34,7 +34,7 @@ Direção de infraestrutura já aprovada: **Next.js/Vercel para a camada Web + A
 - Product ID: `PENDENTE_EVIDENCIA`
 - Fonte e consumidor: `PENDENTE_EVIDENCIA`
 - Responsáveis: `PENDENTE_EVIDENCIA`
-- Referência da Fase 0: `34a71f5886ebfaf278be106205284f14eba54664`
+- Referência da Fase 0: `262fb3fd65c35ae89520fd262386a07ea5d576fc`
 - Estado: `rascunho`
 
 ## Fronteira
