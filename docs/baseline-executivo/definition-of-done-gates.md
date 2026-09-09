@@ -89,7 +89,7 @@ Nenhum placar de readiness promove gate automaticamente. Enquanto a Fase 0 perma
 
 ## Readiness herdado da Fase 0 v1.3
 
-A Fase 0 vigente registra **4 critérios RESOLVIDOS, 11 PARCIAIS e 3 ABERTOS**, com estado global **NO-GO para programação definitiva**. Fonte: `docs/FASE_0_INVENTARIO_E_READINESS.md`, commit `34a71f5886ebfaf278be106205284f14eba54664`.
+A Fase 0 vigente registra **4 critérios RESOLVIDOS, 11 PARCIAIS e 3 ABERTOS**, com estado global **NO-GO para programação definitiva**. Fonte: `docs/FASE_0_INVENTARIO_E_READINESS.md`, commit `262fb3fd65c35ae89520fd262386a07ea5d576fc`.
 
 O avanço decorre de decisões executivas sobre domínio, trial, pricing, cadastro, aquisição, infraestrutura, legal/LGPD, suporte, institucional e arquitetura/FinOps de IA. Ele não substitui certificação, contratos, registro do domínio, assets, threat model, sitemap ou backlog.
 
