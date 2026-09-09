@@ -8,13 +8,14 @@ Nenhum placar de readiness promove gate automaticamente. Enquanto a Fase 0 perma
 
 ## Definition of Done do Baseline Executivo
 
-- [x] A Fase 0 está identificada e referenciada como fonte de verdade documental.
+- [x] A Fase 0 v1.3 está identificada e referenciada como fonte de verdade documental.
 - [x] Product Registry contém somente os seis produtos/tecnologias comprovados pela Fase 0.
 - [ ] Cada produto registrado possui dossier e vínculos para seus contratos aplicáveis.
 - [x] Nome canônico **Kordena** está consistente em todos os artefatos aplicáveis.
-- [x] Preços, trials, provedores e integrações não foram presumidos.
+- [x] Pricing e regras de trial já aprovados na v1.3 foram refletidos sem convertê-los em certificação/homologação.
+- [x] Arquitetura de IA está documentada como multi-provider/multi-modelo, sem provider exclusivo inferido.
 - [ ] Ativos possuem origem, direitos de uso, integridade, estado e aprovação rastreáveis.
-- [x] Decisões executivas aplicáveis possuem responsável, evidência e estado.
+- [x] Decisões executivas aplicáveis possuem estado e evidência de origem.
 - [ ] Contratos aplicáveis cobrem segurança, privacidade, isolamento, falhas, auditoria e aceite.
 - [ ] Lacunas estão resolvidas ou formalmente bloqueadas; nenhuma lacuna foi mascarada.
 - [ ] Aprovações e evidências de G0–G4 estão registradas.
@@ -25,22 +26,24 @@ Nenhum placar de readiness promove gate automaticamente. Enquanto a Fase 0 perma
 
 **Objetivo:** confirmar a base documental antes de consolidar conteúdo.
 
-- [x] Referência válida da Fase 0 registrada.
+- [x] Referência válida da Fase 0 v1.3 registrada.
 - [x] Escopo e exclusões do Baseline confirmados.
-- [ ] Responsáveis e aprovadores identificados.
+- [ ] Responsáveis e aprovadores identificados integralmente.
 - [x] Convenções de nomenclatura confirmadas, incluindo Kordena.
-- [x] Lacunas iniciais registradas sem inferência.
+- [x] Lacunas registradas sem inferência.
+- [x] Hierarquia Diretor → Arquitetura Mestre → Fase 0 v1.3 → Baseline preservada.
 
-**Saída:** escopo documental autorizado, ou estado `bloqueado` com motivos.
+**Saída:** escopo documental autorizado, ou estado `bloqueado`/`PARTIAL` com motivos.
 
 ### G1 — Inventário e dossiers
 
 **Objetivo:** comprovar o que compõe o baseline.
 
-- [x] Product Registry validado contra a Fase 0.
+- [x] Product Registry validado contra a Fase 0 v1.3.
 - [ ] Dossier de cada produto registrado revisado.
 - [ ] Asset Manifest validado integralmente, inclusive incorporação ao repositório e direitos de uso.
 - [ ] Dependências e documentos associados rastreáveis.
+- [x] Estados de lifecycle/website/comercialização/trial/pricing/certificação permanecem independentes.
 
 **Saída:** inventário completo, rastreável e sem itens inventados.
 
@@ -48,9 +51,13 @@ Nenhum placar de readiness promove gate automaticamente. Enquanto a Fase 0 perma
 
 **Objetivo:** fechar regras e fronteiras documentais aplicáveis.
 
-- [ ] Existência ou inexistência de trial confirmada antes de aprovar TrialPolicy.
+- [x] Existência de trial foi confirmada para Kordena e Iron Fit; inexistência comercial permanece para itens em desenvolvimento/P&D.
+- [x] Duração/cartão foram confirmados para Kordena e Iron Fit; Iron Fit possui limite aprovado de 15 alunos.
+- [x] Pricing-base foi aprovado para Kordena e Iron Fit e Enterprise está sob consulta.
+- [ ] TrialPolicies detalhadas cobrem elegibilidade, antiabuso, expiração, conversão e entitlements.
 - [ ] Contratos de integração, entitlement e provisionamento aplicáveis revisados.
 - [ ] Identidade, isolamento organizacional, segurança e privacidade avaliados.
+- [ ] AI Gateway/provider adapters, fallback, telemetria e FinOps possuem contratos/ADRs verificáveis.
 - [ ] Estados, falhas, compatibilidade, auditoria e aceite definidos quando aplicáveis.
 
 **Saída:** contratos aprovados ou bloqueios explícitos e rastreáveis.
@@ -64,6 +71,7 @@ Nenhum placar de readiness promove gate automaticamente. Enquanto a Fase 0 perma
 - [ ] Cenários positivos, negativos, falhas e isolamento estão documentados.
 - [ ] Divergências foram resolvidas via Decision Register.
 - [ ] Não restam campos obrigatórios `PENDENTE_EVIDENCIA`.
+- [ ] Metas FinOps possuem método de medição e alertas definidos.
 
 **Saída:** pacote documental apto à aprovação executiva.
 
@@ -79,31 +87,29 @@ Nenhum placar de readiness promove gate automaticamente. Enquanto a Fase 0 perma
 
 **Saída:** baseline documental aprovado e versionado. Implementação continua fora do escopo e depende de autorização separada.
 
-## Readiness herdado da Fase 0 v1.2
+## Readiness herdado da Fase 0 v1.3
 
-A Fase 0 vigente registra **3 critérios resolvidos, 5 parciais e 10 abertos**, com estado global **NO-GO para programação definitiva**. Fonte: `docs/FASE_0_INVENTARIO_E_READINESS.md`, commit `6b923ce320d415a4dec5cc3eadd4dc92cb6bbb01`.
+A Fase 0 vigente registra **4 critérios RESOLVIDOS, 11 PARCIAIS e 3 ABERTOS**, com estado global **NO-GO para programação definitiva**. Fonte: `docs/FASE_0_INVENTARIO_E_READINESS.md`, commit `34a71f5886ebfaf278be106205284f14eba54664`.
 
-Esse placar não possui equivalência automática com G0–G4. A rastreabilidade abaixo indica somente como o readiness condiciona a avaliação; cada gate conserva seus próprios critérios e exige evidência formal:
+O avanço decorre de decisões executivas sobre domínio, trial, pricing, cadastro, aquisição, infraestrutura, legal/LGPD, suporte, institucional e arquitetura/FinOps de IA. Ele não substitui certificação, contratos, registro do domínio, assets, threat model, sitemap ou backlog.
 
-| Readiness Fase 0 v1.2 | Relação rastreável com gates | Efeito permitido |
+| Readiness Fase 0 v1.3 | Relação rastreável com gates | Efeito permitido |
 | --- | --- | --- |
-| 3 resolvidos | Podem sustentar critérios individuais de G0/G1 quando a evidência correspondente for vinculada | Não promove gate automaticamente |
-| 5 parciais | Indicam evidência incompleta a ser reconciliada principalmente em G0–G3 | Mantém o critério e o gate em NO-GO |
-| 10 abertos | Representam lacunas a mapear nos artefatos e contratos de G1–G4 | Bloqueiam qualquer `PASS` afetado |
-| Status global NO-GO | Condiciona todo o Baseline | Proíbe programação definitiva e qualquer interpretação de gate como autorização de implementação |
-
-A validação cruzada da Fase 0 v1.2 com os dez documentos do Baseline confirma a autoridade e o inventário, mas não resolve os campos `PENDENTE_EVIDENCIA`, os dossiers, contratos, assets ou aprovações ainda ausentes.
+| 4 resolvidos | Sustentam critérios individuais quando a evidência correspondente está vinculada | Não promove gate automaticamente |
+| 11 parciais | Decisões existem, mas prova/contrato/ADR ainda é incompleto | Mantém gate em PARTIAL/BLOCKED |
+| 3 abertos | Provisionamento/entitlement, threat model/NFRs e backlog continuam abertos | Bloqueiam qualquer PASS afetado |
+| Status global NO-GO | Condiciona todo o Baseline | Proíbe programação definitiva e interpretação de gate como autorização de implementação |
 
 ## Reavaliação de passagem de gate
 
-Estados permitidos: `PASS`, `PARTIAL` e `BLOCKED`. `PARTIAL` registra avanço comprovado sem liberar o gate; nenhum gate abaixo está liberado.
+Estados permitidos: `PASS`, `PARTIAL` e `BLOCKED`. `PARTIAL` registra avanço comprovado sem liberar o gate.
 
-| Gate | Estado anterior | Estado reconciliado | Evidência | Bloqueios restantes |
-| --- | --- | --- | --- | --- |
-| G0 | BLOCKED | PARTIAL (NO-GO) | Fase 0 v1.2 validada; DEC-04, DEC-15 a DEC-21 registram nomenclatura, escopo, portfólio, governança e autoridade | Identificar responsáveis e aprovadores; obter aprovação formal do gate |
-| G1 | BLOCKED | PARTIAL (NO-GO) | DEC-15 a DEC-20 sustentam seis itens, grupos e estados; Product Registry foi reconciliado | Dossiers completos; categorias; assets reais incorporados, direitos e aprovações; dependências e demais evidências específicas |
-| G2 | BLOCKED | BLOCKED | DEC-19 preserva a separação entre estados e os templates documentam fronteiras sem inventar políticas | Políticas por produto; certificação; interfaces, entitlements e provisionamento reais aprovados |
-| G3 | BLOCKED | BLOCKED | DEC-19 e DEC-21 governam consistência e precedência; templates possuem campos verificáveis | Resolver campos obrigatórios `PENDENTE_EVIDENCIA`; cenários e critérios de aceite; revisão transversal |
-| G4 | BLOCKED | BLOCKED | Processo e Definition of Done estão documentados | Conclusão de G0–G3; aprovações executivas; riscos residuais; versão final do baseline |
+| Gate | Estado reconciliado v1.3 | Evidência | Bloqueios restantes |
+| --- | --- | --- | --- |
+| G0 | PARTIAL (NO-GO) | Fase 0 v1.3 e hierarquia/decisões reconciliadas | Responsáveis/aprovadores completos e aprovação formal |
+| G1 | PARTIAL (NO-GO) | Seis itens, grupos, labels, pricing/trial e governança de estados reconciliados | Dossiers completos, categorias, assets reais, direitos, dependências e evidências específicas |
+| G2 | PARTIAL (NO-GO) | Trial/pricing-base, validações de cadastro, Vercel/AWS e princípio multi-provider/FinOps estão definidos | TrialPolicy detalhada; IdP; integração/entitlement/provisionamento; AI contracts/ADRs; segurança/privacidade |
+| G3 | BLOCKED | Regras de consistência/precedência existem | Resolver campos obrigatórios, cenários, critérios de aceite e revisão transversal |
+| G4 | BLOCKED | Processo e Definition of Done documentados | Conclusão de G0–G3, aprovações executivas, riscos residuais e versão final |
 
 `PARTIAL` não equivale a `PASS` nem a GO. O estado global permanece **NO-GO para programação definitiva** e nenhum gate autoriza implementação.
