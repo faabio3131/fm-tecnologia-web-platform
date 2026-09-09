@@ -13,7 +13,7 @@
 
 `Diretor → Arquitetura Mestre → Fase 0 v1.3 → Baseline Executivo`
 
-Fonte consolidada: `docs/FASE_0_INVENTARIO_E_READINESS.md`, commit `34a71f5886ebfaf278be106205284f14eba54664`, branch `docs/fase-0-inventario-readiness`.
+Fonte consolidada: `docs/FASE_0_INVENTARIO_E_READINESS.md`, commit `262fb3fd65c35ae89520fd262386a07ea5d576fc`, branch `docs/fase-0-inventario-readiness`.
 
 ## Estados
 
