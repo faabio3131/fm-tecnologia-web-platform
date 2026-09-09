@@ -1,0 +1,129 @@
+# MANIFESTO DOCUMENTAL. Slots não representam arquivos existentes.
+schema_version: "2.0"
+manifest_status: em_revisao
+
+authority:
+  hierarchy: "Diretor → Arquitetura Mestre → Fase 0 v1.3 → Baseline Executivo"
+  phase_0_registry: docs/FASE_0_INVENTARIO_E_READINESS.md
+  phase_0_version: "1.3"
+  phase_0_commit: 262fb3fd65c35ae89520fd262386a07ea5d576fc
+  master_architecture: "01 - ARQUITETURA MESTRE - SITE COMERCIAL FM TECNOLOGIA.pdf"
+  master_architecture_read_status: "herdado da Fase 0 v1.3: encontrado e lido integralmente, 7 páginas"
+  portfolio_decision: DEC-15
+  brand_decision: DEC-09
+  reconciliation_note: "A v1.3 não altera a evidência de incorporação dos assets: produção/aprovação institucional e presença física no repositório permanecem estados independentes."
+
+# `produced` confirma produção; `approved` confirma aprovação; incorporação ao repositório é estado independente.
+institutional_brand:
+  connected_modular_symbol:
+    canonical_name: Connected Modular refinado v1.0
+    production_status: produced
+    approval_status: approved
+    repository_incorporation: PENDENTE_EVIDENCIA
+    reference: DEC-09
+  brand_baseline:
+    canonical_name: Brand Baseline v1.0
+    production_status: produced
+    approval_status: approved
+    repository_incorporation: PENDENTE_EVIDENCIA
+    reference: DEC-09
+  official_palette:
+    production_status: produced
+    approval_status: approved
+    repository_incorporation: PENDENTE_EVIDENCIA
+    reference: DEC-09
+  typography:
+    production_status: produced
+    approval_status: approved
+    repository_incorporation: PENDENTE_EVIDENCIA
+    licensing_evidence: PENDENTE_EVIDENCIA
+    reference: DEC-09
+  design_tokens:
+    production_status: produced
+    approval_status: approved
+    repository_incorporation: PENDENTE_EVIDENCIA
+    reference: DEC-09
+  dark_light_versions:
+    production_status: produced
+    approval_status: approved
+    repository_incorporation: PENDENTE_EVIDENCIA
+    reference: DEC-09
+  official_asset_package:
+    production_status: produced
+    approval_status: approved
+    repository_incorporation: PENDENTE_EVIDENCIA
+    asset_manifest_reference: PENDENTE_EVIDENCIA
+    integrity_reference: PENDENTE_EVIDENCIA
+    usage_rights_evidence: PENDENTE_EVIDENCIA
+    reference: DEC-09
+
+# Ausência não comprovada não é convertida em `missing`; permanece `PENDENTE_EVIDENCIA`.
+products:
+  - product_id: fm-product-kordena
+    assets:
+      logo: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      product_icon: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      hero_visual: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      screenshots: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      short_demo_video: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      long_demo_video: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      product_page_visuals: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      social_preview: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+  - product_id: fm-product-iron-fit
+    assets:
+      logo: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      product_icon: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      hero_visual: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      screenshots: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      short_demo_video: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      long_demo_video: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      product_page_visuals: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      social_preview: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+  - product_id: fm-product-vendedor-ia
+    assets:
+      logo: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      product_icon: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      hero_visual: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      screenshots: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      short_demo_video: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      long_demo_video: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      product_page_visuals: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      social_preview: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+  - product_id: fm-product-campaia
+    assets:
+      logo: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      product_icon: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      hero_visual: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      screenshots: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      short_demo_video: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      long_demo_video: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      product_page_visuals: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      social_preview: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+  - product_id: fm-product-super-core-extreme
+    assets:
+      logo: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      product_icon: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      hero_visual: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      screenshots: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      short_demo_video: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      long_demo_video: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      product_page_visuals: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      social_preview: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+  - product_id: fm-product-erp-core
+    assets:
+      logo: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      product_icon: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      hero_visual: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      screenshots: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      short_demo_video: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      long_demo_video: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      product_page_visuals: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+      social_preview: {availability: PENDENTE_EVIDENCIA, approval: PENDENTE_EVIDENCIA, reference: PENDENTE_EVIDENCIA}
+
+asset_entry_schema:
+  availability: PENDENTE_EVIDENCIA
+  approval: PENDENTE_EVIDENCIA
+  reference: PENDENTE_EVIDENCIA
+  rights_owner: PENDENTE_EVIDENCIA
+  usage_rights_evidence: PENDENTE_EVIDENCIA
+  integrity_reference: PENDENTE_EVIDENCIA
