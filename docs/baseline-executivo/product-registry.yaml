@@ -12,7 +12,7 @@ authority:
     - level: 3
       source: docs/FASE_0_INVENTARIO_E_READINESS.md
       phase_0_version: "1.3"
-      commit: 34a71f5886ebfaf278be106205284f14eba54664
+      commit: 262fb3fd65c35ae89520fd262386a07ea5d576fc
       publication_branch: docs/fase-0-inventario-readiness
     - level: 4
       source: docs/baseline-executivo/**
