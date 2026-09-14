@@ -9,7 +9,6 @@ export function ProductCard({ product }: { product: Product }) {
     <article className={`product-card ${priorityClass}`}>
       <div className="card-top">
         <Badge>{product.publicLabel}</Badge>
-        <span className="card-index">{product.name.slice(0, 2).toUpperCase()}</span>
       </div>
       <h3>{product.name}</h3>
       <p>{product.shortDescription}</p>

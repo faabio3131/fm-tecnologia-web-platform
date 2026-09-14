@@ -10,7 +10,7 @@ export default function Precos() {
   const priced = products.filter((product) => product.pricingStatus === "approved" && product.pricing);
 
   return (
-    <ContentPage eyebrow="Preços transparentes" title="Conheça as condições comerciais aprovadas." intro="A publicação de preços e políticas de trial não representa liberação operacional, certificação ou homologação dos produtos.">
+    <ContentPage eyebrow="Preços transparentes" title="Planos e condições comerciais." intro="Conheça os valores de Kordena e Iron Fit. Os testes ainda não estão disponíveis para ativação.">
       <section className="section">
         <div className="container cards cards--two">
           {priced.map((product) => (
@@ -25,15 +25,10 @@ export default function Precos() {
                 {product.trialPolicy?.constraint && <li>{product.trialPolicy.constraint}</li>}
                 <li>Enterprise sob consulta</li>
               </ul>
+              <p className="muted">Ativação do teste pendente de certificação e homologação.</p>
               <ProductActions product={product} />
             </article>
           ))}
-        </div>
-      </section>
-      <section className="section section--surface">
-        <div className="container split">
-          <div><span className="eyebrow">Enterprise</span><h2>Sob consulta.</h2></div>
-          <p className="large-copy">Converse com um especialista para avaliar o contexto da sua organização.</p>
         </div>
       </section>
     </ContentPage>
