@@ -137,6 +137,124 @@
 .landing-contact--secondary .landing-contact-actions { grid-template-columns: repeat(2,minmax(0,1fr)); }
 .landing-contact--secondary .landing-contact-actions .button { background: transparent; color: var(--ink); min-width: 120px; }
 
+/* Kordena Hero Cube — V1: minimalista e elegante */
+.kordena-hero-core--v1 { overflow: hidden; }
+.kordena-v1-scene {
+  position: relative;
+  min-height: 315px;
+  margin-top: 1.15rem;
+  border-radius: 1rem;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(183,244,60,.12),transparent 34%),
+    linear-gradient(180deg,rgba(255,255,255,.015),rgba(0,0,0,.08));
+  isolation: isolate;
+}
+.kordena-v1-scene::before {
+  content: "";
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 230px;
+  height: 230px;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle,rgba(183,244,60,.13),rgba(183,244,60,.025) 46%,transparent 68%);
+  filter: blur(6px);
+  pointer-events: none;
+}
+.kordena-v1-orbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  border: 1px solid rgba(119,193,153,.24);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.kordena-v1-orbit--outer { width: 270px; height: 200px; }
+.kordena-v1-orbit--inner { width: 208px; height: 152px; border-color: rgba(183,244,60,.24); }
+.kordena-v1-cube-wrap {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 118px;
+  height: 118px;
+  transform: translate(-50%,-50%);
+  perspective: 820px;
+  z-index: 3;
+}
+.kordena-v1-cube {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(-18deg) rotateY(34deg);
+  animation: kordena-v1-spin 14s linear infinite;
+}
+.kordena-v1-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(196,255,103,.6);
+  background:
+    linear-gradient(145deg,rgba(183,244,60,.96),rgba(117,194,37,.78));
+  color: #071411;
+  box-shadow:
+    inset 0 0 22px rgba(255,255,255,.14),
+    0 0 24px rgba(183,244,60,.14);
+  backface-visibility: hidden;
+  text-align: center;
+}
+.kordena-v1-face strong { font-size: 1.18rem; letter-spacing: -.04em; }
+.kordena-v1-face span { margin-top: .22rem; font-size: .55rem; font-weight: 850; letter-spacing: .08em; }
+.kordena-v1-face--front { transform: translateZ(59px); }
+.kordena-v1-face--back { transform: rotateY(180deg) translateZ(59px); }
+.kordena-v1-face--right { transform: rotateY(90deg) translateZ(59px); }
+.kordena-v1-face--left { transform: rotateY(-90deg) translateZ(59px); }
+.kordena-v1-face--top { transform: rotateX(90deg) translateZ(59px); }
+.kordena-v1-face--bottom { transform: rotateX(-90deg) translateZ(59px); }
+.kordena-v1-node {
+  position: absolute;
+  z-index: 4;
+  min-width: 86px;
+  padding: .4rem .62rem;
+  border: 1px solid #406557;
+  border-radius: 999px;
+  background: rgba(16,44,35,.92);
+  color: #dfeae4;
+  font-size: .68rem;
+  font-weight: 750;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+}
+.kordena-v1-node::after {
+  content: "";
+  position: absolute;
+  width: 38px;
+  height: 1px;
+  background: linear-gradient(90deg,rgba(183,244,60,.52),rgba(183,244,60,.04));
+  top: 50%;
+}
+.kordena-v1-node--atendimento { left: 4%; top: 7%; }
+.kordena-v1-node--atendimento::after { left: 100%; transform: rotate(25deg); transform-origin: left center; }
+.kordena-v1-node--vendas { right: 4%; top: 7%; }
+.kordena-v1-node--vendas::after { right: 100%; transform: rotate(-25deg); transform-origin: right center; }
+.kordena-v1-node--estoque { left: 1%; top: 45%; }
+.kordena-v1-node--estoque::after { left: 100%; }
+.kordena-v1-node--producao { right: 1%; top: 45%; }
+.kordena-v1-node--producao::after { right: 100%; transform: scaleX(-1); }
+.kordena-v1-node--financeiro { left: 8%; bottom: 7%; }
+.kordena-v1-node--financeiro::after { left: 100%; transform: rotate(-25deg); transform-origin: left center; }
+.kordena-v1-node--clientes { right: 8%; bottom: 7%; }
+.kordena-v1-node--clientes::after { right: 100%; transform: rotate(25deg); transform-origin: right center; }
+@keyframes kordena-v1-spin {
+  0% { transform: rotateX(-18deg) rotateY(34deg); }
+  50% { transform: rotateX(-12deg) rotateY(214deg); }
+  100% { transform: rotateX(-18deg) rotateY(394deg); }
+}
+
 @media(max-width:900px) {
   .product-landing--kordena .landing-features { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .product-landing--kordena .landing-features article:first-child { grid-column: span 2; }
@@ -146,8 +264,24 @@
   .kordena-hero-core-map { grid-template-columns: repeat(2,minmax(0,1fr)); grid-template-rows: auto; }
   .kordena-hero-core-map strong { grid-column: 1 / -1; grid-row: auto; min-height: 64px; order: -1; }
   .landing-contact--secondary .landing-contact-actions { grid-template-columns: 1fr; }
+  .kordena-v1-scene { min-height: 300px; }
+  .kordena-v1-cube-wrap { width: 104px; height: 104px; }
+  .kordena-v1-face--front { transform: translateZ(52px); }
+  .kordena-v1-face--back { transform: rotateY(180deg) translateZ(52px); }
+  .kordena-v1-face--right { transform: rotateY(90deg) translateZ(52px); }
+  .kordena-v1-face--left { transform: rotateY(-90deg) translateZ(52px); }
+  .kordena-v1-face--top { transform: rotateX(90deg) translateZ(52px); }
+  .kordena-v1-face--bottom { transform: rotateX(-90deg) translateZ(52px); }
 }
 @media(max-width:560px) {
   .product-landing--kordena .landing-features { grid-template-columns: 1fr; }
   .product-landing--kordena .landing-features article:first-child { grid-column: auto; }
+  .kordena-v1-scene { min-height: 280px; }
+  .kordena-v1-orbit--outer { width: 210px; height: 164px; }
+  .kordena-v1-orbit--inner { width: 160px; height: 122px; }
+  .kordena-v1-node { min-width: 72px; padding: .34rem .48rem; font-size: .6rem; }
+  .kordena-v1-node::after { width: 22px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .kordena-v1-cube { animation: none; transform: rotateX(-18deg) rotateY(34deg); }
 }
