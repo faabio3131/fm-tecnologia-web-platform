@@ -21,13 +21,20 @@ const pages = [
       "99Food",
       "Google Maps",
       "campanhas orgânicas",
+      "30 dias grátis",
+      "Teste grátis por 30 dias",
     ],
     anchors: ["core", "estoque-inteligente", "financeiro", "rotina", "recursos", "planos", "teste", "duvidas"],
   },
   {
     slug: "iron-fit",
     name: "Iron Fit",
-    expected: ["Organizar os alunos", "Consultar o treino", "Acompanhar agenda e entrada"],
+    expected: [
+      "Organizar os alunos",
+      "Consultar o treino",
+      "Acompanhar agenda e entrada",
+      "30 dias grátis",
+    ],
     anchors: ["rotina", "recursos", "planos", "teste", "duvidas"],
   },
 ];
@@ -43,7 +50,6 @@ for (const page of pages) {
     assert.ok(html.includes(`href="#${anchor}"`), `${page.slug}: href=#${anchor}`);
   }
 
-  assert.ok(html.includes("Teste grátis em preparação."), `${page.slug}: trial preparation state`);
   assert.ok(html.includes("Ativação online em preparação."), `${page.slug}: trial online state`);
   assert.ok(html.includes("https://wa.me/5511978350851?text="), `${page.slug}: whatsapp`);
   assert.ok(html.includes(`subject=${encodeURIComponent("Interesse em " + page.name)}`), `${page.slug}: email subject`);
