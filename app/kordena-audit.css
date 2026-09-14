@@ -40,13 +40,114 @@
   font-size: 1.15rem;
   letter-spacing: -.035em;
 }
+
+.product-landing--kordena #core,
+.product-landing--kordena #fluxo,
+.product-landing--kordena #estoque-inteligente,
+.product-landing--kordena #financeiro,
+.product-landing--kordena #eficiencia,
+.product-landing--kordena #core-em-acao,
+.product-landing--kordena #rotina,
+.product-landing--kordena #recursos,
+.product-landing--kordena #planos,
+.product-landing--kordena #duvidas,
+.product-landing--kordena #teste { scroll-margin-top: 104px; }
+
+.product-landing--kordena .kordena-flow li { position: relative; }
+@media(min-width:1001px) {
+  .product-landing--kordena .kordena-flow li:not(:last-child)::after {
+    content: "→";
+    position: absolute;
+    right: -.55rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--lime);
+    color: var(--ink);
+    font-size: .72rem;
+    font-weight: 900;
+  }
+}
+
+.product-landing--kordena .kordena-prompt-grid blockquote {
+  position: relative;
+  min-height: 96px;
+  padding: 1.15rem 1.2rem 1.15rem 3.25rem;
+  border-color: #b7cbbb;
+  background: linear-gradient(145deg,#fff,#f4f8f4);
+  box-shadow: 0 8px 24px rgba(5,25,19,.035);
+}
+.product-landing--kordena .kordena-prompt-grid blockquote::before {
+  content: "IA";
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+  color: var(--lime);
+  font-size: .62rem;
+  font-weight: 900;
+  letter-spacing: .04em;
+}
+
+.product-landing--kordena .landing-features {
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: .85rem;
+}
+.product-landing--kordena .landing-features article {
+  min-height: 190px;
+  padding: 1.2rem;
+  border: 1px solid #c4d2c8;
+  border-radius: 1rem;
+  background: rgba(255,255,255,.72);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.product-landing--kordena .landing-features article:first-child {
+  grid-column: span 2;
+  background: var(--ink);
+  color: white;
+  border-color: var(--ink);
+  min-height: 220px;
+}
+.product-landing--kordena .landing-features article:first-child h3 {
+  color: var(--lime);
+  font-size: clamp(1.25rem,2vw,1.65rem);
+}
+.product-landing--kordena .landing-features article:first-child p { color: #c0cec7; max-width: 560px; }
+.product-landing--kordena .landing-features h3 { font-size: 1.08rem; }
+
 .landing-contact--secondary {
   background: transparent;
   border-color: rgba(7,20,17,.14);
+  padding-block: 1.15rem;
 }
-.landing-contact--secondary .landing-contact-actions .button { background: transparent; color: var(--ink); }
+.landing-contact--secondary h2 { font-size: clamp(1.2rem,2vw,1.55rem); }
+.landing-contact--secondary .landing-contact-actions { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.landing-contact--secondary .landing-contact-actions .button { background: transparent; color: var(--ink); min-width: 120px; }
+
+@media(max-width:900px) {
+  .product-landing--kordena .landing-features { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .product-landing--kordena .landing-features article:first-child { grid-column: span 2; }
+}
 @media(max-width:760px) {
   .kordena-hero-core { padding: 1.2rem; }
   .kordena-hero-core-map { grid-template-columns: repeat(2,minmax(0,1fr)); grid-template-rows: auto; }
   .kordena-hero-core-map strong { grid-column: 1 / -1; grid-row: auto; min-height: 64px; order: -1; }
+  .landing-contact--secondary .landing-contact-actions { grid-template-columns: 1fr; }
+}
+@media(max-width:560px) {
+  .product-landing--kordena .landing-features { grid-template-columns: 1fr; }
+  .product-landing--kordena .landing-features article:first-child { grid-column: auto; }
 }
