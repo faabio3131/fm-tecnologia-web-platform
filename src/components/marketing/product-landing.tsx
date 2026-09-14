@@ -20,6 +20,7 @@ export function ProductLanding({ product }: { product: Product }) {
   const email = `mailto:${siteConfig.contactEmail}?subject=${encodeURIComponent("Interesse em " + product.name)}`;
   const trialReady = product.trialReleaseStatus !== "pending_evidence" && product.trialReleaseStatus !== "unavailable";
   const isKordena = product.slug === "kordena";
+  const audience = isKordena ? "Para negócios do setor alimentício" : page.audience;
 
   return (
     <main className={`product-landing ${isKordena ? "product-landing--kordena" : ""}`}>
@@ -28,7 +29,7 @@ export function ProductLanding({ product }: { product: Product }) {
           <Link className="back-link" href="/produtos">← Todos os produtos</Link>
           <div className="landing-hero-grid">
             <div>
-              <p className="eyebrow">{page.audience}</p>
+              <p className="eyebrow">{audience}</p>
               <h1>{product.name}<span>{page.headline}</span></h1>
               <p className="lead">{page.intro}</p>
               <div className="actions">
@@ -40,7 +41,7 @@ export function ProductLanding({ product }: { product: Product }) {
                 <a className="button button--secondary" href={isKordena ? "#core" : "#rotina"}>Ver como funciona <span aria-hidden="true">↓</span></a>
               </div>
               {product.trialPolicy ? (
-                <p className="landing-release">Teste previsto: {product.trialPolicy.days} dias, sem cartão. {trialReady ? "Ativação disponível." : "Ativação online em preparação."}</p>
+                <p className="landing-release">{isKordena ? "Teste grátis" : "Teste previsto"}: {product.trialPolicy.days} dias, sem cartão. {trialReady ? "Ativação disponível." : "Ativação online em preparação."}</p>
               ) : (
                 <p className="landing-release">Lançamento em preparação. Consulte a disponibilidade.</p>
               )}
@@ -138,8 +139,8 @@ export function ProductLanding({ product }: { product: Product }) {
       )}
 
       <section className="container landing-contact landing-contact--secondary" aria-labelledby="landing-contact-title">
-        <div><p className="eyebrow">Converse com a FM</p><h2 id="landing-contact-title">Quer avaliar o {product.name} com a nossa equipe?</h2><p>O contato comercial continua disponível para implantação, condições Enterprise e dúvidas específicas da sua operação.</p></div>
-        <div className="landing-contact-actions"><a className="button button--secondary" href={whatsapp}>Conversar no WhatsApp <span aria-hidden="true">↗</span></a><ButtonLink href={email} variant="secondary">Enviar e-mail</ButtonLink></div>
+        <div><p className="eyebrow">Implantação e Enterprise</p><h2 id="landing-contact-title">Precisa falar com a nossa equipe?</h2><p>Estamos disponíveis para implantação, condições Enterprise e dúvidas específicas da sua operação.</p></div>
+        <div className="landing-contact-actions"><a className="button button--secondary" href={whatsapp}>WhatsApp <span aria-hidden="true">↗</span></a><ButtonLink href={email} variant="secondary">E-mail</ButtonLink></div>
       </section>
     </main>
   );
