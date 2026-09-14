@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "FM Tecnologia",
   description: "Tecnologia, inteligência e automação para transformar operações e criar novos caminhos.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://fmtecnologia.ai",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://fmtecnologiaia.com.br",
   catalogRoute: {
     path: "/produtos",
     status: "candidate_pending_executive_decision",

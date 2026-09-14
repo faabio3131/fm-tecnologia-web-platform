@@ -5,7 +5,7 @@ import { siteConfig } from "../src/config/site.ts";
 import { brandImplementationStatus } from "../src/config/brand.ts";
 
 test("domínio oficial alimenta canonical, sitemap e robots", async () => {
-  assert.equal(siteConfig.url, "https://fmtecnologia.ai");
+  assert.equal(siteConfig.url, "https://fmtecnologiaia.com.br");
   const files = await Promise.all([
     readFile("src/lib/seo/metadata.ts", "utf8"),
     readFile("app/sitemap.ts", "utf8"),
