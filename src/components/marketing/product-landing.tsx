@@ -107,7 +107,7 @@ export function ProductLanding({ product }: { product: Product }) {
           </div>
           <div className="landing-contact-actions">
             {trialReady ? (
-              <ButtonLink href="/entrar" variant="primary">Começar teste grátis</ButtonLink>
+              <ButtonLink href="/entrar">Começar teste grátis</ButtonLink>
             ) : (
               <a className="button button--primary" href={trialWhatsapp}>Quero testar o {product.name} <span aria-hidden="true">↗</span></a>
             )}
