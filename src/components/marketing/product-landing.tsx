@@ -27,7 +27,7 @@ export function ProductLanding({ product }: { product: Product }) {
               <h1>{product.name}<span>{page.headline}</span></h1>
               <p className="lead">{page.intro}</p>
               <div className="actions">
-                <a className="button landing-primary" href="#rotina">Conhecer a rotina <span aria-hidden="true">↓</span></a>
+                <a className="button landing-primary" href="#rotina">{page.primaryCta} <span aria-hidden="true">↓</span></a>
                 <a className="button button--secondary" href={whatsapp}>Falar sobre o {product.name} <span aria-hidden="true">↗</span></a>
               </div>
               <p className="landing-release">Lançamento em preparação. Consulte a disponibilidade.</p>
@@ -61,7 +61,7 @@ export function ProductLanding({ product }: { product: Product }) {
 
       <section id="recursos" className="section section--surface">
         <div className="container">
-          <div className="landing-heading"><p className="eyebrow">Recursos em foco</p><h2>O essencial para a sua rotina.</h2></div>
+          <div className="landing-heading"><p className="eyebrow">Recursos em foco</p><h2>{page.featuresTitle}</h2>{page.featuresIntro && <p>{page.featuresIntro}</p>}</div>
           <div className="landing-features">{page.features.map(feature => <article key={feature.title}><h3>{feature.title}</h3><p>{feature.text}</p></article>)}</div>
         </div>
       </section>

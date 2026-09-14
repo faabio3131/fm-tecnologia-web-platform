@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 
 const pages = [
-  { slug: "kordena", name: "Kordena", expected: ["Organizar o atendimento", "Acompanhar a cozinha", "Conduzir o fechamento"] },
+  { slug: "kordena", name: "Kordena", expected: ["Coordenar atendimento, produção e entrega", "Relacionar cardápio, estoque e custos", "Acompanhar resultados e relacionamento", "Apoiar a equipe com inteligência artificial", "Assistente de Atendimento", "Gerente IA", "os recursos de IA estão em preparação"] },
   { slug: "iron-fit", name: "Iron Fit", expected: ["Organizar os alunos", "Consultar o treino", "Acompanhar agenda e entrada"] },
 ];
 for (const page of pages) {

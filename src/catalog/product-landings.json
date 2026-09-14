@@ -80,89 +80,125 @@
     ],
     "summary": "Alunos, treinos, agenda e check-in para conectar a academia à rotina do aluno.",
     "workflowIntro": "Veja como a organização da academia se relaciona com a experiência do aluno.",
-    "workflowTitle": "Conheça a rotina no Iron Fit"
+    "workflowTitle": "Conheça a rotina no Iron Fit",
+    "primaryCta": "Conhecer a rotina",
+    "featuresTitle": "O essencial para a sua rotina.",
+    "featuresIntro": ""
   },
   "kordena": {
-    "audience": "Para restaurantes",
+    "audience": "Gestão e inteligência para restaurantes",
     "faqs": [
       {
-        "a": "Para operações de restaurantes que precisam organizar atendimento, comandas, cozinha e fechamento. Converse com a FM para avaliar o cenário do seu estabelecimento.",
-        "q": "Para quem o Kordena está sendo preparado?"
+        "q": "O Kordena é apenas um sistema de mesas e pedidos?",
+        "a": "Não. O Kordena tem uma proposta de gestão integrada para restaurantes: atendimento e vendas, produção, entregas, cardápio, estoque, financeiro e relacionamento com clientes. Assistente de Atendimento e Gerente IA ampliam essa proposta e estão em preparação."
       },
       {
-        "a": "Os principais fluxos de Salão, Comandas, Cozinha e PDV. A apresentação descreve as rotinas do produto; não é uma sessão de uso do sistema.",
-        "q": "O que posso conhecer nesta página?"
+        "q": "Para quem o Kordena está sendo preparado?",
+        "a": "Para restaurantes que buscam conectar a rotina da equipe à gestão do negócio, considerando salão, balcão e delivery. A FM avalia os módulos e as necessidades de cada operação antes da implantação."
       },
       {
-        "a": "Ainda não. A política prevista é de 30 dias sem cartão, mas a ativação pelo site será disponibilizada após a conclusão e validação da integração.",
-        "q": "O acesso ao teste já está liberado?"
+        "q": "Todos os recursos apresentados já estão disponíveis?",
+        "a": "O lançamento está em preparação. A página apresenta o escopo do Kordena, enquanto a disponibilidade de cada módulo, integração e recurso de IA será confirmada pela equipe para a implantação. O acesso ao teste pelo site ainda não está liberado."
       },
       {
-        "a": "Consulte a equipe sobre cada integração antes de contratar. Esta apresentação não inclui promessa de homologação fiscal, integração com marketplaces ou operação com equipamentos específicos.",
-        "q": "Posso contar com integrações fiscais ou de delivery?"
+        "q": "Qual é o papel da inteligência artificial?",
+        "a": "O Assistente de Atendimento é voltado ao apoio à conversa e à organização do pedido. O Gerente IA é voltado a consultas, relatórios e sugestões para a gestão. Esses recursos estão em preparação; ações operacionais controladas exigem confirmação humana, e a IA não confirma pagamentos por conta própria."
       },
       {
-        "a": "Entre em contato pelo WhatsApp ou e-mail da FM. Informe que seu interesse é no Kordena e descreva sua operação para alinhar disponibilidade, implantação e atendimento.",
-        "q": "Como conversar sobre implantação e suporte?"
+        "q": "Como funcionam as integrações e o teste?",
+        "a": "A política prevista de teste é de 30 dias sem cartão, com ativação ainda indisponível. Consulte a FM sobre pagamentos, integrações fiscais, marketplaces e equipamentos: a apresentação da plataforma não significa que essas conexões já estejam liberadas."
+      },
+      {
+        "q": "Como conhecer o Kordena para o meu restaurante?",
+        "a": "Fale com a FM pelo WhatsApp ou e-mail e conte como funciona sua operação. A equipe poderá alinhar uma apresentação, os módulos de interesse, a disponibilidade e os próximos passos da implantação."
       }
     ],
     "features": [
       {
-        "text": "Mapa do salão, abertura de comandas e consulta dos pedidos.",
-        "title": "Mesas e comandas"
+        "title": "Atendimento e vendas",
+        "text": "Salão, mesas, comandas e PDV para organizar pedidos, itens e fechamento."
       },
       {
-        "text": "Itens, quantidades e observações reunidos para orientar a operação.",
-        "title": "Pedidos com detalhes"
+        "title": "Produção e entregas",
+        "text": "Cozinha por setor, etapas de preparo e organização da expedição e do delivery próprio, conforme disponibilidade."
       },
       {
-        "text": "Fila de produção com status para acompanhar o preparo.",
-        "title": "Cozinha por setor"
+        "title": "Cardápio e fichas técnicas",
+        "text": "Produtos, ingredientes e custos para entender a composição do que o restaurante vende."
       },
       {
-        "text": "Catálogo e fechamento de venda, com acesso conforme a função da equipe.",
-        "title": "PDV e acesso por perfil"
+        "title": "Estoque e validades",
+        "text": "Insumos, saldos, níveis mínimos e vencimentos para apoiar o controle e a reposição."
+      },
+      {
+        "title": "Financeiro e resultados",
+        "text": "Histórico de vendas, custos e indicadores de resultado para apoiar a gestão do negócio."
+      },
+      {
+        "title": "Clientes e fidelização",
+        "text": "Cadastro, relacionamento e cashback. Campanhas dependem da autorização do cliente e da liberação dos canais."
+      },
+      {
+        "title": "Assistente de Atendimento",
+        "text": "Em preparação: IA para apoiar a conversa e a organização do pedido, com conferência do cliente e encaminhamento para a equipe."
+      },
+      {
+        "title": "Gerente IA",
+        "text": "Em preparação: consultas operacionais, relatórios, sugestões de compra e rascunhos de campanha, com controle humano sobre ações."
       }
     ],
-    "headline": "Do salão à cozinha, uma operação conectada.",
-    "intro": "Organize mesas, acompanhe comandas e conduza os pedidos até o fechamento com o Kordena.",
+    "headline": "Sua operação conectada. Sua gestão com inteligência.",
+    "intro": "Uma plataforma para conectar atendimento, produção, estoque, financeiro e relacionamento com clientes — com inteligência artificial para apoiar a equipe e as decisões de quem gerencia o negócio.",
     "journey": [
-      "Mesa e comanda",
-      "Pedido e preparo",
-      "Conta e fechamento"
+      "Atendimento, vendas e entregas",
+      "Cardápio, produção e estoque",
+      "Financeiro e relacionamento com clientes",
+      "Assistente de Atendimento e Gerente IA"
     ],
-    "journeyTitle": "O caminho de um pedido",
+    "journeyTitle": "Uma visão do negócio inteiro",
     "scenarios": [
       {
-        "description": "Consulte o mapa do salão e acompanhe as comandas de cada mesa.",
+        "title": "Coordenar atendimento, produção e entrega",
+        "description": "Acompanhar o pedido do salão, balcão ou delivery até o preparo e a conclusão.",
         "steps": [
-          "Identifique a mesa no mapa do salão.",
-          "Abra a comanda e registre os itens do pedido.",
-          "Consulte pedidos, quantidades e observações na mesma comanda."
-        ],
-        "title": "Organizar o atendimento"
+          "Organize mesas, comandas e pedidos de acordo com o canal de atendimento.",
+          "Acompanhe itens, observações e etapas de preparo na cozinha.",
+          "Conecte a expedição ou o atendimento da mesa ao acompanhamento da conta e do pagamento, conforme os módulos liberados."
+        ]
       },
       {
-        "description": "O painel de cozinha reúne os pedidos por setor e etapa de preparo.",
+        "title": "Relacionar cardápio, estoque e custos",
+        "description": "Entender o que cada produto consome e como isso se relaciona com o resultado.",
         "steps": [
-          "Consulte a fila de produção do setor.",
-          "Acompanhe os itens e suas observações.",
-          "Atualize as etapas de preparo até o pedido ficar pronto."
-        ],
-        "title": "Acompanhar a cozinha"
+          "Organize produtos, insumos e fichas técnicas do cardápio.",
+          "Acompanhe saldos, estoque mínimo e validades para orientar a reposição.",
+          "Consulte os custos dos ingredientes e o custo da mercadoria vendida para apoiar a análise de margem."
+        ]
       },
       {
-        "description": "Consulte a conta e organize a conclusão da venda no PDV.",
+        "title": "Acompanhar resultados e relacionamento",
+        "description": "Ampliar a visão sobre vendas, custos e clientes para orientar a gestão.",
         "steps": [
-          "Confira itens e valores do atendimento.",
-          "Solicite a conta da comanda.",
-          "No PDV, acompanhe o total e o registro do pagamento."
-        ],
-        "title": "Conduzir o fechamento"
+          "Consulte o histórico de vendas, custos e resultados da operação.",
+          "Organize a base de clientes e acompanhe oportunidades de relacionamento e fidelização.",
+          "Planeje ações com cashback e campanhas conforme os recursos liberados e a autorização de contato dos clientes."
+        ]
+      },
+      {
+        "title": "Apoiar a equipe com inteligência artificial",
+        "description": "Assistente de Atendimento e Gerente IA são frentes do Kordena em preparação.",
+        "steps": [
+          "O Assistente de Atendimento é projetado para interpretar solicitações, organizar o pedido para conferência e encaminhar situações que precisam de atendimento humano.",
+          "O Gerente IA é projetado para consultar a operação, apontar atrasos, apoiar relatórios e sugerir reposição de insumos.",
+          "Ações como priorizar pedidos ou pausar produtos exigem revisão e confirmação humana. A liberação desses recursos será informada no lançamento."
+        ]
       }
     ],
-    "summary": "Salão, comandas, cozinha e PDV para organizar a operação do restaurante.",
-    "workflowIntro": "Explore as etapas para entender como as áreas da operação se conectam.",
-    "workflowTitle": "Conheça a rotina no Kordena"
+    "summary": "Gestão e inteligência para restaurantes: atendimento, produção, cardápio, estoque, financeiro e clientes.",
+    "workflowIntro": "O atendimento é uma parte do Kordena. Explore também como cardápio, insumos, resultados e relacionamento com clientes entram na visão do negócio.",
+    "workflowTitle": "Da operação às decisões de gestão",
+    "primaryCta": "Explorar o Kordena",
+    "featuresTitle": "As áreas que o Kordena conecta.",
+    "featuresIntro": "Conheça o escopo da plataforma. A disponibilidade dos módulos e das integrações será confirmada para cada implantação; os recursos de IA estão em preparação."
   }
 }
