@@ -152,21 +152,6 @@ export function KordenaStory() {
           </div>
         </div>
       </section>
-
-      <section id="demonstracao" className="section">
-        <div className="container kordena-media-slot">
-          <div>
-            <p className="eyebrow">Demonstração do produto</p>
-            <h2>Veja o Kordena funcionando.</h2>
-            <p>Esta área está preparada para receber vídeos, demonstrações curtas, screenshots e tours do produto sem reconstruir a landing page.</p>
-          </div>
-          <div className="kordena-media-placeholder" aria-label="Espaço reservado para futuras demonstrações em vídeo">
-            <span>Vídeos e demonstrações</span>
-            <strong>Em preparação</strong>
-            <small>O conteúdo será publicado quando os materiais reais estiverem aprovados.</small>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
