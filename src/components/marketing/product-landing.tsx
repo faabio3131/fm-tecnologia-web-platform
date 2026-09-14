@@ -13,8 +13,11 @@ export function ProductLanding({ product }: { product: Product }) {
   if (!hasProductLanding(product.slug)) return null;
   const page = content[product.slug];
   const message = `Olá! Quero conhecer o ${product.name}. Podemos conversar sobre disponibilidade e implantação?`;
+  const trialMessage = `Olá! Tenho interesse no teste grátis do ${product.name}. Quero ser avisado assim que a ativação estiver disponível.`;
   const whatsapp = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(message)}`;
+  const trialWhatsapp = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(trialMessage)}`;
   const email = `mailto:${siteConfig.contactEmail}?subject=${encodeURIComponent("Interesse em " + product.name)}`;
+  const trialReady = product.trialReleaseStatus !== "pending_evidence" && product.trialReleaseStatus !== "unavailable";
 
   return (
     <main className="product-landing">
@@ -27,10 +30,18 @@ export function ProductLanding({ product }: { product: Product }) {
               <h1>{product.name}<span>{page.headline}</span></h1>
               <p className="lead">{page.intro}</p>
               <div className="actions">
-                <a className="button landing-primary" href="#rotina">{page.primaryCta} <span aria-hidden="true">↓</span></a>
+                {product.trialPolicy ? (
+                  <a className="button landing-primary" href="#teste">Começar teste grátis <span aria-hidden="true">↓</span></a>
+                ) : (
+                  <a className="button landing-primary" href="#rotina">{page.primaryCta} <span aria-hidden="true">↓</span></a>
+                )}
                 <a className="button button--secondary" href={whatsapp}>Falar sobre o {product.name} <span aria-hidden="true">↗</span></a>
               </div>
-              <p className="landing-release">Lançamento em preparação. Consulte a disponibilidade.</p>
+              {product.trialPolicy ? (
+                <p className="landing-release">Teste previsto: {product.trialPolicy.days} dias, sem cartão. {trialReady ? "Ativação disponível." : "Ativação online em preparação."}</p>
+              ) : (
+                <p className="landing-release">Lançamento em preparação. Consulte a disponibilidade.</p>
+              )}
             </div>
             <aside className="landing-journey" aria-label={page.journeyTitle}>
               <h2>{page.journeyTitle}</h2>
@@ -42,7 +53,7 @@ export function ProductLanding({ product }: { product: Product }) {
       </section>
 
       <nav className="container landing-index" aria-label={"Nesta página: " + product.name}>
-        <a href="#rotina">Como funciona</a><a href="#recursos">Recursos</a><a href="#planos">Planos</a><a href="#duvidas">Dúvidas</a>
+        <a href="#rotina">Como funciona</a><a href="#recursos">Recursos</a><a href="#planos">Planos</a>{product.trialPolicy && <a href="#teste">Teste grátis</a>}<a href="#duvidas">Dúvidas</a>
       </nav>
 
       <section id="rotina" className="section landing-workflows">
@@ -74,9 +85,11 @@ export function ProductLanding({ product }: { product: Product }) {
               <div><span>Mensal</span><strong>{formatBRL(product.pricing.monthly)}<small>/mês</small></strong></div>
               <div><span>Anual</span><strong>{formatBRL(product.pricing.annual)}<small>/ano</small></strong></div>
             </div><p className="enterprise-line"><span>Enterprise</span><strong>Sob consulta</strong></p></>}
-            {product.trialPolicy && <div className="trial-note"><strong>Teste ainda não disponível para ativação.</strong><p>Política prevista: {product.trialPolicy.days} dias, sem cartão. {product.trialPolicy.constraint}</p></div>}
-            <div className="actions"><a className="button button--primary" href={whatsapp}>Consultar condições <span aria-hidden="true">↗</span></a></div>
-            <p className="muted">Fale com a equipe para alinhar o lançamento e a implantação.</p>
+            {product.trialPolicy && <div className="trial-note"><strong>{trialReady ? "Teste grátis disponível." : "Teste grátis em preparação."}</strong><p>Política prevista: {product.trialPolicy.days} dias, sem cartão. {product.trialPolicy.constraint}</p>{!trialReady && <p>A ativação online será liberada após certificação e homologação.</p>}</div>}
+            <div className="actions">
+              {product.trialPolicy && <a className="button button--primary" href="#teste">Começar teste grátis <span aria-hidden="true">↓</span></a>}
+              <a className={`button ${product.trialPolicy ? "button--secondary" : "button--primary"}`} href={whatsapp}>Falar com a FM <span aria-hidden="true">↗</span></a>
+            </div>
           </section>
           <section id="duvidas" aria-labelledby="landing-faq-title">
             <div className="landing-heading"><p className="eyebrow">Antes de começar</p><h2 id="landing-faq-title">Perguntas frequentes</h2></div>
@@ -85,8 +98,26 @@ export function ProductLanding({ product }: { product: Product }) {
         </div>
       </section>
 
+      {product.trialPolicy && (
+        <section id="teste" className="container landing-contact" aria-labelledby="landing-trial-title">
+          <div>
+            <p className="eyebrow">Teste grátis</p>
+            <h2 id="landing-trial-title">Experimente o {product.name} no seu negócio.</h2>
+            <p>Conheça a plataforma na prática durante {product.trialPolicy.days} dias, sem cartão. Quando a ativação online estiver liberada, esta será a porta de entrada direta para criar sua conta, iniciar o onboarding e acessar o produto.</p>
+          </div>
+          <div className="landing-contact-actions">
+            {trialReady ? (
+              <ButtonLink href="/entrar" variant="primary">Começar teste grátis</ButtonLink>
+            ) : (
+              <a className="button button--primary" href={trialWhatsapp}>Quero testar o {product.name} <span aria-hidden="true">↗</span></a>
+            )}
+            <a className="button button--secondary" href={whatsapp}>Falar com a FM <span aria-hidden="true">↗</span></a>
+          </div>
+        </section>
+      )}
+
       <section className="container landing-contact" aria-labelledby="landing-contact-title">
-        <div><p className="eyebrow">Converse com a FM</p><h2 id="landing-contact-title">Vamos falar sobre a sua operação?</h2><p>Conte o que você precisa e conheça os próximos passos para o {product.name}.</p></div>
+        <div><p className="eyebrow">Converse com a FM</p><h2 id="landing-contact-title">Quer avaliar o {product.name} com a nossa equipe?</h2><p>O contato comercial continua disponível para implantação, condições Enterprise e dúvidas específicas da sua operação.</p></div>
         <div className="landing-contact-actions"><a className="button button--primary" href={whatsapp}>Conversar no WhatsApp <span aria-hidden="true">↗</span></a><ButtonLink href={email} variant="secondary">Enviar e-mail</ButtonLink></div>
       </section>
     </main>
