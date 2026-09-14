@@ -19,13 +19,13 @@ export const products: readonly Product[] = [
     pricingStatus: "approved",
     productionHomologationStatus: pending,
     publicLabel: "Produto Principal",
-    shortDescription: "Detalhes do produto em preparação. Consulte as condições comerciais.",
+    shortDescription: "Salão, comandas, cozinha e PDV para organizar a operação do restaurante.",
     positioning: "Produto principal da FM Tecnologia.",
     pricing: { monthly: 299, annual: 2990, enterprise: true },
     trialPolicy: { days: 30, cardRequired: false },
     cta: { specialist: true },
     featured: true,
-    seo: { title: "Kordena", description: "Conheça o Kordena, produto principal da FM Tecnologia." },
+    seo: { title: "Kordena", description: "Salão, comandas, cozinha e PDV para organizar a operação do restaurante." },
   },
   {
     id: "prod_iron_fit",
@@ -43,7 +43,7 @@ export const products: readonly Product[] = [
     pricingStatus: "approved",
     productionHomologationStatus: pending,
     publicLabel: "Produto Principal",
-    shortDescription: "Detalhes do produto em preparação. Consulte as condições comerciais.",
+    shortDescription: "Alunos, treinos, agenda e check-in para conectar a academia à rotina do aluno.",
     positioning: "Produto principal da FM Tecnologia.",
     pricing: { monthly: 269, annual: 2690, enterprise: true },
     trialPolicy: {
@@ -53,7 +53,7 @@ export const products: readonly Product[] = [
     },
     cta: { specialist: true },
     featured: true,
-    seo: { title: "Iron Fit", description: "Conheça o Iron Fit, produto principal da FM Tecnologia." },
+    seo: { title: "Iron Fit", description: "Alunos, treinos, agenda e check-in para conectar a academia à rotina do aluno." },
   },
   {
     id: "prod_vendedor_ia",

@@ -1,0 +1,168 @@
+{
+  "iron-fit": {
+    "audience": "Para academias",
+    "faqs": [
+      {
+        "a": "Para academias que querem conectar a organização de alunos à experiência de treino, agenda e check-in. A equipe FM pode avaliar a adequação à sua operação.",
+        "q": "Para quem o Iron Fit está sendo preparado?"
+      },
+      {
+        "a": "O aplicativo possui áreas para consultar treinos, acompanhar a agenda e registrar check-in. A disponibilização para sua academia será alinhada com a equipe no lançamento.",
+        "q": "O aluno terá uma experiência própria?"
+      },
+      {
+        "a": "A política prevista é de 30 dias sem cartão e máximo de 15 alunos durante o teste. A ativação pelo site ainda não está disponível.",
+        "q": "Como será o teste grátis?"
+      },
+      {
+        "a": "A disponibilidade de cada integração deve ser confirmada com a equipe. Esta página não anuncia compatibilidade com equipamentos ou parceiros específicos.",
+        "q": "As integrações com catracas e agregadores estão incluídas?"
+      },
+      {
+        "a": "Fale com a FM pelo WhatsApp ou e-mail. Informe que o interesse é no Iron Fit e conte como funciona sua academia para alinhar disponibilidade, implantação e suporte.",
+        "q": "Como começar a conversar sobre o Iron Fit?"
+      }
+    ],
+    "features": [
+      {
+        "text": "Identificação do aluno, convite de acesso e consulta pela equipe autorizada.",
+        "title": "Cadastro de alunos"
+      },
+      {
+        "text": "Sessões e exercícios com séries, repetições e intervalos definidos.",
+        "title": "Treinos organizados"
+      },
+      {
+        "text": "Consulta dos horários reservados e das informações disponíveis sobre as aulas.",
+        "title": "Agenda do aluno"
+      },
+      {
+        "text": "Registro de entrada com retorno sobre o resultado da solicitação.",
+        "title": "Check-in no aplicativo"
+      }
+    ],
+    "headline": "A rotina da academia, mais perto do aluno.",
+    "intro": "Conecte o cadastro de alunos à experiência de consultar treinos, acompanhar a agenda e registrar o check-in com o Iron Fit.",
+    "journey": [
+      "Cadastro do aluno",
+      "Treinos e agenda",
+      "Registro de check-in"
+    ],
+    "journeyTitle": "Da academia ao treino",
+    "scenarios": [
+      {
+        "description": "Reúna o cadastro e o acesso do aluno no contexto da academia.",
+        "steps": [
+          "Cadastre o aluno na academia.",
+          "Organize seu ingresso pelo convite de acesso.",
+          "Consulte o cadastro de acordo com as permissões da equipe."
+        ],
+        "title": "Organizar os alunos"
+      },
+      {
+        "description": "O aluno encontra os treinos disponibilizados e os detalhes dos exercícios.",
+        "steps": [
+          "Acesse os treinos liberados para o aluno.",
+          "Consulte as sessões e os exercícios.",
+          "Veja séries, repetições e intervalos quando informados no treino."
+        ],
+        "title": "Consultar o treino"
+      },
+      {
+        "description": "A área do aluno reúne horários reservados e a ação de check-in.",
+        "steps": [
+          "Consulte os horários que aparecem na agenda.",
+          "Registre o check-in pelo aplicativo.",
+          "Confira a confirmação ou a orientação exibida quando a entrada não puder ser registrada."
+        ],
+        "title": "Acompanhar agenda e entrada"
+      }
+    ],
+    "summary": "Alunos, treinos, agenda e check-in para conectar a academia à rotina do aluno.",
+    "workflowIntro": "Veja como a organização da academia se relaciona com a experiência do aluno.",
+    "workflowTitle": "Conheça a rotina no Iron Fit"
+  },
+  "kordena": {
+    "audience": "Para restaurantes",
+    "faqs": [
+      {
+        "a": "Para operações de restaurantes que precisam organizar atendimento, comandas, cozinha e fechamento. Converse com a FM para avaliar o cenário do seu estabelecimento.",
+        "q": "Para quem o Kordena está sendo preparado?"
+      },
+      {
+        "a": "Os principais fluxos de Salão, Comandas, Cozinha e PDV. A apresentação descreve as rotinas do produto; não é uma sessão de uso do sistema.",
+        "q": "O que posso conhecer nesta página?"
+      },
+      {
+        "a": "Ainda não. A política prevista é de 30 dias sem cartão, mas a ativação pelo site será disponibilizada após a conclusão e validação da integração.",
+        "q": "O acesso ao teste já está liberado?"
+      },
+      {
+        "a": "Consulte a equipe sobre cada integração antes de contratar. Esta apresentação não inclui promessa de homologação fiscal, integração com marketplaces ou operação com equipamentos específicos.",
+        "q": "Posso contar com integrações fiscais ou de delivery?"
+      },
+      {
+        "a": "Entre em contato pelo WhatsApp ou e-mail da FM. Informe que seu interesse é no Kordena e descreva sua operação para alinhar disponibilidade, implantação e atendimento.",
+        "q": "Como conversar sobre implantação e suporte?"
+      }
+    ],
+    "features": [
+      {
+        "text": "Mapa do salão, abertura de comandas e consulta dos pedidos.",
+        "title": "Mesas e comandas"
+      },
+      {
+        "text": "Itens, quantidades e observações reunidos para orientar a operação.",
+        "title": "Pedidos com detalhes"
+      },
+      {
+        "text": "Fila de produção com status para acompanhar o preparo.",
+        "title": "Cozinha por setor"
+      },
+      {
+        "text": "Catálogo e fechamento de venda, com acesso conforme a função da equipe.",
+        "title": "PDV e acesso por perfil"
+      }
+    ],
+    "headline": "Do salão à cozinha, uma operação conectada.",
+    "intro": "Organize mesas, acompanhe comandas e conduza os pedidos até o fechamento com o Kordena.",
+    "journey": [
+      "Mesa e comanda",
+      "Pedido e preparo",
+      "Conta e fechamento"
+    ],
+    "journeyTitle": "O caminho de um pedido",
+    "scenarios": [
+      {
+        "description": "Consulte o mapa do salão e acompanhe as comandas de cada mesa.",
+        "steps": [
+          "Identifique a mesa no mapa do salão.",
+          "Abra a comanda e registre os itens do pedido.",
+          "Consulte pedidos, quantidades e observações na mesma comanda."
+        ],
+        "title": "Organizar o atendimento"
+      },
+      {
+        "description": "O painel de cozinha reúne os pedidos por setor e etapa de preparo.",
+        "steps": [
+          "Consulte a fila de produção do setor.",
+          "Acompanhe os itens e suas observações.",
+          "Atualize as etapas de preparo até o pedido ficar pronto."
+        ],
+        "title": "Acompanhar a cozinha"
+      },
+      {
+        "description": "Consulte a conta e organize a conclusão da venda no PDV.",
+        "steps": [
+          "Confira itens e valores do atendimento.",
+          "Solicite a conta da comanda.",
+          "No PDV, acompanhe o total e o registro do pagamento."
+        ],
+        "title": "Conduzir o fechamento"
+      }
+    ],
+    "summary": "Salão, comandas, cozinha e PDV para organizar a operação do restaurante.",
+    "workflowIntro": "Explore as etapas para entender como as áreas da operação se conectam.",
+    "workflowTitle": "Conheça a rotina no Kordena"
+  }
+}
