@@ -1,3 +1,24 @@
-import { ContentPage } from "@/src/components/marketing/content-page"; import { createMetadata } from "@/src/lib/seo/metadata";
-export const metadata=createMetadata("Contato","Fale com um especialista da FM Tecnologia.","/contato");
-export default function Page(){return <ContentPage eyebrow="Contato" title="Vamos conversar sobre o próximo movimento." intro="O atendimento por este formulário ainda não está disponível. O envio será habilitado em uma próxima etapa."><section className="section"><div className="container form-shell"><form><label htmlFor="name">Nome</label><input id="name" name="name" autoComplete="name" placeholder="Como podemos chamar você?"/><label htmlFor="email">E-mail profissional</label><input id="email" name="email" type="email" autoComplete="email" placeholder="voce@empresa.com"/><label htmlFor="message">Como podemos ajudar?</label><textarea id="message" name="message" rows={5} placeholder="Compartilhe o contexto da sua operação."/><button className="button button--primary" type="button" disabled aria-describedby="form-note">Enviar interesse <span aria-hidden="true">→</span></button><p id="form-note" className="muted">Envio será habilitado em uma próxima etapa.</p></form></div></section></ContentPage>}
+import { ContentPage } from "@/src/components/marketing/content-page";
+import { createMetadata } from "@/src/lib/seo/metadata";
+import { siteConfig } from "@/src/config/site";
+
+export const metadata = createMetadata("Contato", "Fale com a FM Tecnologia por e-mail.", "/contato");
+
+export default function Page() {
+  return (
+    <ContentPage eyebrow="Contato" title="Vamos conversar." intro="Entre em contato por e-mail para conversar sobre os produtos da FM Tecnologia.">
+      <section className="section">
+        <div className="container form-shell">
+          <article className="product-card">
+            <h2>Contato comercial</h2>
+            <p><a style={{overflowWrap:"anywhere"}} href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a></p>
+            <div className="actions">
+              <a className="button button--primary" href={`mailto:${siteConfig.contactEmail}`} aria-describedby="email-note">Escrever e-mail <span aria-hidden="true">→</span></a>
+            </div>
+            <p id="email-note" className="muted" style={{marginTop:"1rem",marginBottom:0}}>O botão abre seu aplicativo de e-mail. Se preferir, copie o endereço e envie pelo Gmail. A mensagem será enviada somente quando você confirmar o envio no seu aplicativo.</p>
+          </article>
+        </div>
+      </section>
+    </ContentPage>
+  );
+}

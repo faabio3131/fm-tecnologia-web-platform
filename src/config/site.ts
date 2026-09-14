@@ -1,5 +1,6 @@
 export const siteConfig = {
   name: "FM Tecnologia",
+  contactEmail: "fmtecnologia.comercial@gmail.com",
   description: "Tecnologia, inteligência e automação para transformar operações e criar novos caminhos.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://fmtecnologiaia.com.br",
   catalogRoute: {
