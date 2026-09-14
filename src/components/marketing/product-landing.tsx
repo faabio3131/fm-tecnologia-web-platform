@@ -3,6 +3,7 @@ import type { Product } from "@/src/catalog/types";
 import { formatBRL } from "@/src/catalog/commerce";
 import { siteConfig } from "@/src/config/site";
 import { ButtonLink } from "@/src/components/ui/button-link";
+import { KordenaStory } from "./kordena-story";
 import content from "@/src/catalog/product-landings.json";
 
 export function hasProductLanding(slug: string): slug is keyof typeof content {
@@ -18,9 +19,10 @@ export function ProductLanding({ product }: { product: Product }) {
   const trialWhatsapp = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(trialMessage)}`;
   const email = `mailto:${siteConfig.contactEmail}?subject=${encodeURIComponent("Interesse em " + product.name)}`;
   const trialReady = product.trialReleaseStatus !== "pending_evidence" && product.trialReleaseStatus !== "unavailable";
+  const isKordena = product.slug === "kordena";
 
   return (
-    <main className="product-landing">
+    <main className={`product-landing ${isKordena ? "product-landing--kordena" : ""}`}>
       <section className="product-hero landing-hero">
         <div className="container">
           <Link className="back-link" href="/produtos">← Todos os produtos</Link>
@@ -35,7 +37,7 @@ export function ProductLanding({ product }: { product: Product }) {
                 ) : (
                   <a className="button landing-primary" href="#rotina">{page.primaryCta} <span aria-hidden="true">↓</span></a>
                 )}
-                <a className="button button--secondary" href={whatsapp}>Falar sobre o {product.name} <span aria-hidden="true">↗</span></a>
+                <a className="button button--secondary" href={isKordena ? "#core" : "#rotina"}>Ver como funciona <span aria-hidden="true">↓</span></a>
               </div>
               {product.trialPolicy ? (
                 <p className="landing-release">Teste previsto: {product.trialPolicy.days} dias, sem cartão. {trialReady ? "Ativação disponível." : "Ativação online em preparação."}</p>
@@ -53,8 +55,16 @@ export function ProductLanding({ product }: { product: Product }) {
       </section>
 
       <nav className="container landing-index" aria-label={"Nesta página: " + product.name}>
-        <a href="#rotina">Como funciona</a><a href="#recursos">Recursos</a><a href="#planos">Planos</a>{product.trialPolicy && <a href="#teste">Teste grátis</a>}<a href="#duvidas">Dúvidas</a>
+        {isKordena && <a href="#core">Gerente IA Core</a>}
+        <a href="#rotina">Como funciona</a>
+        {isKordena && <><a href="#estoque-inteligente">Estoque inteligente</a><a href="#financeiro">Financeiro</a></>}
+        <a href="#recursos">Recursos</a>
+        <a href="#planos">Planos</a>
+        {product.trialPolicy && <a href="#teste">Teste grátis</a>}
+        <a href="#duvidas">Dúvidas</a>
       </nav>
+
+      {isKordena && <KordenaStory />}
 
       <section id="rotina" className="section landing-workflows">
         <div className="container">
@@ -99,11 +109,11 @@ export function ProductLanding({ product }: { product: Product }) {
       </section>
 
       {product.trialPolicy && (
-        <section id="teste" className="container landing-contact" aria-labelledby="landing-trial-title">
+        <section id="teste" className="container landing-contact landing-trial" aria-labelledby="landing-trial-title">
           <div>
             <p className="eyebrow">Teste grátis</p>
-            <h2 id="landing-trial-title">Experimente o {product.name} no seu negócio.</h2>
-            <p>Conheça a plataforma na prática durante {product.trialPolicy.days} dias, sem cartão. Quando a ativação online estiver liberada, esta será a porta de entrada direta para criar sua conta, iniciar o onboarding e acessar o produto.</p>
+            <h2 id="landing-trial-title">Coloque o {product.name} para trabalhar no seu negócio.</h2>
+            <p>Experimente uma nova forma de conectar sua operação, reduzir processos manuais e administrar seu negócio com mais inteligência. Política prevista: {product.trialPolicy.days} dias, sem cartão.</p>
           </div>
           <div className="landing-contact-actions">
             {trialReady ? (
