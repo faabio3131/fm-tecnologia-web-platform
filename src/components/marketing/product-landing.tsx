@@ -45,11 +45,22 @@ export function ProductLanding({ product }: { product: Product }) {
                 <p className="landing-release">Lançamento em preparação. Consulte a disponibilidade.</p>
               )}
             </div>
-            <aside className="landing-journey" aria-label={page.journeyTitle}>
-              <h2>{page.journeyTitle}</h2>
-              <ol>{page.journey.map((step, index) => <li key={step}><span aria-hidden="true">0{index + 1}</span>{step}</li>)}</ol>
-              <p>Conheça abaixo as etapas e os recursos do produto.</p>
-            </aside>
+            {isKordena ? (
+              <aside className="kordena-hero-core" aria-label="Gerente IA Core no centro da gestão">
+                <p className="eyebrow">Gerente IA Core</p>
+                <h2>Uma inteligência central para conectar toda a operação.</h2>
+                <div className="kordena-hero-core-map" aria-hidden="true">
+                  <span>Operação</span><span>Estoque</span><strong>CORE</strong><span>Financeiro</span><span>Clientes</span>
+                </div>
+                <p>Atendimento, produção, estoque, vendas e financeiro alimentando uma visão integrada do negócio.</p>
+              </aside>
+            ) : (
+              <aside className="landing-journey" aria-label={page.journeyTitle}>
+                <h2>{page.journeyTitle}</h2>
+                <ol>{page.journey.map((step, index) => <li key={step}><span aria-hidden="true">0{index + 1}</span>{step}</li>)}</ol>
+                <p>Conheça abaixo as etapas e os recursos do produto.</p>
+              </aside>
+            )}
           </div>
         </div>
       </section>
