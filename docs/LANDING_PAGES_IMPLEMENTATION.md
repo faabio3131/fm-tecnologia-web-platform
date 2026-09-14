@@ -58,3 +58,23 @@ A disponibilidade dos módulos aparece junto da apresentação dos recursos, e I
 ### Diretriz para próximas versões
 
 A abertura deve explicar o negócio que o Kordena ajuda a gerir; as seções detalham seus pilares. Não voltar a usar apenas mesas/comandas/cozinha como definição do produto. Materiais comerciais e vídeos devem seguir a mesma amplitude e identificar recursos ainda não liberados. A evolução dessa página não modifica o runtime do Kordena nem constitui certificação.
+
+
+## Posicionamento comercial aprovado — Kordena — 14/09/2026
+
+Por orientação do diretor, a landing deixa de apresentar o Kordena como solução restrita a restaurantes ou ao fluxo salão–cozinha. O público inclui restaurantes, pizzarias, bares, padarias, hamburguerias, pastelarias, casas de espetinhos e outros negócios do setor alimentício.
+
+A proposta de valor passa a ser: gestão inteligente de ponta a ponta, com o Core do produto no centro da coordenação entre operação e gestão financeira. A página destaca:
+
+- operação omnicanal: salão, balcão, PDV, delivery próprio, iFood, Keeta e 99Food;
+- produção conectada: mesas, comandas, KDS e expedição;
+- inventário e estoque em tempo real, validades, riscos de falta/perda e sugestões de promoções para itens próximos do vencimento;
+- gestão financeira completa em tempo real na área administrativa/proprietário, com faturamento, recebimentos, pendências, estornos, ticket médio, valores em estoque, custos, lucros reais e previsões;
+- delivery próprio com Google Maps para endereço, distância, rota e estimativa de chegada;
+- CRM, cashback e recuperação de clientes inativos;
+- gestão de redes sociais, campanhas orgânicas e publicações com IA para Facebook, Instagram e WhatsApp;
+- Assistente de Atendimento personalizável e Core/Gerente IA para consultas, relatórios, alertas e recomendações.
+
+Tráfego pago permanece fora da V1 e não é anunciado. As integrações previstas para o produto podem ser apresentadas comercialmente; a configuração de contas e credenciais é tratada como parte da implantação. O site não afirma que a FM fornece as contas externas do cliente nem que uma integração dispensa os requisitos do respectivo provedor.
+
+A landing preserva layout compacto: cinco cenários expansíveis e oito cards de diferenciais. A página Iron Fit, preços, liberação do trial, contatos, menu e identidade visual não foram alterados neste bloco.

@@ -86,119 +86,132 @@
     "featuresIntro": ""
   },
   "kordena": {
-    "audience": "Gestão e inteligência para restaurantes",
+    "audience": "Para negócios do setor alimentício",
     "faqs": [
       {
-        "q": "O Kordena é apenas um sistema de mesas e pedidos?",
-        "a": "Não. O Kordena tem uma proposta de gestão integrada para restaurantes: atendimento e vendas, produção, entregas, cardápio, estoque, financeiro e relacionamento com clientes. Assistente de Atendimento e Gerente IA ampliam essa proposta e estão em preparação."
+        "q": "O Kordena atende somente restaurantes?",
+        "a": "Não. O Kordena foi desenvolvido para restaurantes, pizzarias, bares, padarias, hamburguerias, pastelarias, casas de espetinhos e outros negócios do setor alimentício que precisam integrar operação, vendas e gestão."
       },
       {
-        "q": "Para quem o Kordena está sendo preparado?",
-        "a": "Para restaurantes que buscam conectar a rotina da equipe à gestão do negócio, considerando salão, balcão e delivery. A FM avalia os módulos e as necessidades de cada operação antes da implantação."
+        "q": "O que torna o Kordena diferente?",
+        "a": "Seu Core inteligente conecta os dados e os processos do negócio. Atendimento, pedidos, produção, estoque, delivery, marketing e financeiro deixam de funcionar como áreas isoladas e passam a alimentar uma visão integrada para a equipe e para o proprietário."
       },
       {
-        "q": "Todos os recursos apresentados já estão disponíveis?",
-        "a": "O lançamento está em preparação. A página apresenta o escopo do Kordena, enquanto a disponibilidade de cada módulo, integração e recurso de IA será confirmada pela equipe para a implantação. O acesso ao teste pelo site ainda não está liberado."
+        "q": "Como o Kordena ajuda a reduzir perdas no estoque?",
+        "a": "O sistema acompanha inventário, movimentações, quantidades disponíveis, níveis mínimos e validades. Ele identifica riscos de falta e itens próximos do vencimento e pode sugerir promoções orgânicas para favorecer o aproveitamento e a venda desses produtos dentro do prazo adequado."
       },
       {
-        "q": "Qual é o papel da inteligência artificial?",
-        "a": "O Assistente de Atendimento é voltado ao apoio à conversa e à organização do pedido. O Gerente IA é voltado a consultas, relatórios e sugestões para a gestão. Esses recursos estão em preparação; ações operacionais controladas exigem confirmação humana, e a IA não confirma pagamentos por conta própria."
+        "q": "O proprietário acompanha a gestão financeira?",
+        "a": "Sim. A área administrativa reúne gestão financeira em tempo real, incluindo faturamento, valores recebidos e pendentes, estornos, ticket médio, valor em estoque, custos, lucros reais e previsões, conforme os dados registrados pela operação."
       },
       {
-        "q": "Como funcionam as integrações e o teste?",
-        "a": "A política prevista de teste é de 30 dias sem cartão, com ativação ainda indisponível. Consulte a FM sobre pagamentos, integrações fiscais, marketplaces e equipamentos: a apresentação da plataforma não significa que essas conexões já estejam liberadas."
+        "q": "Quais canais e integrações fazem parte do ecossistema?",
+        "a": "O Kordena conecta salão, balcão, delivery próprio e marketplaces como iFood, Keeta e 99Food. Também integra Google Maps para rotas e estimativas de entrega e Meta para WhatsApp, Facebook e Instagram. A configuração das contas e credenciais acontece durante a implantação."
       },
       {
-        "q": "Como conhecer o Kordena para o meu restaurante?",
-        "a": "Fale com a FM pelo WhatsApp ou e-mail e conte como funciona sua operação. A equipe poderá alinhar uma apresentação, os módulos de interesse, a disponibilidade e os próximos passos da implantação."
+        "q": "O Kordena cria campanhas de marketing?",
+        "a": "Sim. Na V1, o foco é a gestão das redes sociais, a criação de campanhas orgânicas e publicações com auxílio de IA, além de ações de relacionamento, recuperação de clientes e cashback. Gestão de tráfego pago não faz parte desta versão."
+      },
+      {
+        "q": "Como conhecer o Kordena?",
+        "a": "Fale com a FM Tecnologia pelo WhatsApp ou e-mail. A equipe conhecerá sua operação e apresentará como os módulos, as integrações e o Core inteligente podem trabalhar no seu negócio."
       }
     ],
     "features": [
       {
-        "title": "Atendimento e vendas",
-        "text": "Salão, mesas, comandas e PDV para organizar pedidos, itens e fechamento."
+        "title": "Core inteligente",
+        "text": "Conecta os dados da operação, identifica riscos, relaciona informações e apoia decisões de gestão."
       },
       {
-        "title": "Produção e entregas",
-        "text": "Cozinha por setor, etapas de preparo e organização da expedição e do delivery próprio, conforme disponibilidade."
+        "title": "Operação omnicanal",
+        "text": "Salão, balcão, PDV, delivery próprio, iFood, Keeta e 99Food reunidos na mesma visão operacional."
       },
       {
-        "title": "Cardápio e fichas técnicas",
-        "text": "Produtos, ingredientes e custos para entender a composição do que o restaurante vende."
+        "title": "Produção conectada",
+        "text": "Mesas, comandas, pedidos, KDS e expedição organizados para dar clareza à equipe em cada etapa."
       },
       {
-        "title": "Estoque e validades",
-        "text": "Insumos, saldos, níveis mínimos e vencimentos para apoiar o controle e a reposição."
+        "title": "Estoque preditivo",
+        "text": "Inventário em tempo real, validades, previsão de riscos e sugestões de promoções para reduzir perdas."
       },
       {
-        "title": "Financeiro e resultados",
-        "text": "Histórico de vendas, custos e indicadores de resultado para apoiar a gestão do negócio."
+        "title": "Financeiro em tempo real",
+        "text": "Faturamento, recebimentos, pendências, valor em estoque, custos, lucros reais e previsões para o proprietário."
       },
       {
-        "title": "Clientes e fidelização",
-        "text": "Cadastro, relacionamento e cashback. Campanhas dependem da autorização do cliente e da liberação dos canais."
+        "title": "Delivery e rotas",
+        "text": "Gestão da entrega própria com endereço, área atendida, taxas, Google Maps, distância, rota e estimativa de chegada."
       },
       {
-        "title": "Assistente de Atendimento",
-        "text": "Em preparação: IA para apoiar a conversa e a organização do pedido, com conferência do cliente e encaminhamento para a equipe."
+        "title": "Marketing orgânico com IA",
+        "text": "Criação de campanhas e publicações para Facebook, Instagram e WhatsApp, com revisão e aprovação."
       },
       {
-        "title": "Gerente IA",
-        "text": "Em preparação: consultas operacionais, relatórios, sugestões de compra e rascunhos de campanha, com controle humano sobre ações."
+        "title": "CRM e fidelização",
+        "text": "Histórico de clientes, cashback e recuperação de inativos para fortalecer o relacionamento e estimular novas vendas."
       }
     ],
-    "headline": "Sua operação conectada. Sua gestão com inteligência.",
-    "intro": "Uma plataforma para conectar atendimento, produção, estoque, financeiro e relacionamento com clientes — com inteligência artificial para apoiar a equipe e as decisões de quem gerencia o negócio.",
+    "headline": "Inteligência no centro. Seu negócio sob controle.",
+    "intro": "Da operação à gestão financeira, o Kordena conecta vendas, atendimento, produção, delivery, estoque e marketing em uma plataforma coordenada por um Core inteligente.",
     "journey": [
-      "Atendimento, vendas e entregas",
-      "Cardápio, produção e estoque",
-      "Financeiro e relacionamento com clientes",
-      "Assistente de Atendimento e Gerente IA"
+      "Operação e canais de venda",
+      "Estoque, produção e entregas",
+      "Financeiro e visão do proprietário",
+      "Marketing, clientes e inteligência artificial"
     ],
-    "journeyTitle": "Uma visão do negócio inteiro",
+    "journeyTitle": "O Core conecta toda a gestão",
+    "primaryCta": "Conhecer o Kordena",
     "scenarios": [
       {
-        "title": "Coordenar atendimento, produção e entrega",
-        "description": "Acompanhar o pedido do salão, balcão ou delivery até o preparo e a conclusão.",
+        "title": "Comandar a operação de ponta a ponta",
+        "description": "Transforme canais e equipes diferentes em uma operação coordenada pelo Core.",
         "steps": [
-          "Organize mesas, comandas e pedidos de acordo com o canal de atendimento.",
-          "Acompanhe itens, observações e etapas de preparo na cozinha.",
-          "Conecte a expedição ou o atendimento da mesa ao acompanhamento da conta e do pagamento, conforme os módulos liberados."
+          "Centralize pedidos do salão, balcão, delivery próprio e marketplaces como iFood, Keeta e 99Food.",
+          "Conecte mesas, comandas e PDV à produção organizada pelo KDS.",
+          "Acompanhe preparo, expedição e entrega com informações compartilhadas entre as áreas."
         ]
       },
       {
-        "title": "Relacionar cardápio, estoque e custos",
-        "description": "Entender o que cada produto consome e como isso se relaciona com o resultado.",
+        "title": "Antecipar perdas e proteger a margem",
+        "description": "Use inventário e inteligência para agir antes que falta ou vencimento se transforme em prejuízo.",
         "steps": [
-          "Organize produtos, insumos e fichas técnicas do cardápio.",
-          "Acompanhe saldos, estoque mínimo e validades para orientar a reposição.",
-          "Consulte os custos dos ingredientes e o custo da mercadoria vendida para apoiar a análise de margem."
+          "Acompanhe em tempo real insumos, movimentações, quantidades disponíveis, reservas, estoque mínimo e validades.",
+          "Identifique produtos e insumos próximos do vencimento e riscos de falta ou perda.",
+          "Receba sugestões de promoções orgânicas para liquidar itens dentro do prazo e transformar risco em oportunidade de venda."
         ]
       },
       {
-        "title": "Acompanhar resultados e relacionamento",
-        "description": "Ampliar a visão sobre vendas, custos e clientes para orientar a gestão.",
+        "title": "Gerir o resultado financeiro em tempo real",
+        "description": "Leve as informações da operação para uma visão completa do proprietário.",
         "steps": [
-          "Consulte o histórico de vendas, custos e resultados da operação.",
-          "Organize a base de clientes e acompanhe oportunidades de relacionamento e fidelização.",
-          "Planeje ações com cashback e campanhas conforme os recursos liberados e a autorização de contato dos clientes."
+          "Acompanhe faturamento, recebimentos, pagamentos pendentes, estornos e ticket médio.",
+          "Visualize os valores mantidos em estoque e a relação entre vendas, custos e margens.",
+          "Consulte lucros reais e previsões para apoiar decisões financeiras e operacionais."
         ]
       },
       {
-        "title": "Apoiar a equipe com inteligência artificial",
-        "description": "Assistente de Atendimento e Gerente IA são frentes do Kordena em preparação.",
+        "title": "Vender mais e fortalecer o relacionamento",
+        "description": "Conecte clientes, fidelização e presença digital à realidade do negócio.",
         "steps": [
-          "O Assistente de Atendimento é projetado para interpretar solicitações, organizar o pedido para conferência e encaminhar situações que precisam de atendimento humano.",
-          "O Gerente IA é projetado para consultar a operação, apontar atrasos, apoiar relatórios e sugerir reposição de insumos.",
-          "Ações como priorizar pedidos ou pausar produtos exigem revisão e confirmação humana. A liberação desses recursos será informada no lançamento."
+          "Utilize histórico de compras, cashback e identificação de clientes inativos para criar novas oportunidades.",
+          "Crie campanhas orgânicas e publicações com auxílio de IA para Facebook, Instagram e WhatsApp.",
+          "Aproveite sinais da operação e do estoque para comunicar ofertas relevantes, com revisão e aprovação da equipe."
+        ]
+      },
+      {
+        "title": "Atender, entregar e decidir com inteligência",
+        "description": "Coloque IA a serviço da equipe, do cliente e de quem administra.",
+        "steps": [
+          "Personalize o Assistente de Atendimento para interpretar texto e áudio, consultar o cardápio e organizar pedidos para confirmação.",
+          "Use Google Maps no delivery próprio para apoiar endereços, distâncias, rotas e estimativas de chegada.",
+          "Consulte o Core sobre pedidos, atrasos, estoque, entregas e resultados; receba relatórios, alertas e recomendações mantendo as decisões sob controle humano."
         ]
       }
     ],
-    "summary": "Gestão e inteligência para restaurantes: atendimento, produção, cardápio, estoque, financeiro e clientes.",
-    "workflowIntro": "O atendimento é uma parte do Kordena. Explore também como cardápio, insumos, resultados e relacionamento com clientes entram na visão do negócio.",
-    "workflowTitle": "Da operação às decisões de gestão",
-    "primaryCta": "Explorar o Kordena",
-    "featuresTitle": "As áreas que o Kordena conecta.",
-    "featuresIntro": "Conheça o escopo da plataforma. A disponibilidade dos módulos e das integrações será confirmada para cada implantação; os recursos de IA estão em preparação."
+    "summary": "Gestão inteligente de ponta a ponta para negócios do setor alimentício.",
+    "workflowIntro": "Explore como o Core relaciona operação, estoque, financeiro, clientes e inteligência para transformar informação em ação.",
+    "workflowTitle": "Uma plataforma para operar, decidir e crescer",
+    "featuresTitle": "Tudo conectado ao centro da gestão.",
+    "featuresIntro": "Recursos que trabalham juntos para simplificar a rotina, antecipar riscos, proteger a margem e fortalecer o crescimento do negócio."
   }
 }
