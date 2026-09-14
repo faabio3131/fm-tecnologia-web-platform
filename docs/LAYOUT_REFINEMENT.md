@@ -45,3 +45,25 @@ pages.dev já publicado e conectado à branch pelo Diretor. Sem DNS/domínio pr�
 sem mudanças em outros SaaS, autenticação, integrações ou liberação de trial.
 Visual permanece provisório até receber e validar os assets oficiais de marca.
 DEV-002 não iniciada.
+
+## Verificação após publicação
+
+Commit de layout: `75f569533f20a891d972fa038405ea7be30949db`.
+Cloudflare Pages reportou `success` e a URL pública passou a servir o novo layout.
+
+- Inspeção visual desktop: início, catálogo, Kordena, preços e acesso.
+- Demais páginas visitadas e presença de títulos/conteúdo conferida.
+- Kordena em viewport 1363 × 936: conteúdo principal de 2063,125 para 490,922 px,
+  redução aproximada de 76,2%. Todos os dados principais e preços visíveis juntos.
+- Home: abertura de aproximadamente 498 px e atalhos para os seis produtos.
+- Export: 14 páginas com h1 único e 411 referências internas resolvidas.
+- Link do mapa do ecossistema navega para Kordena e mostra condições comerciais.
+- Botões de contato e acesso continuam desabilitados, sem funcionalidade simulada.
+- Ajuste adicional no destino do skip link: tabIndex=-1 para receber foco.
+
+Limite da validação: viewport móvel, zoom de 200% e preferência de redução de
+movimento não foram emulados com sucesso pela interface disponível. Regras
+responsivas foram revistas no código, mas não equivalem a certificação visual
+móvel. Não se declara aprovação completa de acessibilidade. Assets oficiais
+continuam pendentes. Erros de console observados pertenciam à extensão do
+navegador, não foram atribuídos ao aplicativo.
