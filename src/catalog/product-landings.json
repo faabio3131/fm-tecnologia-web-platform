@@ -86,7 +86,7 @@
     "featuresIntro": ""
   },
   "kordena": {
-    "audience": "Para negócios do setor alimentício",
+    "audience": "Para restaurantes, pizzarias, bares, padarias, hamburguerias, pastelarias e outros negócios do setor alimentício",
     "faqs": [
       {
         "q": "O Kordena atende somente restaurantes?",
@@ -94,7 +94,7 @@
       },
       {
         "q": "O que torna o Kordena diferente?",
-        "a": "Seu Core inteligente conecta os dados e os processos do negócio. Atendimento, pedidos, produção, estoque, delivery, marketing e financeiro deixam de funcionar como áreas isoladas e passam a alimentar uma visão integrada para a equipe e para o proprietário."
+        "a": "O Gerente IA Core é o cérebro da plataforma. Ele conecta dados e processos de atendimento, pedidos, produção, estoque, delivery, marketing e financeiro para transformar áreas isoladas em uma visão integrada da operação e da gestão."
       },
       {
         "q": "Como o Kordena ajuda a reduzir perdas no estoque?",
@@ -105,6 +105,10 @@
         "a": "Sim. A área administrativa reúne gestão financeira em tempo real, incluindo faturamento, valores recebidos e pendentes, estornos, ticket médio, valor em estoque, custos, lucros reais e previsões, conforme os dados registrados pela operação."
       },
       {
+        "q": "O Kordena pode reduzir trabalho manual e custos operacionais?",
+        "a": "O Kordena centraliza e automatiza atividades como conferências, acompanhamento de estoque, cruzamento de informações, relatórios e monitoramento operacional. Isso pode reduzir retrabalho, diminuir a dependência de controles paralelos e melhorar o aproveitamento da equipe, sem prometer uma redução específica de quadro ou percentual de economia."
+      },
+      {
         "q": "Quais canais e integrações fazem parte do ecossistema?",
         "a": "O Kordena conecta salão, balcão, delivery próprio e marketplaces como iFood, Keeta e 99Food. Também integra Google Maps para rotas e estimativas de entrega e Meta para WhatsApp, Facebook e Instagram. A configuração das contas e credenciais acontece durante a implantação."
       },
@@ -113,14 +117,14 @@
         "a": "Sim. Na V1, o foco é a gestão das redes sociais, a criação de campanhas orgânicas e publicações com auxílio de IA, além de ações de relacionamento, recuperação de clientes e cashback. Gestão de tráfego pago não faz parte desta versão."
       },
       {
-        "q": "Como conhecer o Kordena?",
-        "a": "Fale com a FM Tecnologia pelo WhatsApp ou e-mail. A equipe conhecerá sua operação e apresentará como os módulos, as integrações e o Core inteligente podem trabalhar no seu negócio."
+        "q": "Como funciona o teste grátis?",
+        "a": "A política prevista para o Kordena é de 30 dias sem cartão. A ativação online pelo site está em preparação; enquanto isso, o interessado pode registrar seu interesse diretamente com a FM Tecnologia."
       }
     ],
     "features": [
       {
-        "title": "Core inteligente",
-        "text": "Conecta os dados da operação, identifica riscos, relaciona informações e apoia decisões de gestão."
+        "title": "Gerente IA Core",
+        "text": "O cérebro da plataforma: conecta os dados da operação, identifica riscos, relaciona informações e apoia decisões de gestão."
       },
       {
         "title": "Operação omnicanal",
@@ -151,20 +155,20 @@
         "text": "Histórico de clientes, cashback e recuperação de inativos para fortalecer o relacionamento e estimular novas vendas."
       }
     ],
-    "headline": "Inteligência no centro. Seu negócio sob controle.",
-    "intro": "Da operação à gestão financeira, o Kordena conecta vendas, atendimento, produção, delivery, estoque e marketing em uma plataforma coordenada por um Core inteligente.",
+    "headline": "Inteligência no centro. Gestão de ponta a ponta.",
+    "intro": "Da operação diária à gestão financeira, o Kordena conecta vendas, atendimento, produção, delivery, estoque, marketing e financeiro em uma única plataforma coordenada pelo Gerente IA Core.",
     "journey": [
       "Operação e canais de venda",
       "Estoque, produção e entregas",
       "Financeiro e visão do proprietário",
       "Marketing, clientes e inteligência artificial"
     ],
-    "journeyTitle": "O Core conecta toda a gestão",
+    "journeyTitle": "O Gerente IA Core conecta toda a gestão",
     "primaryCta": "Conhecer o Kordena",
     "scenarios": [
       {
         "title": "Comandar a operação de ponta a ponta",
-        "description": "Transforme canais e equipes diferentes em uma operação coordenada pelo Core.",
+        "description": "Transforme canais e equipes diferentes em uma operação coordenada pelo Gerente IA Core.",
         "steps": [
           "Centralize pedidos do salão, balcão, delivery próprio e marketplaces como iFood, Keeta e 99Food.",
           "Conecte mesas, comandas e PDV à produção organizada pelo KDS.",
@@ -209,9 +213,9 @@
       }
     ],
     "summary": "Gestão inteligente de ponta a ponta para negócios do setor alimentício.",
-    "workflowIntro": "Explore como o Core relaciona operação, estoque, financeiro, clientes e inteligência para transformar informação em ação.",
+    "workflowIntro": "Explore como o Gerente IA Core relaciona operação, estoque, financeiro, clientes e inteligência para transformar informação em ação.",
     "workflowTitle": "Uma plataforma para operar, decidir e crescer",
     "featuresTitle": "Tudo conectado ao centro da gestão.",
-    "featuresIntro": "Recursos que trabalham juntos para simplificar a rotina, antecipar riscos, proteger a margem e fortalecer o crescimento do negócio."
+    "featuresIntro": "Recursos que trabalham juntos para simplificar a rotina, antecipar riscos, proteger a margem, reduzir trabalho manual e fortalecer o crescimento do negócio."
   }
 }
