@@ -48,13 +48,30 @@ export function ProductLanding({ product }: { product: Product }) {
               )}
             </div>
             {isKordena ? (
-              <aside className="kordena-hero-core" aria-label="Gerente IA Core no centro da gestão">
+              <aside className="kordena-hero-core kordena-hero-core--v1" aria-label="Demonstração visual do Gerente IA Core conectando a operação">
                 <p className="eyebrow">Gerente IA Core</p>
                 <h2>Uma inteligência central para conectar toda a operação.</h2>
-                <div className="kordena-hero-core-map" aria-hidden="true">
-                  <strong>CORE</strong><span>Operação</span><span>Estoque</span><span>Financeiro</span><span>Clientes</span>
+                <div className="kordena-v1-scene" aria-hidden="true">
+                  <span className="kordena-v1-node kordena-v1-node--atendimento">Atendimento</span>
+                  <span className="kordena-v1-node kordena-v1-node--vendas">Vendas</span>
+                  <span className="kordena-v1-node kordena-v1-node--estoque">Estoque</span>
+                  <span className="kordena-v1-node kordena-v1-node--producao">Produção</span>
+                  <span className="kordena-v1-node kordena-v1-node--financeiro">Financeiro</span>
+                  <span className="kordena-v1-node kordena-v1-node--clientes">Clientes</span>
+                  <div className="kordena-v1-orbit kordena-v1-orbit--outer" />
+                  <div className="kordena-v1-orbit kordena-v1-orbit--inner" />
+                  <div className="kordena-v1-cube-wrap">
+                    <div className="kordena-v1-cube">
+                      <div className="kordena-v1-face kordena-v1-face--front"><strong>CORE</strong><span>GERENTE IA</span></div>
+                      <div className="kordena-v1-face kordena-v1-face--back"><strong>IA</strong><span>INTELIGÊNCIA</span></div>
+                      <div className="kordena-v1-face kordena-v1-face--right"><strong>DADOS</strong><span>CONTEXTO</span></div>
+                      <div className="kordena-v1-face kordena-v1-face--left"><strong>GESTÃO</strong><span>CONTROLE</span></div>
+                      <div className="kordena-v1-face kordena-v1-face--top"><strong>DECISÃO</strong></div>
+                      <div className="kordena-v1-face kordena-v1-face--bottom"><strong>FLUXO</strong></div>
+                    </div>
+                  </div>
                 </div>
-                <p>Atendimento, produção, estoque, vendas e financeiro alimentando uma visão integrada do negócio.</p>
+                <p>Atendimento, produção, estoque, vendas, financeiro e clientes conectados ao mesmo núcleo de inteligência.</p>
               </aside>
             ) : (
               <aside className="landing-journey" aria-label={page.journeyTitle}>
