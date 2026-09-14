@@ -7,8 +7,8 @@ const pages = [
 ];
 for (const page of pages) {
   const html = await readFile(`out/produtos/${page.slug}.html`, "utf8").catch(() => readFile(`out/produtos/${page.slug}/index.html`, "utf8"));
-  assert.equal((html.match(/<main(?:\\s|>)/g) || []).length, 1);
-  assert.equal((html.match(/<h1(?:\\s|>)/g) || []).length, 1);
+  assert.equal((html.match(/<main[ >]/g) || []).length, 1);
+  assert.equal((html.match(/<h1[ >]/g) || []).length, 1);
   for (const expected of page.expected) assert.ok(html.includes(expected), expected);
   for (const anchor of ["rotina", "recursos", "planos", "duvidas"]) {
     assert.ok(html.includes(`id="${anchor}"`), anchor);
