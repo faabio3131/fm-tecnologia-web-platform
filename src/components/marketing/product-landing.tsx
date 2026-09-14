@@ -14,13 +14,14 @@ export function ProductLanding({ product }: { product: Product }) {
   if (!hasProductLanding(product.slug)) return null;
   const page = content[product.slug];
   const message = `Olá! Quero conhecer o ${product.name}. Podemos conversar sobre disponibilidade e implantação?`;
-  const trialMessage = `Olá! Tenho interesse no teste grátis do ${product.name}. Quero ser avisado assim que a ativação estiver disponível.`;
+  const trialMessage = `Olá! Tenho interesse no teste grátis de ${product.trialPolicy?.days ?? 30} dias do ${product.name}. Quero ser avisado assim que a ativação estiver disponível.`;
   const whatsapp = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(message)}`;
   const trialWhatsapp = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(trialMessage)}`;
   const email = `mailto:${siteConfig.contactEmail}?subject=${encodeURIComponent("Interesse em " + product.name)}`;
   const trialReady = product.trialReleaseStatus !== "pending_evidence" && product.trialReleaseStatus !== "unavailable";
   const isKordena = product.slug === "kordena";
   const audience = isKordena ? "Para negócios do setor alimentício" : page.audience;
+  const trialCta = isKordena && product.trialPolicy ? `Teste grátis por ${product.trialPolicy.days} dias` : "Começar teste grátis";
 
   return (
     <main className={`product-landing ${isKordena ? "product-landing--kordena" : ""}`}>
@@ -34,14 +35,14 @@ export function ProductLanding({ product }: { product: Product }) {
               <p className="lead">{page.intro}</p>
               <div className="actions">
                 {product.trialPolicy ? (
-                  <a className="button landing-primary" href="#teste">Começar teste grátis <span aria-hidden="true">↓</span></a>
+                  <a className="button landing-primary" href="#teste">{trialCta} <span aria-hidden="true">↓</span></a>
                 ) : (
                   <a className="button landing-primary" href="#rotina">{page.primaryCta} <span aria-hidden="true">↓</span></a>
                 )}
                 <a className="button button--secondary" href={isKordena ? "#core" : "#rotina"}>Ver como funciona <span aria-hidden="true">↓</span></a>
               </div>
               {product.trialPolicy ? (
-                <p className="landing-release">{isKordena ? "Teste grátis" : "Teste previsto"}: {product.trialPolicy.days} dias, sem cartão. {trialReady ? "Ativação disponível." : "Ativação online em preparação."}</p>
+                <p className="landing-release">{isKordena ? `${product.trialPolicy.days} dias grátis, sem cartão.` : `Teste previsto: ${product.trialPolicy.days} dias, sem cartão.`} {trialReady ? "Ativação disponível." : "Ativação online em preparação."}</p>
               ) : (
                 <p className="landing-release">Lançamento em preparação. Consulte a disponibilidade.</p>
               )}
@@ -107,9 +108,9 @@ export function ProductLanding({ product }: { product: Product }) {
               <div><span>Mensal</span><strong>{formatBRL(product.pricing.monthly)}<small>/mês</small></strong></div>
               <div><span>Anual</span><strong>{formatBRL(product.pricing.annual)}<small>/ano</small></strong></div>
             </div><p className="enterprise-line"><span>Enterprise</span><strong>Sob consulta</strong></p></>}
-            {product.trialPolicy && <div className="trial-note"><strong>{trialReady ? "Teste grátis disponível." : "Teste grátis em preparação."}</strong><p>Política prevista: {product.trialPolicy.days} dias, sem cartão. {product.trialPolicy.constraint}</p>{!trialReady && <p>A ativação online será liberada após certificação e homologação.</p>}</div>}
+            {product.trialPolicy && <div className="trial-note"><strong>{trialReady ? `${product.trialPolicy.days} dias grátis disponíveis.` : `${product.trialPolicy.days} dias grátis — ativação em preparação.`}</strong><p>Sem cartão. {product.trialPolicy.constraint}</p>{!trialReady && <p>A ativação online será liberada após certificação e homologação.</p>}</div>}
             <div className="actions">
-              {product.trialPolicy && <a className="button button--primary" href="#teste">Começar teste grátis <span aria-hidden="true">↓</span></a>}
+              {product.trialPolicy && <a className="button button--primary" href="#teste">{trialCta} <span aria-hidden="true">↓</span></a>}
               <a className={`button ${product.trialPolicy ? "button--secondary" : "button--primary"}`} href={whatsapp}>Falar com a FM <span aria-hidden="true">↗</span></a>
             </div>
           </section>
@@ -123,15 +124,15 @@ export function ProductLanding({ product }: { product: Product }) {
       {product.trialPolicy && (
         <section id="teste" className="container landing-contact landing-trial" aria-labelledby="landing-trial-title">
           <div>
-            <p className="eyebrow">Teste grátis</p>
+            <p className="eyebrow">{product.trialPolicy.days} dias grátis</p>
             <h2 id="landing-trial-title">Coloque o {product.name} para trabalhar no seu negócio.</h2>
-            <p>Experimente uma nova forma de conectar sua operação, reduzir processos manuais e administrar seu negócio com mais inteligência. Política prevista: {product.trialPolicy.days} dias, sem cartão.</p>
+            <p>Experimente uma nova forma de conectar sua operação, reduzir processos manuais e administrar seu negócio com mais inteligência. {product.trialPolicy.days} dias grátis, sem cartão.</p>
           </div>
           <div className="landing-contact-actions">
             {trialReady ? (
-              <ButtonLink href="/entrar">Começar teste grátis</ButtonLink>
+              <ButtonLink href="/entrar">{isKordena ? `Começar ${product.trialPolicy.days} dias grátis` : "Começar teste grátis"}</ButtonLink>
             ) : (
-              <a className="button button--primary" href={trialWhatsapp}>Quero testar o {product.name} <span aria-hidden="true">↗</span></a>
+              <a className="button button--primary" href={trialWhatsapp}>{isKordena ? `Quero testar grátis por ${product.trialPolicy.days} dias` : `Quero testar o ${product.name}`} <span aria-hidden="true">↗</span></a>
             )}
             <a className="button button--secondary" href={whatsapp}>Falar com a FM <span aria-hidden="true">↗</span></a>
           </div>
