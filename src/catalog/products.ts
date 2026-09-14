@@ -20,12 +20,15 @@ export const products: readonly Product[] = [
     productionHomologationStatus: pending,
     publicLabel: "Produto Principal",
     shortDescription: "Gestão inteligente de ponta a ponta para negócios do setor alimentício.",
-    positioning: "Plataforma de gestão inteligente de ponta a ponta para o setor alimentício.",
+    positioning: "Plataforma de gestão inteligente de ponta a ponta coordenada pelo Gerente IA Core.",
     pricing: { monthly: 299, annual: 2990, enterprise: true },
     trialPolicy: { days: 30, cardRequired: false },
     cta: { specialist: true },
     featured: true,
-    seo: { title: "Kordena", description: "Gestão inteligente de ponta a ponta para negócios do setor alimentício." },
+    seo: {
+      title: "Kordena | Gestão inteligente para negócios do setor alimentício",
+      description: "Gerencie atendimento, vendas, produção, delivery, estoque, financeiro e marketing em uma plataforma coordenada pelo Gerente IA Core.",
+    },
   },
   {
     id: "prod_iron_fit",
