@@ -50,7 +50,7 @@ export function ProductLanding({ product }: { product: Product }) {
                 <p className="eyebrow">Gerente IA Core</p>
                 <h2>Uma inteligência central para conectar toda a operação.</h2>
                 <div className="kordena-hero-core-map" aria-hidden="true">
-                  <span>Operação</span><span>Estoque</span><strong>CORE</strong><span>Financeiro</span><span>Clientes</span>
+                  <strong>CORE</strong><span>Operação</span><span>Estoque</span><span>Financeiro</span><span>Clientes</span>
                 </div>
                 <p>Atendimento, produção, estoque, vendas e financeiro alimentando uma visão integrada do negócio.</p>
               </aside>
@@ -137,9 +137,9 @@ export function ProductLanding({ product }: { product: Product }) {
         </section>
       )}
 
-      <section className="container landing-contact" aria-labelledby="landing-contact-title">
+      <section className="container landing-contact landing-contact--secondary" aria-labelledby="landing-contact-title">
         <div><p className="eyebrow">Converse com a FM</p><h2 id="landing-contact-title">Quer avaliar o {product.name} com a nossa equipe?</h2><p>O contato comercial continua disponível para implantação, condições Enterprise e dúvidas específicas da sua operação.</p></div>
-        <div className="landing-contact-actions"><a className="button button--primary" href={whatsapp}>Conversar no WhatsApp <span aria-hidden="true">↗</span></a><ButtonLink href={email} variant="secondary">Enviar e-mail</ButtonLink></div>
+        <div className="landing-contact-actions"><a className="button button--secondary" href={whatsapp}>Conversar no WhatsApp <span aria-hidden="true">↗</span></a><ButtonLink href={email} variant="secondary">Enviar e-mail</ButtonLink></div>
       </section>
     </main>
   );
