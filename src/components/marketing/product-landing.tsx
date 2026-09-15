@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Product } from "@/src/catalog/types";
 import { formatBRL } from "@/src/catalog/commerce";
@@ -63,7 +64,7 @@ export function ProductLanding({ product }: { product: Product }) {
                   <div className="kordena-v2-energy kordena-v2-energy--three" />
                   <div className="kordena-v2-core-glow" />
                   <div className="kordena-v2-cube-wrap kordena-v2-cube-wrap--asset">
-                    <img className="kordena-core-brandmark kordena-core-brandmark--hero" src="/kordena-core-approved.webp" alt="" />
+                    <Image className="kordena-core-brandmark kordena-core-brandmark--hero" src="/kordena-core-approved.webp" alt="" width={240} height={250} priority unoptimized />
                   </div>
                 </div>
                 <p>Atendimento, produção, estoque, vendas, financeiro e clientes conectados ao mesmo núcleo de inteligência.</p>
