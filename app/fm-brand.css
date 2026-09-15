@@ -1,0 +1,99 @@
+/* FM Tecnologia — approved identity integration
+   Keeps the approved artwork intact and adapts only its surrounding chrome. */
+
+.site-header {
+  height: 84px;
+  background: #090d0b;
+  border-bottom-color: rgba(183, 244, 60, .14);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, .12);
+}
+
+.site-header .header-inner {
+  gap: 1.75rem;
+}
+
+.logo.logo--approved {
+  flex: 0 0 auto;
+  width: 112px;
+  height: 69px;
+  overflow: hidden;
+  border-radius: .25rem;
+  line-height: 0;
+}
+
+.logo.logo--approved .logo-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.site-header .desktop-nav,
+.site-header .header-actions {
+  color: #f7faf8;
+}
+
+.site-header .desktop-nav a,
+.site-header .header-actions > a:first-child {
+  color: #f7faf8;
+}
+
+.site-header .desktop-nav a:hover,
+.site-header .header-actions > a:first-child:hover {
+  color: var(--lime);
+  border-color: var(--lime);
+}
+
+.site-header .button--primary {
+  background: var(--lime);
+  color: var(--ink);
+  border-color: var(--lime);
+  box-shadow: 0 8px 24px rgba(183, 244, 60, .12);
+}
+
+.site-header .button--primary:hover {
+  background: #c4ff4c;
+  border-color: #c4ff4c;
+}
+
+.site-header .mobile-menu-toggle {
+  border-color: rgba(255, 255, 255, .22);
+  background: rgba(255, 255, 255, .035);
+  color: white;
+}
+
+.site-header :focus-visible {
+  outline-color: var(--lime);
+}
+
+.site-footer .logo.logo--approved {
+  width: 132px;
+  height: 81px;
+  margin-bottom: .65rem;
+}
+
+@media (max-width: 860px) {
+  .site-header {
+    height: 76px;
+  }
+
+  .logo.logo--approved {
+    width: 98px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header {
+    height: 72px;
+  }
+
+  .site-header .header-inner {
+    gap: .75rem;
+  }
+
+  .logo.logo--approved {
+    width: 91px;
+    height: 56px;
+  }
+}
