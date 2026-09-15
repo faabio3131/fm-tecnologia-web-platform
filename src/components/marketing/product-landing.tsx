@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Product } from "@/src/catalog/types";
 import { formatBRL } from "@/src/catalog/commerce";
@@ -62,15 +63,15 @@ export function ProductLanding({ product }: { product: Product }) {
                   <div className="kordena-v2-energy kordena-v2-energy--two" />
                   <div className="kordena-v2-energy kordena-v2-energy--three" />
                   <div className="kordena-v2-core-glow" />
-                  <div className="kordena-v2-cube-wrap">
-                    <div className="kordena-v2-cube">
-                      <div className="kordena-v2-face kordena-v2-face--front"><strong>CORE</strong><span>GERENTE IA</span></div>
-                      <div className="kordena-v2-face kordena-v2-face--back"><strong>IA</strong><span>INTELIGÊNCIA</span></div>
-                      <div className="kordena-v2-face kordena-v2-face--right"><strong>DADOS</strong><span>CONTEXTO</span></div>
-                      <div className="kordena-v2-face kordena-v2-face--left"><strong>GESTÃO</strong><span>DECISÃO</span></div>
-                      <div className="kordena-v2-face kordena-v2-face--top"><strong>IA</strong></div>
-                      <div className="kordena-v2-face kordena-v2-face--bottom"><strong>FLUXO</strong></div>
-                    </div>
+                  <div className="kordena-v2-cube-wrap kordena-v2-cube-wrap--asset">
+                    <Image
+                      className="kordena-approved-cube-asset"
+                      src="/kordena-approved-cube.svg"
+                      alt=""
+                      width={288}
+                      height={300}
+                      priority
+                    />
                   </div>
                 </div>
                 <p>Atendimento, produção, estoque, vendas, financeiro e clientes conectados ao mesmo núcleo de inteligência.</p>
