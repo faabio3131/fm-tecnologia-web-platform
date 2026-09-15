@@ -25,17 +25,35 @@ const pages = [
       "Teste grátis por 30 dias",
     ],
     anchors: ["core", "estoque-inteligente", "financeiro", "rotina", "recursos", "planos", "teste", "duvidas"],
+    trialState: true,
+    emailSubject: true,
   },
   {
     slug: "iron-fit",
-    name: "Iron Fit",
+    name: "Iron Fit Core",
     expected: [
-      "Organizar os alunos",
-      "Consultar o treino",
-      "Acompanhar agenda e entrada",
-      "30 dias grátis",
+      "IRON FIT",
+      "CORE",
+      "Inteligência no centro. Evolução em movimento.",
+      "Gestão, alunos, treinos, avaliações, agenda, acesso, equipamentos e financeiro conectados em uma única plataforma.",
+      "Um Core. Toda a operação conectada.",
+      "Core Vertical FM Tecnologia",
+      "Dados · contexto · inteligência",
+      "Aluno",
+      "Treino",
+      "Avaliação",
+      "Equipamentos",
+      "Agenda",
+      "Acesso",
+      "Financeiro",
+      "Inteligência",
+      "ironfitcore.com.br",
+      "/iron-fit-core-approved-hero.webp",
+      "/iron-fit-core-approved-symbol.webp",
     ],
-    anchors: ["rotina", "recursos", "planos", "teste", "duvidas"],
+    anchors: ["core"],
+    trialState: false,
+    emailSubject: false,
   },
 ];
 
@@ -50,11 +68,18 @@ for (const page of pages) {
     assert.ok(html.includes(`href="#${anchor}"`), `${page.slug}: href=#${anchor}`);
   }
 
-  assert.ok(html.includes("Ativação online em preparação."), `${page.slug}: trial online state`);
+  if (page.trialState) {
+    assert.ok(html.includes("Ativação online em preparação."), `${page.slug}: trial online state`);
+  } else {
+    assert.ok(!html.includes("30 dias grátis"), `${page.slug}: future commercial blocks must not leak into phase 1`);
+  }
+
   assert.ok(html.includes("https://wa.me/5511978350851?text="), `${page.slug}: whatsapp`);
-  assert.ok(html.includes(`subject=${encodeURIComponent("Interesse em " + page.name)}`), `${page.slug}: email subject`);
+  if (page.emailSubject) {
+    assert.ok(html.includes(`subject=${encodeURIComponent("Interesse em " + page.name)}`), `${page.slug}: email subject`);
+  }
   assert.ok(!html.includes("interesse=trial"), `${page.slug}: trial must not be falsely enabled`);
   assert.ok(!html.includes("<video"), `${page.slug}: no fabricated video`);
 }
 
-console.log("Landing export smoke: 2 product routes passed");
+console.log("Landing export smoke: Kordena + Iron Fit Core phase 1 passed");
