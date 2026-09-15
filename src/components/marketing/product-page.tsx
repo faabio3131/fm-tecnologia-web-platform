@@ -7,7 +7,7 @@ import { Badge } from "@/src/components/ui/badge";
 import { ProductActions } from "./product-actions";
 
 export function ProductPage({ product }: { product: Product }) {
-  if (product.slug === "iron-fit") return <IronFitCorePhaseOne product={product} />;
+  if (product.slug === "iron-fit") return <IronFitCorePhaseOne />;
   if (hasProductLanding(product.slug)) return <ProductLanding product={product} />;
   return (
     <main>
