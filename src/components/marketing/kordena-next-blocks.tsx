@@ -49,6 +49,7 @@ export function KordenaGovernanceAndValue() {
 export function KordenaEnterprise() {
   const message = encodeURIComponent("Olá! Quero conversar sobre implantação e condições Enterprise do Kordena.");
   const whatsapp = `https://wa.me/${siteConfig.whatsapp.number}?text=${message}`;
+  const email = `mailto:${siteConfig.contactEmail}?subject=${encodeURIComponent("Interesse em Kordena")}`;
   const items = [
     ["Configuração da operação", "Estrutura inicial organizada conforme processos, canais e necessidades do estabelecimento."],
     ["Integrações e canais", "Configuração de integrações e credenciais conforme os canais necessários para cada operação."],
@@ -56,7 +57,7 @@ export function KordenaEnterprise() {
     ["Condições Enterprise", "Condições comerciais para operações maiores ou com necessidades específicas, sempre sob consulta."],
   ];
   return <section id="enterprise" className="container kordena-enterprise-section" aria-labelledby="kordena-enterprise-title">
-    <div className="kordena-enterprise-copy"><p className="eyebrow">Enterprise e implantação</p><h2 id="kordena-enterprise-title">Para operações que precisam ir além da configuração padrão.</h2><p>Cada operação tem processos, canais, equipes e necessidades diferentes. A implantação do Kordena pode ser configurada de acordo com o contexto do negócio, incluindo estrutura operacional, integrações, acessos e fluxos necessários para colocar a plataforma em funcionamento.</p><a className="button button--primary" href={whatsapp}>Falar com a FM <span aria-hidden="true">↗</span></a></div>
+    <div className="kordena-enterprise-copy"><p className="eyebrow">Enterprise e implantação</p><h2 id="kordena-enterprise-title">Para operações que precisam ir além da configuração padrão.</h2><p>Cada operação tem processos, canais, equipes e necessidades diferentes. A implantação do Kordena pode ser configurada de acordo com o contexto do negócio, incluindo estrutura operacional, integrações, acessos e fluxos necessários para colocar a plataforma em funcionamento.</p><div className="actions"><a className="button button--primary" href={whatsapp}>Falar com a FM <span aria-hidden="true">↗</span></a><a className="button button--secondary" href={email}>E-mail <span aria-hidden="true">→</span></a></div></div>
     <div className="kordena-enterprise-grid">{items.map(([title,text]) => <article key={title}><h3>{title}</h3><p>{text}</p></article>)}</div>
   </section>;
 }
