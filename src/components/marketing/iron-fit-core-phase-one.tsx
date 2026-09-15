@@ -3,6 +3,7 @@ import Link from "next/link";
 import { siteConfig } from "@/src/config/site";
 
 const domains = ["Aluno", "Treino", "Avaliação", "Equipamentos", "Agenda", "Acesso", "Financeiro", "Inteligência"] as const;
+const officialLockup = "/iron-fit-core-official-lockup.webp";
 
 export function IronFitCorePhaseOne() {
   const message = "Olá! Quero conhecer o Iron Fit Core e entender a disponibilidade para minha academia.";
@@ -30,7 +31,7 @@ export function IronFitCorePhaseOne() {
             <div className="ironfit-hero__visual" aria-label="Identidade oficial do Iron Fit Core">
               <span className="ironfit-halo ironfit-halo--one" aria-hidden="true" />
               <span className="ironfit-halo ironfit-halo--two" aria-hidden="true" />
-              <Image src="/iron-fit-core-approved-hero.webp" alt="Iron Fit Core — Inteligência no centro. Evolução em movimento." width={840} height={465} priority unoptimized />
+              <Image src={officialLockup} alt="Logomarca oficial Iron Fit Core — Inteligência no centro. Evolução em movimento." width={520} height={308} priority unoptimized />
             </div>
           </div>
         </div>
@@ -55,9 +56,7 @@ export function IronFitCorePhaseOne() {
               <span className="orbit orbit--three" />
             </div>
             <div className="ironfit-core-mark">
-              <Image src="/iron-fit-core-approved-symbol.webp" alt="Símbolo oficial do Iron Fit Core" width={475} height={310} unoptimized />
-              <strong>IRON FIT CORE</strong>
-              <span>Dados · contexto · inteligência</span>
+              <Image src={officialLockup} alt="Logomarca oficial do Iron Fit Core" width={520} height={308} unoptimized />
             </div>
             <div className="ironfit-core-domains">
               {domains.map((domain, index) => (
