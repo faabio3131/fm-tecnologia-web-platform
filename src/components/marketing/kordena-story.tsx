@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const coreAreas = [
   "Atendimento",
   "Salão e comandas",
@@ -49,7 +51,7 @@ export function KordenaStory() {
           </div>
           <div className="kordena-core-map" aria-label="Áreas conectadas pelo Gerente IA Core">
             <div className="kordena-core-center kordena-core-center--brandmark" aria-hidden="true">
-              <img className="kordena-core-brandmark kordena-core-brandmark--static" src="/kordena-core-approved.webp" alt="" />
+              <Image className="kordena-core-brandmark kordena-core-brandmark--static" src="/kordena-core-approved.webp" alt="" width={240} height={250} unoptimized />
             </div>
             <div className="kordena-core-areas">
               {coreAreas.map((area) => <span key={area}>{area}</span>)}
