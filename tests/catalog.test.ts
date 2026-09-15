@@ -5,10 +5,10 @@ import { products, getProduct } from "../src/catalog/products.ts";
 test("catálogo contém exatamente os seis produtos oficiais com slugs candidatos únicos", () => {
   assert.equal(products.length, 6);
   assert.equal(new Set(products.map((product) => product.slug)).size, 6);
-  assert.deepEqual(products.map((product) => product.name), ["Kordena", "Iron Fit", "Vendedor IA", "CampaIA", "Super Core Extreme", "ERP Core"]);
+  assert.deepEqual(products.map((product) => product.name), ["Kordena", "Iron Fit Core", "Vendedor IA", "CampaIA", "Super Core Extreme", "ERP Core"]);
 });
 
-test("Kordena e Iron Fit são prioritários sem lifecycle ou disponibilidade inferidos", () => {
+test("Kordena e Iron Fit Core são prioritários sem lifecycle ou disponibilidade inferidos", () => {
   for (const product of products.filter((item) => item.priority === "primary")) {
     assert.equal(product.lifecycle, "pending_evidence");
     assert.equal(product.commercialAvailability, "pending_evidence");
