@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { hasProductLanding, ProductLanding } from "./product-landing";
+import { IronFitCorePhaseOne } from "./iron-fit-core-phase-one";
 import type { Product } from "@/src/catalog/types";
 import { formatBRL } from "@/src/catalog/commerce";
 import { Badge } from "@/src/components/ui/badge";
 import { ProductActions } from "./product-actions";
 
 export function ProductPage({ product }: { product: Product }) {
+  if (product.slug === "iron-fit") return <IronFitCorePhaseOne product={product} />;
   if (hasProductLanding(product.slug)) return <ProductLanding product={product} />;
   return (
     <main>
