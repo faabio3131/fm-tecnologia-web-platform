@@ -7,9 +7,9 @@ export function Logo() {
       <Image
         className="logo-image"
         src="/brand/fm-tecnologia-approved.svg"
-        alt=""
-        width={264}
-        height={162}
+        alt="FM Tecnologia"
+        width={660}
+        height={150}
         priority
         unoptimized
       />
