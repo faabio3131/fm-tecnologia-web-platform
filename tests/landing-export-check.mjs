@@ -46,7 +46,7 @@ const pages = [
       "Check-in",
       "Mensalidades",
       "ironfitcore.com.br",
-      "/iron-fit-core-approved-symbol.webp",
+      "/iron-fit-core-official-lockup.webp",
     ],
     anchors: ["core", "gestao", "app", "treinos", "equipamentos", "agenda-acesso", "financeiro"],
     trialState: false,
@@ -69,6 +69,14 @@ for (const page of pages) {
   if (page.emailSubject) assert.ok(html.includes(`subject=${encodeURIComponent("Interesse em " + page.name)}`), `${page.slug}: email subject`);
   assert.ok(!html.includes("interesse=trial"), `${page.slug}: trial must not be falsely enabled`);
   assert.ok(!html.includes("<video"), `${page.slug}: no fabricated video`);
+  if (page.slug === "iron-fit") {
+    assert.ok(!html.includes("/iron-fit-core-approved-symbol.webp"), "iron-fit: broken legacy symbol reference removed");
+    assert.ok(!html.includes("/iron-fit-core-approved-hero.webp"), "iron-fit: broken legacy hero reference removed");
+  }
 }
+
+const ironFitAsset = await readFile("out/iron-fit-core-official-lockup.webp");
+assert.equal(ironFitAsset.subarray(0, 4).toString("ascii"), "RIFF", "iron-fit: official lockup must be a valid RIFF WebP");
+assert.equal(ironFitAsset.subarray(8, 12).toString("ascii"), "WEBP", "iron-fit: official lockup must be a valid WebP asset");
 
 console.log("Landing export smoke: Kordena + Iron Fit Core through phase 4 passed");
