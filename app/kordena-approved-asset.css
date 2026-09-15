@@ -1,10 +1,10 @@
-/* Approved Kordena Hero asset layer
-   The cube itself is the approved visual asset. Only ambient motion/effects are animated. */
+/* Kordena Core — identidade visual única oficial.
+   A mesma arte-base é usada no Hero (animada) e na seção Core (fixa). */
 
 .kordena-hero-core--v2 .kordena-v2-cube-wrap--asset {
   width: 236px;
   height: 246px;
-  perspective: none;
+  perspective: 900px;
   filter: none;
   z-index: 5;
 }
@@ -12,12 +12,11 @@
 .kordena-hero-core--v2 .kordena-v2-cube-wrap--asset::before {
   content: "";
   position: absolute;
-  inset: -28px -30px;
+  inset: -30px -32px;
   border-radius: 44%;
-  background:
-    radial-gradient(circle at 50% 45%, rgba(210,255,95,.24), rgba(179,255,52,.10) 36%, transparent 70%);
+  background: radial-gradient(circle at 50% 45%, rgba(210,255,95,.24), rgba(179,255,52,.10) 36%, transparent 70%);
   filter: blur(20px);
-  opacity: .88;
+  opacity: .9;
   z-index: -1;
   animation: kordena-approved-aura 4.8s ease-in-out infinite;
 }
@@ -36,27 +35,30 @@
   z-index: -1;
 }
 
-.kordena-approved-cube-asset {
+.kordena-core-brandmark {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
   user-select: none;
   pointer-events: none;
-  mix-blend-mode: screen;
   filter:
-    drop-shadow(0 12px 22px rgba(0,0,0,.28))
-    drop-shadow(0 0 12px rgba(196,255,74,.24))
-    drop-shadow(0 0 30px rgba(177,255,54,.11));
-  animation: kordena-approved-float 5.6s ease-in-out infinite;
+    drop-shadow(0 12px 22px rgba(0,0,0,.32))
+    drop-shadow(0 0 12px rgba(196,255,74,.28))
+    drop-shadow(0 0 30px rgba(177,255,54,.14));
 }
 
-/* The approved asset already contains its own orbitals. Keep the live ambient
-   orbitals lighter so they add motion without redrawing the cube. */
+/* Hero: mesma arte oficial, apenas com rotação/flutuação suave. */
+.kordena-core-brandmark--hero {
+  transform-origin: 50% 52%;
+  animation: kordena-core-hero-motion 6.2s ease-in-out infinite;
+}
+
+/* O asset já contém seus orbitais. Os orbitais vivos do Hero ficam discretos. */
 .kordena-hero-core--v2 .kordena-v2-energy {
-  opacity: .58;
+  opacity: .48;
   border-width: .6px;
-  border-color: rgba(197,255,87,.20);
+  border-color: rgba(197,255,87,.18);
   box-shadow: 0 0 12px rgba(185,249,75,.025);
 }
 
@@ -74,9 +76,37 @@
   filter: blur(19px);
 }
 
-@keyframes kordena-approved-float {
-  0%,100% { transform: translateY(3px) scale(1); }
-  50% { transform: translateY(-5px) scale(1.012); }
+/* Seção "O cérebro que conecta...": substitui o círculo antigo pela mesma marca, fixa. */
+.kordena-core-center--brandmark {
+  width: 224px;
+  height: 234px;
+  border-radius: 22px;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.kordena-core-center--brandmark::before {
+  content: "";
+  position: absolute;
+  inset: -18px;
+  border-radius: 38%;
+  background: radial-gradient(circle, rgba(191,255,65,.16), rgba(177,255,54,.05) 45%, transparent 72%);
+  filter: blur(15px);
+  z-index: -1;
+}
+
+.kordena-core-brandmark--static {
+  animation: none;
+}
+
+@keyframes kordena-core-hero-motion {
+  0%,100% {
+    transform: perspective(900px) translateY(3px) rotateX(1deg) rotateY(-4deg) rotateZ(-.35deg) scale(1);
+  }
+  50% {
+    transform: perspective(900px) translateY(-6px) rotateX(-1deg) rotateY(4deg) rotateZ(.35deg) scale(1.015);
+  }
 }
 
 @keyframes kordena-approved-aura {
@@ -89,6 +119,10 @@
     width: 204px;
     height: 213px;
   }
+  .kordena-core-center--brandmark {
+    width: 190px;
+    height: 198px;
+  }
 }
 
 @media (max-width: 560px) {
@@ -100,11 +134,25 @@
     width: 198px;
     height: 198px;
   }
+  .kordena-core-center--brandmark {
+    width: 154px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 420px) {
+  .kordena-core-center--brandmark {
+    width: 138px;
+    height: 144px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .kordena-approved-cube-asset,
+  .kordena-core-brandmark--hero,
   .kordena-hero-core--v2 .kordena-v2-cube-wrap--asset::before {
     animation: none;
+  }
+  .kordena-core-brandmark--hero {
+    transform: none;
   }
 }
