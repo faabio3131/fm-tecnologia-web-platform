@@ -173,9 +173,48 @@
   background: linear-gradient(145deg, rgba(51, 100, 51, .72) 0%, rgba(24, 63, 36, .83) 55%, rgba(9, 34, 20, .93) 100%);
   color: rgba(231, 255, 169, .88);
   box-shadow:
-    inset 0 0 32px rgba(196, 255, 88, .08),
-    0 0 13px rgba(183, 255, 65, .10),
-    0 0 28px rgba(183, 255, 65, .05);
+    inset 0 0 32px rgba(196, 255, 88, .11),
+    inset 0 0 18px rgba(195, 255, 86, .06),
+    0 0 15px rgba(183, 255, 65, .14),
+    0 0 32px rgba(183, 255, 65, .075);
+}
+
+/* Approved visual: the top face keeps the existing cube geometry, but the
+   previous IA label becomes a luminous neural-brain diagram integrated into
+   the plane itself. The pseudo-element rotates with the face/cube, so it can
+   never detach from the perspective during motion. */
+.kordena-hero-core--v2 .kordena-v2-face--top > strong {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.kordena-hero-core--v2 .kordena-v2-face--top::before {
+  content: "";
+  position: absolute;
+  inset: 15% 14% 14%;
+  z-index: 2;
+  pointer-events: none;
+  background: center / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 90'%3E%3Cg fill='none' stroke='%23dfff78' stroke-width='4.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M59 73c-8 0-13-5-14-12-8 2-16-3-17-11-8-2-12-9-9-16 2-5 6-8 11-9 0-9 8-16 17-15 4-6 13-8 19-4 7-5 17-3 21 5 9-1 17 6 17 15 7 3 10 11 6 18 4 8-2 18-11 18-2 8-10 13-18 10-5 5-14 5-20 1Z'/%3E%3Cpath d='M47 16c-1 8 4 13 10 15-7 1-12 6-12 13 0 6 4 11 10 13-6 2-10 7-10 13M70 11c5 5 6 12 2 18 7 0 13 5 14 12 1 6-2 12-8 15 6 2 10 7 10 13M35 27c7 0 12 5 13 11M86 25c-7 1-11 5-12 11M29 46c7-3 15 0 18 6M91 43c-7-2-13 1-16 7M57 31c7 2 10 8 9 14M55 57c4-4 10-6 16-4M60 73c2-8 1-15-4-20M73 29c-3 7-2 13 3 18'/%3E%3C/g%3E%3C/svg%3E");
+  filter:
+    drop-shadow(0 0 3px rgba(229, 255, 157, .95))
+    drop-shadow(0 0 7px rgba(190, 255, 75, .92))
+    drop-shadow(0 0 15px rgba(177, 255, 54, .62));
+  opacity: .98;
+}
+
+.kordena-hero-core--v2 .kordena-v2-face--top::after {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border-radius: 18px;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 47%, rgba(218, 255, 128, .26) 0%, rgba(187, 255, 70, .12) 25%, rgba(181, 255, 61, .045) 45%, transparent 68%),
+    radial-gradient(circle at 0 0, rgba(214, 255, 125, .36), transparent 13%),
+    radial-gradient(circle at 100% 0, rgba(207, 255, 104, .26), transparent 13%);
+  filter: blur(4px);
+  mix-blend-mode: screen;
+  opacity: .95;
 }
 
 .kordena-hero-core--v2 .kordena-v2-face--bottom {
@@ -198,6 +237,7 @@
   .kordena-hero-core--v2 .kordena-v2-face--left { transform: rotateY(-90deg) translateZ(48px); }
   .kordena-hero-core--v2 .kordena-v2-face--top { transform: rotateX(90deg) translateZ(48px); }
   .kordena-hero-core--v2 .kordena-v2-face--bottom { transform: rotateX(-90deg) translateZ(48px); }
+  .kordena-hero-core--v2 .kordena-v2-face--top::before { inset: 16% 15% 15%; }
 }
 
 @media (max-width: 560px) {
