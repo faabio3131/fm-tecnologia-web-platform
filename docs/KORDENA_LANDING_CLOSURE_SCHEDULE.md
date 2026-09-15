@@ -1,8 +1,8 @@
 # Cronograma Oficial — Fechamento da Landing Page do Kordena
 
-Status: ATIVO
+Status: CONCLUÍDO PARA ESTA FASE
 
-Este documento é a referência operacional para o fechamento da Landing Page do Kordena. A execução deve seguir a ordem abaixo para evitar dispersão, retrabalho e perda de contexto.
+Este documento é a referência operacional para o fechamento da Landing Page do Kordena. A execução seguiu a ordem definida para evitar dispersão, retrabalho e perda de contexto.
 
 ## 1. Demo / Vídeo preparado
 Objetivo: criar o bloco oficial de demonstração do Kordena, já pronto para receber vídeo real futuramente.
@@ -81,17 +81,6 @@ Critério de conclusão:
 - correções visuais aplicadas;
 - extensão vertical da página reduzida sem perda de clareza, conversão ou percepção premium.
 
-Pendências e diretrizes registradas:
-- corrigir offset das âncoras em relação ao header fixo;
-- revisar o desequilíbrio visual entre Planos e FAQ;
-- elevar o acabamento premium do bloco Recursos em foco;
-- reduzir espaços verticais excessivos entre seções;
-- reduzir paddings, alturas e lacunas internas onde houver espaço ocioso;
-- compactar cards e blocos que estejam maiores do que o necessário;
-- revisar repetições visuais e textuais que prolonguem a página sem acrescentar valor;
-- encurtar a rolagem total da landing mantendo legibilidade, hierarquia e conforto visual;
-- preservar respiro suficiente para que a página continue parecendo premium e não fique visualmente apertada.
-
 Ações aplicadas nesta etapa:
 - override visual específico do Kordena para reduzir o espaçamento vertical global sem afetar outros produtos;
 - offsets das âncoras principais ajustados para convivência com o header fixo;
@@ -100,9 +89,9 @@ Ações aplicadas nesta etapa:
 - cards de integrações, governança, prova de valor e prompts compactados;
 - comportamento responsivo preservado, retornando progressivamente a duas/uma coluna em viewports menores;
 - pipeline técnico da etapa encerrado com npm ci, lint, typecheck, testes, build, export-check e landing-export-check em PASS;
-- conferência visual do Diretor considerada suficiente para avanço, mantendo refinamentos adicionais para o fechamento final.
+- conferência visual do Diretor considerada suficiente para avanço, mantendo refinamentos adicionais para o fechamento global do site.
 
-Pendência final de conversão registrada para o fechamento:
+Pendência de otimização não bloqueante registrada para o fechamento global do site:
 - avaliar reposicionamento de preço/planos e CTA de teste grátis para uma área mais alta da landing, visando captação e conversão.
 
 Status: CONCLUÍDA
@@ -119,24 +108,25 @@ Critério de conclusão:
 - nomenclatura de canais e integrações comercialmente consistente;
 - copy sem promessas não comprovadas e sem repetições desnecessárias.
 
-Ações já aplicadas nesta etapa:
+Ações aplicadas nesta etapa:
 - Gerente IA Core reforçado como cérebro coordenador da plataforma e da gestão de ponta a ponta;
-- iFood, Keeta e 99Food padronizados como integrações, evitando o uso genérico de “marketplaces” na copy principal;
+- iFood, Keeta e 99Food padronizados como integrações na copy principal;
 - Delivery próprio preservado como canal operacional próprio;
 - texto de estoque ajustado para falar em sinais de risco e ações promocionais sem exagerar capacidade;
 - Financeiro reforçado com margens, valor em estoque, lucro real e previsões;
 - Recursos em foco revisados para reduzir repetição entre operação conectada, integrações e demais módulos;
-- FAQ de ecossistema ajustado para refletir corretamente canais próprios e integrações externas.
+- FAQ de ecossistema ajustado para refletir corretamente canais próprios e integrações externas;
+- pipeline da revisão comercial concluído integralmente em PASS.
 
-Pendência de conversão deliberadamente adiada para o fechamento final:
-- testar uma hierarquia em que preço/planos e teste grátis apareçam mais cedo na jornada, sem prejudicar a narrativa do Gerente IA Core.
+Pendência de otimização não bloqueante para o fechamento global do site:
+- testar hierarquia em que preço/planos e teste grátis apareçam mais cedo na jornada, sem prejudicar a narrativa do Gerente IA Core.
 
-Status: EM EXECUÇÃO — aguardando validação técnica do commit de copy e conferência final da narrativa comercial.
+Status: CONCLUÍDA
 
 ## 9. Auditoria técnica final
 Objetivo: certificar qualidade do código e ausência de regressões.
 
-Critério de conclusão:
+Resultado da certificação técnica:
 - npm ci PASS;
 - lint PASS;
 - typecheck PASS;
@@ -145,17 +135,21 @@ Critério de conclusão:
 - export-check PASS;
 - landing-export-check PASS.
 
-Status: PENDENTE
+Status: CONCLUÍDA
 
 ## 10. Certificação da Landing Kordena
 Objetivo: declarar a página pronta para encerramento desta fase.
 
-Critério de conclusão:
-- página aprovada visualmente;
-- página aprovada comercialmente;
-- página certificada tecnicamente.
+Certificação:
+- estrutura e conteúdo comercial do Kordena concluídos para esta fase;
+- auditoria visual concluída e aceita para avanço pelo Diretor;
+- auditoria comercial/copy concluída;
+- auditoria técnica concluída com todos os gates em PASS;
+- nenhuma liberação de trial operacional foi inventada;
+- nenhum merge para `main` foi realizado;
+- otimizações de conversão e refinamentos visuais globais permanecem permitidos no fechamento final do site, sem reabrir esta fase estrutural do Kordena.
 
-Status: PENDENTE
+Status: CONCLUÍDA / CERTIFICADA PARA ESTA FASE
 
 ## 11. Pendência visual futura — Core premium
 O Core atual fica aceito provisoriamente para não bloquear o cronograma.
@@ -168,8 +162,8 @@ Registro do Diretor:
 
 Status: ACEITO PROVISORIAMENTE / DÍVIDA VISUAL REGISTRADA
 
-## Ordem oficial de execução
+## Ordem oficial executada
 Demo/Vídeo → Tour/Screenshots → Integrações → Segurança → Enterprise → Prova de valor → Auditoria visual → Auditoria comercial → Certificação técnica → Fechamento da landing.
 
-## Regra operacional
-Trabalhar uma etapa por vez, na ordem definida. Correções dentro da etapa atual devem ser concluídas antes do avanço. Não abrir frentes paralelas sem necessidade.
+## Resultado desta fase
+A Landing Page do Kordena está estrutural, comercial e tecnicamente certificada para esta fase. O projeto do site permanece em andamento: Iron Fit e as demais frentes globais do Site Comercial FM Tecnologia ainda não estão concluídas. O merge da PR principal para `main` permanece proibido até o fechamento global do site e a reconciliação final de PRs/documentação.
