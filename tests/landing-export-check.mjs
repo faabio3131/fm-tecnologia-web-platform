@@ -45,10 +45,20 @@ const pages = [
       "Catálogo mestre",
       "Check-in",
       "Mensalidades",
+      "IRON INTELLIGENCE",
+      "O profissional continua no controle.",
+      "Aggregator Hub",
+      "Arquitetura preparada para integração.",
+      "preparação/homologação",
+      "Segurança, confiança e governança",
+      "Isolamento entre academias",
+      "Papéis e responsabilidades",
+      "Rastreabilidade",
+      "idempotência",
       "ironfitcore.com.br",
       "/iron-fit-core-official-lockup.webp",
     ],
-    anchors: ["core", "gestao", "app", "treinos", "equipamentos", "agenda-acesso", "financeiro"],
+    anchors: ["core", "gestao", "app", "treinos", "financeiro", "inteligencia", "ecossistema", "seguranca"],
     trialState: false,
     emailSubject: false,
   },
@@ -72,6 +82,8 @@ for (const page of pages) {
   if (page.slug === "iron-fit") {
     assert.ok(!html.includes("/iron-fit-core-approved-symbol.webp"), "iron-fit: broken legacy symbol reference removed");
     assert.ok(!html.includes("/iron-fit-core-approved-hero.webp"), "iron-fit: broken legacy hero reference removed");
+    for (const prohibited of ["ISO 27001", "SOC 2", "LGPD certificada", "integração homologada", "parceiro oficial", "99,9%"])
+      assert.ok(!html.includes(prohibited), `iron-fit: prohibited unsupported claim: ${prohibited}`);
   }
 }
 
@@ -79,4 +91,4 @@ const ironFitAsset = await readFile("out/iron-fit-core-official-lockup.webp");
 assert.equal(ironFitAsset.subarray(0, 4).toString("ascii"), "RIFF", "iron-fit: official lockup must be a valid RIFF WebP");
 assert.equal(ironFitAsset.subarray(8, 12).toString("ascii"), "WEBP", "iron-fit: official lockup must be a valid WebP asset");
 
-console.log("Landing export smoke: Kordena + Iron Fit Core through phase 4 passed");
+console.log("Landing export smoke: Kordena + Iron Fit Core through Intelligence/Ecosystem/Security passed");
