@@ -24,7 +24,8 @@ const pages = [
       "30 dias grátis",
       "Teste grátis por 30 dias",
     ],
-    anchors: ["core", "estoque-inteligente", "financeiro", "rotina", "recursos", "planos", "teste", "duvidas"],
+    sectionAnchors: ["core", "estoque-inteligente", "financeiro", "rotina", "recursos", "planos", "teste", "duvidas"],
+    navAnchors: ["core", "estoque-inteligente", "financeiro", "rotina", "recursos", "planos", "teste", "duvidas"],
     trialState: true,
     emailSubject: true,
   },
@@ -75,7 +76,8 @@ const pages = [
       "ironfitcore.com.br",
       "/iron-fit-core-official-lockup.webp",
     ],
-    anchors: ["core", "gestao", "app", "treinos", "inteligencia", "seguranca", "demo", "tour", "planos", "duvidas", "contato"],
+    sectionAnchors: ["core", "gestao", "app", "treinos", "equipamentos", "agenda-acesso", "financeiro", "inteligencia", "ecossistema", "seguranca", "demo", "tour", "planos", "duvidas", "contato"],
+    navAnchors: ["core", "gestao", "app", "treinos", "inteligencia", "seguranca", "demo", "planos", "duvidas"],
     trialState: false,
     emailSubject: false,
   },
@@ -86,10 +88,8 @@ for (const page of pages) {
   assert.equal((html.match(/<main[ >]/g) || []).length, 1);
   assert.equal((html.match(/<h1[ >]/g) || []).length, 1);
   for (const expected of page.expected) assert.ok(html.includes(expected), `${page.slug}: ${expected}`);
-  for (const anchor of page.anchors) {
-    assert.ok(html.includes(`id="${anchor}"`), `${page.slug}: id=${anchor}`);
-    assert.ok(html.includes(`href="#${anchor}"`), `${page.slug}: href=#${anchor}`);
-  }
+  for (const anchor of page.sectionAnchors) assert.ok(html.includes(`id="${anchor}"`), `${page.slug}: id=${anchor}`);
+  for (const anchor of page.navAnchors) assert.ok(html.includes(`href="#${anchor}"`), `${page.slug}: href=#${anchor}`);
   if (page.trialState) assert.ok(html.includes("Ativação online em preparação."), `${page.slug}: trial online state`);
   else assert.ok(!html.includes("30 dias grátis"), `${page.slug}: inactive trial must not be presented as active`);
   assert.ok(html.includes("https://wa.me/5511978350851?text="), `${page.slug}: whatsapp`);
@@ -97,6 +97,7 @@ for (const page of pages) {
   assert.ok(!html.includes("interesse=trial"), `${page.slug}: trial must not be falsely enabled`);
   assert.ok(!html.includes("<video"), `${page.slug}: no fabricated video`);
   if (page.slug === "iron-fit") {
+    assert.ok(html.includes('href="#planos"'), "iron-fit: final CTA must link back to plans");
     assert.ok(!html.includes("<iframe"), "iron-fit: no generic iframe without an approved source");
     assert.ok(!html.includes("/iron-fit-core-approved-symbol.webp"), "iron-fit: broken legacy symbol reference removed");
     assert.ok(!html.includes("/iron-fit-core-approved-hero.webp"), "iron-fit: broken legacy hero reference removed");
