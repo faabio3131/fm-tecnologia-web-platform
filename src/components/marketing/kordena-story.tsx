@@ -60,6 +60,25 @@ export function KordenaStory() {
         </div>
       </section>
 
+      <section id="demo" className="section kordena-demo-section">
+        <div className="container kordena-media-slot">
+          <div>
+            <p className="eyebrow">Demonstração do produto</p>
+            <h2>Veja como o Kordena conecta a operação de ponta a ponta.</h2>
+            <p>
+              Esta área foi preparada para receber a demonstração oficial do Kordena. O vídeo mostrará como atendimento, pedidos, produção, estoque, financeiro e inteligência trabalham de forma conectada dentro da mesma plataforma.
+            </p>
+            <p className="kordena-demo-note">Enquanto o vídeo está em produção, a landing continua apresentando abaixo os principais fluxos, recursos e benefícios da plataforma.</p>
+          </div>
+          <div className="kordena-media-placeholder" aria-label="Espaço reservado para a futura demonstração em vídeo do Kordena">
+            <span>Demonstração Kordena</span>
+            <div className="kordena-demo-play" aria-hidden="true">▶</div>
+            <strong>Vídeo demonstrativo em preparação</strong>
+            <small>Operação • Gerente IA Core • Estoque • Financeiro • Clientes</small>
+          </div>
+        </div>
+      </section>
+
       <section id="fluxo" className="section section--surface">
         <div className="container">
           <div className="landing-heading kordena-heading-wide">
