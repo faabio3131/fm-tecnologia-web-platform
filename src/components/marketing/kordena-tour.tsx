@@ -1,4 +1,5 @@
 import { KordenaIntegrations } from "./kordena-integrations";
+import { KordenaGovernanceAndValue } from "./kordena-next-blocks";
 
 export function KordenaTour() {
   return (
@@ -19,6 +20,7 @@ export function KordenaTour() {
         </div>
       </section>
       <KordenaIntegrations />
+      <KordenaGovernanceAndValue />
     </>
   );
 }
