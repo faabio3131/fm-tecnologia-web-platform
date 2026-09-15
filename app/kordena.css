@@ -56,12 +56,23 @@
 .kordena-efficiency-list span { padding: .8rem 1rem; border: 1px solid #385447; border-radius: .75rem; background: #132d24; color: #e0ebe5; font-size: .9rem; }
 .kordena-prompt-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .75rem; }
 .kordena-prompt-grid blockquote { margin: 0; min-height: 88px; padding: 1rem 1.1rem; border: 1px solid #b9cec0; border-radius: .85rem; background: white; display: flex; align-items: center; font-weight: 650; letter-spacing: -.01em; }
+.kordena-demo-section { background: linear-gradient(180deg,#f7faf7 0%,#eef5ef 100%); }
 .kordena-media-slot { display: grid; grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); gap: clamp(2rem,5vw,4rem); align-items: center; }
-.kordena-media-slot>div:first-child>p:last-child { color: var(--muted); max-width: 620px; }
-.kordena-media-placeholder { aspect-ratio: 16/9; min-height: 260px; border: 1px dashed #7f9d8e; border-radius: 1.25rem; background: linear-gradient(135deg,#edf3ee,#dfe9e1); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem; }
-.kordena-media-placeholder span { font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #397255; }
-.kordena-media-placeholder strong { font-size: clamp(1.4rem,2.5vw,2rem); margin: .5rem 0; }
-.kordena-media-placeholder small { max-width: 440px; color: var(--muted); }
+.kordena-media-slot>div:first-child>p { color: var(--muted); max-width: 620px; }
+.kordena-demo-note { margin-top: 1rem; font-size: .9rem; }
+.kordena-media-placeholder { position: relative; aspect-ratio: 16/9; min-height: 300px; border: 1px solid rgba(170,222,114,.24); border-radius: 1.4rem; background:
+  radial-gradient(circle at 72% 24%,rgba(183,244,60,.12),transparent 30%),
+  radial-gradient(circle at 25% 78%,rgba(80,204,148,.09),transparent 32%),
+  linear-gradient(145deg,#07110e 0%,#0d1e18 56%,#07130f 100%);
+  box-shadow: 0 24px 70px rgba(5,28,20,.14), inset 0 1px 0 rgba(255,255,255,.035);
+  display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem; overflow: hidden; }
+.kordena-media-placeholder:before { content: ""; position: absolute; inset: 1rem; border: 1px solid rgba(190,255,95,.07); border-radius: 1rem; pointer-events: none; }
+.kordena-media-placeholder:after { content: ""; position: absolute; width: 220px; height: 220px; border-radius: 50%; border: 1px solid rgba(190,255,95,.08); box-shadow: 0 0 0 36px rgba(190,255,95,.025),0 0 0 74px rgba(190,255,95,.012); pointer-events: none; }
+.kordena-media-placeholder span,.kordena-media-placeholder strong,.kordena-media-placeholder small,.kordena-demo-play { position: relative; z-index: 2; }
+.kordena-media-placeholder span { font-size: .7rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #bff263; }
+.kordena-demo-play { width: 70px; height: 70px; margin: 1.35rem 0 1rem; border-radius: 50%; display: grid; place-items: center; padding-left: 4px; background: rgba(183,244,60,.12); border: 1px solid rgba(204,255,103,.42); color: #d7ff7a; font-size: 1.4rem; box-shadow: 0 0 34px rgba(183,244,60,.12), inset 0 0 24px rgba(183,244,60,.07); }
+.kordena-media-placeholder strong { color: #f4f9f5; font-size: clamp(1.35rem,2.4vw,1.95rem); margin: 0 0 .65rem; letter-spacing: -.035em; }
+.kordena-media-placeholder small { max-width: 440px; color: #9fb4a8; line-height: 1.55; }
 .product-landing--kordena .landing-trial { background: var(--ink); color: white; border-color: var(--ink); }
 .product-landing--kordena .landing-trial .eyebrow { color: var(--mint); }
 .product-landing--kordena .landing-trial p:last-child { color: #c0cec7; }
@@ -86,10 +97,11 @@
   .kordena-core-center strong { font-size: 1.6rem; }
   .kordena-core-areas { inset: .7rem; }
   .kordena-core-areas span { max-width: 118px; font-size: .68rem; padding: .4rem .55rem; }
-  .kordena-media-placeholder { min-height: 220px; }
+  .kordena-media-placeholder { min-height: 240px; }
 }
 @media(max-width:420px) {
   .kordena-core-map { min-height: 390px; }
   .kordena-core-center { width: 118px; height: 118px; }
   .kordena-core-areas span { max-width: 102px; font-size: .62rem; }
+  .kordena-demo-play { width: 58px; height: 58px; }
 }
