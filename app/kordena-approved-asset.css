@@ -1,0 +1,110 @@
+/* Approved Kordena Hero asset layer
+   The cube itself is the approved visual asset. Only ambient motion/effects are animated. */
+
+.kordena-hero-core--v2 .kordena-v2-cube-wrap--asset {
+  width: 236px;
+  height: 246px;
+  perspective: none;
+  filter: none;
+  z-index: 5;
+}
+
+.kordena-hero-core--v2 .kordena-v2-cube-wrap--asset::before {
+  content: "";
+  position: absolute;
+  inset: -28px -30px;
+  border-radius: 44%;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(210,255,95,.24), rgba(179,255,52,.10) 36%, transparent 70%);
+  filter: blur(20px);
+  opacity: .88;
+  z-index: -1;
+  animation: kordena-approved-aura 4.8s ease-in-out infinite;
+}
+
+.kordena-hero-core--v2 .kordena-v2-cube-wrap--asset::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 3%;
+  width: 190px;
+  height: 58px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(190,255,65,.20), rgba(178,255,66,.04) 46%, transparent 73%);
+  filter: blur(12px);
+  z-index: -1;
+}
+
+.kordena-approved-cube-asset {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  filter:
+    drop-shadow(0 12px 22px rgba(0,0,0,.28))
+    drop-shadow(0 0 12px rgba(196,255,74,.24))
+    drop-shadow(0 0 30px rgba(177,255,54,.11));
+  animation: kordena-approved-float 5.6s ease-in-out infinite;
+}
+
+/* The approved asset already contains its own orbitals. Keep the live ambient
+   orbitals lighter so they add motion without redrawing the cube. */
+.kordena-hero-core--v2 .kordena-v2-energy {
+  opacity: .58;
+  border-width: .6px;
+  border-color: rgba(197,255,87,.20);
+  box-shadow: 0 0 12px rgba(185,249,75,.025);
+}
+
+.kordena-hero-core--v2 .kordena-v2-energy::before {
+  width: 3px;
+  height: 3px;
+  background: #dcff7b;
+  box-shadow: 0 0 8px rgba(215,255,112,.85), 0 0 16px rgba(185,255,73,.34);
+}
+
+.kordena-hero-core--v2 .kordena-v2-core-glow {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(196,255,74,.17), rgba(128,225,69,.045) 44%, transparent 74%);
+  filter: blur(19px);
+}
+
+@keyframes kordena-approved-float {
+  0%,100% { transform: translateY(3px) scale(1); }
+  50% { transform: translateY(-5px) scale(1.012); }
+}
+
+@keyframes kordena-approved-aura {
+  0%,100% { opacity: .70; transform: scale(.98); }
+  50% { opacity: 1; transform: scale(1.035); }
+}
+
+@media (max-width: 760px) {
+  .kordena-hero-core--v2 .kordena-v2-cube-wrap--asset {
+    width: 204px;
+    height: 213px;
+  }
+}
+
+@media (max-width: 560px) {
+  .kordena-hero-core--v2 .kordena-v2-cube-wrap--asset {
+    width: 176px;
+    height: 184px;
+  }
+  .kordena-hero-core--v2 .kordena-v2-core-glow {
+    width: 198px;
+    height: 198px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kordena-approved-cube-asset,
+  .kordena-hero-core--v2 .kordena-v2-cube-wrap--asset::before {
+    animation: none;
+  }
+}
