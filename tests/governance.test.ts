@@ -21,7 +21,7 @@ test("rota de catálogo permanece candidata até decisão executiva", () => {
   assert.equal(siteConfig.catalogRoute.status, "candidate_pending_executive_decision");
 });
 
-test("visual atual não é promovido a identidade oficial", () => {
-  assert.equal(brandImplementationStatus.repositoryAssets, "pending_evidence");
-  assert.equal(brandImplementationStatus.currentVisualLayer, "provisional_not_approved_as_official_identity");
+test("identidade FM aprovada pelo Diretor está registrada como oficial", () => {
+  assert.equal(brandImplementationStatus.repositoryAssets, "approved_asset_present");
+  assert.equal(brandImplementationStatus.currentVisualLayer, "director_approved_official_identity");
 });
