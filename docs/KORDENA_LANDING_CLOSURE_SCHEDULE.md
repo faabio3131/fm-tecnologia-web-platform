@@ -13,7 +13,7 @@ Critério de conclusão:
 - integrada à narrativa comercial;
 - preparada para receber vídeo real sem redesenho estrutural.
 
-Status: PENDENTE
+Status: CONCLUÍDA
 
 ## 2. Tour / Screenshots do produto
 Objetivo: mostrar visualmente telas, operação e experiência real do Kordena.
@@ -23,7 +23,7 @@ Critério de conclusão:
 - estrutura pronta para screenshots reais;
 - coerente com o Design System FM.
 
-Status: PENDENTE
+Status: EM EXECUÇÃO
 
 ## 3. Integrações e ecossistema
 Objetivo: apresentar de forma clara as integrações confirmadas do Kordena, como iFood, Keeta, 99Food, Google Maps, WhatsApp, Facebook e Instagram.
@@ -70,6 +70,11 @@ Critério de conclusão:
 - tablet revisado;
 - mobile revisado;
 - correções visuais aplicadas.
+
+Pendências já registradas para esta etapa:
+- corrigir offset das âncoras em relação ao header fixo;
+- revisar o desequilíbrio visual entre Planos e FAQ;
+- elevar o acabamento premium do bloco Recursos em foco.
 
 Status: PENDENTE
 
