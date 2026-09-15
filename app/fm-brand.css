@@ -2,7 +2,7 @@
    Keeps the approved artwork intact and adapts only its surrounding chrome. */
 
 .site-header {
-  height: 84px;
+  height: 92px;
   background: #090d0b;
   border-bottom-color: rgba(183, 244, 60, .14);
   box-shadow: 0 10px 26px rgba(0, 0, 0, .12);
@@ -15,7 +15,11 @@
 .logo.logo--approved {
   flex: 0 0 auto;
   width: 228px;
-  height: 52px;
+  min-height: 62px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   overflow: visible;
   line-height: 0;
 }
@@ -23,9 +27,21 @@
 .logo.logo--approved .logo-image {
   display: block;
   width: 100%;
-  height: 100%;
+  height: 52px;
   object-fit: contain;
   object-position: left center;
+}
+
+.logo-slogan {
+  display: block;
+  margin-top: .24rem;
+  color: #b7f43c;
+  font-size: .43rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: .105em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .site-header .desktop-nav,
@@ -68,20 +84,36 @@
 
 .site-footer .logo.logo--approved {
   width: 250px;
-  height: 57px;
+  min-height: 68px;
   margin-bottom: .8rem;
+}
+
+.site-footer .logo.logo--approved .logo-image {
+  height: 57px;
+}
+
+.site-footer .logo-slogan {
+  color: #b7f43c;
+  font-size: .45rem;
 }
 
 @media (max-width: 1000px) {
   .logo.logo--approved {
     width: 205px;
+  }
+
+  .logo.logo--approved .logo-image {
     height: 47px;
+  }
+
+  .logo-slogan {
+    font-size: .39rem;
   }
 }
 
 @media (max-width: 860px) {
   .site-header {
-    height: 76px;
+    height: 84px;
   }
 
   .site-header .header-inner {
@@ -90,13 +122,23 @@
 
   .logo.logo--approved {
     width: 188px;
+    min-height: 56px;
+  }
+
+  .logo.logo--approved .logo-image {
     height: 43px;
+  }
+
+  .logo-slogan {
+    margin-top: .2rem;
+    font-size: .355rem;
+    letter-spacing: .085em;
   }
 }
 
 @media (max-width: 560px) {
   .site-header {
-    height: 72px;
+    height: 82px;
   }
 
   .site-header .header-inner {
@@ -105,11 +147,29 @@
 
   .logo.logo--approved {
     width: 172px;
+    min-height: 54px;
+  }
+
+  .logo.logo--approved .logo-image {
     height: 39px;
+  }
+
+  .logo-slogan {
+    margin-top: .18rem;
+    font-size: .32rem;
+    letter-spacing: .07em;
   }
 
   .site-footer .logo.logo--approved {
     width: 210px;
+    min-height: 62px;
+  }
+
+  .site-footer .logo.logo--approved .logo-image {
     height: 48px;
+  }
+
+  .site-footer .logo-slogan {
+    font-size: .37rem;
   }
 }
