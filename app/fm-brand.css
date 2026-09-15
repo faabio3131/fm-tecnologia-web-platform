@@ -14,10 +14,9 @@
 
 .logo.logo--approved {
   flex: 0 0 auto;
-  width: 112px;
-  height: 69px;
-  overflow: hidden;
-  border-radius: .25rem;
+  width: 228px;
+  height: 52px;
+  overflow: visible;
   line-height: 0;
 }
 
@@ -26,6 +25,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+  object-position: left center;
 }
 
 .site-header .desktop-nav,
@@ -67,9 +67,16 @@
 }
 
 .site-footer .logo.logo--approved {
-  width: 132px;
-  height: 81px;
-  margin-bottom: .65rem;
+  width: 250px;
+  height: 57px;
+  margin-bottom: .8rem;
+}
+
+@media (max-width: 1000px) {
+  .logo.logo--approved {
+    width: 205px;
+    height: 47px;
+  }
 }
 
 @media (max-width: 860px) {
@@ -77,9 +84,13 @@
     height: 76px;
   }
 
+  .site-header .header-inner {
+    justify-content: space-between;
+  }
+
   .logo.logo--approved {
-    width: 98px;
-    height: 60px;
+    width: 188px;
+    height: 43px;
   }
 }
 
@@ -93,7 +104,12 @@
   }
 
   .logo.logo--approved {
-    width: 91px;
-    height: 56px;
+    width: 172px;
+    height: 39px;
+  }
+
+  .site-footer .logo.logo--approved {
+    width: 210px;
+    height: 48px;
   }
 }
