@@ -48,7 +48,9 @@ export function KordenaStory() {
             </p>
           </div>
           <div className="kordena-core-map" aria-label="Áreas conectadas pelo Gerente IA Core">
-            <div className="kordena-core-center"><span>Gerente IA</span><strong>CORE</strong><small>inteligência central</small></div>
+            <div className="kordena-core-center kordena-core-center--brandmark" aria-hidden="true">
+              <img className="kordena-core-brandmark kordena-core-brandmark--static" src="/kordena-core-approved.webp" alt="" />
+            </div>
             <div className="kordena-core-areas">
               {coreAreas.map((area) => <span key={area}>{area}</span>)}
             </div>
@@ -70,26 +72,19 @@ export function KordenaStory() {
       </section>
 
       <section id="estoque-inteligente" className="section">
-        <div className="container kordena-dual-story">
-          <article className="kordena-story-panel kordena-story-panel--dark">
+        <div className="container kordena-dual-grid">
+          <article className="kordena-impact-card kordena-impact-card--dark">
             <p className="eyebrow">Estoque inteligente</p>
             <h2>Produto parado também é dinheiro parado.</h2>
             <p>Inventário, movimentações, estoque mínimo, reservas, validade e valor financeiro deixam de ser controles separados e passam a fazer parte da mesma visão.</p>
-            <div className="kordena-signal-flow" aria-label="Fluxo de prevenção de perdas">
-              <span>Risco detectado</span><b>→</b><span>Alerta</span><b>→</b><span>Sugestão</span><b>→</b><span>Ação</span>
-            </div>
-            <p className="kordena-story-note">Produtos e insumos próximos do vencimento podem gerar alertas e, quando aplicável, sugestões de ações promocionais para favorecer o aproveitamento dentro das condições adequadas de validade e segurança.</p>
+            <div className="kordena-action-chain"><span>Risco detectado</span><b>→</b><span>Alerta</span><b>→</b><span>Sugestão</span><b>→</b><span>Ação</span></div>
+            <p>Produtos e insumos próximos do vencimento podem gerar alertas e, quando aplicável, sugestões de ações promocionais para favorecer o aproveitamento dentro das condições adequadas de validade e segurança.</p>
           </article>
-          <article className="kordena-story-panel">
+          <article className="kordena-impact-card">
             <p className="eyebrow">Proteção de margem</p>
             <h2>Antecipe o problema antes que ele vire prejuízo.</h2>
             <p>Vencimento, excesso de estoque, falta de insumos, retrabalho, compras inadequadas e decisões sem informação podem corroer o resultado pouco a pouco.</p>
-            <ul className="kordena-check-list">
-              <li>Identifique riscos de falta e perda.</li>
-              <li>Visualize itens próximos do vencimento.</li>
-              <li>Relacione estoque, vendas e custos.</li>
-              <li>Use sinais da operação para agir mais cedo.</li>
-            </ul>
+            <ul><li>Identifique riscos de falta e perda.</li><li>Visualize itens próximos do vencimento.</li><li>Relacione estoque, vendas e custos.</li><li>Use sinais da operação para agir mais cedo.</li></ul>
           </article>
         </div>
       </section>
@@ -101,20 +96,8 @@ export function KordenaStory() {
             <h2>Faturamento não é lucro.</h2>
             <p>O proprietário precisa enxergar a relação entre o que vende, o que custa operar, o capital mantido em estoque e o resultado que realmente sobra. O Kordena aproxima essa leitura da rotina diária do estabelecimento.</p>
           </div>
-          <div className="kordena-metric-grid" aria-label="Indicadores financeiros acompanhados no Kordena">
-            {["Faturamento", "Recebimentos", "Pendências", "Estornos", "Ticket médio", "Custos", "Valor em estoque", "Margens", "Lucro real", "Projeções e previsões"].map((metric) => <span key={metric}>{metric}</span>)}
-          </div>
-        </div>
-        <div className="container kordena-stock-value">
-          <div>
-            <p className="eyebrow">Capital em estoque</p>
-            <h3>Saiba quanto dinheiro existe dentro do seu estoque.</h3>
-          </div>
-          <div className="kordena-question-grid">
-            <span>Quanto dinheiro está investido no estoque?</span>
-            <span>Quais produtos concentram maior valor?</span>
-            <span>Existem itens em excesso?</span>
-            <span>Quais itens apresentam risco de perda?</span>
+          <div className="kordena-finance-metrics">
+            {['Faturamento','Recebimentos','Pendências','Estornos','Ticket médio','Custos','Valor em estoque','Margens','Lucro real','Projeções e previsões'].map(item => <span key={item}>{item}</span>)}
           </div>
         </div>
       </section>
@@ -127,29 +110,14 @@ export function KordenaStory() {
             <p>O Kordena centraliza e automatiza atividades que normalmente consomem horas da equipe: conferências, acompanhamento de estoque, cruzamento de informações, consultas financeiras, relatórios e monitoramento operacional.</p>
             <p>Isso pode reduzir retrabalho, diminuir a dependência de controles paralelos e permitir que a equipe concentre tempo em atividades de maior valor para o cliente e para o crescimento da empresa.</p>
           </div>
-          <div className="kordena-efficiency-list">
-            {[
-              "Conferências e consolidação de dados",
-              "Acompanhamento de pedidos e produção",
-              "Monitoramento de estoque e validade",
-              "Verificação de vendas e indicadores",
-              "Identificação de riscos operacionais",
-              "Relatórios e acompanhamento financeiro",
-            ].map((item) => <span key={item}>{item}</span>)}
-          </div>
+          <div className="kordena-efficiency-list">{['Conferências e consolidação de dados','Acompanhamento de pedidos e produção','Monitoramento de estoque e validade','Verificação de vendas e indicadores','Identificação de riscos operacionais','Relatórios e acompanhamento financeiro'].map(item => <span key={item}>{item}</span>)}</div>
         </div>
       </section>
 
       <section id="core-em-acao" className="section section--surface">
         <div className="container">
-          <div className="landing-heading kordena-heading-wide">
-            <p className="eyebrow">Core em ação</p>
-            <h2>Informação útil no momento de decidir.</h2>
-            <p>Exemplos de perguntas, alertas e análises que representam a experiência inteligente do Kordena, sempre apoiada pelos dados disponíveis na operação e mantendo as decisões sob controle humano.</p>
-          </div>
-          <div className="kordena-prompt-grid">
-            {coreQuestions.map((question) => <blockquote key={question}>“{question}”</blockquote>)}
-          </div>
+          <div className="landing-heading kordena-heading-wide"><p className="eyebrow">Core em ação</p><h2>Informação útil no momento de decidir.</h2><p>Exemplos de perguntas, alertas e análises que representam a experiência inteligente do Kordena, sempre apoiada pelos dados disponíveis na operação e mantendo as decisões sob controle humano.</p></div>
+          <div className="kordena-prompt-grid">{coreQuestions.map(question => <blockquote key={question}>“{question}”</blockquote>)}</div>
         </div>
       </section>
     </>
