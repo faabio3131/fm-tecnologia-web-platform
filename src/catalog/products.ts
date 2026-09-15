@@ -32,7 +32,7 @@ export const products: readonly Product[] = [
   },
   {
     id: "prod_iron_fit",
-    name: "Iron Fit",
+    name: "Iron Fit Core",
     slug: "iron-fit",
     group: "Produtos Principais",
     priority: "primary",
@@ -46,8 +46,8 @@ export const products: readonly Product[] = [
     pricingStatus: "approved",
     productionHomologationStatus: pending,
     publicLabel: "Produto Principal",
-    shortDescription: "Alunos, treinos, agenda e check-in para conectar a academia à rotina do aluno.",
-    positioning: "Produto principal da FM Tecnologia.",
+    shortDescription: "Gestão, alunos, treinos, avaliações, agenda, acesso, equipamentos e financeiro conectados.",
+    positioning: "Plataforma vertical para academias que conecta gestão, operação e experiência do aluno através do Iron Fit Core.",
     pricing: { monthly: 269, annual: 2690, enterprise: true },
     trialPolicy: {
       days: 30,
@@ -56,7 +56,10 @@ export const products: readonly Product[] = [
     },
     cta: { specialist: true },
     featured: true,
-    seo: { title: "Iron Fit", description: "Alunos, treinos, agenda e check-in para conectar a academia à rotina do aluno." },
+    seo: {
+      title: "Iron Fit Core | Gestão inteligente para academias",
+      description: "Conecte gestão, alunos, treinos, avaliações, agenda, acesso, equipamentos e financeiro em uma plataforma vertical para academias.",
+    },
   },
   {
     id: "prod_vendedor_ia",
