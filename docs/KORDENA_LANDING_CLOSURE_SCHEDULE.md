@@ -81,7 +81,7 @@ Critério de conclusão:
 - correções visuais aplicadas;
 - extensão vertical da página reduzida sem perda de clareza, conversão ou percepção premium.
 
-Pendências e diretrizes já registradas para esta etapa:
+Pendências e diretrizes registradas:
 - corrigir offset das âncoras em relação ao header fixo;
 - revisar o desequilíbrio visual entre Planos e FAQ;
 - elevar o acabamento premium do bloco Recursos em foco;
@@ -92,7 +92,15 @@ Pendências e diretrizes já registradas para esta etapa:
 - encurtar a rolagem total da landing mantendo legibilidade, hierarquia e conforto visual;
 - preservar respiro suficiente para que a página continue parecendo premium e não fique visualmente apertada.
 
-Status: PENDENTE
+Ações já aplicadas nesta etapa:
+- override visual específico do Kordena para reduzir o espaçamento vertical global sem afetar outros produtos;
+- offsets de todas as âncoras principais ampliados para convivência com o header fixo;
+- Recursos em foco reorganizado em grade mais compacta no desktop;
+- FAQ reorganizado em duas colunas no desktop para reduzir altura e equilibrar o bloco com Planos;
+- cards de integrações, governança, prova de valor e prompts compactados;
+- comportamento responsivo preservado, retornando a uma coluna nos viewports menores.
+
+Status: EM EXECUÇÃO — aguardando validação técnica e conferência visual do Diretor.
 
 ## 8. Auditoria comercial e de copy
 Objetivo: garantir que a essência do Kordena esteja clara e que a página funcione como página de conversão.
