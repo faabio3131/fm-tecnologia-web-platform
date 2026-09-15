@@ -40,7 +40,7 @@ export function ProductLanding({ product }: { product: Product }) {
                 ) : (
                   <a className="button landing-primary" href="#rotina">{page.primaryCta} <span aria-hidden="true">↓</span></a>
                 )}
-                <a className="button button--secondary" href={isKordena ? "#core" : "#rotina"}>Ver como funciona <span aria-hidden="true">↓</span></a>
+                <a className="button button--secondary" href={isKordena ? "#demo" : "#rotina"}>Ver como funciona <span aria-hidden="true">↓</span></a>
               </div>
               {product.trialPolicy ? (
                 <p className="landing-release">{isKordena ? `${product.trialPolicy.days} dias grátis, sem cartão.` : `Teste previsto: ${product.trialPolicy.days} dias, sem cartão.`} {trialReady ? "Ativação disponível." : "Ativação online em preparação."}</p>
