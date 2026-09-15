@@ -1,12 +1,12 @@
 export const brandImplementationStatus = {
   approvedDocumentation: [
-    "Connected Modular refinado v1.0",
-    "Brand Baseline v1.0",
-    "paleta oficial",
-    "tipografia oficial",
-    "design tokens",
-    "versões dark/light",
+    "Identidade FM Tecnologia aprovada pelo Diretor em 2026-09-15",
+    "monograma FM metálico com núcleo lime",
+    "lockup FM Tecnologia",
+    "versão monocromática",
+    "app icon / favicon",
+    "direção dark premium",
   ],
-  repositoryAssets: "pending_evidence",
-  currentVisualLayer: "provisional_not_approved_as_official_identity",
+  repositoryAssets: "approved_asset_present",
+  currentVisualLayer: "director_approved_official_identity",
 } as const;
