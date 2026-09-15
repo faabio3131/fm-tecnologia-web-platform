@@ -5,6 +5,7 @@ import { formatBRL } from "@/src/catalog/commerce";
 import { siteConfig } from "@/src/config/site";
 import { ButtonLink } from "@/src/components/ui/button-link";
 import { KordenaStory } from "./kordena-story";
+import { KordenaEnterprise } from "./kordena-next-blocks";
 import content from "@/src/catalog/product-landings.json";
 
 export function hasProductLanding(slug: string): slug is keyof typeof content {
@@ -81,7 +82,7 @@ export function ProductLanding({ product }: { product: Product }) {
       </section>
 
       <nav className="container landing-index" aria-label={"Nesta página: " + product.name}>
-        {isKordena && <><a href="#core">Gerente IA Core</a><a href="#demo">Demo</a><a href="#tour">Tour</a></>}
+        {isKordena && <><a href="#core">Gerente IA Core</a><a href="#demo">Demo</a><a href="#tour">Tour</a><a href="#integracoes">Integrações</a></>}
         <a href="#rotina">Como funciona</a>
         {isKordena && <><a href="#estoque-inteligente">Estoque inteligente</a><a href="#financeiro">Financeiro</a></>}
         <a href="#recursos">Recursos</a>
@@ -117,45 +118,19 @@ export function ProductLanding({ product }: { product: Product }) {
         <div className="container landing-bottom-grid">
           <section id="planos" className="product-conditions" aria-labelledby="landing-plans-title">
             <p className="eyebrow">Planos e condições</p><h2 id="landing-plans-title">{product.name}</h2>
-            {product.pricing && <><div className="pricing-summary">
-              <div><span>Mensal</span><strong>{formatBRL(product.pricing.monthly)}<small>/mês</small></strong></div>
-              <div><span>Anual</span><strong>{formatBRL(product.pricing.annual)}<small>/ano</small></strong></div>
-            </div><p className="enterprise-line"><span>Enterprise</span><strong>Sob consulta</strong></p></>}
+            {product.pricing && <><div className="pricing-summary"><div><span>Mensal</span><strong>{formatBRL(product.pricing.monthly)}<small>/mês</small></strong></div><div><span>Anual</span><strong>{formatBRL(product.pricing.annual)}<small>/ano</small></strong></div></div><p className="enterprise-line"><span>Enterprise</span><strong>Sob consulta</strong></p></>}
             {product.trialPolicy && <div className="trial-note"><strong>{trialReady ? `${product.trialPolicy.days} dias grátis disponíveis.` : `${product.trialPolicy.days} dias grátis — ativação em preparação.`}</strong><p>Sem cartão. {product.trialPolicy.constraint}</p>{!trialReady && <p>A ativação online será liberada após certificação e homologação.</p>}</div>}
-            <div className="actions">
-              {product.trialPolicy && <a className="button button--primary" href="#teste">{trialCta} <span aria-hidden="true">↓</span></a>}
-              <a className={`button ${product.trialPolicy ? "button--secondary" : "button--primary"}`} href={whatsapp}>Falar com a FM <span aria-hidden="true">↗</span></a>
-            </div>
+            <div className="actions">{product.trialPolicy && <a className="button button--primary" href="#teste">{trialCta} <span aria-hidden="true">↓</span></a>}<a className={`button ${product.trialPolicy ? "button--secondary" : "button--primary"}`} href={whatsapp}>Falar com a FM <span aria-hidden="true">↗</span></a></div>
           </section>
-          <section id="duvidas" aria-labelledby="landing-faq-title">
-            <div className="landing-heading"><p className="eyebrow">Antes de começar</p><h2 id="landing-faq-title">Perguntas frequentes</h2></div>
-            <div className="landing-faq">{page.faqs.map(faq => <details key={faq.q}><summary>{faq.q}</summary><p>{faq.a}</p></details>)}</div>
-          </section>
+          <section id="duvidas" aria-labelledby="landing-faq-title"><div className="landing-heading"><p className="eyebrow">Antes de começar</p><h2 id="landing-faq-title">Perguntas frequentes</h2></div><div className="landing-faq">{page.faqs.map(faq => <details key={faq.q}><summary>{faq.q}</summary><p>{faq.a}</p></details>)}</div></section>
         </div>
       </section>
 
       {product.trialPolicy && (
-        <section id="teste" className="container landing-contact landing-trial" aria-labelledby="landing-trial-title">
-          <div>
-            <p className="eyebrow">{product.trialPolicy.days} dias grátis</p>
-            <h2 id="landing-trial-title">Coloque o {product.name} para trabalhar no seu negócio.</h2>
-            <p>Experimente uma nova forma de conectar sua operação, reduzir processos manuais e administrar seu negócio com mais inteligência. {product.trialPolicy.days} dias grátis, sem cartão.</p>
-          </div>
-          <div className="landing-contact-actions">
-            {trialReady ? (
-              <ButtonLink href="/entrar">{isKordena ? `Começar ${product.trialPolicy.days} dias grátis` : "Começar teste grátis"}</ButtonLink>
-            ) : (
-              <a className="button button--primary" href={trialWhatsapp}>{isKordena ? `Quero testar grátis por ${product.trialPolicy.days} dias` : `Quero testar o ${product.name}`} <span aria-hidden="true">↗</span></a>
-            )}
-            <a className="button button--secondary" href={whatsapp}>Falar com a FM <span aria-hidden="true">↗</span></a>
-          </div>
-        </section>
+        <section id="teste" className="container landing-contact landing-trial" aria-labelledby="landing-trial-title"><div><p className="eyebrow">{product.trialPolicy.days} dias grátis</p><h2 id="landing-trial-title">Coloque o {product.name} para trabalhar no seu negócio.</h2><p>Experimente uma nova forma de conectar sua operação, reduzir processos manuais e administrar seu negócio com mais inteligência. {product.trialPolicy.days} dias grátis, sem cartão.</p></div><div className="landing-contact-actions">{trialReady ? <ButtonLink href="/entrar">{isKordena ? `Começar ${product.trialPolicy.days} dias grátis` : "Começar teste grátis"}</ButtonLink> : <a className="button button--primary" href={trialWhatsapp}>{isKordena ? `Quero testar grátis por ${product.trialPolicy.days} dias` : `Quero testar o ${product.name}`} <span aria-hidden="true">↗</span></a>}<a className="button button--secondary" href={whatsapp}>Falar com a FM <span aria-hidden="true">↗</span></a></div></section>
       )}
 
-      <section className="container landing-contact landing-contact--secondary" aria-labelledby="landing-contact-title">
-        <div><p className="eyebrow">Implantação e Enterprise</p><h2 id="landing-contact-title">Precisa falar com a nossa equipe?</h2><p>Estamos disponíveis para implantação, condições Enterprise e dúvidas específicas da sua operação.</p></div>
-        <div className="landing-contact-actions"><a className="button button--secondary" href={whatsapp}>WhatsApp <span aria-hidden="true">↗</span></a><ButtonLink href={email} variant="secondary">E-mail</ButtonLink></div>
-      </section>
+      {isKordena ? <KordenaEnterprise /> : <section className="container landing-contact landing-contact--secondary" aria-labelledby="landing-contact-title"><div><p className="eyebrow">Implantação e Enterprise</p><h2 id="landing-contact-title">Precisa falar com a nossa equipe?</h2><p>Estamos disponíveis para implantação, condições Enterprise e dúvidas específicas da sua operação.</p></div><div className="landing-contact-actions"><a className="button button--secondary" href={whatsapp}>WhatsApp <span aria-hidden="true">↗</span></a><ButtonLink href={email} variant="secondary">E-mail</ButtonLink></div></section>}
     </main>
   );
 }
