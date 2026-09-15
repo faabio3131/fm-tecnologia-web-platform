@@ -33,38 +33,42 @@ Critério de conclusão:
 - delivery próprio apresentado como canal próprio;
 - plataformas externas apresentadas como integrações;
 - sem prometer recursos não confirmados;
-- leitura clara do ecossistema conectado.
+- leitura clara do ecossistema conectado;
+- item “Integrações” incluído no menu interno.
 
-Pendência final da etapa:
-- adicionar “Integrações” ao menu interno da landing.
-
-Status: EM EXECUÇÃO
+Status: CONCLUÍDA
 
 ## 4. Segurança, confiança e governança
 Objetivo: explicar de forma comercial controle humano, permissões, proteção de dados e governança operacional.
 
 Critério de conclusão:
 - seção comercial de confiança e segurança concluída;
-- linguagem clara e sem promessas não comprovadas.
+- controle humano, acessos e responsabilidades comunicados;
+- Gerente IA Core posicionado como inteligência de apoio;
+- linguagem clara e sem certificações ou promessas não comprovadas.
 
-Status: PENDENTE
+Status: CONCLUÍDA
 
 ## 5. Enterprise / Implantação
 Objetivo: fortalecer a abordagem para clientes maiores e operações mais complexas.
 
 Critério de conclusão:
-- bloco corporativo com implantação, suporte, condições Enterprise e CTA específico.
+- bloco corporativo com implantação orientada, configuração da operação, integrações/canais, usuários/acessos e condições Enterprise;
+- CTA de contato direto com a FM Tecnologia;
+- WhatsApp e e-mail preservados;
+- sem SLA, prazo fixo, suporte 24/7 ou customizações ilimitadas inventadas.
 
-Status: PENDENTE
+Status: CONCLUÍDA
 
 ## 6. Prova visual de valor
 Objetivo: demonstrar visualmente a relação entre operação, estoque, financeiro, margem e decisão.
 
 Critério de conclusão:
 - bloco visual forte;
-- cadeia operação → impacto financeiro → decisão claramente compreensível.
+- cadeia operação → estoque → custos → margem → financeiro → decisão claramente compreensível;
+- exemplos conceituais sem números fictícios ou dashboards inventados.
 
-Status: PENDENTE
+Status: CONCLUÍDA
 
 ## 7. Auditoria visual completa
 Objetivo: revisar hierarquia, espaçamento, contraste, ritmo, consistência, responsividade e percepção premium da landing inteira.
