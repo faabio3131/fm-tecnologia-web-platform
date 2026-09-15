@@ -94,11 +94,11 @@
       },
       {
         "q": "O que torna o Kordena diferente?",
-        "a": "O Gerente IA Core é o cérebro da plataforma. Ele conecta dados e processos de atendimento, pedidos, produção, estoque, delivery, marketing e financeiro para transformar áreas isoladas em uma visão integrada da operação e da gestão."
+        "a": "O Gerente IA Core é o cérebro da plataforma. Ele conecta dados e processos de atendimento, pedidos, produção, estoque, delivery, clientes, marketing e financeiro para coordenar a gestão de ponta a ponta e transformar áreas isoladas em uma visão integrada do negócio."
       },
       {
         "q": "Como o Kordena ajuda a reduzir perdas no estoque?",
-        "a": "O sistema acompanha inventário, movimentações, quantidades disponíveis, níveis mínimos e validades. Ele identifica riscos de falta e itens próximos do vencimento e pode sugerir promoções orgânicas para favorecer o aproveitamento e a venda desses produtos dentro do prazo adequado."
+        "a": "O sistema acompanha inventário, movimentações, quantidades disponíveis, níveis mínimos e validades. Ele identifica riscos de falta e itens próximos do vencimento e pode sugerir ações promocionais para favorecer o aproveitamento e a venda desses produtos dentro do prazo adequado."
       },
       {
         "q": "O proprietário acompanha a gestão financeira?",
@@ -110,7 +110,7 @@
       },
       {
         "q": "Quais canais e integrações fazem parte do ecossistema?",
-        "a": "O Kordena conecta salão, balcão, delivery próprio e marketplaces como iFood, Keeta e 99Food. Também integra Google Maps para rotas e estimativas de entrega e Meta para WhatsApp, Facebook e Instagram. A configuração das contas e credenciais acontece durante a implantação."
+        "a": "O Kordena reúne salão, balcão e delivery próprio e prevê integrações com iFood, Keeta e 99Food dentro da mesma visão operacional. Também utiliza Google Maps no delivery próprio e conecta canais de relacionamento e marketing como WhatsApp, Facebook e Instagram. A ativação de integrações e credenciais acontece conforme a implantação de cada operação."
       },
       {
         "q": "O Kordena cria campanhas de marketing?",
@@ -124,11 +124,11 @@
     "features": [
       {
         "title": "Gerente IA Core",
-        "text": "O cérebro da plataforma: conecta os dados da operação, identifica riscos, relaciona informações e apoia decisões de gestão."
+        "text": "O cérebro da plataforma: conecta operação e gestão, identifica riscos, relaciona informações e apoia decisões com contexto do negócio."
       },
       {
-        "title": "Operação omnicanal",
-        "text": "Salão, balcão, PDV, delivery próprio, iFood, Keeta e 99Food reunidos na mesma visão operacional."
+        "title": "Operação conectada",
+        "text": "Salão, balcão, PDV, delivery próprio e integrações de venda reunidos em uma mesma visão operacional."
       },
       {
         "title": "Produção conectada",
@@ -136,11 +136,11 @@
       },
       {
         "title": "Estoque preditivo",
-        "text": "Inventário em tempo real, validades, previsão de riscos e sugestões de promoções para reduzir perdas."
+        "text": "Inventário em tempo real, validades, sinais de risco e sugestões de ações para ajudar a reduzir perdas."
       },
       {
         "title": "Financeiro em tempo real",
-        "text": "Faturamento, recebimentos, pendências, valor em estoque, custos, lucros reais e previsões para o proprietário."
+        "text": "Faturamento, recebimentos, pendências, valor em estoque, custos, margens, lucros reais e previsões para o proprietário."
       },
       {
         "title": "Delivery e rotas",
@@ -156,7 +156,7 @@
       }
     ],
     "headline": "Inteligência no centro. Gestão de ponta a ponta.",
-    "intro": "Da operação diária à gestão financeira, o Kordena conecta vendas, atendimento, produção, delivery, estoque, marketing e financeiro em uma única plataforma coordenada pelo Gerente IA Core.",
+    "intro": "Da operação diária à gestão financeira, o Kordena conecta vendas, atendimento, produção, delivery, estoque, clientes, marketing e financeiro em uma única plataforma coordenada pelo Gerente IA Core.",
     "journey": [
       "Operação e canais de venda",
       "Estoque, produção e entregas",
@@ -170,7 +170,7 @@
         "title": "Comandar a operação de ponta a ponta",
         "description": "Transforme canais e equipes diferentes em uma operação coordenada pelo Gerente IA Core.",
         "steps": [
-          "Centralize pedidos do salão, balcão, delivery próprio e marketplaces como iFood, Keeta e 99Food.",
+          "Centralize pedidos do salão, balcão, delivery próprio e integrações como iFood, Keeta e 99Food.",
           "Conecte mesas, comandas e PDV à produção organizada pelo KDS.",
           "Acompanhe preparo, expedição e entrega com informações compartilhadas entre as áreas."
         ]
@@ -181,7 +181,7 @@
         "steps": [
           "Acompanhe em tempo real insumos, movimentações, quantidades disponíveis, reservas, estoque mínimo e validades.",
           "Identifique produtos e insumos próximos do vencimento e riscos de falta ou perda.",
-          "Receba sugestões de promoções orgânicas para liquidar itens dentro do prazo e transformar risco em oportunidade de venda."
+          "Receba sugestões de ações promocionais para favorecer a saída de itens dentro do prazo adequado e transformar risco em oportunidade de venda."
         ]
       },
       {
