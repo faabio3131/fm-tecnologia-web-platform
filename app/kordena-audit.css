@@ -137,7 +137,7 @@
 .landing-contact--secondary .landing-contact-actions { grid-template-columns: repeat(2,minmax(0,1fr)); }
 .landing-contact--secondary .landing-contact-actions .button { background: transparent; color: var(--ink); min-width: 120px; }
 
-/* Kordena Hero Cube — V2: tecnológica e dinâmica */
+/* Kordena Hero Cube — V2 premium, fiel à amostra aprovada */
 .kordena-hero-core--v2 { overflow: hidden; }
 .kordena-v2-scene {
   position: relative;
@@ -145,9 +145,10 @@
   margin-top: 1.15rem;
   border-radius: 1rem;
   background:
-    radial-gradient(circle at 50% 50%,rgba(183,244,60,.18),transparent 28%),
-    radial-gradient(circle at 50% 58%,rgba(82,255,173,.08),transparent 46%),
-    linear-gradient(180deg,rgba(255,255,255,.018),rgba(0,0,0,.11));
+    radial-gradient(circle at 50% 50%,rgba(171,255,55,.105),transparent 27%),
+    radial-gradient(circle at 50% 56%,rgba(39,230,134,.045),transparent 48%),
+    linear-gradient(180deg,#0b2119 0%,#071711 100%);
+  box-shadow: inset 0 0 46px rgba(0,0,0,.22);
   isolation: isolate;
 }
 .kordena-v2-scene::before,
@@ -162,54 +163,69 @@
   width: 286px;
   height: 286px;
   transform: translate(-50%,-50%);
-  border: 1px solid rgba(126,224,173,.15);
-  box-shadow: inset 0 0 55px rgba(183,244,60,.035);
+  border: 1px solid rgba(109,205,153,.14);
+  box-shadow:
+    inset 0 0 58px rgba(182,255,62,.018),
+    0 0 36px rgba(17,88,57,.08);
 }
 .kordena-v2-scene::after {
-  width: 190px;
-  height: 190px;
+  width: 205px;
+  height: 205px;
   transform: translate(-50%,-50%);
-  background: radial-gradient(circle,rgba(183,244,60,.14),rgba(183,244,60,.035) 48%,transparent 70%);
-  filter: blur(8px);
+  background: radial-gradient(circle,rgba(177,255,57,.13),rgba(88,201,69,.035) 46%,transparent 72%);
+  filter: blur(11px);
 }
 .kordena-v2-core-glow {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 152px;
-  height: 152px;
+  width: 166px;
+  height: 166px;
   transform: translate(-50%,-50%);
   border-radius: 50%;
-  background: radial-gradient(circle,rgba(193,255,74,.28),rgba(183,244,60,.07) 48%,transparent 72%);
-  filter: blur(9px);
+  background: radial-gradient(circle,rgba(186,255,55,.24),rgba(114,224,49,.075) 45%,transparent 72%);
+  filter: blur(11px);
   z-index: 1;
 }
 .kordena-v2-energy {
   position: absolute;
   left: 50%;
   top: 50%;
-  border: 1px solid rgba(183,244,60,.32);
+  border: 1px solid rgba(179,247,59,.33);
   border-radius: 50%;
   transform-style: preserve-3d;
   pointer-events: none;
   z-index: 2;
+  box-shadow: 0 0 10px rgba(181,246,60,.035);
+}
+.kordena-v2-energy::before {
+  content: "";
+  position: absolute;
+  left: 7%;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
+  background: #c8ff54;
+  box-shadow: 0 0 10px #b9ff43,0 0 18px rgba(185,255,67,.55);
 }
 .kordena-v2-energy--one {
   width: 254px;
   height: 132px;
-  animation: kordena-v2-orbit-a 10s linear infinite;
+  animation: kordena-v2-orbit-a 12s linear infinite;
 }
 .kordena-v2-energy--two {
   width: 230px;
   height: 150px;
-  border-color: rgba(82,255,173,.23);
-  animation: kordena-v2-orbit-b 13s linear infinite reverse;
+  border-color: rgba(74,231,151,.23);
+  animation: kordena-v2-orbit-b 15s linear infinite reverse;
 }
 .kordena-v2-energy--three {
   width: 205px;
   height: 112px;
-  border-color: rgba(255,255,255,.12);
-  animation: kordena-v2-orbit-c 16s linear infinite;
+  border-color: rgba(210,255,139,.14);
+  animation: kordena-v2-orbit-c 18s linear infinite;
 }
 .kordena-v2-cube-wrap {
   position: absolute;
@@ -218,8 +234,22 @@
   width: 126px;
   height: 126px;
   transform: translate(-50%,-50%);
-  perspective: 900px;
+  perspective: 980px;
   z-index: 5;
+  filter: drop-shadow(0 16px 26px rgba(0,0,0,.34)) drop-shadow(0 0 18px rgba(172,255,48,.22));
+}
+.kordena-v2-cube-wrap::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 58%;
+  width: 145px;
+  height: 54px;
+  transform: translate(-50%,-50%) rotateX(68deg);
+  border-radius: 50%;
+  background: radial-gradient(ellipse,rgba(176,255,49,.2),rgba(176,255,49,.045) 48%,transparent 72%);
+  filter: blur(8px);
+  z-index: -1;
 }
 .kordena-v2-cube {
   position: relative;
@@ -227,7 +257,7 @@
   height: 100%;
   transform-style: preserve-3d;
   transform: rotateX(-20deg) rotateY(28deg);
-  animation: kordena-v2-spin 10s linear infinite;
+  animation: kordena-v2-spin 12s linear infinite;
 }
 .kordena-v2-face {
   position: absolute;
@@ -236,47 +266,100 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(214,255,126,.76);
-  background:
-    linear-gradient(145deg,rgba(188,255,58,.98),rgba(104,183,24,.88));
-  color: #06120e;
-  box-shadow:
-    inset 0 0 28px rgba(255,255,255,.2),
-    0 0 28px rgba(183,244,60,.23),
-    0 0 52px rgba(183,244,60,.08);
+  border: 1px solid rgba(190,255,72,.82);
+  color: #d8ff79;
   backface-visibility: hidden;
   text-align: center;
+  overflow: hidden;
+  box-shadow:
+    inset 0 0 22px rgba(177,255,57,.07),
+    inset 0 -20px 36px rgba(0,0,0,.28),
+    0 0 10px rgba(183,255,59,.22),
+    0 0 28px rgba(169,255,50,.08);
 }
-.kordena-v2-face strong { font-size: 1.2rem; letter-spacing: -.04em; }
-.kordena-v2-face span { margin-top: .22rem; font-size: .54rem; font-weight: 900; letter-spacing: .09em; }
-.kordena-v2-face--front { transform: translateZ(63px); }
-.kordena-v2-face--back { transform: rotateY(180deg) translateZ(63px); }
-.kordena-v2-face--right { transform: rotateY(90deg) translateZ(63px); }
-.kordena-v2-face--left { transform: rotateY(-90deg) translateZ(63px); }
-.kordena-v2-face--top { transform: rotateX(90deg) translateZ(63px); }
-.kordena-v2-face--bottom { transform: rotateX(-90deg) translateZ(63px); }
+.kordena-v2-face::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg,rgba(255,255,255,.065),transparent 32%),
+    radial-gradient(circle at 35% 22%,rgba(188,255,76,.09),transparent 38%);
+  pointer-events: none;
+}
+.kordena-v2-face strong,
+.kordena-v2-face span { position: relative; z-index: 1; }
+.kordena-v2-face strong {
+  font-size: 1.16rem;
+  font-weight: 820;
+  letter-spacing: -.035em;
+  text-shadow: 0 0 9px rgba(195,255,83,.18);
+}
+.kordena-v2-face span {
+  margin-top: .24rem;
+  font-size: .5rem;
+  font-weight: 780;
+  letter-spacing: .095em;
+  color: rgba(213,255,121,.78);
+}
+.kordena-v2-face--front {
+  transform: translateZ(63px);
+  background: linear-gradient(145deg,#173c23 0%,#0d2819 44%,#07150f 100%);
+  border-color: rgba(203,255,93,.92);
+  box-shadow:
+    inset 0 0 30px rgba(182,255,60,.09),
+    inset 0 -22px 38px rgba(0,0,0,.28),
+    0 0 12px rgba(188,255,63,.28),
+    0 0 30px rgba(181,255,58,.12);
+}
+.kordena-v2-face--back {
+  transform: rotateY(180deg) translateZ(63px);
+  background: linear-gradient(145deg,#0b2518,#06110d);
+}
+.kordena-v2-face--right {
+  transform: rotateY(90deg) translateZ(63px);
+  background: linear-gradient(150deg,#12321e 0%,#0b2115 48%,#06120d 100%);
+  color: #c9ff65;
+}
+.kordena-v2-face--left {
+  transform: rotateY(-90deg) translateZ(63px);
+  background: linear-gradient(150deg,#0c291a,#06130e);
+}
+.kordena-v2-face--top {
+  transform: rotateX(90deg) translateZ(63px);
+  background: linear-gradient(145deg,#285b2d 0%,#173c23 55%,#0c2517 100%);
+  color: #dfff83;
+  box-shadow:
+    inset 0 0 30px rgba(194,255,79,.12),
+    0 0 18px rgba(178,255,59,.15);
+}
+.kordena-v2-face--bottom {
+  transform: rotateX(-90deg) translateZ(63px);
+  background: linear-gradient(145deg,#07160f,#040b08);
+  color: rgba(205,255,109,.55);
+}
 .kordena-v2-node {
   position: absolute;
   z-index: 6;
   min-width: 90px;
   padding: .42rem .66rem;
-  border: 1px solid rgba(95,171,140,.65);
+  border: 1px solid rgba(93,176,137,.58);
   border-radius: 999px;
-  background: rgba(11,39,30,.9);
-  color: #e7f2ec;
+  background: linear-gradient(180deg,rgba(13,48,36,.88),rgba(7,31,23,.94));
+  color: #edf7f1;
   font-size: .68rem;
   font-weight: 800;
   text-align: center;
-  box-shadow: 0 10px 24px rgba(0,0,0,.16), inset 0 0 14px rgba(183,244,60,.025);
-  backdrop-filter: blur(3px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.18), inset 0 0 14px rgba(183,244,60,.02);
+  backdrop-filter: blur(4px);
 }
 .kordena-v2-node::after {
   content: "";
   position: absolute;
   width: 44px;
   height: 1px;
-  background: linear-gradient(90deg,rgba(183,244,60,.68),rgba(183,244,60,.04));
+  background: linear-gradient(90deg,rgba(188,255,67,.68),rgba(188,255,67,.025));
   top: 50%;
+  box-shadow: 0 0 6px rgba(181,255,61,.08);
 }
 .kordena-v2-node--atendimento { left: 3%; top: 6%; }
 .kordena-v2-node--atendimento::after { left: 100%; transform: rotate(25deg); transform-origin: left center; }
@@ -292,7 +375,7 @@
 .kordena-v2-node--clientes::after { right: 100%; transform: rotate(24deg); transform-origin: right center; }
 @keyframes kordena-v2-spin {
   0% { transform: rotateX(-20deg) rotateY(28deg); }
-  50% { transform: rotateX(-14deg) rotateY(208deg); }
+  50% { transform: rotateX(-15deg) rotateY(208deg); }
   100% { transform: rotateX(-20deg) rotateY(388deg); }
 }
 @keyframes kordena-v2-orbit-a {
