@@ -42,23 +42,40 @@ const pages = [
       "O treino também entende a estrutura da academia.",
       "Da reserva à presença, dentro do mesmo contexto.",
       "A operação acontece. O financeiro acompanha.",
-      "Catálogo mestre",
-      "Check-in",
-      "Mensalidades",
       "IRON INTELLIGENCE",
       "O profissional continua no controle.",
       "Aggregator Hub",
-      "Arquitetura preparada para integração.",
-      "preparação/homologação",
       "Segurança, confiança e governança",
-      "Isolamento entre academias",
-      "Papéis e responsabilidades",
-      "Rastreabilidade",
-      "idempotência",
+      "Demonstração do produto",
+      "Demonstração em preparação",
+      "Tour do produto",
+      "Dashboard da academia",
+      "Gestão de alunos",
+      "Treinos e avaliações",
+      "Equipamentos",
+      "Financeiro",
+      "App do aluno",
+      "Screenshot real em preparação",
+      "Uma plataforma para evoluir junto com a academia.",
+      "269",
+      "2.690",
+      "Enterprise",
+      "Sob consulta",
+      "Teste ainda não disponível para ativação.",
+      "Dúvidas frequentes",
+      "O Iron Fit Core é apenas um aplicativo para alunos?",
+      "O aluno possui aplicativo próprio?",
+      "O sistema possui gestão financeira?",
+      "O Iron Fit utiliza inteligência artificial?",
+      "O Iron Fit já está integrado ao Wellhub, TotalPass e ClassPass?",
+      "Como funciona a segurança dos dados?",
+      "Sua academia conectada para evoluir.",
+      "Falar com a FM",
+      "Ver planos",
       "ironfitcore.com.br",
       "/iron-fit-core-official-lockup.webp",
     ],
-    anchors: ["core", "gestao", "app", "treinos", "financeiro", "inteligencia", "ecossistema", "seguranca"],
+    anchors: ["core", "gestao", "app", "treinos", "inteligencia", "seguranca", "demo", "tour", "planos", "duvidas", "contato"],
     trialState: false,
     emailSubject: false,
   },
@@ -74,12 +91,13 @@ for (const page of pages) {
     assert.ok(html.includes(`href="#${anchor}"`), `${page.slug}: href=#${anchor}`);
   }
   if (page.trialState) assert.ok(html.includes("Ativação online em preparação."), `${page.slug}: trial online state`);
-  else assert.ok(!html.includes("30 dias grátis"), `${page.slug}: future commercial blocks must not leak before phase 7`);
+  else assert.ok(!html.includes("30 dias grátis"), `${page.slug}: inactive trial must not be presented as active`);
   assert.ok(html.includes("https://wa.me/5511978350851?text="), `${page.slug}: whatsapp`);
   if (page.emailSubject) assert.ok(html.includes(`subject=${encodeURIComponent("Interesse em " + page.name)}`), `${page.slug}: email subject`);
   assert.ok(!html.includes("interesse=trial"), `${page.slug}: trial must not be falsely enabled`);
   assert.ok(!html.includes("<video"), `${page.slug}: no fabricated video`);
   if (page.slug === "iron-fit") {
+    assert.ok(!html.includes("<iframe"), "iron-fit: no generic iframe without an approved source");
     assert.ok(!html.includes("/iron-fit-core-approved-symbol.webp"), "iron-fit: broken legacy symbol reference removed");
     assert.ok(!html.includes("/iron-fit-core-approved-hero.webp"), "iron-fit: broken legacy hero reference removed");
     for (const prohibited of ["ISO 27001", "SOC 2", "LGPD certificada", "integração homologada", "parceiro oficial", "99,9%"])
@@ -91,4 +109,4 @@ const ironFitAsset = await readFile("out/iron-fit-core-official-lockup.webp");
 assert.equal(ironFitAsset.subarray(0, 4).toString("ascii"), "RIFF", "iron-fit: official lockup must be a valid RIFF WebP");
 assert.equal(ironFitAsset.subarray(8, 12).toString("ascii"), "WEBP", "iron-fit: official lockup must be a valid WebP asset");
 
-console.log("Landing export smoke: Kordena + Iron Fit Core through Intelligence/Ecosystem/Security passed");
+console.log("Landing export smoke: Kordena + Iron Fit Core conversion structure passed");
