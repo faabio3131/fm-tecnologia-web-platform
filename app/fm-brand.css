@@ -30,16 +30,17 @@
   height: 52px;
   object-fit: contain;
   object-position: left center;
+  mix-blend-mode: screen;
 }
 
 .logo-slogan {
   display: block;
-  margin-top: .24rem;
+  margin-top: .48rem;
   color: #b7f43c;
-  font-size: .43rem;
+  font-size: .46rem;
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: .105em;
+  letter-spacing: .095em;
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -82,6 +83,22 @@
   outline-color: var(--lime);
 }
 
+/* Product cards — softer action area to reduce excessive white space. */
+.product-card .text-link {
+  margin: auto -1.5rem -1.5rem;
+  padding: 1rem 1.5rem;
+  min-height: 58px;
+  border-top: 1px solid rgba(7, 20, 17, .11);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  background: #eef3ef;
+  transition: background .2s, color .2s;
+}
+
+.product-card .text-link:hover,
+.product-card .text-link:focus-visible {
+  background: #e5ede7;
+}
+
 .site-footer .logo.logo--approved {
   width: 250px;
   min-height: 68px;
@@ -107,13 +124,13 @@
   }
 
   .logo-slogan {
-    font-size: .39rem;
+    font-size: .42rem;
   }
 }
 
 @media (max-width: 860px) {
   .site-header {
-    height: 84px;
+    height: 88px;
   }
 
   .site-header .header-inner {
@@ -121,24 +138,24 @@
   }
 
   .logo.logo--approved {
-    width: 188px;
-    min-height: 56px;
+    width: 196px;
+    min-height: 60px;
   }
 
   .logo.logo--approved .logo-image {
-    height: 43px;
+    height: 45px;
   }
 
   .logo-slogan {
-    margin-top: .2rem;
-    font-size: .355rem;
-    letter-spacing: .085em;
+    margin-top: .42rem;
+    font-size: .39rem;
+    letter-spacing: .07em;
   }
 }
 
 @media (max-width: 560px) {
   .site-header {
-    height: 82px;
+    height: 90px;
   }
 
   .site-header .header-inner {
@@ -146,30 +163,35 @@
   }
 
   .logo.logo--approved {
-    width: 172px;
-    min-height: 54px;
-  }
-
-  .logo.logo--approved .logo-image {
-    height: 39px;
-  }
-
-  .logo-slogan {
-    margin-top: .18rem;
-    font-size: .32rem;
-    letter-spacing: .07em;
-  }
-
-  .site-footer .logo.logo--approved {
-    width: 210px;
+    width: 190px;
     min-height: 62px;
   }
 
+  .logo.logo--approved .logo-image {
+    height: 43px;
+  }
+
+  .logo-slogan {
+    margin-top: .44rem;
+    font-size: .37rem;
+    letter-spacing: .055em;
+  }
+
+  .product-card .text-link {
+    min-height: 60px;
+    padding: 1rem 1.5rem;
+  }
+
+  .site-footer .logo.logo--approved {
+    width: 218px;
+    min-height: 66px;
+  }
+
   .site-footer .logo.logo--approved .logo-image {
-    height: 48px;
+    height: 50px;
   }
 
   .site-footer .logo-slogan {
-    font-size: .37rem;
+    font-size: .4rem;
   }
 }
