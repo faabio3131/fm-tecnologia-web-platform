@@ -23,7 +23,7 @@ Critério de conclusão:
 - estrutura pronta para screenshots reais;
 - coerente com o Design System FM.
 
-Status: EM EXECUÇÃO
+Status: CONCLUÍDA
 
 ## 3. Integrações e ecossistema
 Objetivo: apresentar de forma clara as integrações confirmadas do Kordena, como iFood, Keeta, 99Food, Google Maps, WhatsApp, Facebook e Instagram.
@@ -33,7 +33,7 @@ Critério de conclusão:
 - sem prometer recursos não confirmados;
 - leitura clara do ecossistema conectado.
 
-Status: PENDENTE
+Status: EM EXECUÇÃO
 
 ## 4. Segurança, confiança e governança
 Objetivo: explicar de forma comercial controle humano, permissões, proteção de dados e governança operacional.
