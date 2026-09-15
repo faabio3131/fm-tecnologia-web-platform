@@ -1,11 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Product } from "@/src/catalog/types";
 import { siteConfig } from "@/src/config/site";
 
 const domains = ["Aluno", "Treino", "Avaliação", "Equipamentos", "Agenda", "Acesso", "Financeiro", "Inteligência"] as const;
 
-export function IronFitCorePhaseOne({ product }: { product: Product }) {
+export function IronFitCorePhaseOne() {
   const message = "Olá! Quero conhecer o Iron Fit Core e entender a disponibilidade para minha academia.";
   const whatsapp = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(message)}`;
 
