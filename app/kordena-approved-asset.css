@@ -48,10 +48,13 @@
     drop-shadow(0 0 30px rgba(177,255,54,.14));
 }
 
-/* Hero: mesma arte oficial, apenas com rotação/flutuação suave. */
+/* Hero: mesma arte oficial, com rotação/flutuação claramente perceptível e elegante. */
 .kordena-core-brandmark--hero {
   transform-origin: 50% 52%;
-  animation: kordena-core-hero-motion 6.2s ease-in-out infinite;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform;
+  animation: kordena-core-hero-motion 6s ease-in-out infinite;
 }
 
 /* O asset já contém seus orbitais. Os orbitais vivos do Hero ficam discretos. */
@@ -76,7 +79,7 @@
   filter: blur(19px);
 }
 
-/* Seção "O cérebro que conecta...": substitui o círculo antigo pela mesma marca, fixa. */
+/* Seção "O cérebro que conecta...": mesma marca oficial, fixa e sem rotação. */
 .kordena-core-center--brandmark {
   width: 224px;
   height: 234px;
@@ -97,15 +100,23 @@
 }
 
 .kordena-core-brandmark--static {
-  animation: none;
+  animation: none !important;
+  transform: none !important;
+  will-change: auto;
 }
 
 @keyframes kordena-core-hero-motion {
-  0%,100% {
-    transform: perspective(900px) translateY(3px) rotateX(1deg) rotateY(-4deg) rotateZ(-.35deg) scale(1);
+  0%, 100% {
+    transform: perspective(900px) translateY(4px) rotateX(2deg) rotateY(-10deg) rotateZ(-.7deg) scale(.995);
+  }
+  25% {
+    transform: perspective(900px) translateY(-2px) rotateX(-1deg) rotateY(-3deg) rotateZ(-.2deg) scale(1.006);
   }
   50% {
-    transform: perspective(900px) translateY(-6px) rotateX(-1deg) rotateY(4deg) rotateZ(.35deg) scale(1.015);
+    transform: perspective(900px) translateY(-7px) rotateX(-2deg) rotateY(10deg) rotateZ(.7deg) scale(1.016);
+  }
+  75% {
+    transform: perspective(900px) translateY(-2px) rotateX(1deg) rotateY(3deg) rotateZ(.2deg) scale(1.006);
   }
 }
 
