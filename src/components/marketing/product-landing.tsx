@@ -81,7 +81,7 @@ export function ProductLanding({ product }: { product: Product }) {
       </section>
 
       <nav className="container landing-index" aria-label={"Nesta página: " + product.name}>
-        {isKordena && <><a href="#core">Gerente IA Core</a><a href="#demo">Demo</a></>}
+        {isKordena && <><a href="#core">Gerente IA Core</a><a href="#demo">Demo</a><a href="#tour">Tour</a></>}
         <a href="#rotina">Como funciona</a>
         {isKordena && <><a href="#estoque-inteligente">Estoque inteligente</a><a href="#financeiro">Financeiro</a></>}
         <a href="#recursos">Recursos</a>
