@@ -26,12 +26,17 @@ Critério de conclusão:
 Status: CONCLUÍDA
 
 ## 3. Integrações e ecossistema
-Objetivo: apresentar de forma clara as integrações confirmadas do Kordena, como iFood, Keeta, 99Food, Google Maps, WhatsApp, Facebook e Instagram.
+Objetivo: apresentar de forma clara as integrações confirmadas do Kordena, como iFood, Keeta, 99Food, Google Maps, WhatsApp, Facebook e Instagram, além do delivery próprio como canal operacional do ecossistema.
 
 Critério de conclusão:
 - bloco específico de integrações implementado;
+- delivery próprio apresentado como canal próprio;
+- plataformas externas apresentadas como integrações;
 - sem prometer recursos não confirmados;
 - leitura clara do ecossistema conectado.
+
+Pendência final da etapa:
+- adicionar “Integrações” ao menu interno da landing.
 
 Status: EM EXECUÇÃO
 
@@ -69,12 +74,19 @@ Critério de conclusão:
 - notebook revisado;
 - tablet revisado;
 - mobile revisado;
-- correções visuais aplicadas.
+- correções visuais aplicadas;
+- extensão vertical da página reduzida sem perda de clareza, conversão ou percepção premium.
 
-Pendências já registradas para esta etapa:
+Pendências e diretrizes já registradas para esta etapa:
 - corrigir offset das âncoras em relação ao header fixo;
 - revisar o desequilíbrio visual entre Planos e FAQ;
-- elevar o acabamento premium do bloco Recursos em foco.
+- elevar o acabamento premium do bloco Recursos em foco;
+- reduzir espaços verticais excessivos entre seções;
+- reduzir paddings, alturas e lacunas internas onde houver espaço ocioso;
+- compactar cards e blocos que estejam maiores do que o necessário;
+- revisar repetições visuais e textuais que prolonguem a página sem acrescentar valor;
+- encurtar a rolagem total da landing mantendo legibilidade, hierarquia e conforto visual;
+- preservar respiro suficiente para que a página continue parecendo premium e não fique visualmente apertada.
 
 Status: PENDENTE
 
