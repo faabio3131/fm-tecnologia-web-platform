@@ -13,6 +13,7 @@ export function Logo() {
         priority
         unoptimized
       />
+      <span className="logo-slogan">Inteligência que conecta. Soluções que transformam.</span>
     </Link>
   );
 }
