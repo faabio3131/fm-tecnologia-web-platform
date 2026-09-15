@@ -16,24 +16,24 @@
 }
 
 .kordena-hero-core--v2 .kordena-v2-core-glow {
-  width: 192px;
-  height: 192px;
-  background: radial-gradient(circle, rgba(194, 255, 77, .15), rgba(128, 225, 69, .04) 42%, transparent 72%);
-  filter: blur(18px);
+  width: 202px;
+  height: 202px;
+  background: radial-gradient(circle, rgba(194, 255, 77, .18), rgba(128, 225, 69, .05) 42%, transparent 73%);
+  filter: blur(20px);
 }
 
 .kordena-hero-core--v2 .kordena-v2-energy {
-  border-width: .75px;
-  border-color: rgba(190, 250, 85, .20);
-  box-shadow: 0 0 14px rgba(185, 249, 75, .025);
-  opacity: .86;
+  border-width: .7px;
+  border-color: rgba(190, 250, 85, .18);
+  box-shadow: 0 0 14px rgba(185, 249, 75, .022);
+  opacity: .82;
 }
 
 .kordena-hero-core--v2 .kordena-v2-energy::before {
   width: 3px;
   height: 3px;
-  background: rgba(211, 255, 120, .92);
-  box-shadow: 0 0 8px rgba(195, 255, 82, .72), 0 0 16px rgba(185, 255, 73, .30);
+  background: rgba(211, 255, 120, .9);
+  box-shadow: 0 0 8px rgba(195, 255, 82, .65), 0 0 16px rgba(185, 255, 73, .26);
 }
 
 .kordena-hero-core--v2 .kordena-v2-energy--one {
@@ -45,14 +45,14 @@
 .kordena-hero-core--v2 .kordena-v2-energy--two {
   width: 238px;
   height: 142px;
-  border-color: rgba(87, 226, 158, .14);
+  border-color: rgba(87, 226, 158, .13);
   animation-duration: 20s;
 }
 
 .kordena-hero-core--v2 .kordena-v2-energy--three {
   width: 214px;
   height: 102px;
-  border-color: rgba(218, 255, 158, .09);
+  border-color: rgba(218, 255, 158, .085);
   animation-duration: 24s;
 }
 
@@ -61,15 +61,30 @@
   height: 110px;
   perspective: 1050px;
   filter:
-    drop-shadow(0 14px 24px rgba(0, 0, 0, .30))
-    drop-shadow(0 0 12px rgba(177, 255, 54, .13));
+    drop-shadow(0 14px 24px rgba(0, 0, 0, .28))
+    drop-shadow(0 0 14px rgba(177, 255, 54, .17))
+    drop-shadow(0 0 30px rgba(177, 255, 54, .07));
+}
+
+.kordena-hero-core--v2 .kordena-v2-cube-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -22px;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 24% 22%, rgba(205, 255, 113, .16), transparent 24%),
+    radial-gradient(circle at 78% 24%, rgba(190, 255, 75, .11), transparent 22%),
+    radial-gradient(circle at 50% 78%, rgba(180, 255, 62, .08), transparent 30%);
+  filter: blur(18px);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .kordena-hero-core--v2 .kordena-v2-cube-wrap::after {
-  width: 132px;
-  height: 46px;
-  background: radial-gradient(ellipse, rgba(188, 255, 70, .11), rgba(178, 255, 66, .024) 45%, transparent 72%);
-  filter: blur(12px);
+  width: 136px;
+  height: 48px;
+  background: radial-gradient(ellipse, rgba(188, 255, 70, .12), rgba(178, 255, 66, .025) 45%, transparent 72%);
+  filter: blur(13px);
 }
 
 .kordena-hero-core--v2 .kordena-v2-cube {
@@ -77,20 +92,37 @@
 }
 
 .kordena-hero-core--v2 .kordena-v2-face {
-  border-width: .75px;
-  border-color: rgba(202, 255, 107, .50);
+  border-width: .65px;
+  border-color: rgba(202, 255, 107, .40);
+  border-radius: 9px;
   color: rgba(224, 255, 150, .94);
   box-shadow:
-    inset 0 0 26px rgba(180, 255, 68, .045),
-    inset 0 -18px 30px rgba(0, 0, 0, .22),
-    0 0 8px rgba(187, 255, 68, .10),
-    0 0 22px rgba(177, 255, 58, .04);
+    inset 0 0 28px rgba(180, 255, 68, .05),
+    inset 0 -18px 30px rgba(0, 0, 0, .20),
+    0 0 9px rgba(187, 255, 68, .12),
+    0 0 24px rgba(177, 255, 58, .055);
 }
 
 .kordena-hero-core--v2 .kordena-v2-face::before {
   background:
-    linear-gradient(120deg, rgba(255, 255, 255, .045), transparent 31%),
-    radial-gradient(circle at 34% 22%, rgba(195, 255, 91, .055), transparent 40%);
+    linear-gradient(120deg, rgba(255, 255, 255, .052), transparent 31%),
+    radial-gradient(circle at 34% 22%, rgba(195, 255, 91, .07), transparent 40%);
+}
+
+.kordena-hero-core--v2 .kordena-v2-face::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 11px;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 0 0, rgba(214, 255, 125, .36), transparent 12%),
+    radial-gradient(circle at 100% 0, rgba(207, 255, 104, .26), transparent 12%),
+    radial-gradient(circle at 0 100%, rgba(190, 255, 82, .16), transparent 14%),
+    radial-gradient(circle at 100% 100%, rgba(190, 255, 82, .14), transparent 14%);
+  filter: blur(3px);
+  mix-blend-mode: screen;
+  opacity: .9;
 }
 
 .kordena-hero-core--v2 .kordena-v2-face strong {
@@ -111,43 +143,44 @@
 .kordena-hero-core--v2 .kordena-v2-face--front {
   transform: translateZ(55px);
   background:
-    linear-gradient(145deg, rgba(25, 66, 39, .86) 0%, rgba(13, 42, 25, .90) 44%, rgba(6, 22, 15, .96) 100%);
-  border-color: rgba(207, 255, 112, .66);
+    linear-gradient(145deg, rgba(25, 66, 39, .82) 0%, rgba(13, 42, 25, .87) 44%, rgba(6, 22, 15, .94) 100%);
+  border-color: rgba(207, 255, 112, .52);
   box-shadow:
-    inset 0 0 32px rgba(183, 255, 66, .055),
-    inset 0 -20px 34px rgba(0, 0, 0, .24),
-    0 0 9px rgba(192, 255, 75, .14),
-    0 0 25px rgba(181, 255, 63, .055);
+    inset 0 0 34px rgba(183, 255, 66, .065),
+    inset 0 -20px 34px rgba(0, 0, 0, .22),
+    0 0 10px rgba(192, 255, 75, .18),
+    0 0 30px rgba(181, 255, 63, .08);
 }
 
 .kordena-hero-core--v2 .kordena-v2-face--back {
   transform: rotateY(180deg) translateZ(55px);
-  background: linear-gradient(145deg, rgba(10, 35, 22, .94), rgba(4, 15, 10, .98));
+  background: linear-gradient(145deg, rgba(10, 35, 22, .92), rgba(4, 15, 10, .97));
 }
 
 .kordena-hero-core--v2 .kordena-v2-face--right {
   transform: rotateY(90deg) translateZ(55px);
-  background: linear-gradient(150deg, rgba(17, 49, 29, .88) 0%, rgba(9, 31, 19, .94) 50%, rgba(4, 16, 11, .98) 100%);
-  color: rgba(213, 255, 128, .86);
+  background: linear-gradient(150deg, rgba(17, 49, 29, .84) 0%, rgba(9, 31, 19, .91) 50%, rgba(4, 16, 11, .97) 100%);
+  color: rgba(213, 255, 128, .84);
 }
 
 .kordena-hero-core--v2 .kordena-v2-face--left {
   transform: rotateY(-90deg) translateZ(55px);
-  background: linear-gradient(150deg, rgba(11, 39, 24, .92), rgba(4, 17, 11, .98));
+  background: linear-gradient(150deg, rgba(11, 39, 24, .89), rgba(4, 17, 11, .97));
 }
 
 .kordena-hero-core--v2 .kordena-v2-face--top {
   transform: rotateX(90deg) translateZ(55px);
-  background: linear-gradient(145deg, rgba(46, 93, 48, .74) 0%, rgba(22, 59, 34, .86) 55%, rgba(9, 34, 20, .95) 100%);
+  background: linear-gradient(145deg, rgba(51, 100, 51, .72) 0%, rgba(24, 63, 36, .83) 55%, rgba(9, 34, 20, .93) 100%);
   color: rgba(231, 255, 169, .88);
   box-shadow:
-    inset 0 0 30px rgba(196, 255, 88, .07),
-    0 0 10px rgba(183, 255, 65, .07);
+    inset 0 0 32px rgba(196, 255, 88, .08),
+    0 0 13px rgba(183, 255, 65, .10),
+    0 0 28px rgba(183, 255, 65, .05);
 }
 
 .kordena-hero-core--v2 .kordena-v2-face--bottom {
   transform: rotateX(-90deg) translateZ(55px);
-  background: linear-gradient(145deg, rgba(6, 21, 14, .96), rgba(3, 10, 7, .99));
+  background: linear-gradient(145deg, rgba(6, 21, 14, .94), rgba(3, 10, 7, .98));
   color: rgba(205, 255, 118, .42);
 }
 
@@ -155,6 +188,9 @@
   .kordena-hero-core--v2 .kordena-v2-cube-wrap {
     width: 96px;
     height: 96px;
+  }
+  .kordena-hero-core--v2 .kordena-v2-face {
+    border-radius: 8px;
   }
   .kordena-hero-core--v2 .kordena-v2-face--front { transform: translateZ(48px); }
   .kordena-hero-core--v2 .kordena-v2-face--back { transform: rotateY(180deg) translateZ(48px); }
