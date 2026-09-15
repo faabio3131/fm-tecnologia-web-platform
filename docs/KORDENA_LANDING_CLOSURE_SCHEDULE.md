@@ -92,15 +92,20 @@ Pendências e diretrizes registradas:
 - encurtar a rolagem total da landing mantendo legibilidade, hierarquia e conforto visual;
 - preservar respiro suficiente para que a página continue parecendo premium e não fique visualmente apertada.
 
-Ações já aplicadas nesta etapa:
+Ações aplicadas nesta etapa:
 - override visual específico do Kordena para reduzir o espaçamento vertical global sem afetar outros produtos;
-- offsets de todas as âncoras principais ampliados para convivência com o header fixo;
+- offsets das âncoras principais ajustados para convivência com o header fixo;
 - Recursos em foco reorganizado em grade mais compacta no desktop;
 - FAQ reorganizado em duas colunas no desktop para reduzir altura e equilibrar o bloco com Planos;
 - cards de integrações, governança, prova de valor e prompts compactados;
-- comportamento responsivo preservado, retornando a uma coluna nos viewports menores.
+- comportamento responsivo preservado, retornando progressivamente a duas/uma coluna em viewports menores;
+- pipeline técnico da etapa encerrado com npm ci, lint, typecheck, testes, build, export-check e landing-export-check em PASS;
+- conferência visual do Diretor considerada suficiente para avanço, mantendo refinamentos adicionais para o fechamento final.
 
-Status: EM EXECUÇÃO — aguardando validação técnica e conferência visual do Diretor.
+Pendência final de conversão registrada para o fechamento:
+- avaliar reposicionamento de preço/planos e CTA de teste grátis para uma área mais alta da landing, visando captação e conversão.
+
+Status: CONCLUÍDA
 
 ## 8. Auditoria comercial e de copy
 Objetivo: garantir que a essência do Kordena esteja clara e que a página funcione como página de conversão.
@@ -110,9 +115,23 @@ Critério de conclusão:
 - redução de perdas em evidência;
 - economia operacional e redução de trabalho manual comunicadas corretamente;
 - financeiro em tempo real e visão do proprietário bem apresentados;
-- CTA de teste grátis por 30 dias claro e consistente.
+- CTA de teste grátis por 30 dias claro e consistente;
+- nomenclatura de canais e integrações comercialmente consistente;
+- copy sem promessas não comprovadas e sem repetições desnecessárias.
 
-Status: PENDENTE
+Ações já aplicadas nesta etapa:
+- Gerente IA Core reforçado como cérebro coordenador da plataforma e da gestão de ponta a ponta;
+- iFood, Keeta e 99Food padronizados como integrações, evitando o uso genérico de “marketplaces” na copy principal;
+- Delivery próprio preservado como canal operacional próprio;
+- texto de estoque ajustado para falar em sinais de risco e ações promocionais sem exagerar capacidade;
+- Financeiro reforçado com margens, valor em estoque, lucro real e previsões;
+- Recursos em foco revisados para reduzir repetição entre operação conectada, integrações e demais módulos;
+- FAQ de ecossistema ajustado para refletir corretamente canais próprios e integrações externas.
+
+Pendência de conversão deliberadamente adiada para o fechamento final:
+- testar uma hierarquia em que preço/planos e teste grátis apareçam mais cedo na jornada, sem prejudicar a narrativa do Gerente IA Core.
+
+Status: EM EXECUÇÃO — aguardando validação técnica do commit de copy e conferência final da narrativa comercial.
 
 ## 9. Auditoria técnica final
 Objetivo: certificar qualidade do código e ausência de regressões.
