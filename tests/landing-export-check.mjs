@@ -35,23 +35,20 @@ const pages = [
       "IRON FIT",
       "CORE",
       "Inteligência no centro. Evolução em movimento.",
-      "Gestão, alunos, treinos, avaliações, agenda, acesso, equipamentos e financeiro conectados em uma única plataforma.",
       "Um Core. Toda a operação conectada.",
-      "Core Vertical FM Tecnologia",
-      "Dados · contexto · inteligência",
-      "Aluno",
-      "Treino",
-      "Avaliação",
-      "Equipamentos",
-      "Agenda",
-      "Acesso",
-      "Financeiro",
-      "Inteligência",
+      "Da recepção à gestão. Tudo conectado.",
+      "A academia acompanha. O aluno evolui.",
+      "Avaliação, prescrição, treino e evolução no mesmo fluxo.",
+      "O treino também entende a estrutura da academia.",
+      "Da reserva à presença, dentro do mesmo contexto.",
+      "A operação acontece. O financeiro acompanha.",
+      "Catálogo mestre",
+      "Check-in",
+      "Mensalidades",
       "ironfitcore.com.br",
-      "/iron-fit-core-approved-hero.webp",
       "/iron-fit-core-approved-symbol.webp",
     ],
-    anchors: ["core"],
+    anchors: ["core", "gestao", "app", "treinos", "equipamentos", "agenda-acesso", "financeiro"],
     trialState: false,
     emailSubject: false,
   },
@@ -61,25 +58,17 @@ for (const page of pages) {
   const html = await readFile(`out/produtos/${page.slug}.html`, "utf8").catch(() => readFile(`out/produtos/${page.slug}/index.html`, "utf8"));
   assert.equal((html.match(/<main[ >]/g) || []).length, 1);
   assert.equal((html.match(/<h1[ >]/g) || []).length, 1);
-
   for (const expected of page.expected) assert.ok(html.includes(expected), `${page.slug}: ${expected}`);
   for (const anchor of page.anchors) {
     assert.ok(html.includes(`id="${anchor}"`), `${page.slug}: id=${anchor}`);
     assert.ok(html.includes(`href="#${anchor}"`), `${page.slug}: href=#${anchor}`);
   }
-
-  if (page.trialState) {
-    assert.ok(html.includes("Ativação online em preparação."), `${page.slug}: trial online state`);
-  } else {
-    assert.ok(!html.includes("30 dias grátis"), `${page.slug}: future commercial blocks must not leak into phase 1`);
-  }
-
+  if (page.trialState) assert.ok(html.includes("Ativação online em preparação."), `${page.slug}: trial online state`);
+  else assert.ok(!html.includes("30 dias grátis"), `${page.slug}: future commercial blocks must not leak before phase 7`);
   assert.ok(html.includes("https://wa.me/5511978350851?text="), `${page.slug}: whatsapp`);
-  if (page.emailSubject) {
-    assert.ok(html.includes(`subject=${encodeURIComponent("Interesse em " + page.name)}`), `${page.slug}: email subject`);
-  }
+  if (page.emailSubject) assert.ok(html.includes(`subject=${encodeURIComponent("Interesse em " + page.name)}`), `${page.slug}: email subject`);
   assert.ok(!html.includes("interesse=trial"), `${page.slug}: trial must not be falsely enabled`);
   assert.ok(!html.includes("<video"), `${page.slug}: no fabricated video`);
 }
 
-console.log("Landing export smoke: Kordena + Iron Fit Core phase 1 passed");
+console.log("Landing export smoke: Kordena + Iron Fit Core through phase 4 passed");
