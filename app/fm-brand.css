@@ -2,20 +2,20 @@
    Keeps the approved artwork intact and adapts only its surrounding chrome. */
 
 .site-header {
-  height: 92px;
+  height: 100px;
   background: #090d0b;
   border-bottom-color: rgba(183, 244, 60, .14);
   box-shadow: 0 10px 26px rgba(0, 0, 0, .12);
 }
 
 .site-header .header-inner {
-  gap: 1.75rem;
+  gap: 1.6rem;
 }
 
 .logo.logo--approved {
   flex: 0 0 auto;
-  width: 228px;
-  min-height: 62px;
+  width: 272px;
+  min-height: 72px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -27,7 +27,7 @@
 .logo.logo--approved .logo-image {
   display: block;
   width: 100%;
-  height: 52px;
+  height: 60px;
   object-fit: contain;
   object-position: left center;
   mix-blend-mode: screen;
@@ -35,12 +35,12 @@
 
 .logo-slogan {
   display: block;
-  margin-top: .48rem;
+  margin-top: .5rem;
   color: #b7f43c;
-  font-size: .46rem;
+  font-size: .56rem;
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: .095em;
+  letter-spacing: .085em;
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -114,67 +114,82 @@
   font-size: .45rem;
 }
 
-@media (max-width: 1000px) {
-  .logo.logo--approved {
-    width: 205px;
+/* Notebook / compact desktop: preserve brand presence without crowding navigation. */
+@media (max-width: 1120px) {
+  .site-header {
+    height: 96px;
   }
 
-  .logo.logo--approved .logo-image {
-    height: 47px;
+  .site-header .header-inner {
+    gap: 1.1rem;
   }
 
-  .logo-slogan {
-    font-size: .42rem;
+  .site-header .logo.logo--approved {
+    width: 242px;
+    min-height: 68px;
+  }
+
+  .site-header .logo.logo--approved .logo-image {
+    height: 55px;
+  }
+
+  .site-header .logo-slogan {
+    font-size: .5rem;
+    letter-spacing: .075em;
   }
 }
 
+/* Tablet: navigation collapses, so the mark can remain comfortably legible. */
 @media (max-width: 860px) {
   .site-header {
-    height: 88px;
+    height: 94px;
   }
 
   .site-header .header-inner {
     justify-content: space-between;
+    gap: 1rem;
   }
 
-  .logo.logo--approved {
-    width: 196px;
-    min-height: 60px;
+  .site-header .logo.logo--approved {
+    width: 232px;
+    min-height: 66px;
   }
 
-  .logo.logo--approved .logo-image {
-    height: 45px;
+  .site-header .logo.logo--approved .logo-image {
+    height: 53px;
   }
 
-  .logo-slogan {
-    margin-top: .42rem;
-    font-size: .39rem;
-    letter-spacing: .07em;
+  .site-header .logo-slogan {
+    margin-top: .44rem;
+    font-size: .48rem;
+    letter-spacing: .065em;
   }
 }
 
+/* Small phones: keep the complete lockup readable while leaving room for menu control. */
 @media (max-width: 560px) {
   .site-header {
-    height: 90px;
+    height: 92px;
   }
 
   .site-header .header-inner {
-    gap: .75rem;
+    gap: .65rem;
   }
 
-  .logo.logo--approved {
-    width: 190px;
-    min-height: 62px;
+  .site-header .logo.logo--approved {
+    width: min(218px, calc(100vw - 112px));
+    min-width: 178px;
+    min-height: 64px;
   }
 
-  .logo.logo--approved .logo-image {
-    height: 43px;
+  .site-header .logo.logo--approved .logo-image {
+    height: 50px;
   }
 
-  .logo-slogan {
-    margin-top: .44rem;
-    font-size: .37rem;
-    letter-spacing: .055em;
+  .site-header .logo-slogan {
+    margin-top: .42rem;
+    font-size: clamp(.4rem, 1.65vw, .46rem);
+    letter-spacing: .045em;
   }
 
   .product-card .text-link {
@@ -193,5 +208,21 @@
 
   .site-footer .logo-slogan {
     font-size: .4rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .site-header .logo.logo--approved {
+    width: min(202px, calc(100vw - 102px));
+    min-width: 166px;
+  }
+
+  .site-header .logo.logo--approved .logo-image {
+    height: 47px;
+  }
+
+  .site-header .logo-slogan {
+    font-size: .39rem;
+    letter-spacing: .035em;
   }
 }
