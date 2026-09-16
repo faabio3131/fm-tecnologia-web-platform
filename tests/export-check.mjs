@@ -16,12 +16,15 @@ for (const route of routes) {
   }
 }
 const home = await readFile("out/index.html", "utf8");
-assert.ok(home.includes("Soluções reais para"), "home: official FM slogan must be present");
-assert.ok(home.includes("um grande amanhã."), "home: official FM slogan ending must be present");
-assert.ok(home.includes("Tecnologia inteligente para empresas que querem ir além."), "home: approved supporting positioning must be present");
-assert.ok(home.includes("FM Tecnologia — Soluções reais para um grande amanhã"), "home: metadata title must use official FM slogan");
-assert.ok(!home.includes("Tecnologia para <em>construir o próximo."), "home: superseded hero copy must be absent");
-assert.ok(!home.includes("FM Tecnologia — Tecnologia para construir o próximo"), "home: superseded metadata title must be absent");
+assert.ok(home.includes("IA para melhorar hoje e"), "home: new FM slogan must be present");
+assert.ok(home.includes("evoluir o amanhã."), "home: new FM slogan ending must be present");
+assert.ok(home.includes("Tecnologia inteligente para transformar operações, decisões e resultados."), "home: approved supporting positioning must be present");
+assert.ok(home.includes("FM Tecnologia — IA para melhorar hoje e evoluir o amanhã"), "home: metadata title must use new FM slogan");
+assert.ok(!home.includes("Soluções reais para <em>um grande amanhã."), "home: superseded FM hero slogan must be absent");
+assert.ok(!home.includes("Tecnologia inteligente para empresas que querem ir além."), "home: superseded supporting positioning must be absent");
+assert.ok(!home.includes("Tecnologia para <em>construir o próximo."), "home: older superseded hero copy must be absent");
+assert.ok(!home.includes("FM Tecnologia — Soluções reais para um grande amanhã"), "home: superseded metadata title must be absent");
+assert.ok(!home.includes("FM Tecnologia — Tecnologia para construir o próximo"), "home: older superseded metadata title must be absent");
 assert.ok(home.includes("Conheça Kordena e Iron Fit Core."), "home: official Iron Fit Core brand name must be present");
 
 const sitemap = await readFile("out/sitemap.xml", "utf8");
