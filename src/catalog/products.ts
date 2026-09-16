@@ -63,7 +63,7 @@ export const products: readonly Product[] = [
   },
   {
     id: "prod_nfcore",
-    name: "FM NFCORE",
+    name: "NFCore",
     slug: "nfcore",
     group: "Produtos Principais",
     priority: "primary",
@@ -77,13 +77,13 @@ export const products: readonly Product[] = [
     pricingStatus: "not_for_public_offer",
     productionHomologationStatus: pending,
     publicLabel: "Produto Principal · Em desenvolvimento",
-    shortDescription: "Infraestrutura fiscal inteligente para emissão, controle, rastreabilidade e integração em escala.",
-    positioning: "Infrastructure Mission Control da FM Tecnologia para operações fiscais críticas, governadas e rastreáveis.",
+    shortDescription: "Reduz erros humanos, diminui o retrabalho operacional e centraliza a gestão fiscal no Core.",
+    positioning: "Infraestrutura fiscal inteligente da FM Tecnologia para automatizar rotinas, ampliar o controle e governar a operação fiscal pelo Core.",
     cta: { specialist: true },
     featured: true,
     seo: {
-      title: "FM NFCORE | Infraestrutura fiscal sob controle",
-      description: "Infraestrutura fiscal da FM Tecnologia para emissão governada, controle, rastreabilidade, integração e escala.",
+      title: "NFCore | Infraestrutura fiscal inteligente",
+      description: "Reduza erros humanos e retrabalho com uma infraestrutura fiscal inteligente que centraliza a gestão fiscal no Core da FM Tecnologia.",
     },
   },
   {
