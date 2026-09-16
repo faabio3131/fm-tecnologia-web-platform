@@ -7,8 +7,8 @@ export const metadata = createMetadata("Produtos", "Conheça o ecossistema de pr
 
 export default function Produtos() {
   const groups = [
-    { title: "Produtos principais", items: products.filter(p => p.priority === "primary"), columns: "cards--two" },
-    { title: "Em desenvolvimento", items: products.filter(p => p.lifecycle === "in_development"), columns: "cards--three" },
+    { title: "Produtos principais", items: products.filter(p => p.priority === "primary"), columns: "cards--three" },
+    { title: "Em desenvolvimento", items: products.filter(p => p.lifecycle === "in_development" && p.priority !== "primary"), columns: "cards--three" },
     { title: "Tecnologia & P&D", items: products.filter(p => p.lifecycle === "research_and_development"), columns: "" },
   ];
   return (
