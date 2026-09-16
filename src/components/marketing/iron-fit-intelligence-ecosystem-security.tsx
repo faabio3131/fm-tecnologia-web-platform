@@ -1,7 +1,7 @@
 const intelligenceAxes = [
-  ["Contexto", "Dados da operação fitness organizados pelo Core Vertical para preservar o contexto correto."],
-  ["Insights", "Arquitetura preparada para interpretar sinais e padrões sem transformar a IA em dependência dos fluxos essenciais."],
-  ["Evolução", "Recursos inteligentes podem evoluir sobre a mesma base operacional de acompanhamento e desempenho."],
+  ["Contexto", "Dados da operação organizados pelo Core Vertical para preservar o contexto correto."],
+  ["Insights", "Arquitetura preparada para interpretar sinais e padrões sem tornar a IA uma dependência dos fluxos essenciais."],
+  ["Evolução", "Recursos inteligentes podem evoluir sobre a mesma base de acompanhamento e desempenho."],
   ["Governança", "Inteligência como apoio à decisão, com supervisão e regras definidas pela operação."],
 ] as const;
 
@@ -22,11 +22,11 @@ export function IronFitIntelligenceEcosystemSecurity() {
           <div className="ironfit-intelligence-layout">
             <div className="ironfit-intelligence-copy">
               <p className="eyebrow">IRON INTELLIGENCE</p>
-              <h2 id="ironfit-intelligence-title">Inteligência conectada à operação, sem substituir o controle humano.</h2>
-              <p>O Iron Fit Core foi arquitetado para incorporar inteligência ao acompanhamento e à gestão sem transformar a IA em dependência dos fluxos essenciais da academia.</p>
+              <h2 id="ironfit-intelligence-title">Inteligência para apoiar decisões. Controle sempre humano.</h2>
+              <p>A Iron Intelligence foi desenhada para incorporar recursos inteligentes ao acompanhamento e à gestão sem tornar a IA uma dependência dos fluxos essenciais.</p>
               <div className="ironfit-human-control">
                 <strong>O profissional continua no controle.</strong>
-                <span>Treinos, avaliações, aprovações e decisões permanecem sujeitos ao fluxo humano definido pela operação.</span>
+                <span>Treinos, avaliações, aprovações e decisões continuam sujeitos às regras e à supervisão profissional definidas pela operação.</span>
               </div>
             </div>
             <div className="ironfit-intelligence-network" aria-label="Quatro eixos da Iron Intelligence">
@@ -40,7 +40,7 @@ export function IronFitIntelligenceEcosystemSecurity() {
           </div>
           <div className="ironfit-intelligence-guardrail">
             <strong>Inteligência governada desde a arquitetura.</strong>
-            <p>A arquitetura prevê sanitização de informações antes do uso em recursos inteligentes, evitando o envio indevido de credenciais, tokens, dados financeiros e outros elementos sensíveis. Insights, projeções e assistentes permanecem capacidades evolutivas e não substituem os fluxos essenciais.</p>
+            <p>A arquitetura prevê sanitização de informações antes do uso em recursos inteligentes para reduzir o envio indevido de credenciais, tokens, dados financeiros e outros elementos sensíveis. Insights, projeções e assistentes permanecem capacidades evolutivas.</p>
           </div>
         </div>
       </section>
@@ -49,21 +49,21 @@ export function IronFitIntelligenceEcosystemSecurity() {
         <div className="container">
           <div className="ironfit-centered-heading ironfit-centered-heading--compact">
             <p className="eyebrow">Aggregator Hub</p>
-            <h2 id="ironfit-ecosystem-title">Preparado para um ecossistema fitness conectado.</h2>
-            <p>O Iron Fit Core foi arquitetado para se conectar a ecossistemas de benefícios, acesso, agenda e parceiros fitness através de uma camada própria de integração.</p>
+            <h2 id="ironfit-ecosystem-title">Uma camada preparada para conectar o Iron Fit ao ecossistema fitness.</h2>
+            <p>O Aggregator Hub concentra a arquitetura de integração com ecossistemas de benefícios, acesso, agenda e parceiros fitness sem fragmentar a operação.</p>
           </div>
           <div className="ironfit-hub-diagram" aria-label="Fluxo conceitual do Aggregator Hub">
             <div className="ironfit-hub-core"><span>IRON FIT</span><strong>CORE</strong></div>
             <i aria-hidden="true">↔</i>
             <div className="ironfit-hub-center"><span>AGGREGATOR</span><strong>HUB</strong><small>camada de integração</small></div>
             <i aria-hidden="true">↔</i>
-            <div className="ironfit-hub-providers"><strong>Providers</strong><span>Wellhub · TotalPass · ClassPass</span><small>Arquitetura preparada para integração. Ativação externa depende de preparação/homologação.</small></div>
+            <div className="ironfit-hub-providers"><strong>Providers</strong><span>Wellhub · TotalPass · ClassPass</span><small>Arquitetura preparada. Disponibilidade externa depende de integração, credenciais e homologação de cada provider.</small></div>
           </div>
           <div className="ironfit-hub-capabilities">
             {hubCapabilities.map((item, index) => <span key={item}><b>0{index + 1}</b>{item}</span>)}
           </div>
           <div className="ironfit-ecosystem-note">
-            <strong>Uma camada para conectar a academia ao ecossistema sem fragmentar a operação.</strong>
+            <strong>Conectar sem criar ilhas.</strong>
             <p>Acesso, agenda, check-in, elegibilidade e reconciliação retornam ao mesmo contexto operacional. A arquitetura também está preparada para evoluir em conteúdo, creators e experiências digitais fitness com governança de direitos.</p>
           </div>
         </div>
@@ -74,9 +74,9 @@ export function IronFitIntelligenceEcosystemSecurity() {
           <div className="ironfit-security-head">
             <div>
               <p className="eyebrow">Segurança, confiança e governança</p>
-              <h2 id="ironfit-security-title">Tecnologia conectada. Acessos controlados. Operação rastreável.</h2>
+              <h2 id="ironfit-security-title">Acesso controlado. Operação rastreável. Dados no contexto certo.</h2>
             </div>
-            <p>O Iron Fit Core foi construído considerando autenticação, RBAC, perfis e permissões, isolamento entre academias, auditoria, rastreabilidade, controles financeiros, consentimentos e responsabilidades operacionais.</p>
+            <p>O Iron Fit Core foi construído com autenticação, RBAC, perfis e permissões, isolamento entre academias, auditoria, rastreabilidade, controles financeiros, consentimentos e responsabilidades operacionais.</p>
           </div>
           <div className="ironfit-security-grid">
             {securityPillars.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}
