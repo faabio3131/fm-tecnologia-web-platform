@@ -5,7 +5,7 @@ import { products, getProduct } from "../src/catalog/products.ts";
 test("catálogo contém exatamente os sete produtos oficiais com slugs candidatos únicos", () => {
   assert.equal(products.length, 7);
   assert.equal(new Set(products.map((product) => product.slug)).size, 7);
-  assert.deepEqual(products.map((product) => product.name), ["Kordena", "Iron Fit Core", "FM NFCORE", "Vendedor IA", "CampaIA", "Super Core Extreme", "ERP Core"]);
+  assert.deepEqual(products.map((product) => product.name), ["Kordena", "Iron Fit Core", "NFCore", "Vendedor IA", "CampaIA", "Super Core Extreme", "ERP Core"]);
 });
 
 test("Kordena e Iron Fit Core preservam prioridade sem lifecycle ou disponibilidade inferidos", () => {
@@ -19,9 +19,9 @@ test("Kordena e Iron Fit Core preservam prioridade sem lifecycle ou disponibilid
   }
 });
 
-test("FM NFCORE ocupa a terceira posição principal sem publicar oferta ou homologação", () => {
+test("NFCore ocupa a terceira posição principal sem publicar oferta ou homologação", () => {
   const product = getProduct("nfcore")!;
-  assert.equal(product.name, "FM NFCORE");
+  assert.equal(product.name, "NFCore");
   assert.equal(product.priority, "primary");
   assert.equal(product.lifecycle, "in_development");
   assert.equal(product.commercialAvailability, "unavailable");
