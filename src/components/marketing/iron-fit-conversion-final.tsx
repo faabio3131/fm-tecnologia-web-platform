@@ -33,8 +33,8 @@ export function IronFitConversionFinal() {
       <div className="container ironfit-conversion-split">
         <div className="ironfit-conversion-copy">
           <p className="eyebrow">Demonstração do produto</p>
-          <h2 id="ironfit-demo-title">Veja como gestão, operação e experiência do aluno trabalham juntas.</h2>
-          <p>Uma visão prática de como o Iron Fit Core conecta a operação da academia à jornada do aluno.</p>
+          <h2 id="ironfit-demo-title">Veja o Iron Fit Core funcionando como uma única plataforma.</h2>
+          <p>Uma visão prática de como gestão, operação e experiência do aluno se conectam no dia a dia.</p>
           <span className="ironfit-state-pill">Demonstração em preparação</span>
         </div>
         <div className="ironfit-demo-frame" aria-label="Espaço reservado para a demonstração oficial do Iron Fit Core">
@@ -46,7 +46,7 @@ export function IronFitConversionFinal() {
 
     <section id="tour" className="ironfit-conversion-section ironfit-tour" aria-labelledby="ironfit-tour-title">
       <div className="container">
-        <div className="ironfit-conversion-heading"><p className="eyebrow">Tour do produto</p><h2 id="ironfit-tour-title">Conheça os principais ambientes do Iron Fit Core.</h2><p>Estrutura preparada para receber capturas reais do produto sem substituir evidência por mockups fictícios.</p></div>
+        <div className="ironfit-conversion-heading"><p className="eyebrow">Tour do produto</p><h2 id="ironfit-tour-title">Conheça os ambientes que conectam a operação da academia.</h2><p>As capturas reais do produto serão apresentadas aqui conforme forem aprovadas.</p></div>
         <div className="ironfit-tour-grid">
           {tourViews.map((view, index) => <article key={view.title} className="ironfit-tour-card">
             <div className="ironfit-tour-shot" aria-label={`Espaço reservado para screenshot de ${view.title}`}><div><span>0{index + 1}</span><b>IRON FIT CORE</b></div><strong>Screenshot real em preparação</strong></div>
@@ -58,7 +58,7 @@ export function IronFitConversionFinal() {
 
     <section id="planos" className="ironfit-conversion-section ironfit-pricing" aria-labelledby="ironfit-pricing-title">
       <div className="container ironfit-pricing-layout">
-        <div className="ironfit-conversion-copy"><p className="eyebrow">Planos</p><h2 id="ironfit-pricing-title">Uma plataforma para evoluir junto com a academia.</h2><p>Comece com a estrutura principal do Iron Fit Core e evolua conforme a operação exigir novos recursos, unidades ou condições comerciais.</p><p className="ironfit-pricing-status"><strong>Liberação comercial em preparação.</strong> Teste ainda não disponível para ativação.</p></div>
+        <div className="ironfit-conversion-copy"><p className="eyebrow">Planos</p><h2 id="ironfit-pricing-title">Planos para acompanhar o crescimento da academia.</h2><p>Condições mensais, anuais e Enterprise para diferentes necessidades comerciais, com a mesma visão integrada do Iron Fit Core.</p><p className="ironfit-pricing-status"><strong>Liberação comercial em preparação.</strong> Teste ainda não disponível para ativação.</p></div>
         <div className="ironfit-pricing-panel">
           {pricing ? <>
             <div><span>Mensal</span><strong>{formatBRL(pricing.monthly)}<small>/mês</small></strong></div>
@@ -72,14 +72,14 @@ export function IronFitConversionFinal() {
 
     <section id="duvidas" className="ironfit-conversion-section ironfit-faq" aria-labelledby="ironfit-faq-title">
       <div className="container">
-        <div className="ironfit-conversion-heading"><p className="eyebrow">Dúvidas frequentes</p><h2 id="ironfit-faq-title">O que você precisa saber sobre o Iron Fit Core.</h2></div>
+        <div className="ironfit-conversion-heading"><p className="eyebrow">Dúvidas frequentes</p><h2 id="ironfit-faq-title">Respostas rápidas sobre o Iron Fit Core.</h2></div>
         <div className="ironfit-faq-grid">{faqs.map(([question, answer], index) => <details key={question}><summary><span>{String(index + 1).padStart(2, "0")}</span>{question}<i aria-hidden="true">+</i></summary><p>{answer}</p></details>)}</div>
       </div>
     </section>
 
     <section id="contato" className="ironfit-final-cta" aria-labelledby="ironfit-final-title">
       <div className="container ironfit-final-cta__inner">
-        <p className="eyebrow">IRON FIT CORE</p><h2 id="ironfit-final-title">Sua academia conectada para evoluir.</h2><p>Gestão, operação, aluno e inteligência trabalhando sobre a mesma plataforma.</p>
+        <p className="eyebrow">IRON FIT CORE</p><h2 id="ironfit-final-title">Conecte gestão, operação e experiência do aluno.</h2><p>Unifique a operação da academia e a jornada do aluno em uma plataforma construída para evoluir com o negócio.</p>
         <div className="actions"><a className="button button--primary ironfit-primary" href={whatsapp}>Falar com a FM <span aria-hidden="true">↗</span></a><a className="button button--secondary ironfit-secondary" href="#planos">Ver planos</a></div>
         <small>ironfitcore.com.br · by FM Tecnologia</small>
       </div>
