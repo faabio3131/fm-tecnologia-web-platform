@@ -63,7 +63,7 @@ export function IronFitConversionFinal() {
           {pricing ? <>
             <div><span>Mensal</span><strong>{formatBRL(pricing.monthly)}<small>/mês</small></strong></div>
             <div><span>Anual</span><strong>{formatBRL(pricing.annual)}<small>/ano</small></strong></div>
-            {pricing.enterprise && <div><span>Enterprise</span><strong>Sob consulta</strong></div>}
+            {pricing.enterprise && <div className="ironfit-enterprise-plan"><span>Enterprise</span><strong>Sob consulta</strong><small className="ironfit-enterprise-note">Para redes, múltiplas unidades e necessidades comerciais específicas.</small></div>}
           </> : <p>Condições comerciais em preparação.</p>}
           <div className="ironfit-pricing-actions"><a className="button button--primary ironfit-primary" href={whatsapp}>Falar com a FM <span aria-hidden="true">↗</span></a><a className="button button--secondary ironfit-secondary" href="#contato">Conhecer condições</a></div>
         </div>
