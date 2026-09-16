@@ -6,7 +6,7 @@ import { ButtonLink } from "@/src/components/ui/button-link";
 
 export default function Home() {
   const principal = products.filter(p => p.priority === "primary");
-  const building = products.filter(p => p.lifecycle === "in_development");
+  const building = products.filter(p => p.lifecycle === "in_development" && p.priority !== "primary");
   const research = products.filter(p => p.lifecycle === "research_and_development");
   const groups = [
     { label: "Produtos principais", items: principal },
@@ -42,8 +42,8 @@ export default function Home() {
       </section>
       <section className="section">
         <div className="container">
-          <SectionHeading eyebrow="Produtos principais" title="Conheça Kordena e Iron Fit Core." description="Explore as páginas dos produtos e consulte as condições comerciais." />
-          <div className="cards cards--two">{principal.map(p => <ProductCard key={p.id} product={p} />)}</div>
+          <SectionHeading eyebrow="Produtos principais" title="Kordena, Iron Fit Core e FM NFCORE." description="Conheça as principais plataformas da FM Tecnologia e o estágio comercial de cada produto." />
+          <div className="cards cards--three">{principal.map(p => <ProductCard key={p.id} product={p} />)}</div>
         </div>
       </section>
       <section className="section section--surface">
