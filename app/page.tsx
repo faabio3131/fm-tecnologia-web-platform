@@ -20,8 +20,8 @@ export default function Home() {
         <div className="container hero-layout">
           <div className="hero-content">
             <p className="hero-kicker"><span /> FM TECNOLOGIA</p>
-            <h1>Tecnologia para <em>construir o próximo.</em></h1>
-            <p className="lead">Conheça o ecossistema de produtos e tecnologias da FM Tecnologia.</p>
+            <h1>Soluções reais para <em>um grande amanhã.</em></h1>
+            <p className="lead">Tecnologia inteligente para empresas que querem ir além.</p>
             <div className="actions">
               <ButtonLink href="/produtos">Explorar ecossistema</ButtonLink>
               <ButtonLink href="/precos" variant="secondary">Conhecer planos</ButtonLink>
@@ -42,7 +42,7 @@ export default function Home() {
       </section>
       <section className="section">
         <div className="container">
-          <SectionHeading eyebrow="Produtos principais" title="Conheça Kordena e Iron Fit." description="Explore as páginas dos produtos e consulte as condições comerciais." />
+          <SectionHeading eyebrow="Produtos principais" title="Conheça Kordena e Iron Fit Core." description="Explore as páginas dos produtos e consulte as condições comerciais." />
           <div className="cards cards--two">{principal.map(p => <ProductCard key={p.id} product={p} />)}</div>
         </div>
       </section>
