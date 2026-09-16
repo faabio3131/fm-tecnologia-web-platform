@@ -20,8 +20,8 @@ export default function Home() {
         <div className="container hero-layout">
           <div className="hero-content">
             <p className="hero-kicker"><span /> FM TECNOLOGIA</p>
-            <h1>Soluções reais para <em>um grande amanhã.</em></h1>
-            <p className="lead">Tecnologia inteligente para empresas que querem ir além.</p>
+            <h1>IA para melhorar hoje e <em>evoluir o amanhã.</em></h1>
+            <p className="lead">Tecnologia inteligente para transformar operações, decisões e resultados.</p>
             <div className="actions">
               <ButtonLink href="/produtos">Explorar ecossistema</ButtonLink>
               <ButtonLink href="/precos" variant="secondary">Conhecer planos</ButtonLink>
