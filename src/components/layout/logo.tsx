@@ -13,7 +13,7 @@ export function Logo() {
         priority
         unoptimized
       />
-      <span className="logo-slogan">Soluções reais para um grande amanhã.</span>
+      <span className="logo-slogan">IA para melhorar hoje e evoluir o amanhã.</span>
     </Link>
   );
 }
