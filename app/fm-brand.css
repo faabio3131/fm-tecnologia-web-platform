@@ -83,6 +83,17 @@
   outline-color: var(--lime);
 }
 
+/* Shared responsive safety: prevent grid/flex children from forcing horizontal overflow. */
+.hero-content,
+.portfolio-map,
+.section-heading > *,
+.product-card,
+.research-panel > *,
+.footer-top > *,
+.footer-grid > * {
+  min-width: 0;
+}
+
 /* Product cards — softer action area to reduce excessive white space. */
 .product-card .text-link {
   margin: auto -1.5rem -1.5rem;
@@ -139,7 +150,27 @@
   }
 }
 
-/* Tablet: navigation collapses, so the mark can remain comfortably legible. */
+/* Tablet portrait / compact landscape: stack the home hero and avoid 3 cramped product columns. */
+@media (max-width: 900px) {
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .hero-content {
+    max-width: 720px;
+  }
+
+  .portfolio-map {
+    width: 100%;
+  }
+
+  .cards--three {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Tablet: navigation is already collapsed by the shared shell at 1000px. */
 @media (max-width: 860px) {
   .site-header {
     height: 94px;
@@ -163,6 +194,26 @@
     margin-top: .44rem;
     font-size: .48rem;
     letter-spacing: .065em;
+  }
+}
+
+/* Phones and narrow tablets: cards become one-column before copy starts to feel compressed. */
+@media (max-width: 680px) {
+  .cards--three,
+  .cards--two {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-layout {
+    padding-block: 1.75rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.15rem, 10vw, 3rem);
+  }
+
+  .hero .actions .button {
+    flex: 1 1 190px;
   }
 }
 
@@ -193,8 +244,11 @@
   }
 
   .product-card .text-link {
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+    margin-bottom: -1.25rem;
     min-height: 60px;
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.25rem;
   }
 
   .site-footer .logo.logo--approved {
@@ -224,5 +278,14 @@
   .site-header .logo-slogan {
     font-size: .39rem;
     letter-spacing: .035em;
+  }
+
+  .hero .actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .hero .actions .button {
+    width: 100%;
   }
 }
