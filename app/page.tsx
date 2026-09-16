@@ -42,7 +42,7 @@ export default function Home() {
       </section>
       <section className="section">
         <div className="container">
-          <SectionHeading eyebrow="Produtos principais" title="Kordena, Iron Fit Core e FM NFCORE." description="Conheça as principais plataformas da FM Tecnologia e o estágio comercial de cada produto." />
+          <SectionHeading eyebrow="Produtos principais" title="Kordena, Iron Fit Core e NFCore." description="Conheça as principais plataformas da FM Tecnologia e o estágio comercial de cada produto." />
           <div className="cards cards--three">{principal.map(p => <ProductCard key={p.id} product={p} />)}</div>
         </div>
       </section>
