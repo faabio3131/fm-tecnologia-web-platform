@@ -62,6 +62,7 @@ const pages = [
       "2.690",
       "Enterprise",
       "Sob consulta",
+      "Para redes, múltiplas unidades e necessidades comerciais específicas.",
       "Teste ainda não disponível para ativação.",
       "Dúvidas frequentes",
       "O Iron Fit Core é apenas um aplicativo para alunos?",
