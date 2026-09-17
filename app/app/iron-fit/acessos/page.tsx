@@ -13,6 +13,11 @@ const operations: OperationalCommand[] = [
       { name: "type", label: "Tipo", type: "select", options: [{ value: "QR_CODE", label: "QR Code" }] },
       { name: "expiresAt", label: "Expira em", type: "datetime-local" },
     ],
+    body: (values) => ({
+      studentId: values.studentId,
+      ...(values.type ? { type: values.type } : {}),
+      ...(values.expiresAt ? { expiresAt: new Date(String(values.expiresAt)).toISOString() } : {}),
+    }),
   },
 ];
 
