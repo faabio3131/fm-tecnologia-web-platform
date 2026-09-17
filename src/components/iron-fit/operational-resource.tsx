@@ -1,12 +1,12 @@
 "use client";
 
 import { FormEvent, useCallback, useEffect, useState } from "react";
-import { coreGet, corePatch, corePost } from "@/src/lib/iron-fit/core-client";
+import { coreDelete, coreGet, corePatch, corePost, corePut } from "@/src/lib/iron-fit/core-client";
 import { DataTable } from "./data-table";
 import styles from "./core-ui.module.css";
 
 export type OperationalField = { name: string; label: string; type?: "text" | "email" | "date" | "datetime-local" | "number" | "select" | "checkbox"; required?: boolean; options?: Array<{ value: string; label: string }> };
-export type OperationalCommand = { label: string; method: "POST" | "PATCH"; path: (values: Record<string, string | boolean>) => string; fields: OperationalField[]; body?: (values: Record<string, string | boolean>) => unknown; rolesNote?: string };
+export type OperationalCommand = { label: string; method: "POST" | "PATCH" | "PUT" | "DELETE"; path: (values: Record<string, string | boolean>) => string; fields: OperationalField[]; body?: (values: Record<string, string | boolean>) => unknown; rolesNote?: string };
 
 function initial(fields: OperationalField[]) {
   return Object.fromEntries(fields.map((field) => [field.name, field.type === "checkbox" ? false : ""])) as Record<string, string | boolean>;
@@ -29,7 +29,9 @@ function OperationForm({ operation, onDone }: { operation: OperationalCommand; o
       const path = operation.path(values);
       const body = operation.body ? operation.body(values) : payload(values);
       if (operation.method === "POST") await corePost(path, body);
-      else await corePatch(path, body);
+      else if (operation.method === "PATCH") await corePatch(path, body);
+      else if (operation.method === "PUT") await corePut(path, body);
+      else await coreDelete(path);
       setValues(initial(operation.fields));
       setMessage("Operação concluída pelo Core.");
       await onDone();
