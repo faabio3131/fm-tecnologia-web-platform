@@ -3,6 +3,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { bearer, ironFitUpstream, publicError, safeUpstreamStatus } from "@/src/lib/iron-fit/server-api";
 import { IRON_FIT_ACCESS_COOKIE, isSameOrigin } from "@/src/lib/iron-fit/session-cookies";
 
+const UUID = "[0-9a-f-]+";
+const FEATURE = "[a-zA-Z0-9._:-]+";
+
 const routes: Array<{ method: string; pattern: RegExp }> = [
   { method: "GET", pattern: /^dashboard\/(summary|revenue|attendance|overdue|birthdays)$/ },
   { method: "GET", pattern: /^students(?:\/[0-9a-f-]+)?$/i },
@@ -26,6 +29,34 @@ const routes: Array<{ method: string; pattern: RegExp }> = [
   { method: "PATCH", pattern: /^financial\/charges\/[0-9a-f-]+\/pay$/i },
   { method: "GET", pattern: /^access\/events$/ },
   { method: "POST", pattern: /^access\/credentials$/ },
+
+  // M4 — Equipment Intelligence. The browser never supplies tenant authority.
+  { method: "GET", pattern: /^equipments$/ },
+  { method: "GET", pattern: /^equipments\/catalog$/ },
+  { method: "GET", pattern: /^equipments\/catalog\/candidates$/ },
+  { method: "POST", pattern: /^equipments$/ },
+  { method: "POST", pattern: /^equipments\/catalog\/candidates$/ },
+  { method: "POST", pattern: /^equipments\/catalog\/selection$/ },
+  { method: "GET", pattern: new RegExp(`^equipments\\/exercises\\/${UUID}\\/compatible$`, "i") },
+
+  // M4 — Product Entitlements. Plans are never decoded into client-side authority.
+  { method: "GET", pattern: /^product-entitlements\/tenant\/current$/ },
+  { method: "GET", pattern: /^product-entitlements\/tenant\/features$/ },
+  { method: "GET", pattern: new RegExp(`^product-entitlements\\/tenant\\/features\\/${FEATURE}$`) },
+  { method: "GET", pattern: /^product-entitlements\/tenant\/configurations$/ },
+  { method: "PUT", pattern: new RegExp(`^product-entitlements\\/tenant\\/configurations\\/${FEATURE}$`) },
+  { method: "DELETE", pattern: new RegExp(`^product-entitlements\\/tenant\\/configurations\\/${FEATURE}$`) },
+
+  // M4 — Aggregator facts only. External providers remain governed by backend state.
+  { method: "GET", pattern: /^aggregator\/operations\/(summary|reception-queue|risk-queue|settlement-queue)$/ },
+  { method: "GET", pattern: /^aggregator\/intelligence\/(overview|providers|trends)$/ },
+
+  // M4 — Creator Network operations. Global/tenant scope remains backend-authoritative.
+  { method: "GET", pattern: /^creator-network\/operations\/(tenant|global)\/(overview|analytics)$/ },
+
+  // M4 — AI surfaces already certified by AI0 G1–G7.
+  { method: "POST", pattern: /^ai\/workout-candidates$/ },
+  { method: "POST", pattern: /^me\/ai\/(workout-insights|chat)$/ },
 ];
 
 function permitted(method: string, path: string) {
@@ -35,16 +66,20 @@ function permitted(method: string, path: string) {
 function cleanQuery(request: NextRequest) {
   const query = new URLSearchParams(request.nextUrl.searchParams);
   query.delete("gymId");
+  query.delete("tenantId");
   const value = query.toString();
   return value ? `?${value}` : "";
 }
 
 async function cleanBody(request: NextRequest) {
-  if (request.method === "GET" || request.method === "HEAD") return undefined;
+  if (request.method === "GET" || request.method === "HEAD" || request.method === "DELETE") return undefined;
   const contentType = request.headers.get("content-type") ?? "";
   if (!contentType.includes("application/json")) return undefined;
   const body = (await request.json()) as Record<string, unknown>;
-  if (body && typeof body === "object") delete body.gymId;
+  if (body && typeof body === "object") {
+    delete body.gymId;
+    delete body.tenantId;
+  }
   return JSON.stringify(body);
 }
 
@@ -81,3 +116,5 @@ async function proxy(request: NextRequest, context: { params: Promise<{ path: st
 export const GET = proxy;
 export const POST = proxy;
 export const PATCH = proxy;
+export const PUT = proxy;
+export const DELETE = proxy;

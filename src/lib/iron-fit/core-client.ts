@@ -30,3 +30,11 @@ export function corePost<T>(path: string, body: unknown) {
 export function corePatch<T>(path: string, body: unknown = {}) {
   return coreFetch(path, { method: "PATCH", body: JSON.stringify(body) }) as Promise<T>;
 }
+
+export function corePut<T>(path: string, body: unknown) {
+  return coreFetch(path, { method: "PUT", body: JSON.stringify(body) }) as Promise<T>;
+}
+
+export function coreDelete<T>(path: string) {
+  return coreFetch(path, { method: "DELETE" }) as Promise<T>;
+}

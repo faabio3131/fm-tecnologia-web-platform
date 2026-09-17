@@ -14,7 +14,7 @@ type SessionState =
   | { kind: "error"; message: string };
 
 const navigation = [
-  { href: "/app/iron-fit", label: "Visão geral", roles: ["OWNER", "MANAGER", "RECEPTION", "TRAINER"] },
+  { href: "/app/iron-fit", label: "Visão geral", roles: ["OWNER", "MANAGER", "RECEPTION", "TRAINER", "STUDENT"] },
   { href: "/app/iron-fit/dashboard", label: "Dashboard", roles: ["OWNER", "MANAGER", "RECEPTION"] },
   { href: "/app/iron-fit/alunos", label: "Alunos", roles: ["OWNER", "MANAGER", "RECEPTION", "TRAINER"] },
   { href: "/app/iron-fit/avaliacoes", label: "Avaliações", roles: ["OWNER", "MANAGER", "RECEPTION", "TRAINER"] },
@@ -23,6 +23,11 @@ const navigation = [
   { href: "/app/iron-fit/comunicacao", label: "Comunicação", roles: ["OWNER", "MANAGER", "RECEPTION"] },
   { href: "/app/iron-fit/acessos", label: "Acesso", roles: ["OWNER", "MANAGER", "RECEPTION"] },
   { href: "/app/iron-fit/financeiro", label: "Financeiro", roles: ["OWNER", "MANAGER", "RECEPTION"] },
+  { href: "/app/iron-fit/equipamentos", label: "Equipamentos", roles: ["OWNER", "MANAGER", "RECEPTION", "TRAINER"] },
+  { href: "/app/iron-fit/recursos", label: "Recursos", roles: ["OWNER", "MANAGER"] },
+  { href: "/app/iron-fit/agregadores", label: "Agregadores", roles: ["OWNER", "MANAGER", "RECEPTION"] },
+  { href: "/app/iron-fit/criadores", label: "Creator Network", roles: ["OWNER", "MANAGER"] },
+  { href: "/app/iron-fit/inteligencia", label: "Inteligência", roles: ["OWNER", "MANAGER", "TRAINER", "STUDENT"] },
 ];
 
 async function getSession() {
