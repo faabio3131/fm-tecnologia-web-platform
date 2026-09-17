@@ -19,6 +19,8 @@ const routes: Array<{ method: string; pattern: RegExp }> = [
   { method: "POST", pattern: /^schedule-slots$/ },
   { method: "POST", pattern: /^schedules$/ },
   { method: "PATCH", pattern: /^schedules\/[0-9a-f-]+\/check-in$/i },
+  { method: "GET", pattern: /^communication\/(templates|messages|automations)$/ },
+  { method: "POST", pattern: /^communication\/(templates|messages|automations)$/ },
   { method: "GET", pattern: /^financial\/(accounts|charges)$/ },
   { method: "POST", pattern: /^financial\/(accounts|subscriptions|charges)$/ },
   { method: "PATCH", pattern: /^financial\/charges\/[0-9a-f-]+\/pay$/i },
