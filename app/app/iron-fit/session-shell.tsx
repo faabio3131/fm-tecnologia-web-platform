@@ -15,11 +15,12 @@ type SessionState =
 
 const navigation = [
   { href: "/app/iron-fit", label: "Visão geral", roles: ["OWNER", "MANAGER", "RECEPTION", "TRAINER"] },
-  { href: "/app/iron-fit/dashboard", label: "Dashboard", roles: ["OWNER", "MANAGER"] },
+  { href: "/app/iron-fit/dashboard", label: "Dashboard", roles: ["OWNER", "MANAGER", "RECEPTION"] },
   { href: "/app/iron-fit/alunos", label: "Alunos", roles: ["OWNER", "MANAGER", "RECEPTION", "TRAINER"] },
   { href: "/app/iron-fit/avaliacoes", label: "Avaliações", roles: ["OWNER", "MANAGER", "RECEPTION", "TRAINER"] },
   { href: "/app/iron-fit/treinos", label: "Treinos", roles: ["OWNER", "MANAGER", "TRAINER"] },
   { href: "/app/iron-fit/agenda", label: "Agenda", roles: ["OWNER", "MANAGER", "RECEPTION", "TRAINER"] },
+  { href: "/app/iron-fit/comunicacao", label: "Comunicação", roles: ["OWNER", "MANAGER", "RECEPTION"] },
   { href: "/app/iron-fit/acessos", label: "Acesso", roles: ["OWNER", "MANAGER", "RECEPTION"] },
   { href: "/app/iron-fit/financeiro", label: "Financeiro", roles: ["OWNER", "MANAGER", "RECEPTION"] },
 ];
