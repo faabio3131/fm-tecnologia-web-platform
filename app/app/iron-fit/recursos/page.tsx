@@ -14,7 +14,7 @@ export default function RecursosPage() {
       {
         label: "Configurar recurso do tenant",
         method: "PUT",
-        path: (values) => `product-entitlements/tenant/configurations/${encodeURIComponent(String(values.featureKey))}`,
+        path: (values) => `product-entitlements/tenant/configurations/${String(values.featureKey)}`,
         fields: [
           { name: "featureKey", label: "Feature key", required: true },
           { name: "featureEnabled", label: "Habilitado", type: "checkbox" },
@@ -29,7 +29,7 @@ export default function RecursosPage() {
       {
         label: "Restaurar configuração canônica",
         method: "DELETE",
-        path: (values) => `product-entitlements/tenant/configurations/${encodeURIComponent(String(values.featureKey))}`,
+        path: (values) => `product-entitlements/tenant/configurations/${String(values.featureKey)}`,
         fields: [{ name: "featureKey", label: "Feature key", required: true }],
         rolesNote: "Remove apenas o override permitido; não altera o plano nem cria entitlement pelo navegador.",
       },
