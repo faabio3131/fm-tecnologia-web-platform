@@ -3,6 +3,7 @@
 import { FormEvent, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import type { IronFitTenantOption } from "@/src/lib/iron-fit/auth-contract";
+import styles from "./login-form.module.css";
 
 function safeNext(value: string | null) {
   return value?.startsWith("/app/iron-fit") ? value : "/app/iron-fit";
@@ -52,56 +53,29 @@ export function IronFitLoginForm() {
   }
 
   return (
-    <form className="iron-login-form" onSubmit={submit} noValidate>
+    <form className={styles.form} onSubmit={submit} noValidate>
       <label>
         <span>E-mail</span>
-        <input
-          type="email"
-          name="email"
-          autoComplete="email"
-          required
-          maxLength={254}
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          disabled={busy || tenants.length > 0}
-        />
+        <input type="email" name="email" autoComplete="email" required maxLength={254} value={email} onChange={(event) => setEmail(event.target.value)} disabled={busy || tenants.length > 0} />
       </label>
       <label>
         <span>Senha</span>
-        <input
-          type="password"
-          name="password"
-          autoComplete="current-password"
-          required
-          maxLength={256}
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          disabled={busy || tenants.length > 0}
-        />
+        <input type="password" name="password" autoComplete="current-password" required maxLength={256} value={password} onChange={(event) => setPassword(event.target.value)} disabled={busy || tenants.length > 0} />
       </label>
       {tenants.length > 0 && (
         <label>
           <span>Academia / unidade</span>
           <select value={gymId} onChange={(event) => setGymId(event.target.value)} required disabled={busy}>
-            {tenants.map((tenant) => (
-              <option key={tenant.id} value={tenant.id}>{tenant.name}</option>
-            ))}
+            {tenants.map((tenant) => <option key={tenant.id} value={tenant.id}>{tenant.name}</option>)}
           </select>
         </label>
       )}
-      {error && <p className="iron-login-error" role="alert">{error}</p>}
+      {error && <p className={styles.error} role="alert">{error}</p>}
       <button className="button button--primary" type="submit" disabled={busy || (tenants.length > 0 && !gymId)}>
         {busy ? "Validando…" : tenants.length > 0 ? "Entrar nesta unidade" : "Entrar no IRON FIT"}
       </button>
       {tenants.length > 0 && (
-        <button
-          className="iron-login-link"
-          type="button"
-          onClick={() => { setTenants([]); setGymId(""); setError(""); }}
-          disabled={busy}
-        >
-          Voltar
-        </button>
+        <button className={styles.link} type="button" onClick={() => { setTenants([]); setGymId(""); setError(""); }} disabled={busy}>Voltar</button>
       )}
     </form>
   );
