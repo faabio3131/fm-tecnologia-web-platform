@@ -1,0 +1,291 @@
+/* FM Tecnologia — approved identity integration
+   Keeps the approved artwork intact and adapts only its surrounding chrome. */
+
+.site-header {
+  height: 100px;
+  background: #090d0b;
+  border-bottom-color: rgba(183, 244, 60, .14);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, .12);
+}
+
+.site-header .header-inner {
+  gap: 1.6rem;
+}
+
+.logo.logo--approved {
+  flex: 0 0 auto;
+  width: 272px;
+  min-height: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: visible;
+  line-height: 0;
+}
+
+.logo.logo--approved .logo-image {
+  display: block;
+  width: 100%;
+  height: 60px;
+  object-fit: contain;
+  object-position: left center;
+  mix-blend-mode: screen;
+}
+
+.logo-slogan {
+  display: block;
+  margin-top: .5rem;
+  color: #b7f43c;
+  font-size: .56rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: .085em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.site-header .desktop-nav,
+.site-header .header-actions {
+  color: #f7faf8;
+}
+
+.site-header .desktop-nav a,
+.site-header .header-actions > a:first-child {
+  color: #f7faf8;
+}
+
+.site-header .desktop-nav a:hover,
+.site-header .header-actions > a:first-child:hover {
+  color: var(--lime);
+  border-color: var(--lime);
+}
+
+.site-header .button--primary {
+  background: var(--lime);
+  color: var(--ink);
+  border-color: var(--lime);
+  box-shadow: 0 8px 24px rgba(183, 244, 60, .12);
+}
+
+.site-header .button--primary:hover {
+  background: #c4ff4c;
+  border-color: #c4ff4c;
+}
+
+.site-header .mobile-menu-toggle {
+  border-color: rgba(255, 255, 255, .22);
+  background: rgba(255, 255, 255, .035);
+  color: white;
+}
+
+.site-header :focus-visible {
+  outline-color: var(--lime);
+}
+
+/* Shared responsive safety: prevent grid/flex children from forcing horizontal overflow. */
+.hero-content,
+.portfolio-map,
+.section-heading > *,
+.product-card,
+.research-panel > *,
+.footer-top > *,
+.footer-grid > * {
+  min-width: 0;
+}
+
+/* Product cards — softer action area to reduce excessive white space. */
+.product-card .text-link {
+  margin: auto -1.5rem -1.5rem;
+  padding: 1rem 1.5rem;
+  min-height: 58px;
+  border-top: 1px solid rgba(7, 20, 17, .11);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  background: #eef3ef;
+  transition: background .2s, color .2s;
+}
+
+.product-card .text-link:hover,
+.product-card .text-link:focus-visible {
+  background: #e5ede7;
+}
+
+.site-footer .logo.logo--approved {
+  width: 250px;
+  min-height: 68px;
+  margin-bottom: .8rem;
+}
+
+.site-footer .logo.logo--approved .logo-image {
+  height: 57px;
+}
+
+.site-footer .logo-slogan {
+  color: #b7f43c;
+  font-size: .45rem;
+}
+
+/* Notebook / compact desktop: preserve brand presence without crowding navigation. */
+@media (max-width: 1120px) {
+  .site-header {
+    height: 96px;
+  }
+
+  .site-header .header-inner {
+    gap: 1.1rem;
+  }
+
+  .site-header .logo.logo--approved {
+    width: 242px;
+    min-height: 68px;
+  }
+
+  .site-header .logo.logo--approved .logo-image {
+    height: 55px;
+  }
+
+  .site-header .logo-slogan {
+    font-size: .5rem;
+    letter-spacing: .075em;
+  }
+}
+
+/* Tablet portrait / compact landscape: stack the home hero and avoid 3 cramped product columns. */
+@media (max-width: 900px) {
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .hero-content {
+    max-width: 720px;
+  }
+
+  .portfolio-map {
+    width: 100%;
+  }
+
+  .cards--three {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Tablet: navigation is already collapsed by the shared shell at 1000px. */
+@media (max-width: 860px) {
+  .site-header {
+    height: 94px;
+  }
+
+  .site-header .header-inner {
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .site-header .logo.logo--approved {
+    width: 232px;
+    min-height: 66px;
+  }
+
+  .site-header .logo.logo--approved .logo-image {
+    height: 53px;
+  }
+
+  .site-header .logo-slogan {
+    margin-top: .44rem;
+    font-size: .48rem;
+    letter-spacing: .065em;
+  }
+}
+
+/* Phones and narrow tablets: cards become one-column before copy starts to feel compressed. */
+@media (max-width: 680px) {
+  .cards--three,
+  .cards--two {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-layout {
+    padding-block: 1.75rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.15rem, 10vw, 3rem);
+  }
+
+  .hero .actions .button {
+    flex: 1 1 190px;
+  }
+}
+
+/* Small phones: keep the complete lockup readable while leaving room for menu control. */
+@media (max-width: 560px) {
+  .site-header {
+    height: 92px;
+  }
+
+  .site-header .header-inner {
+    gap: .65rem;
+  }
+
+  .site-header .logo.logo--approved {
+    width: min(218px, calc(100vw - 112px));
+    min-width: 178px;
+    min-height: 64px;
+  }
+
+  .site-header .logo.logo--approved .logo-image {
+    height: 50px;
+  }
+
+  .site-header .logo-slogan {
+    margin-top: .42rem;
+    font-size: clamp(.4rem, 1.65vw, .46rem);
+    letter-spacing: .045em;
+  }
+
+  .product-card .text-link {
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+    margin-bottom: -1.25rem;
+    min-height: 60px;
+    padding: 1rem 1.25rem;
+  }
+
+  .site-footer .logo.logo--approved {
+    width: 218px;
+    min-height: 66px;
+  }
+
+  .site-footer .logo.logo--approved .logo-image {
+    height: 50px;
+  }
+
+  .site-footer .logo-slogan {
+    font-size: .4rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .site-header .logo.logo--approved {
+    width: min(202px, calc(100vw - 102px));
+    min-width: 166px;
+  }
+
+  .site-header .logo.logo--approved .logo-image {
+    height: 47px;
+  }
+
+  .site-header .logo-slogan {
+    font-size: .39rem;
+    letter-spacing: .035em;
+  }
+
+  .hero .actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .hero .actions .button {
+    width: 100%;
+  }
+}

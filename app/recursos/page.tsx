@@ -1,0 +1,3 @@
+import { ContentPage } from "@/src/components/marketing/content-page"; import { createMetadata } from "@/src/lib/seo/metadata";
+export const metadata=createMetadata("Recursos","Recursos e informações da FM Tecnologia.","/recursos");
+export default function Page(){return <ContentPage eyebrow="Recursos" title="Conhecimento para decisões melhores." intro="Esta é a fundação da central de recursos da FM Tecnologia."><section className="section"><div className="container"><div className="empty-state"><span>EM CONSTRUÇÃO</span><h2>Conteúdos serão publicados com validação.</h2><p>Novos materiais entrarão aqui à medida que forem aprovados.</p></div></div></section></ContentPage>}

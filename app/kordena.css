@@ -1,0 +1,107 @@
+.product-landing--kordena .landing-hero {
+  background:
+    radial-gradient(circle at 82% 18%,rgba(183,244,60,.12),transparent 28%),
+    linear-gradient(135deg,#071411 0%,#10251d 58%,#0b1b16 100%);
+}
+.product-landing--kordena .landing-hero h1>span { max-width: 720px; }
+.product-landing--kordena .landing-index { row-gap: .15rem; }
+.kordena-heading-wide h2 { max-width: 760px; }
+.kordena-core-section { background: #081713; color: white; }
+.kordena-core-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: clamp(2rem,6vw,5rem); align-items: center; }
+.kordena-core-copy .eyebrow { color: var(--mint); }
+.kordena-core-copy h2,.kordena-finance-grid h2,.kordena-efficiency-grid h2,.kordena-media-slot h2 { font: 650 clamp(1.9rem,3.4vw,3rem)/1.08 var(--font-display); letter-spacing: -.045em; margin: .55rem 0 1rem; }
+.kordena-core-copy p { color: #c0cec7; max-width: 680px; }
+.kordena-core-map { position: relative; min-height: 420px; border: 1px solid #355345; border-radius: 1.5rem; background: linear-gradient(145deg,#10271f,#091a15); display: grid; place-items: center; padding: 2rem; overflow: hidden; }
+.kordena-core-map:before,.kordena-core-map:after { content: ""; position: absolute; inset: 15%; border: 1px solid rgba(101,220,162,.22); border-radius: 50%; }
+.kordena-core-map:after { inset: 29%; border-color: rgba(183,244,60,.28); }
+.kordena-core-center { position: relative; z-index: 2; width: 170px; height: 170px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 50%; background: var(--lime); color: var(--ink); box-shadow: 0 0 0 14px rgba(183,244,60,.08); text-align: center; }
+.kordena-core-center span { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 800; }
+.kordena-core-center strong { font-size: 2rem; letter-spacing: -.05em; }
+.kordena-core-center small { font-size: .72rem; }
+.kordena-core-areas { position: absolute; inset: 1.25rem; z-index: 1; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); align-content: space-between; justify-content: space-between; gap: .6rem; pointer-events: none; }
+.kordena-core-areas span { justify-self: start; max-width: 150px; padding: .55rem .75rem; border: 1px solid #44675a; border-radius: 999px; background: #132d24; color: #dce8e2; font-size: .78rem; font-weight: 700; }
+.kordena-core-areas span:nth-child(even) { justify-self: end; }
+.kordena-flow { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(9,minmax(0,1fr)); border: 1px solid var(--line); border-radius: 1rem; overflow: hidden; background: white; }
+.kordena-flow li { min-width: 0; min-height: 118px; padding: 1rem .8rem; border-right: 1px solid var(--line); display: flex; flex-direction: column; justify-content: space-between; gap: .7rem; }
+.kordena-flow li:last-child { border-right: 0; }
+.kordena-flow span { color: #397255; font-size: .7rem; font-weight: 800; }
+.kordena-flow strong { font-size: .86rem; line-height: 1.25; }
+.kordena-dual-story { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
+.kordena-story-panel { min-width: 0; padding: clamp(1.5rem,3vw,2.25rem); border: 1px solid var(--line); border-radius: 1.25rem; background: white; }
+.kordena-story-panel--dark { background: var(--ink); color: white; border-color: var(--ink); }
+.kordena-story-panel--dark .eyebrow { color: var(--mint); }
+.kordena-story-panel h2 { font: 650 clamp(1.6rem,2.6vw,2.3rem)/1.12 var(--font-display); letter-spacing: -.04em; margin: .6rem 0 1rem; }
+.kordena-story-panel p { color: var(--muted); }
+.kordena-story-panel--dark p { color: #c0cec7; }
+.kordena-signal-flow { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin: 1.5rem 0; }
+.kordena-signal-flow span { padding: .45rem .7rem; border: 1px solid #45675a; border-radius: 999px; background: #132b23; font-size: .78rem; }
+.kordena-signal-flow b { color: var(--lime); }
+.kordena-story-note { font-size: .9rem; }
+.kordena-check-list { list-style: none; padding: 0; margin: 1.4rem 0 0; display: grid; gap: .65rem; }
+.kordena-check-list li { display: flex; gap: .65rem; align-items: flex-start; }
+.kordena-check-list li:before { content: "✓"; color: #397255; font-weight: 900; }
+.kordena-finance-grid { display: grid; grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); gap: clamp(2rem,5vw,4rem); align-items: start; }
+.kordena-finance-grid>div:first-child>p:last-child { color: var(--muted); max-width: 640px; }
+.kordena-metric-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .65rem; }
+.kordena-metric-grid span { min-height: 64px; display: flex; align-items: center; padding: .8rem 1rem; border: 1px solid #b9cec0; border-radius: .75rem; background: rgba(255,255,255,.72); font-weight: 700; }
+.kordena-stock-value { margin-top: 2.25rem; padding-top: 2rem; border-top: 1px solid var(--line); display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr); gap: 2rem; align-items: start; }
+.kordena-stock-value h3 { font: 650 clamp(1.35rem,2.3vw,2rem)/1.15 var(--font-display); margin: .45rem 0 0; }
+.kordena-question-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .6rem; }
+.kordena-question-grid span { padding: .85rem 1rem; border-left: 3px solid #70a984; background: white; font-size: .9rem; }
+.kordena-efficiency-section { background: #0c211a; color: white; }
+.kordena-efficiency-grid { display: grid; grid-template-columns: minmax(0,1.15fr) minmax(0,.85fr); gap: clamp(2rem,5vw,4rem); align-items: center; }
+.kordena-efficiency-grid .eyebrow { color: var(--mint); }
+.kordena-efficiency-grid p { color: #c0cec7; max-width: 680px; }
+.kordena-efficiency-list { display: grid; gap: .55rem; }
+.kordena-efficiency-list span { padding: .8rem 1rem; border: 1px solid #385447; border-radius: .75rem; background: #132d24; color: #e0ebe5; font-size: .9rem; }
+.kordena-prompt-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .75rem; }
+.kordena-prompt-grid blockquote { margin: 0; min-height: 88px; padding: 1rem 1.1rem; border: 1px solid #b9cec0; border-radius: .85rem; background: white; display: flex; align-items: center; font-weight: 650; letter-spacing: -.01em; }
+.kordena-demo-section { background: linear-gradient(180deg,#f7faf7 0%,#eef5ef 100%); }
+.kordena-media-slot { display: grid; grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); gap: clamp(2rem,5vw,4rem); align-items: center; }
+.kordena-media-slot>div:first-child>p { color: var(--muted); max-width: 620px; }
+.kordena-demo-note { margin-top: 1rem; font-size: .9rem; }
+.kordena-media-placeholder { position: relative; aspect-ratio: 16/9; min-height: 300px; border: 1px solid rgba(170,222,114,.24); border-radius: 1.4rem; background:
+  radial-gradient(circle at 72% 24%,rgba(183,244,60,.12),transparent 30%),
+  radial-gradient(circle at 25% 78%,rgba(80,204,148,.09),transparent 32%),
+  linear-gradient(145deg,#07110e 0%,#0d1e18 56%,#07130f 100%);
+  box-shadow: 0 24px 70px rgba(5,28,20,.14), inset 0 1px 0 rgba(255,255,255,.035);
+  display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem; overflow: hidden; }
+.kordena-media-placeholder:before { content: ""; position: absolute; inset: 1rem; border: 1px solid rgba(190,255,95,.07); border-radius: 1rem; pointer-events: none; }
+.kordena-media-placeholder:after { content: ""; position: absolute; width: 220px; height: 220px; border-radius: 50%; border: 1px solid rgba(190,255,95,.08); box-shadow: 0 0 0 36px rgba(190,255,95,.025),0 0 0 74px rgba(190,255,95,.012); pointer-events: none; }
+.kordena-media-placeholder span,.kordena-media-placeholder strong,.kordena-media-placeholder small,.kordena-demo-play { position: relative; z-index: 2; }
+.kordena-media-placeholder span { font-size: .7rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #bff263; }
+.kordena-demo-play { width: 70px; height: 70px; margin: 1.35rem 0 1rem; border-radius: 50%; display: grid; place-items: center; padding-left: 4px; background: rgba(183,244,60,.12); border: 1px solid rgba(204,255,103,.42); color: #d7ff7a; font-size: 1.4rem; box-shadow: 0 0 34px rgba(183,244,60,.12), inset 0 0 24px rgba(183,244,60,.07); }
+.kordena-media-placeholder strong { color: #f4f9f5; font-size: clamp(1.35rem,2.4vw,1.95rem); margin: 0 0 .65rem; letter-spacing: -.035em; }
+.kordena-media-placeholder small { max-width: 440px; color: #9fb4a8; line-height: 1.55; }
+.product-landing--kordena .landing-trial { background: var(--ink); color: white; border-color: var(--ink); }
+.product-landing--kordena .landing-trial .eyebrow { color: var(--mint); }
+.product-landing--kordena .landing-trial p:last-child { color: #c0cec7; }
+.product-landing--kordena .landing-trial .button--primary { background: var(--lime); color: var(--ink); border-color: var(--lime); }
+.product-landing--kordena .landing-trial .button--secondary { color: white; border-color: #829a8e; }
+@media(max-width:1000px) {
+  .kordena-flow { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .kordena-flow li { border-bottom: 1px solid var(--line); }
+  .kordena-flow li:nth-child(3n) { border-right: 0; }
+}
+@media(max-width:820px) {
+  .kordena-core-grid,.kordena-finance-grid,.kordena-stock-value,.kordena-efficiency-grid,.kordena-media-slot { grid-template-columns: 1fr; }
+  .kordena-core-map { min-height: 360px; }
+}
+@media(max-width:700px) {
+  .kordena-dual-story,.kordena-prompt-grid,.kordena-metric-grid,.kordena-question-grid { grid-template-columns: 1fr; }
+  .kordena-flow { grid-template-columns: 1fr; }
+  .kordena-flow li { min-height: auto; border-right: 0; border-bottom: 1px solid var(--line); flex-direction: row; align-items: center; justify-content: flex-start; }
+  .kordena-flow li:last-child { border-bottom: 0; }
+  .kordena-core-map { min-height: 430px; padding: 1rem; }
+  .kordena-core-center { width: 135px; height: 135px; }
+  .kordena-core-center strong { font-size: 1.6rem; }
+  .kordena-core-areas { inset: .7rem; }
+  .kordena-core-areas span { max-width: 118px; font-size: .68rem; padding: .4rem .55rem; }
+  .kordena-media-placeholder { min-height: 240px; }
+}
+@media(max-width:420px) {
+  .kordena-core-map { min-height: 390px; }
+  .kordena-core-center { width: 118px; height: 118px; }
+  .kordena-core-areas span { max-width: 102px; font-size: .62rem; }
+  .kordena-demo-play { width: 58px; height: 58px; }
+}
