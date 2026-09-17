@@ -1,3 +1,28 @@
+import { Suspense } from "react";
 import { createMetadata } from "@/src/lib/seo/metadata";
-export const metadata=createMetadata("Entrar","Fundação visual da Conta FM.","/entrar");
-export default function Page(){return <main className="account-page"><section className="account-panel"><span className="eyebrow">Conta FM</span><h1>Seu acesso ao ecossistema.</h1><p>A experiência de autenticação será integrada em uma etapa futura.</p><div className="account-note"><b>Ativação da conta</b><span>A Conta FM será considerada plenamente ativa após a validação de e-mail e WhatsApp.</span></div><button className="button button--primary" disabled>Entrar em breve</button></section><aside><span>FM / CONTA</span><h2>Uma identidade.<br/>Todo o ecossistema.</h2></aside></main>}
+import { IronFitLoginForm } from "./login-form";
+
+export const metadata = createMetadata("Entrar", "Acesso seguro ao ecossistema FM Tecnologia.", "/entrar");
+
+export default function Page() {
+  return (
+    <main className="account-page">
+      <section className="account-panel">
+        <span className="eyebrow">Conta FM · IRON FIT</span>
+        <h1>Acesso seguro ao IRON FIT.</h1>
+        <p>Use sua conta autorizada. Quando houver mais de uma academia disponível, a seleção será validada pelo backend antes da criação da sessão.</p>
+        <div className="account-note">
+          <b>Sessão protegida</b>
+          <span>As credenciais de sessão permanecem em cookies HttpOnly e não ficam disponíveis para JavaScript do navegador.</span>
+        </div>
+        <Suspense fallback={<p>Carregando acesso…</p>}>
+          <IronFitLoginForm />
+        </Suspense>
+      </section>
+      <aside>
+        <span>IRON FIT / CORE</span>
+        <h2>Gestão conectada.<br />Autoridade no Core.</h2>
+      </aside>
+    </main>
+  );
+}
