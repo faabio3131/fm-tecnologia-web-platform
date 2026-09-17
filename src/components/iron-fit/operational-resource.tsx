@@ -5,10 +5,10 @@ import { coreGet, corePatch, corePost } from "@/src/lib/iron-fit/core-client";
 import { DataTable } from "./data-table";
 import styles from "./core-ui.module.css";
 
-type Field = { name: string; label: string; type?: "text" | "email" | "date" | "datetime-local" | "number" | "select" | "checkbox"; required?: boolean; options?: Array<{ value: string; label: string }> };
-type Operation = { label: string; method: "POST" | "PATCH"; path: (values: Record<string, string | boolean>) => string; fields: Field[]; body?: (values: Record<string, string | boolean>) => unknown; rolesNote?: string };
+export type OperationalField = { name: string; label: string; type?: "text" | "email" | "date" | "datetime-local" | "number" | "select" | "checkbox"; required?: boolean; options?: Array<{ value: string; label: string }> };
+export type OperationalCommand = { label: string; method: "POST" | "PATCH"; path: (values: Record<string, string | boolean>) => string; fields: OperationalField[]; body?: (values: Record<string, string | boolean>) => unknown; rolesNote?: string };
 
-function initial(fields: Field[]) {
+function initial(fields: OperationalField[]) {
   return Object.fromEntries(fields.map((field) => [field.name, field.type === "checkbox" ? false : ""])) as Record<string, string | boolean>;
 }
 
@@ -16,7 +16,7 @@ function payload(values: Record<string, string | boolean>) {
   return Object.fromEntries(Object.entries(values).filter(([, value]) => value !== ""));
 }
 
-function OperationForm({ operation, onDone }: { operation: Operation; onDone: () => Promise<void> }) {
+function OperationForm({ operation, onDone }: { operation: OperationalCommand; onDone: () => Promise<void> }) {
   const [values, setValues] = useState(() => initial(operation.fields));
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
@@ -49,7 +49,7 @@ function OperationForm({ operation, onDone }: { operation: Operation; onDone: ()
   </form>;
 }
 
-export function OperationalResource({ title, description, listPath, preferred = [], empty, operations = [], notice }: { title: string; description: string; listPath: string; preferred?: string[]; empty?: string; operations?: Operation[]; notice?: string }) {
+export function OperationalResource({ title, description, listPath, preferred = [], empty, operations = [], notice }: { title: string; description: string; listPath: string; preferred?: string[]; empty?: string; operations?: OperationalCommand[]; notice?: string }) {
   const [data, setData] = useState<unknown>(null);
   const [state, setState] = useState<"loading" | "ready" | "error">("loading");
   const [error, setError] = useState("");
