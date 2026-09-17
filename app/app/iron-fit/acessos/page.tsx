@@ -17,5 +17,5 @@ const operations: OperationalCommand[] = [
 ];
 
 export default function AccessPage() {
-  return <OperationalResource title="Acesso físico" description="Histórico administrativo read-only das decisões registradas pelo Core e emissão governada de credenciais." listPath="access/events" preferred={["id", "createdAt", "deviceId", "studentId", "allowed", "denialReason"]} operations={operations} notice="Esta tela nunca decide liberação física. Allowed/denialReason são fatos já registrados pelo mecanismo canônico de acesso." />;
+  return <OperationalResource title="Acesso físico" description="Histórico administrativo read-only das decisões registradas pelo Core e emissão governada de credenciais." listPath="access/events" preferred={["id", "occurredAt", "deviceId", "studentId", "allowed", "denialReason"]} operations={operations} notice="Esta tela nunca decide liberação física. Allowed/denialReason são fatos já registrados pelo mecanismo canônico de acesso." />;
 }
