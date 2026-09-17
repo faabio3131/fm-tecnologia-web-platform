@@ -22,6 +22,7 @@ const routes: Array<{ method: string; pattern: RegExp }> = [
   { method: "GET", pattern: /^financial\/(accounts|charges)$/ },
   { method: "POST", pattern: /^financial\/(accounts|subscriptions|charges)$/ },
   { method: "PATCH", pattern: /^financial\/charges\/[0-9a-f-]+\/pay$/i },
+  { method: "GET", pattern: /^access\/events$/ },
   { method: "POST", pattern: /^access\/credentials$/ },
 ];
 
