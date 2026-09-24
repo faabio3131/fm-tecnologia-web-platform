@@ -41,6 +41,12 @@ export function FmPremiumHero() {
         </div>
 
         <aside className="fm-core-visual" aria-label="Core tridimensional da FM Tecnologia">
+          <div className="fm-core-visual__telemetry fm-core-visual__telemetry--left" aria-hidden="true">
+            <span>Automação</span><i /><i /><i /><i />
+          </div>
+          <div className="fm-core-visual__telemetry fm-core-visual__telemetry--right" aria-hidden="true">
+            <span>Inteligência</span><b /><b /><b />
+          </div>
           <FmCore3D />
         </aside>
       </div>
