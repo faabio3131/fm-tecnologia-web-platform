@@ -1,0 +1,212 @@
+name: FM Core 3D visual proof
+
+on:
+  push:
+    branches:
+      - chore/fm-premium-core3d-proof
+
+permissions:
+  contents: read
+
+jobs:
+  core3d-proof:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm audit --audit-level=high
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+      - name: Start production server
+        shell: bash
+        run: |
+          npm run start -- -p 3100 > /tmp/fm-core3d-preview.log 2>&1 &
+          echo $! > /tmp/fm-core3d-preview.pid
+          for attempt in {1..40}; do
+            if curl --fail --silent http://127.0.0.1:3100/ > /dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/fm-core3d-preview.log
+          exit 1
+      - name: Install Playwright
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Capture real WebGL2 evidence
+        shell: bash
+        run: |
+          mkdir -p core3d-proof
+          node --input-type=module <<'NODE'
+          import { chromium } from "playwright";
+          import fs from "node:fs";
+
+          const browser = await chromium.launch({
+            headless: true,
+            args: ["--enable-webgl", "--ignore-gpu-blocklist"],
+          });
+
+          const report = {
+            commit: process.env.GITHUB_SHA,
+            generatedAt: new Date().toISOString(),
+            viewports: [],
+            rotation: null,
+            reducedMotion: null,
+          };
+
+          const viewports = [
+            { name: "desktop-1440", width: 1440, height: 1000 },
+            { name: "tablet-1024", width: 1024, height: 1100 },
+            { name: "mobile-390", width: 390, height: 844 },
+          ];
+
+          for (const vp of viewports) {
+            const context = await browser.newContext({
+              viewport: { width: vp.width, height: vp.height },
+              deviceScaleFactor: 1,
+              reducedMotion: "no-preference",
+            });
+            const page = await context.newPage();
+            const consoleErrors = [];
+            await page.addInitScript(() => {
+              window.__proofVitals = { lcp: 0, cls: 0 };
+              try {
+                new PerformanceObserver((list) => {
+                  const entries = list.getEntries();
+                  const last = entries[entries.length - 1];
+                  if (last) window.__proofVitals.lcp = last.startTime;
+                }).observe({ type: "largest-contentful-paint", buffered: true });
+                new PerformanceObserver((list) => {
+                  for (const entry of list.getEntries()) {
+                    if (!entry.hadRecentInput) window.__proofVitals.cls += entry.value;
+                  }
+                }).observe({ type: "layout-shift", buffered: true });
+              } catch {}
+            });
+            page.on("console", (msg) => {
+              if (msg.type() === "error") consoleErrors.push(msg.text());
+            });
+            page.on("pageerror", (error) => consoleErrors.push(String(error)));
+
+            await page.goto("http://127.0.0.1:3100/", { waitUntil: "networkidle" });
+            await page.waitForFunction(() => document.querySelector("[data-core3d='fm-home']")?.dataset.renderer === "webgl2", null, { timeout: 10000 });
+            await page.waitForTimeout(600);
+
+            await page.screenshot({
+              path: `core3d-proof/${vp.name}-viewport.png`,
+              fullPage: false,
+            });
+            await page.locator(".fm-premium-hero").screenshot({
+              path: `core3d-proof/${vp.name}-hero.png`,
+            });
+
+            const metrics = await page.evaluate(() => {
+              const canvas = document.querySelector("[data-core3d='fm-home']");
+              const gl = canvas?.getContext("webgl2");
+              const nav = performance.getEntriesByType("navigation")[0];
+              const rect = canvas?.getBoundingClientRect();
+              return {
+                noHorizontalOverflow: document.documentElement.scrollWidth <= window.innerWidth + 2,
+                documentWidth: document.documentElement.scrollWidth,
+                rendererDataset: canvas?.dataset.renderer ?? null,
+                tier: canvas?.dataset.tier ?? null,
+                triangles: Number(canvas?.dataset.triangles ?? 0),
+                nominalDrawCalls: Number(canvas?.dataset.drawCalls ?? 0),
+                brainNodes: Number(canvas?.dataset.brainNodes ?? 0),
+                webglVersion: gl ? gl.getParameter(gl.VERSION) : null,
+                webglRenderer: gl ? gl.getParameter(gl.RENDERER) : null,
+                canvasBuffer: canvas ? [canvas.width, canvas.height] : null,
+                canvasCss: rect ? [Math.round(rect.width), Math.round(rect.height)] : null,
+                diagnostics: window.__FM_CORE3D_DIAGNOSTICS__ ?? null,
+                vitals: window.__proofVitals ?? null,
+                navigationDuration: nav?.duration ?? null,
+                currentState: document.querySelector(".fm-core3d__message strong")?.textContent?.trim() ?? null,
+                pauseControl: document.querySelector(".fm-core3d__pause")?.textContent?.trim() ?? null,
+              };
+            });
+
+            if (!metrics.noHorizontalOverflow) {
+              throw new Error(`Horizontal overflow at ${vp.name}: doc=${metrics.documentWidth}, viewport=${vp.width}`);
+            }
+            if (metrics.rendererDataset !== "webgl2" || !metrics.webglVersion) {
+              throw new Error(`Real WebGL2 renderer missing at ${vp.name}`);
+            }
+            if (metrics.triangles <= 0 || metrics.brainNodes <= 0) {
+              throw new Error(`3D geometry diagnostics missing at ${vp.name}`);
+            }
+            if (consoleErrors.length) {
+              throw new Error(`Console/page errors at ${vp.name}: ${consoleErrors.join(" | ")}`);
+            }
+
+            if (vp.name === "desktop-1440") {
+              const before = metrics.currentState;
+              await page.waitForTimeout(5700);
+              const after = await page.locator(".fm-core3d__message strong").textContent();
+              await page.locator(".fm-core3d").screenshot({
+                path: "core3d-proof/desktop-1440-core-state02.png",
+              });
+              if (before === after?.trim()) {
+                throw new Error("Core did not advance to the next readable 3D face/state");
+              }
+              report.rotation = { before, after: after?.trim() ?? null };
+            }
+
+            report.viewports.push({ ...vp, metrics, consoleErrors });
+            await context.close();
+          }
+
+          const reducedContext = await browser.newContext({
+            viewport: { width: 1440, height: 1000 },
+            deviceScaleFactor: 1,
+            reducedMotion: "reduce",
+          });
+          const reducedPage = await reducedContext.newPage();
+          await reducedPage.goto("http://127.0.0.1:3100/", { waitUntil: "networkidle" });
+          await reducedPage.waitForFunction(() => document.querySelector("[data-core3d='fm-home']")?.dataset.renderer === "webgl2", null, { timeout: 10000 });
+          await reducedPage.waitForTimeout(400);
+          const before = await reducedPage.locator(".fm-core3d__message strong").textContent();
+          const control = await reducedPage.locator(".fm-core3d__pause").evaluate((button) => ({
+            text: button.textContent?.trim() ?? "",
+            disabled: button.disabled,
+          }));
+          await reducedPage.waitForTimeout(6200);
+          const after = await reducedPage.locator(".fm-core3d__message strong").textContent();
+          await reducedPage.locator(".fm-core3d").screenshot({
+            path: "core3d-proof/reduced-motion-core.png",
+          });
+          if (before?.trim() !== after?.trim()) {
+            throw new Error(`Reduced motion changed face from ${before} to ${after}`);
+          }
+          if (!control.disabled || control.text !== "Movimento reduzido") {
+            throw new Error("Reduced-motion control state is not stable/disabled");
+          }
+          report.reducedMotion = {
+            before: before?.trim() ?? null,
+            after: after?.trim() ?? null,
+            control,
+            frozen: before?.trim() === after?.trim(),
+          };
+          await reducedContext.close();
+
+          await browser.close();
+          fs.writeFileSync("core3d-proof/report.json", JSON.stringify(report, null, 2));
+          NODE
+      - name: Upload Core 3D proof
+        uses: actions/upload-artifact@v4
+        with:
+          name: fm-core3d-checkpoint01-proof
+          path: core3d-proof
+          if-no-files-found: error
+          retention-days: 14
+      - name: Stop production server
+        if: always()
+        shell: bash
+        run: |
+          if [ -f /tmp/fm-core3d-preview.pid ]; then
+            kill "$(cat /tmp/fm-core3d-preview.pid)" 2>/dev/null || true
+          fi
