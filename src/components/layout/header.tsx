@@ -17,7 +17,7 @@ export function Header({ premiumHome = false }: { premiumHome?: boolean }) {
         </nav>
         <div className="header-actions">
           <Link href="/entrar">Entrar</Link>
-          <ButtonLink href="/precos">{approvedCtaLabels.plans}</ButtonLink>
+          <ButtonLink href="/precos">{premiumHome ? "Comece grátis" : approvedCtaLabels.plans}</ButtonLink>
         </div>
         <MobileMenu />
       </div>
