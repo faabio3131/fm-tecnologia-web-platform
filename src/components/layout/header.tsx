@@ -5,9 +5,9 @@ import { Logo } from "./logo";
 import { MobileMenu } from "./mobile-menu";
 import { ButtonLink } from "@/src/components/ui/button-link";
 
-export function Header() {
+export function Header({ premiumHome = false }: { premiumHome?: boolean }) {
   return (
-    <header className="site-header">
+    <header className={`site-header${premiumHome ? " site-header--premium-home" : ""}`}>
       <div className="container header-inner">
         <Logo />
         <nav className="desktop-nav" aria-label="Navegação principal">
