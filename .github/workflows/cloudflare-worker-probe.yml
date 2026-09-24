@@ -1,0 +1,37 @@
+name: Cloudflare Worker probe
+
+on:
+  push:
+    branches:
+      - tech/cloudflare-preview-bypass
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  opennext-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Install Cloudflare adapter for probe only
+        run: npm install --no-save @opennextjs/cloudflare@latest wrangler@latest
+      - name: Create temporary OpenNext config
+        shell: bash
+        run: |
+          cat > open-next.config.ts <<'EOF'
+          import { defineCloudflareConfig } from "@opennextjs/cloudflare";
+          export default defineCloudflareConfig();
+          EOF
+      - name: Build Next.js for Cloudflare Workers
+        run: npx opennextjs-cloudflare build
+      - name: Verify Worker artifact
+        shell: bash
+        run: |
+          test -f .open-next/worker.js
+          test -d .open-next/assets
