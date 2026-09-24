@@ -10,5 +10,6 @@ export function SiteChrome({ children }: { children: ReactNode }) {
   if (pathname.startsWith("/app/iron-fit")) {
     return <>{children}</>;
   }
-  return <><Header premiumHome={pathname === "/"} /><div id="conteudo" tabIndex={-1}>{children}</div><Footer /></>;
+  const premiumHome = pathname === "/";
+  return <><Header premiumHome={premiumHome} /><div id="conteudo" tabIndex={-1}>{children}</div><Footer premiumHome={premiumHome} /></>;
 }

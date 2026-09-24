@@ -4,6 +4,8 @@ import test from "node:test";
 
 const source = readFileSync(new URL("../src/components/marketing/fm-core-3d.tsx", import.meta.url), "utf8");
 const hero = readFileSync(new URL("../src/components/marketing/fm-premium-hero.tsx", import.meta.url), "utf8");
+const chrome = readFileSync(new URL("../src/components/layout/site-chrome.tsx", import.meta.url), "utf8");
+const footer = readFileSync(new URL("../src/components/layout/footer.tsx", import.meta.url), "utf8");
 
 test("FM Home Core uses genuine WebGL2 rendering instead of a rotating flat image", () => {
   assert.match(source, /getContext\("webgl2"/);
@@ -48,4 +50,23 @@ test("Premium Hero integrates the real 3D Core component", () => {
   assert.match(hero, /<FmCore3D \/>/);
   assert.doesNotMatch(hero, /fm-core-device/);
   assert.doesNotMatch(hero, /fm-brain-svg/);
+});
+
+
+test("FM Home Core reconstructs the approved layered silhouette instead of the rejected spherical appliance", () => {
+  assert.match(source, /createArcBand/);
+  assert.match(source, /shellOuter/);
+  assert.match(source, /shellInner/);
+  assert.match(source, /armorMain/);
+  assert.match(source, /const crystal =/);
+  assert.match(source, /ringWide/);
+  assert.match(source, /ringEnergy/);
+  assert.match(source, /const orbitLines/);
+  assert.doesNotMatch(source, /const bodyModel = multiply\(groupRotation, scaling\(1\.72/);
+});
+
+test("Premium footer styling is scoped only to the Home route", () => {
+  assert.match(chrome, /const premiumHome = pathname === "\/"/);
+  assert.match(chrome, /<Footer premiumHome=\{premiumHome\} \/>/);
+  assert.match(footer, /premiumHome \? " site-footer--premium-home" : ""/);
 });

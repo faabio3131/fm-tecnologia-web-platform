@@ -20,8 +20,8 @@ export function FmPremiumHero() {
             <small>IA · automação · software</small>
           </p>
           <h1 id="fm-premium-hero-title">
-            Tecnologia que conecta
-            <span>operação, dados e inteligência.</span>
+            Tecnologia que conecta operação,
+            <span>dados e inteligência.</span>
           </h1>
           <p className="fm-premium-hero__lead">
             Criamos plataformas inteligentes para transformar processos complexos em gestão mais clara,
@@ -35,15 +35,14 @@ export function FmPremiumHero() {
             <ButtonLink href="/produtos" className="fm-hero-primary">Explorar ecossistema</ButtonLink>
             <ButtonLink href="/contato" variant="secondary" className="fm-hero-secondary">Falar com a FM</ButtonLink>
           </div>
+          <div className="fm-premium-hero__proof" aria-label="Diferenciais da plataforma">
+            {proofPoints.map((point) => <span key={point}>{point}</span>)}
+          </div>
         </div>
 
         <aside className="fm-core-visual" aria-label="Core tridimensional da FM Tecnologia">
           <FmCore3D />
         </aside>
-
-        <div className="fm-premium-hero__proof" aria-label="Diferenciais da plataforma">
-          {proofPoints.map((point) => <span key={point}>{point}</span>)}
-        </div>
       </div>
 
       <nav className="container fm-premium-container fm-premium-hero__ecosystem" aria-label="Explore o ecossistema FM">
