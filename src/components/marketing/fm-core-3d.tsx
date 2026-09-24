@@ -545,7 +545,7 @@ function brainGeometry(nodeCount: number) {
   return { nodes: points.flat(), lines, connections };
 }
 
-function createFaceTexturefunction createFaceTexture(
+function createFaceTexture(
   gl: WebGL2RenderingContext,
   state: (typeof FM_CORE_STATES)[number],
   index: number,
