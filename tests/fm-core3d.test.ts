@@ -86,17 +86,17 @@ test("Core fidelity pass uses horizontal ribbon rings and layered polygon plaque
   assert.match(source, /createPolygonPlate/);
   assert.match(source, /frameOuter/);
   assert.match(source, /frameMid/);
-  assert.match(source, /brainNodes = tier === "desktop" \? 132/);
+  assert.match(source, /brainNodes = tier === "desktop" \? 220/);
 });
 
 
-test("V5 fidelity pass keeps telemetry decorative, Core dimensional, and Home-only responsive treatment", () => {
+test("V6 reconstruction preserves dimensional Core, Home-only scope, and responsive treatment", () => {
   assert.ok(hero.includes("fm-core-visual__telemetry"));
   assert.ok(hero.includes('aria-hidden="true"'));
-  assert.ok(premiumCss.includes("FM PREMIUM HOME — APPROVED REFERENCE FIDELITY V5"));
+  assert.ok(premiumCss.includes("FM PREMIUM HOME — REFERENCE RECONSTRUCTION V6"));
   assert.ok(premiumCss.includes(".fm-core-visual__telemetry{display:none}"));
   assert.ok(premiumCss.includes("@media(prefers-reduced-motion:reduce)"));
-  assert.ok(source.includes("createPolygonPlate(gl, 8, 1.10, .80, .065)"));
-  assert.ok(source.includes("const orbitBase = translation(0, 2.46, 0)"));
-  assert.ok(source.includes("const xTilts = [.28, -.36, .18, -.24]"));
+  assert.ok(source.includes("createPolygonPlate(gl, 8, 1.34, 1.03, .085)"));
+  assert.ok(source.includes("const orbitBase = translation(0, 2.75, 0)"));
+  assert.ok(source.includes("const xTilts = [.20, -.30, .16, -.22, .34]"));
 });
