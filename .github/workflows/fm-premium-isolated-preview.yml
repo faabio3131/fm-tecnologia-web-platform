@@ -1,0 +1,350 @@
+name: FM Premium isolated preview
+
+on:
+  push:
+    branches:
+      - tech/fm-premium-preview-7467f826
+
+permissions:
+  contents: read
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    env:
+      SOURCE_SHA: 7467f8269814b30c7339d8e460ab3aaf994eea52
+    steps:
+      - name: Checkout exact Premium CURRENT
+        uses: actions/checkout@v4
+        with:
+          ref: 7467f8269814b30c7339d8e460ab3aaf994eea52
+          fetch-depth: 20
+
+      - name: Confirm CURRENT
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "--- git status ---"
+          git status --short --branch
+          echo "--- branch/source ---"
+          echo "Preview source is feat/fm-premium-uxui-v1 pinned to $SOURCE_SHA"
+          echo "--- HEAD ---"
+          git rev-parse HEAD
+          test "$(git rev-parse HEAD)" = "$SOURCE_SHA"
+          echo "--- log ---"
+          git log --oneline -10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Audit dependencies
+        run: npm audit --audit-level=high
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Tests
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      - name: Start exact production runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+          nohup npm run start -- -p 3100 > /tmp/fm-premium-next.log 2>&1 &
+          echo $! > /tmp/fm-premium-next.pid
+          for attempt in {1..40}; do
+            if curl --fail --silent http://127.0.0.1:3100/ > /dev/null; then
+              echo "Production runtime ready."
+              exit 0
+            fi
+            if ! kill -0 "$(cat /tmp/fm-premium-next.pid)" 2>/dev/null; then
+              cat /tmp/fm-premium-next.log
+              exit 1
+            fi
+            sleep 1
+          done
+          cat /tmp/fm-premium-next.log
+          exit 1
+
+      - name: Existing runtime gates
+        shell: bash
+        run: |
+          set -euo pipefail
+          SITE_URL=http://127.0.0.1:3100 node tests/export-check.mjs
+          SITE_URL=http://127.0.0.1:3100 node tests/landing-export-check.mjs
+
+      - name: Install browser and Cloudflare tunnel client
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+          curl -L --fail --retry 3 \
+            https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 \
+            -o /tmp/cloudflared
+          chmod +x /tmp/cloudflared
+          /tmp/cloudflared --version
+
+      - name: Open isolated Cloudflare Quick Tunnel
+        id: tunnel
+        shell: bash
+        run: |
+          set -euo pipefail
+          : > /tmp/cloudflared.log
+          nohup /tmp/cloudflared tunnel --url http://127.0.0.1:3100 --no-autoupdate \
+            --logfile /tmp/cloudflared.log --loglevel info > /tmp/cloudflared.stdout 2>&1 &
+          echo $! > /tmp/cloudflared.pid
+
+          PREVIEW_URL=""
+          for attempt in {1..60}; do
+            PREVIEW_URL="$(grep -Eho 'https://[-a-z0-9]+\.trycloudflare\.com' /tmp/cloudflared.log /tmp/cloudflared.stdout 2>/dev/null | head -1 || true)"
+            if [ -n "$PREVIEW_URL" ]; then break; fi
+            if ! kill -0 "$(cat /tmp/cloudflared.pid)" 2>/dev/null; then
+              echo "cloudflared exited unexpectedly"
+              cat /tmp/cloudflared.log || true
+              cat /tmp/cloudflared.stdout || true
+              exit 1
+            fi
+            sleep 1
+          done
+
+          if [ -z "$PREVIEW_URL" ]; then
+            echo "Could not obtain Quick Tunnel URL"
+            cat /tmp/cloudflared.log || true
+            cat /tmp/cloudflared.stdout || true
+            exit 1
+          fi
+
+          echo "PREVIEW_URL=$PREVIEW_URL" >> "$GITHUB_ENV"
+          echo "url=$PREVIEW_URL" >> "$GITHUB_OUTPUT"
+          mkdir -p evidence
+          printf '%s\n' "$PREVIEW_URL" > evidence/preview-url.txt
+          printf '### FM Premium isolated preview\n\n%s\n' "$PREVIEW_URL" >> "$GITHUB_STEP_SUMMARY"
+          echo "Preview URL: $PREVIEW_URL"
+
+      - name: Validate public URL
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in {1..20}; do
+            if curl --fail --silent --show-error --location "$PREVIEW_URL/" > /tmp/public-home.html; then
+              break
+            fi
+            sleep 2
+          done
+          test -s /tmp/public-home.html
+          grep -q "Tecnologia que conecta" /tmp/public-home.html
+          echo "Public tunnel returned the Premium Home HTML."
+
+      - name: Browser validation and screenshots
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > /tmp/fm-premium-browser-check.mjs <<'EOF'
+          import { chromium } from "playwright";
+          import fs from "node:fs/promises";
+
+          const baseURL = process.env.PREVIEW_URL;
+          if (!baseURL) throw new Error("PREVIEW_URL missing");
+
+          await fs.mkdir("evidence", { recursive: true });
+          const browser = await chromium.launch({ headless: true });
+          const viewports = [
+            { name: "desktop-1440x1000", width: 1440, height: 1000 },
+            { name: "tablet-1024x1100", width: 1024, height: 1100 },
+            { name: "mobile-390x844", width: 390, height: 844 },
+          ];
+
+          const report = {
+            sourceSha: process.env.SOURCE_SHA,
+            previewURL: baseURL,
+            viewports: [],
+            reducedMotion: null,
+            routeSmokes: {},
+          };
+
+          for (const viewport of viewports) {
+            const context = await browser.newContext({
+              viewport: { width: viewport.width, height: viewport.height },
+              deviceScaleFactor: 1,
+            });
+            const page = await context.newPage();
+            const consoleErrors = [];
+            const pageErrors = [];
+            page.on("console", (message) => {
+              if (message.type() === "error") consoleErrors.push(message.text());
+            });
+            page.on("pageerror", (error) => pageErrors.push(String(error)));
+
+            const response = await page.goto(baseURL + "/", { waitUntil: "networkidle", timeout: 60000 });
+            if (!response || !response.ok()) throw new Error(viewport.name + ": Home response not OK");
+
+            await page.waitForSelector('[data-core3d="fm-home"][data-renderer="webgl2"]', { timeout: 30000 });
+            await page.waitForTimeout(1200);
+
+            const metrics = await page.evaluate(() => {
+              const canvas = document.querySelector('[data-core3d="fm-home"]');
+              const stage = document.querySelector(".fm-core3d__stage");
+              const diagnostics = window.__FM_CORE3D_DIAGNOSTICS__ || null;
+              const rect = canvas?.getBoundingClientRect();
+              return {
+                bodyWidth: document.body.scrollWidth,
+                viewportWidth: window.innerWidth,
+                horizontalOverflow: document.body.scrollWidth > window.innerWidth + 1,
+                canvas: rect ? { width: rect.width, height: rect.height } : null,
+                stageVisible: !!stage && !!(stage.getClientRects().length),
+                renderer: canvas?.dataset.renderer || null,
+                tier: canvas?.dataset.tier || null,
+                triangles: canvas?.dataset.triangles || null,
+                brainNodes: canvas?.dataset.brainNodes || null,
+                flatImageInsideCore: !!document.querySelector(".fm-core3d img"),
+                stateButtons: document.querySelectorAll(".fm-core3d__states button").length,
+                diagnostics,
+              };
+            });
+
+            if (metrics.horizontalOverflow) throw new Error(viewport.name + ": horizontal overflow");
+            if (metrics.renderer !== "webgl2") throw new Error(viewport.name + ": Core is not WebGL2");
+            if (metrics.flatImageInsideCore) throw new Error(viewport.name + ": flat image found inside Core");
+            if (metrics.stateButtons !== 6) throw new Error(viewport.name + ": expected six Core states");
+            if (!metrics.diagnostics || metrics.diagnostics.brainNodes < 1 || metrics.diagnostics.brainConnections < 1) {
+              throw new Error(viewport.name + ": volumetric brain diagnostics missing");
+            }
+
+            const stateTitles = [];
+            const buttons = page.locator(".fm-core3d__states button");
+            for (let index = 0; index < 6; index += 1) {
+              await buttons.nth(index).click();
+              await page.waitForTimeout(350);
+              stateTitles.push((await page.locator(".fm-core3d__message strong").innerText()).trim());
+            }
+
+            await buttons.nth(0).click();
+            await page.waitForTimeout(500);
+            await page.screenshot({ path: "evidence/" + viewport.name + ".png", fullPage: true });
+
+            let autoRotationChanged = null;
+            if (viewport.name === "desktop-1440x1000") {
+              const before = (await page.locator(".fm-core3d__message strong").innerText()).trim();
+              await page.waitForTimeout(5500);
+              const after = (await page.locator(".fm-core3d__message strong").innerText()).trim();
+              autoRotationChanged = before !== after;
+              if (!autoRotationChanged) throw new Error("desktop: automatic Core rotation/state advance did not occur");
+            }
+
+            if (consoleErrors.length) throw new Error(viewport.name + ": console errors: " + consoleErrors.join(" | "));
+            if (pageErrors.length) throw new Error(viewport.name + ": page errors: " + pageErrors.join(" | "));
+
+            report.viewports.push({
+              ...viewport,
+              metrics,
+              stateTitles,
+              autoRotationChanged,
+              consoleErrors,
+              pageErrors,
+            });
+            await context.close();
+          }
+
+          const reducedContext = await browser.newContext({
+            viewport: { width: 1440, height: 1000 },
+            reducedMotion: "reduce",
+          });
+          const reducedPage = await reducedContext.newPage();
+          const reducedConsoleErrors = [];
+          const reducedPageErrors = [];
+          reducedPage.on("console", (message) => {
+            if (message.type() === "error") reducedConsoleErrors.push(message.text());
+          });
+          reducedPage.on("pageerror", (error) => reducedPageErrors.push(String(error)));
+          await reducedPage.goto(baseURL + "/", { waitUntil: "networkidle", timeout: 60000 });
+          await reducedPage.waitForSelector('[data-core3d="fm-home"][data-renderer="webgl2"]', { timeout: 30000 });
+          const reducedBefore = (await reducedPage.locator(".fm-core3d__message strong").innerText()).trim();
+          const pauseText = (await reducedPage.locator(".fm-core3d__pause").innerText()).trim();
+          const pauseDisabled = await reducedPage.locator(".fm-core3d__pause").isDisabled();
+          await reducedPage.waitForTimeout(5600);
+          const reducedAfter = (await reducedPage.locator(".fm-core3d__message strong").innerText()).trim();
+          const reducedStable = reducedBefore === reducedAfter;
+          if (!reducedStable || !pauseDisabled || pauseText !== "Movimento reduzido") {
+            throw new Error("prefers-reduced-motion behavior invalid");
+          }
+          if (reducedConsoleErrors.length || reducedPageErrors.length) {
+            throw new Error("reduced-motion console/page error");
+          }
+          await reducedPage.screenshot({ path: "evidence/reduced-motion-desktop.png", fullPage: true });
+          report.reducedMotion = { reducedStable, pauseText, pauseDisabled, reducedConsoleErrors, reducedPageErrors };
+          await reducedContext.close();
+
+          for (const [name, path] of Object.entries({
+            kordena: "/produtos/kordena",
+            iron: "/produtos/iron-fit",
+          })) {
+            const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+            const page = await context.newPage();
+            const errors = [];
+            page.on("pageerror", (error) => errors.push(String(error)));
+            const response = await page.goto(baseURL + path, { waitUntil: "networkidle", timeout: 60000 });
+            report.routeSmokes[name] = {
+              path,
+              status: response?.status() ?? null,
+              title: await page.title(),
+              pageErrors: errors,
+            };
+            if (!response || !response.ok() || errors.length) throw new Error(name + " route smoke failed");
+            await context.close();
+          }
+
+          await browser.close();
+          await fs.writeFile("evidence/report.json", JSON.stringify(report, null, 2));
+          console.log(JSON.stringify(report, null, 2));
+          EOF
+
+          node /tmp/fm-premium-browser-check.mjs
+
+      - name: Verify Premium diff does not modify Kordena or IRON product implementation paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --name-only 44511c02598ecd10dacceba6f80e87ba7a8d6c95..7467f8269814b30c7339d8e460ab3aaf994eea52 > evidence/premium-diff-files.txt
+          if grep -E '(^|/)(kordena|iron-fit)(/|$)' evidence/premium-diff-files.txt; then
+            echo "Unexpected Kordena/IRON implementation path modified by Premium diff."
+            exit 1
+          fi
+          cat evidence/premium-diff-files.txt
+
+      - name: Upload preview evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: fm-premium-current-preview-evidence
+          path: evidence/
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Keep isolated preview online for inspection
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "Preview remains online while this job is running: $PREVIEW_URL"
+          for minute in $(seq 1 300); do
+            if ! kill -0 "$(cat /tmp/fm-premium-next.pid)" 2>/dev/null; then
+              echo "Next runtime stopped unexpectedly"
+              exit 1
+            fi
+            if ! kill -0 "$(cat /tmp/cloudflared.pid)" 2>/dev/null; then
+              echo "Cloudflare tunnel stopped unexpectedly"
+              exit 1
+            fi
+            sleep 60
+          done
