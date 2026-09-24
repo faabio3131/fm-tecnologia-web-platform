@@ -374,6 +374,39 @@ function createTorus(
   return createSolidGeometry(gl, positions, normals, uvs, indices);
 }
 
+function createWireSphere(
+  gl: WebGL2RenderingContext,
+  latSegments: number,
+  lonSegments: number,
+) {
+  const lines: number[] = [];
+  const point = (phi: number, theta: number): [number, number, number] => [
+    Math.sin(phi) * Math.sin(theta),
+    Math.cos(phi),
+    Math.sin(phi) * Math.cos(theta),
+  ];
+
+  for (let lat = 1; lat < latSegments; lat += 1) {
+    const phi = (lat / latSegments) * Math.PI;
+    for (let lon = 0; lon < lonSegments; lon += 1) {
+      const theta0 = (lon / lonSegments) * TAU;
+      const theta1 = ((lon + 1) / lonSegments) * TAU;
+      lines.push(...point(phi, theta0), ...point(phi, theta1));
+    }
+  }
+
+  for (let lon = 0; lon < lonSegments; lon += 1) {
+    const theta = (lon / lonSegments) * TAU;
+    for (let lat = 0; lat < latSegments; lat += 1) {
+      const phi0 = (lat / latSegments) * Math.PI;
+      const phi1 = ((lat + 1) / latSegments) * Math.PI;
+      lines.push(...point(phi0, theta), ...point(phi1, theta));
+    }
+  }
+
+  return createLineGeometry(gl, lines);
+}
+
 function createLineGeometry(gl: WebGL2RenderingContext, positions: number[]): LineGeometry {
   const vao = gl.createVertexArray();
   const buffer = gl.createBuffer();
@@ -705,6 +738,7 @@ export function FmCore3D() {
     const brain = brainGeometry(brainNodes);
     const brainLines = createLineGeometry(gl, brain.lines);
     const brainPoints = createLineGeometry(gl, brain.nodes);
+    const brainShell = createWireSphere(gl, tier === "mobile" ? 7 : 9, tier === "mobile" ? 10 : 14);
 
     const resources = [sphere, topHub, beam, plaque, plaqueBack, strut, ringOuter, ringInner, collarTorus, baseTorus];
     const triangleCount = resources.reduce((sum, item) => sum + item.indexCount / 3, 0) + (plaque.indexCount / 3) * 5 + (plaqueBack.indexCount / 3) * 5;
@@ -928,14 +962,14 @@ export function FmCore3D() {
       gl.depthMask(false);
       gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
       const brainLobes = [
-        multiply(brainModel, multiply(translation(-.47, 2.17, .02), scaling(.86, .68, .68))),
-        multiply(brainModel, multiply(translation(.47, 2.17, .02), scaling(.86, .68, .68))),
-        multiply(brainModel, multiply(translation(-.28, 2.56, -.02), scaling(.68, .52, .58))),
-        multiply(brainModel, multiply(translation(.28, 2.56, -.02), scaling(.68, .52, .58))),
-        multiply(brainModel, multiply(translation(0, 1.88, -.08), scaling(.62, .42, .54))),
+        multiply(brainModel, multiply(translation(-.43, 2.16, .03), scaling(.78, .63, .62))),
+        multiply(brainModel, multiply(translation(.43, 2.16, .03), scaling(.78, .63, .62))),
+        multiply(brainModel, multiply(translation(-.25, 2.48, -.01), scaling(.61, .46, .53))),
+        multiply(brainModel, multiply(translation(.25, 2.48, -.01), scaling(.61, .46, .53))),
+        multiply(brainModel, multiply(translation(0, 1.91, -.06), scaling(.56, .37, .49))),
       ];
       for (const lobe of brainLobes) {
-        drawSolid(sphere, lobe, [.06, .46, .7], [0, .96, 1], .12, 1.38, .36);
+        drawSolid(sphere, lobe, [.035, .28, .46], [0, .9, 1], .08, 1.05, .1);
       }
       gl.depthMask(true);
       gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
@@ -948,8 +982,11 @@ export function FmCore3D() {
       gl.depthMask(false);
       gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
 
-      drawLine(brainLines, brainModel, gl.LINES, [.1, .86, 1, .76], 1.35, false);
-      drawLine(brainPoints, brainModel, gl.POINTS, [.88, .99, 1, 1], tier === "mobile" ? 5.4 : 7, true);
+      for (const lobe of brainLobes) {
+        drawLine(brainShell, lobe, gl.LINES, [.15, .82, 1, .2], 1, false);
+      }
+      drawLine(brainLines, brainModel, gl.LINES, [.12, .88, 1, .84], 1.45, false);
+      drawLine(brainPoints, brainModel, gl.POINTS, [.9, .99, 1, 1], tier === "mobile" ? 5.6 : 7.2, true);
 
       gl.depthMask(true);
       gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
@@ -1010,7 +1047,7 @@ export function FmCore3D() {
         gl.deleteVertexArray(resource.vao);
         resource.buffers.forEach((buffer) => gl.deleteBuffer(buffer));
       });
-      for (const geometry of [brainLines, brainPoints]) {
+      for (const geometry of [brainLines, brainPoints, brainShell]) {
         gl.deleteVertexArray(geometry.vao);
         gl.deleteBuffer(geometry.buffer);
       }
