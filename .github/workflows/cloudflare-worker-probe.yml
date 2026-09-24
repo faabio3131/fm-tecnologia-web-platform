@@ -19,8 +19,10 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
-      - name: Install Cloudflare adapter for probe only
-        run: npm install --no-save @opennextjs/cloudflare@latest wrangler@latest
+      - name: Install Cloudflare adapter
+        run: |
+          npm install @opennextjs/cloudflare@latest
+          npm install -D wrangler@latest
       - name: Create temporary Cloudflare configs
         shell: bash
         run: |
@@ -48,3 +50,11 @@ jobs:
         run: |
           test -f .open-next/worker.js
           test -d .open-next/assets
+      - name: Upload generated dependency manifests
+        uses: actions/upload-artifact@v4
+        with:
+          name: cloudflare-worker-manifests
+          path: |
+            package.json
+            package-lock.json
+          if-no-files-found: error
