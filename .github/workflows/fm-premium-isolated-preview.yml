@@ -152,7 +152,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          cat > /tmp/fm-premium-browser-check.mjs <<'EOF'
+          cat > fm-premium-browser-check.mjs <<'EOF'
           import { chromium } from "playwright";
           import fs from "node:fs/promises";
 
@@ -311,7 +311,7 @@ jobs:
           console.log(JSON.stringify(report, null, 2));
           EOF
 
-          node /tmp/fm-premium-browser-check.mjs
+          node fm-premium-browser-check.mjs
 
       - name: Verify Premium diff does not modify Kordena or IRON product implementation paths
         shell: bash
