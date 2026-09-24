@@ -17,3 +17,16 @@ export function Logo() {
     </Link>
   );
 }
+
+
+export function PremiumLogo({ showSlogan = false }: { showSlogan?: boolean }) {
+  return (
+    <Link className="fm-premium-lockup" href="/" aria-label="FM Tecnologia — início">
+      <span className="fm-premium-lockup__mark" aria-hidden="true"><i /><i /></span>
+      <span className="fm-premium-lockup__text">
+        <strong>FM Tecnologia</strong>
+        {showSlogan ? <small>IA para melhorar hoje e evoluir o amanhã.</small> : null}
+      </span>
+    </Link>
+  );
+}

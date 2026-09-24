@@ -10,7 +10,7 @@ export default function Home() {
   const research = products.filter(p => p.lifecycle === "research_and_development");
 
   return (
-    <main>
+    <main className="fm-premium-home">
       <FmPremiumHero />
 
       <section className="section">

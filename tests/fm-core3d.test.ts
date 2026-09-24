@@ -6,6 +6,8 @@ const source = readFileSync(new URL("../src/components/marketing/fm-core-3d.tsx"
 const hero = readFileSync(new URL("../src/components/marketing/fm-premium-hero.tsx", import.meta.url), "utf8");
 const chrome = readFileSync(new URL("../src/components/layout/site-chrome.tsx", import.meta.url), "utf8");
 const footer = readFileSync(new URL("../src/components/layout/footer.tsx", import.meta.url), "utf8");
+const logo = readFileSync(new URL("../src/components/layout/logo.tsx", import.meta.url), "utf8");
+const home = readFileSync(new URL("../app/page.tsx", import.meta.url), "utf8");
 
 test("FM Home Core uses genuine WebGL2 rendering instead of a rotating flat image", () => {
   assert.match(source, /getContext\("webgl2"/);
@@ -69,4 +71,19 @@ test("Premium footer styling is scoped only to the Home route", () => {
   assert.match(chrome, /const premiumHome = pathname === "\/"/);
   assert.match(chrome, /<Footer premiumHome=\{premiumHome\} \/>/);
   assert.match(footer, /premiumHome \? " site-footer--premium-home" : ""/);
+});
+
+
+test("Premium Home uses a scoped blue FM lockup and dark premium content surface", () => {
+  assert.match(logo, /export function PremiumLogo/);
+  assert.match(home, /className="fm-premium-home"/);
+  assert.match(hero, /Tecnologia que conecta operação/);
+});
+
+test("Core fidelity pass uses horizontal ribbon rings and layered polygon plaque", () => {
+  assert.match(source, /createHorizontalArcBand/);
+  assert.match(source, /createPolygonPlate/);
+  assert.match(source, /frameOuter/);
+  assert.match(source, /frameMid/);
+  assert.match(source, /brainNodes = tier === "desktop" \? 118/);
 });
