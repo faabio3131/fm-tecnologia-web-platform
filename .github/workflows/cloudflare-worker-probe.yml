@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   opennext-build:
@@ -50,11 +50,15 @@ jobs:
         run: |
           test -f .open-next/worker.js
           test -d .open-next/assets
-      - name: Upload generated dependency manifests
-        uses: actions/upload-artifact@v4
-        with:
-          name: cloudflare-worker-manifests
-          path: |
-            package.json
-            package-lock.json
-          if-no-files-found: error
+      - name: Commit generated dependency manifests to technical branch
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json
+          if git diff --cached --quiet; then
+            echo "No manifest changes"
+          else
+            git commit -m "[skip ci] chore(probe): persist Worker dependency manifests"
+            git push origin HEAD:tech/cloudflare-preview-bypass
+          fi
