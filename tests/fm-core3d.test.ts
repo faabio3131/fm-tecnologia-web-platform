@@ -8,6 +8,7 @@ const chrome = readFileSync(new URL("../src/components/layout/site-chrome.tsx", 
 const footer = readFileSync(new URL("../src/components/layout/footer.tsx", import.meta.url), "utf8");
 const logo = readFileSync(new URL("../src/components/layout/logo.tsx", import.meta.url), "utf8");
 const home = readFileSync(new URL("../app/page.tsx", import.meta.url), "utf8");
+const premiumCss = readFileSync(new URL("../app/fm-premium-hero.css", import.meta.url), "utf8");
 
 test("FM Home Core uses genuine WebGL2 rendering instead of a rotating flat image", () => {
   assert.match(source, /getContext\("webgl2"/);
@@ -86,4 +87,16 @@ test("Core fidelity pass uses horizontal ribbon rings and layered polygon plaque
   assert.match(source, /frameOuter/);
   assert.match(source, /frameMid/);
   assert.match(source, /brainNodes = tier === "desktop" \? 118/);
+});
+
+
+test("V4 fidelity pass keeps telemetry decorative, Core dimensional, and Home-only responsive treatment", () => {
+  assert.ok(hero.includes("fm-core-visual__telemetry"));
+  assert.ok(hero.includes('aria-hidden="true"'));
+  assert.ok(premiumCss.includes("FM PREMIUM HOME — VISUAL FIDELITY PASS V4"));
+  assert.ok(premiumCss.includes(".fm-core-visual__telemetry{display:none}"));
+  assert.ok(premiumCss.includes("@media(prefers-reduced-motion:reduce)"));
+  assert.ok(source.includes("createPlane(gl, 2.14, 1.46)"));
+  assert.ok(source.includes("const orbitBase = translation(0, 2.48, 0)"));
+  assert.ok(source.includes("const xTilts = [.28, -.36, .18, -.24]"));
 });
