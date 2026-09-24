@@ -86,17 +86,17 @@ test("Core fidelity pass uses horizontal ribbon rings and layered polygon plaque
   assert.match(source, /createPolygonPlate/);
   assert.match(source, /frameOuter/);
   assert.match(source, /frameMid/);
-  assert.match(source, /brainNodes = tier === "desktop" \? 118/);
+  assert.match(source, /brainNodes = tier === "desktop" \? 132/);
 });
 
 
-test("V4 fidelity pass keeps telemetry decorative, Core dimensional, and Home-only responsive treatment", () => {
+test("V5 fidelity pass keeps telemetry decorative, Core dimensional, and Home-only responsive treatment", () => {
   assert.ok(hero.includes("fm-core-visual__telemetry"));
   assert.ok(hero.includes('aria-hidden="true"'));
-  assert.ok(premiumCss.includes("FM PREMIUM HOME — VISUAL FIDELITY PASS V4"));
+  assert.ok(premiumCss.includes("FM PREMIUM HOME — APPROVED REFERENCE FIDELITY V5"));
   assert.ok(premiumCss.includes(".fm-core-visual__telemetry{display:none}"));
   assert.ok(premiumCss.includes("@media(prefers-reduced-motion:reduce)"));
-  assert.ok(source.includes("createPlane(gl, 2.14, 1.46)"));
-  assert.ok(source.includes("const orbitBase = translation(0, 2.48, 0)"));
+  assert.ok(source.includes("createPolygonPlate(gl, 8, 1.10, .80, .065)"));
+  assert.ok(source.includes("const orbitBase = translation(0, 2.46, 0)"));
   assert.ok(source.includes("const xTilts = [.28, -.36, .18, -.24]"));
 });
