@@ -1,5 +1,5 @@
 import type React from 'react'
-import CoreVisual from './CoreVisual'
+import HeroVisual from './HeroVisual'
 
 const differentiators = [
   { icon: 'brain', label: 'IA + automação' },
@@ -43,7 +43,7 @@ export default function Hero() {
         </div>
 
         <div className="hero__visual">
-          <CoreVisual />
+          <HeroVisual />
         </div>
       </div>
     </section>
