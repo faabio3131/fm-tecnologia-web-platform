@@ -693,11 +693,11 @@ export function FmCore3D() {
     const sphere = createSphere(gl, 1, tier === "mobile" ? 20 : 28, tier === "mobile" ? 12 : 18);
     const topHub = createHexPrism(gl, 1.02, .3);
     const beam = createHexPrism(gl, .075, 5.4);
-    const plaque = createPlane(gl, 2.02, 1.18);
-    const plaqueBack = createPlane(gl, 2.18, 1.34);
+    const plaque = createPlane(gl, 1.58, .96);
+    const plaqueBack = createPlane(gl, 1.76, 1.1);
     const strut = createBox(gl, .15, 1.62, .16);
-    const ringOuter = createTorus(gl, 2.92, .07, radialSegments, tubeSegments);
-    const ringInner = createTorus(gl, 2.52, .045, Math.max(42, Math.floor(radialSegments * .8)), tubeSegments);
+    const ringOuter = createTorus(gl, 2.66, .052, radialSegments, tubeSegments);
+    const ringInner = createTorus(gl, 2.34, .034, Math.max(42, Math.floor(radialSegments * .8)), tubeSegments);
     const collarTorus = createTorus(gl, 1.05, .085, Math.max(42, Math.floor(radialSegments * .72)), tubeSegments);
     const baseTorus = createTorus(gl, 2.22, .075, Math.max(44, Math.floor(radialSegments * .76)), tubeSegments);
     const faceTextures = FM_CORE_STATES.map((item, index) => createFaceTexture(gl, item, index));
@@ -863,10 +863,10 @@ export function FmCore3D() {
       const beamModel = multiply(groupRotation, translation(0, .38, 0));
       drawSolid(beam, beamModel, [.02, .2, .34], [0, .88, 1], .35, 1.15, .5);
 
-      const bodyModel = multiply(groupRotation, scaling(1.58, 1.38, 1.58));
+      const bodyModel = multiply(groupRotation, scaling(1.72, 1.52, 1.72));
       drawSolid(sphere, bodyModel, [.045, .095, .17], [0, .38, .7], .96, .12);
 
-      const innerModel = multiply(groupRotation, scaling(.78, .78, .78));
+      const innerModel = multiply(groupRotation, scaling(.9, .9, .9));
       drawSolid(sphere, innerModel, [.02, .19, .31], [0, .82, 1], .5, .48, .96);
 
       const upperHubModel = multiply(groupRotation, translation(0, 1.55, 0));
@@ -881,18 +881,18 @@ export function FmCore3D() {
 
       for (let i = 0; i < 6; i += 1) {
         const angle = i * FACE_ANGLE;
-        const px = Math.sin(angle) * 1.72;
-        const pz = Math.cos(angle) * 1.72;
+        const px = Math.sin(angle) * 1.76;
+        const pz = Math.cos(angle) * 1.76;
         const local = multiply(translation(px, 0, pz), rotationY(angle));
         const model = multiply(groupRotation, local);
-        const backModel = multiply(groupRotation, multiply(translation(Math.sin(angle) * 1.695, 0, Math.cos(angle) * 1.695), rotationY(angle)));
+        const backModel = multiply(groupRotation, multiply(translation(Math.sin(angle) * 1.735, 0, Math.cos(angle) * 1.735), rotationY(angle)));
         drawSolid(plaqueBack, backModel, [.16, .24, .34], [0, .4, .72], .98, .12);
         drawSolid(plaque, model, [1, 1, 1], [0, .42, .7], .75, .18, 1, faceTextures[i]);
       }
 
       for (let i = 0; i < 6; i += 1) {
         const angle = i * FACE_ANGLE + FACE_ANGLE / 2;
-        const radius = 1.66;
+        const radius = 1.74;
         const local = multiply(translation(Math.sin(angle) * radius, 0, Math.cos(angle) * radius), rotationY(angle));
         const model = multiply(groupRotation, local);
         drawSolid(strut, model, [.22, .31, .43], [0, .76, 1], .98, .34);
@@ -924,14 +924,22 @@ export function FmCore3D() {
       const baseModel = multiply(groupRotation, multiply(translation(0, -1.86, 0), rotationX(Math.PI / 2)));
       drawSolid(baseTorus, baseModel, [.24, .34, .44], [0, .8, 1], .96, .36);
 
+      gl.disable(gl.CULL_FACE);
       gl.depthMask(false);
       gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
-      const leftLobe = multiply(brainModel, multiply(translation(-.4, 2.18, 0), scaling(.92, .72, .74)));
-      const rightLobe = multiply(brainModel, multiply(translation(.4, 2.18, 0), scaling(.92, .72, .74)));
-      drawSolid(sphere, leftLobe, [.05, .38, .55], [0, .9, 1], .18, .92, .22);
-      drawSolid(sphere, rightLobe, [.05, .38, .55], [0, .9, 1], .18, .92, .22);
+      const brainLobes = [
+        multiply(brainModel, multiply(translation(-.47, 2.17, .02), scaling(.86, .68, .68))),
+        multiply(brainModel, multiply(translation(.47, 2.17, .02), scaling(.86, .68, .68))),
+        multiply(brainModel, multiply(translation(-.28, 2.56, -.02), scaling(.68, .52, .58))),
+        multiply(brainModel, multiply(translation(.28, 2.56, -.02), scaling(.68, .52, .58))),
+        multiply(brainModel, multiply(translation(0, 1.88, -.08), scaling(.62, .42, .54))),
+      ];
+      for (const lobe of brainLobes) {
+        drawSolid(sphere, lobe, [.06, .46, .7], [0, .96, 1], .12, 1.38, .36);
+      }
       gl.depthMask(true);
       gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+      gl.enable(gl.CULL_FACE);
 
       gl.useProgram(lineProgram);
       gl.uniformMatrix4fv(lineUniforms.view, false, viewMatrix);
@@ -940,8 +948,8 @@ export function FmCore3D() {
       gl.depthMask(false);
       gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
 
-      drawLine(brainLines, brainModel, gl.LINES, [.08, .82, 1, .62], 1.2, false);
-      drawLine(brainPoints, brainModel, gl.POINTS, [.82, .98, 1, 1], tier === "mobile" ? 5 : 6.5, true);
+      drawLine(brainLines, brainModel, gl.LINES, [.1, .86, 1, .76], 1.35, false);
+      drawLine(brainPoints, brainModel, gl.POINTS, [.88, .99, 1, 1], tier === "mobile" ? 5.4 : 7, true);
 
       gl.depthMask(true);
       gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
