@@ -1,3 +1,4 @@
+import type React from 'react'
 import CoreVisual from './CoreVisual'
 
 const differentiators = [
@@ -50,7 +51,7 @@ export default function Hero() {
 }
 
 function Icon({ name }: { name: string }) {
-  const paths: Record<string, JSX.Element> = {
+  const paths: Record<string, React.ReactElement> = {
     brain: (
       <path d="M8 3.5a2.5 2.5 0 0 1 4 2v1.2a2.5 2.5 0 0 1 4 2.05c.9.36 1.5 1.24 1.5 2.25 0 .58-.2 1.1-.53 1.53.33.43.53.96.53 1.53 0 1.27-.98 2.3-2.22 2.4A2.5 2.5 0 0 1 12 19.5a2.5 2.5 0 0 1-4-2v-11a2.5 2.5 0 0 1 0-3z" />
     ),
