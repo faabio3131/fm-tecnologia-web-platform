@@ -21,12 +21,25 @@ jobs:
       - run: npm ci
       - name: Install Cloudflare adapter for probe only
         run: npm install --no-save @opennextjs/cloudflare@latest wrangler@latest
-      - name: Create temporary OpenNext config
+      - name: Create temporary Cloudflare configs
         shell: bash
         run: |
           cat > open-next.config.ts <<'EOF'
           import { defineCloudflareConfig } from "@opennextjs/cloudflare";
           export default defineCloudflareConfig();
+          EOF
+          cat > wrangler.jsonc <<'EOF'
+          {
+            "$schema": "node_modules/wrangler/config-schema.json",
+            "name": "fm-tecnologia-web-platform-probe",
+            "main": ".open-next/worker.js",
+            "compatibility_date": "2026-09-24",
+            "compatibility_flags": ["nodejs_compat"],
+            "assets": {
+              "directory": ".open-next/assets",
+              "binding": "ASSETS"
+            }
+          }
           EOF
       - name: Build Next.js for Cloudflare Workers
         run: npx opennextjs-cloudflare build
