@@ -954,22 +954,22 @@ export function FmCore3D() {
     const lineProgram = createProgram(gl, lineVertex, lineFragment);
 
     const sphere = createSphere(gl, 1, tier === "mobile" ? 20 : 30, tier === "mobile" ? 12 : 20);
-    const shellOuter = createHexPrism(gl, 1.38, 1.88);
-    const shellInner = createHexPrism(gl, 1.16, 1.66);
-    const topHub = createHexPrism(gl, 1.06, .26);
-    const beam = createHexPrism(gl, .052, 6.8);
-    const plaque = createPlane(gl, 1.96, 1.10);
-    const frameOuter = createPolygonPlate(gl, 8, 1.30, .88, .18);
-    const frameMid = createPolygonPlate(gl, 8, 1.18, .78, .13);
-    const armorMain = createBox(gl, .48, 1.40, .26);
-    const armorCap = createBox(gl, .72, .36, .22);
-    const crystal = createBox(gl, .30, 1.00, .20);
+    const shellOuter = createHexPrism(gl, 1.50, 2.08);
+    const shellInner = createHexPrism(gl, 1.25, 1.84);
+    const topHub = createHexPrism(gl, 1.10, .28);
+    const beam = createHexPrism(gl, .056, 7.25);
+    const plaque = createPlane(gl, 2.14, 1.46);
+    const frameOuter = createPolygonPlate(gl, 8, 1.43, 1.08, .20);
+    const frameMid = createPolygonPlate(gl, 8, 1.29, .96, .14);
+    const armorMain = createBox(gl, .52, 1.54, .28);
+    const armorCap = createBox(gl, .78, .40, .24);
+    const crystal = createBox(gl, .31, 1.10, .20);
     const collarTorus = createTorus(gl, 1.12, .064, Math.max(42, Math.floor(radialSegments * .72)), tubeSegments);
     const baseTorus = createTorus(gl, 1.46, .078, Math.max(44, Math.floor(radialSegments * .78)), tubeSegments);
-    const ringWide = createHorizontalArcBand(gl, 3.08, 2.78, .13, radialSegments, Math.PI * 1.64);
-    const ringMedium = createHorizontalArcBand(gl, 2.78, 2.55, .10, Math.max(36, Math.floor(radialSegments * .78)), Math.PI * 1.48);
-    const ringFine = createHorizontalArcBand(gl, 3.18, 3.10, .065, Math.max(40, Math.floor(radialSegments * .84)), Math.PI * 1.80);
-    const ringEnergy = createHorizontalArcBand(gl, 3.04, 2.985, .14, Math.max(42, Math.floor(radialSegments * .86)), Math.PI * 1.60);
+    const ringWide = createHorizontalArcBand(gl, 3.18, 2.86, .135, radialSegments, Math.PI * 1.66);
+    const ringMedium = createHorizontalArcBand(gl, 2.90, 2.66, .105, Math.max(36, Math.floor(radialSegments * .78)), Math.PI * 1.52);
+    const ringFine = createHorizontalArcBand(gl, 3.32, 3.23, .068, Math.max(40, Math.floor(radialSegments * .84)), Math.PI * 1.82);
+    const ringEnergy = createHorizontalArcBand(gl, 3.14, 3.075, .145, Math.max(42, Math.floor(radialSegments * .86)), Math.PI * 1.63);
     const faceTextures = FM_CORE_STATES.map((item, index) => createFaceTexture(gl, item, index));
 
     const brain = brainGeometry(brainNodes);
@@ -1033,8 +1033,8 @@ export function FmCore3D() {
     };
 
     let projectionMatrix = identity();
-    const cameraPosition: [number, number, number] = tier === "mobile" ? [0, .64, 11.7] : tier === "tablet" ? [0, .68, 10.8] : [0, .72, 10.25];
-    const viewMatrix = lookAt(cameraPosition, [0, .35, 0], [0, 1, 0]);
+    const cameraPosition: [number, number, number] = tier === "mobile" ? [0, .76, 11.15] : tier === "tablet" ? [0, .80, 10.15] : [0, .84, 9.55];
+    const viewMatrix = lookAt(cameraPosition, [0, .48, 0], [0, 1, 0]);
 
     function resize() {
       const rect = canvas.getBoundingClientRect();
@@ -1045,7 +1045,7 @@ export function FmCore3D() {
         canvas.height = pixelHeight;
       }
       gl.viewport(0, 0, canvas.width, canvas.height);
-      projectionMatrix = perspective(39 * Math.PI / 180, canvas.width / canvas.height, .1, 60);
+      projectionMatrix = perspective(36 * Math.PI / 180, canvas.width / canvas.height, .1, 60);
     }
 
     function setSolidMaterial(
@@ -1137,11 +1137,11 @@ export function FmCore3D() {
       const brainTurn = reduced ? 0 : time * .032;
       const brainModel = multiply(rootRotation, rotationY(brainTurn));
 
-      const beamModel = multiply(rootRotation, translation(0, .42, 0));
-      drawSolid(beam, beamModel, [.01, .16, .28], [0, .94, 1], .24, 1.5, .58);
+      const beamModel = multiply(rootRotation, translation(0, .58, 0));
+      drawSolid(beam, beamModel, [.01, .18, .32], [0, .98, 1], .22, 1.72, .62);
 
-      drawSolid(shellOuter, bodyRotation, [.10, .13, .18], [0, .25, .54], .98, .14);
-      drawSolid(shellInner, multiply(bodyRotation, scaling(.965, .965, .965)), [.025, .11, .20], [0, .68, 1], .58, .58, .96);
+      drawSolid(shellOuter, bodyRotation, [.13, .16, .22], [0, .30, .62], 1, .18);
+      drawSolid(shellInner, multiply(bodyRotation, scaling(.965, .965, .965)), [.025, .12, .22], [0, .76, 1], .66, .68, .96);
 
       const upperHubModel = multiply(bodyRotation, translation(0, 1.08, 0));
       const lowerHubModel = multiply(bodyRotation, translation(0, -1.08, 0));
@@ -1155,8 +1155,8 @@ export function FmCore3D() {
 
       for (let i = 0; i < 6; i += 1) {
         const faceAngle = i * FACE_ANGLE;
-        const frameRadius = 1.31;
-        const plaqueRadius = 1.425;
+        const frameRadius = 1.43;
+        const plaqueRadius = 1.555;
         const frameModel = multiply(bodyRotation, multiply(
           translation(Math.sin(faceAngle) * frameRadius, 0, Math.cos(faceAngle) * frameRadius),
           rotationY(faceAngle),
@@ -1165,12 +1165,12 @@ export function FmCore3D() {
           translation(Math.sin(faceAngle) * plaqueRadius, 0, Math.cos(faceAngle) * plaqueRadius),
           rotationY(faceAngle),
         ));
-        drawSolid(frameOuter, frameModel, [.42, .46, .52], [0, .48, .90], 1, .26);
-        drawSolid(frameMid, multiply(frameModel, translation(0, 0, .105)), [.07, .12, .20], [0, .82, 1], .84, .52);
-        drawSolid(plaque, plaqueModel, [1, 1, 1], [0, .42, .80], .78, .30, 1, faceTextures[i]);
+        drawSolid(frameOuter, frameModel, [.52, .56, .62], [0, .56, .98], 1, .34);
+        drawSolid(frameMid, multiply(frameModel, translation(0, 0, .115)), [.055, .12, .22], [0, .90, 1], .90, .66);
+        drawSolid(plaque, plaqueModel, [1, 1, 1], [0, .50, .92], .82, .38, 1, faceTextures[i]);
 
         const armorAngle = faceAngle + FACE_ANGLE / 2;
-        const radius = 1.58;
+        const radius = 1.72;
         const ax = Math.sin(armorAngle) * radius;
         const az = Math.cos(armorAngle) * radius;
         const armorModel = multiply(bodyRotation, multiply(translation(ax, 0, az), rotationY(armorAngle)));
@@ -1199,10 +1199,10 @@ export function FmCore3D() {
       const ringGeometry = [ringWide, ringMedium, ringWide, ringFine];
       const ringEnergyGeometry = [ringEnergy, ringFine, ringEnergy, ringFine];
       const speeds = [.068, -.052, .041, -.030];
-      const xTilts = [.11, -.15, .08, -.10];
-      const zTilts = [.035, -.055, .07, -.08];
-      const offsets = [-.12, .58, -1.30, 1.10];
-      const scales = [1, .88, .76, .65];
+      const xTilts = [.28, -.36, .18, -.24];
+      const zTilts = [.08, -.14, .19, -.23];
+      const offsets = [-.10, .72, -1.42, 1.22];
+      const scales = [1, .90, .78, .68];
       for (let i = 0; i < ringCount; i += 1) {
         const phase = [.28, -1.10, .88, -1.36][i];
         const spin = reduced ? phase : time * speeds[i] + phase;
@@ -1245,23 +1245,23 @@ export function FmCore3D() {
       gl.depthMask(false);
       gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
       const brainLobes = [
-        multiply(brainModel, multiply(translation(-.60, 2.20, .03), scaling(1.06, .78, .82))),
-        multiply(brainModel, multiply(translation(.60, 2.20, .03), scaling(1.06, .78, .82))),
-        multiply(brainModel, multiply(translation(-.34, 2.63, -.02), scaling(.82, .60, .70))),
-        multiply(brainModel, multiply(translation(.34, 2.63, -.02), scaling(.82, .60, .70))),
-        multiply(brainModel, multiply(translation(-.66, 1.82, -.04), scaling(.74, .54, .64))),
-        multiply(brainModel, multiply(translation(.66, 1.82, -.04), scaling(.74, .54, .64))),
-        multiply(brainModel, multiply(translation(0, 1.84, -.08), scaling(.75, .50, .61))),
+        multiply(brainModel, multiply(translation(-.66, 2.48, .03), scaling(1.18, .86, .92))),
+        multiply(brainModel, multiply(translation(.66, 2.48, .03), scaling(1.18, .86, .92))),
+        multiply(brainModel, multiply(translation(-.38, 2.96, -.02), scaling(.92, .68, .78))),
+        multiply(brainModel, multiply(translation(.38, 2.96, -.02), scaling(.92, .68, .78))),
+        multiply(brainModel, multiply(translation(-.74, 2.06, -.04), scaling(.84, .61, .72))),
+        multiply(brainModel, multiply(translation(.74, 2.06, -.04), scaling(.84, .61, .72))),
+        multiply(brainModel, multiply(translation(0, 2.08, -.08), scaling(.86, .57, .69))),
       ];
       for (const lobe of brainLobes) {
         drawSolid(
           sphere,
           lobe,
-          [.035, .32, .54],
-          [0, .98, 1],
-          .06,
-          reduced ? 1.14 : 1.20 + Math.sin(time * 1.35) * .10,
-          .15,
+          [.035, .36, .62],
+          [0, 1, 1],
+          .05,
+          reduced ? 1.28 : 1.34 + Math.sin(time * 1.35) * .10,
+          .18,
         );
       }
       gl.depthMask(true);
@@ -1278,14 +1278,14 @@ export function FmCore3D() {
       for (const lobe of brainLobes) {
         drawLine(brainShell, lobe, gl.LINES, [.22, .88, 1, .28], 1.12, false);
       }
-      drawLine(brainLines, brainModel, gl.LINES, [.18, .92, 1, .96], 1.72, false);
-      drawLine(brainPoints, brainModel, gl.POINTS, [.96, 1, 1, 1], tier === "mobile" ? 6.4 : 8.4, true);
+      drawLine(brainLines, brainModel, gl.LINES, [.22, .95, 1, .98], 1.86, false);
+      drawLine(brainPoints, brainModel, gl.POINTS, [.98, 1, 1, 1], tier === "mobile" ? 6.8 : 8.9, true);
 
-      const orbitBase = translation(0, 2.18, 0);
+      const orbitBase = translation(0, 2.48, 0);
       const orbitModels = [
-        multiply(rootRotation, multiply(orbitBase, scaling(2.12, 1.16, 2.12))),
-        multiply(rootRotation, multiply(orbitBase, multiply(rotationX(.62), scaling(2.28, 1.24, 2.28)))),
-        multiply(rootRotation, multiply(orbitBase, multiply(rotationY(.74), multiply(rotationX(-.48), scaling(1.94, 1.08, 1.94))))),
+        multiply(rootRotation, multiply(orbitBase, scaling(2.38, 1.28, 2.38))),
+        multiply(rootRotation, multiply(orbitBase, multiply(rotationX(.62), scaling(2.52, 1.34, 2.52)))),
+        multiply(rootRotation, multiply(orbitBase, multiply(rotationY(.74), multiply(rotationX(-.48), scaling(2.16, 1.18, 2.16))))),
       ];
       orbitModels.forEach((model, index) => {
         drawLine(orbitLines, model, gl.LINES, [.2, .7 + index * .07, 1, .34 - index * .055], 1, false);
