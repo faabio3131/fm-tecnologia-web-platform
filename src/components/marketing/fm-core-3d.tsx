@@ -523,10 +523,10 @@ export function FmCore3D() {
   }
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+    const canvasElement = canvasRef.current;
+    if (!canvasElement) return;
 
-    const gl = canvas.getContext("webgl2", {
+    const glContext = canvasElement.getContext("webgl2", {
       alpha: true,
       antialias: true,
       depth: true,
@@ -534,11 +534,14 @@ export function FmCore3D() {
       powerPreference: "high-performance",
     });
 
-    if (!gl) {
+    if (!glContext) {
       setStatus("fallback");
-      canvas.dataset.renderer = "unavailable";
+      canvasElement.dataset.renderer = "unavailable";
       return;
     }
+
+    const canvas: HTMLCanvasElement = canvasElement;
+    const gl: WebGL2RenderingContext = glContext;
 
     let disposed = false;
     let frame = 0;
