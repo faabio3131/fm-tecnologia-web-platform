@@ -22,7 +22,7 @@ export default function Hero() {
           </p>
 
           <h1 className="hero__headline reveal-in" style={{ animationDelay: '0.15s' }}>
-            Tecnologia que conecta operação, dados e inteligência.
+            Tecnologia que conecta operação, <span className="hero__headline-accent">dados e inteligência.</span>
           </h1>
 
           <p className="hero__description reveal-in" style={{ animationDelay: '0.25s' }}>
