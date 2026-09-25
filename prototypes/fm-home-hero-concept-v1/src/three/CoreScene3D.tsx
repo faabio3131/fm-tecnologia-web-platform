@@ -1,14 +1,14 @@
-import { useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Environment, Lightformer } from '@react-three/drei'
+import { Environment, Lightformer, useGLTF } from '@react-three/drei'
 import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import * as THREE from 'three'
+// `?inline`: embute o GLB como base64 no próprio chunk JS. Escolha
+// deliberada para este protótipo — evita depender de o host de preview
+// (ou qualquer static server simples) servir .glb com o content-type
+// correto. No site real, isso viraria um asset estático normal (`?url`).
+import coreModelUrl from '../assets/fm-core.glb?inline'
 import { createFmLabelTexture } from './labelTexture'
-
-const METAL_COLOR = '#8a97a6'
-const GLASS_COLOR = '#1c4f8f'
-const CYAN = '#8fd3ff'
-const CYAN_BRIGHT = '#bfe6ff'
 
 interface SceneProps {
   quality: 'high' | 'low'
@@ -22,7 +22,7 @@ export default function CoreScene3D({ quality, reducedMotion }: SceneProps) {
     <Canvas
       dpr={[1, isLow ? 1.5 : 2]}
       gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
-      camera={{ position: [1.15, 0.2, 5.4], fov: 34 }}
+      camera={{ position: [1.1, 0.35, 6.4], fov: 33 }}
       frameloop={reducedMotion ? 'demand' : 'always'}
       style={{ position: 'absolute', inset: 0 }}
     >
@@ -38,216 +38,102 @@ export default function CoreScene3D({ quality, reducedMotion }: SceneProps) {
         <Lightformer form="ring" intensity={0.7} color="#bfe6ff" position={[4, 1, -2]} scale={3.5} />
       </Environment>
 
-      <CoreGroup quality={quality} reducedMotion={reducedMotion} />
+      <ModeledCore reducedMotion={reducedMotion} />
 
       {!isLow && (
         <EffectComposer>
-          <Bloom mipmapBlur intensity={0.45} luminanceThreshold={0.58} luminanceSmoothing={0.22} radius={0.55} />
+          <Bloom mipmapBlur intensity={0.42} luminanceThreshold={0.6} luminanceSmoothing={0.22} radius={0.5} />
         </EffectComposer>
       )}
     </Canvas>
   )
 }
 
-function CoreGroup({ quality }: { quality: 'high' | 'low'; reducedMotion: boolean }) {
+function ModeledCore({ reducedMotion }: { reducedMotion: boolean }) {
+  const { scene } = useGLTF(coreModelUrl)
   const rootRef = useRef<THREE.Group>(null)
-  const ring1 = useRef<THREE.Mesh>(null)
-  const ring2 = useRef<THREE.Mesh>(null)
-  const ring3 = useRef<THREE.Mesh>(null)
-  const ring4 = useRef<THREE.Mesh>(null)
-  const ring5 = useRef<THREE.Mesh>(null)
-  const neuralRef = useRef<THREE.Group>(null)
-  const nodesMaterialRef = useRef<THREE.PointsMaterial>(null)
   const pointer = useRef({ x: 0, y: 0 })
+  const parts = useRef<Record<string, THREE.Object3D | undefined>>({})
 
-  const isLow = quality === 'low'
-  const ringSegments = isLow ? 48 : 96
-  const icoDetail = isLow ? 2 : 3
+  // Clona a cena por render — evita compartilhar/estragar o cache do useGLTF
+  // se o componente remontar (ex.: troca de qualidade mobile/desktop).
+  const cloned = useMemo(() => scene.clone(true), [scene])
 
-  const labelTexture = useMemo(() => createFmLabelTexture(), [])
+  const glassTexture = useMemo(() => createFmLabelTexture(), [])
 
-  const nodeRadius = 0.66
-
-  const nodePositions = useMemo(() => {
-    const count = isLow ? 90 : 220
-    const positions = new Float32Array(count * 3)
-    for (let i = 0; i < count; i++) {
-      // distribuição aproximadamente esférica (Fibonacci sphere)
-      const t = i / Math.max(1, count - 1)
-      const inclination = Math.acos(1 - 2 * t)
-      const azimuth = Math.PI * (1 + Math.sqrt(5)) * i
-      const r = nodeRadius * (0.86 + 0.14 * Math.sin(i * 12.9898))
-      positions[i * 3] = r * Math.sin(inclination) * Math.cos(azimuth)
-      positions[i * 3 + 1] = r * Math.sin(inclination) * Math.sin(azimuth) * 0.85 + 0.15
-      positions[i * 3 + 2] = r * Math.cos(inclination)
+  useEffect(() => {
+    parts.current = {
+      ring0: cloned.getObjectByName('Ring_0'),
+      ring1: cloned.getObjectByName('Ring_1'),
+      ring2: cloned.getObjectByName('Ring_2'),
+      ring3: cloned.getObjectByName('Ring_3'),
+      brain: cloned.getObjectByName('Brain'),
+      nodes: cloned.getObjectByName('NeuralNodes'),
     }
-    return positions
-  }, [isLow])
 
-  // Conexões entre nós próximos — dá a leitura de "rede neural", não só poeira de pontos.
-  const nodeEdges = useMemo(() => {
-    const count = nodePositions.length / 3
-    const segments: number[] = []
-    const maxDist = 0.34
-    const maxEdgesPerNode = 3
-    for (let i = 0; i < count; i++) {
-      const ax = nodePositions[i * 3]
-      const ay = nodePositions[i * 3 + 1]
-      const az = nodePositions[i * 3 + 2]
-      let added = 0
-      for (let j = i + 1; j < count && added < maxEdgesPerNode; j++) {
-        const bx = nodePositions[j * 3]
-        const by = nodePositions[j * 3 + 1]
-        const bz = nodePositions[j * 3 + 2]
-        const d = Math.hypot(ax - bx, ay - by, az - bz)
-        if (d < maxDist) {
-          segments.push(ax, ay, az, bx, by, bz)
-          added++
-        }
+    cloned.traverse((obj) => {
+      const mesh = obj as THREE.Mesh
+      if (!mesh.isMesh) return
+      const mat = mesh.material as THREE.MeshPhysicalMaterial | THREE.MeshStandardMaterial
+      if (!mat) return
+      mat.envMapIntensity = 1.5
+      // O material de vidro exportado do Blender às vezes perde a
+      // transmissão no round-trip glTF — garantimos aqui, no lado do
+      // three.js, que ele realmente se comporta como vidro.
+      if (mesh.name === 'GlassPanel' && 'transmission' in mat) {
+        const glass = mat as THREE.MeshPhysicalMaterial
+        glass.transmission = 0.9
+        glass.roughness = 0.06
+        glass.thickness = 0.5
+        glass.ior = 1.4
+        glass.clearcoat = 1
+        glass.envMapIntensity = 1.2
       }
-    }
-    return new Float32Array(segments)
-  }, [nodePositions])
+    })
+  }, [cloned])
 
   useFrame((state, delta) => {
     const { pointer: ptr } = state
     pointer.current.x += (ptr.x - pointer.current.x) * 0.04
     pointer.current.y += (ptr.y - pointer.current.y) * 0.04
 
+    if (rootRef.current && !reducedMotion) {
+      rootRef.current.rotation.y += delta * 0.05
+    }
     if (rootRef.current) {
-      rootRef.current.rotation.y += delta * 0.06
-      rootRef.current.rotation.y += pointer.current.x * 0.0009
+      rootRef.current.rotation.y += pointer.current.x * 0.0008
       rootRef.current.rotation.x = THREE.MathUtils.lerp(
         rootRef.current.rotation.x,
-        pointer.current.y * 0.12,
+        pointer.current.y * 0.1,
         0.05,
       )
     }
 
-    if (ring1.current) ring1.current.rotation.z += delta * 0.11
-    if (ring2.current) ring2.current.rotation.z -= delta * 0.07
-    if (ring3.current) ring3.current.rotation.z += delta * 0.045
-    if (ring4.current) ring4.current.rotation.z -= delta * 0.085
-    if (ring5.current) ring5.current.rotation.z += delta * 0.03
+    const p = parts.current
+    if (p.ring0) p.ring0.rotation.z += delta * 0.09
+    if (p.ring1) p.ring1.rotation.z -= delta * 0.06
+    if (p.ring2) p.ring2.rotation.z += delta * 0.04
+    if (p.ring3) p.ring3.rotation.z -= delta * 0.07
 
     const t = state.clock.elapsedTime
-    if (neuralRef.current) {
-      neuralRef.current.position.y = 1.32 + Math.sin(t * 0.5) * 0.025
-      const s = 1 + Math.sin(t * 0.8) * 0.012
-      neuralRef.current.scale.setScalar(s)
+    if (p.brain) {
+      p.brain.scale.setScalar(1 + Math.sin(t * 0.8) * 0.012)
     }
-    if (nodesMaterialRef.current) {
-      nodesMaterialRef.current.size = 0.028 + Math.sin(t * 1.4) * 0.006
+    if (p.nodes) {
+      p.nodes.rotation.y += delta * 0.03
     }
   })
 
   return (
-    <group ref={rootRef}>
-      {/* Corpo metálico octogonal */}
-      <mesh rotation={[Math.PI / 2, 0, 0]} castShadow receiveShadow>
-        <cylinderGeometry args={[1.16, 1.16, 1.28, 8, 1]} />
-        <meshPhysicalMaterial
-          color={METAL_COLOR}
-          metalness={0.92}
-          roughness={0.32}
-          clearcoat={0.45}
-          clearcoatRoughness={0.22}
-          envMapIntensity={1.6}
-        />
+    <group ref={rootRef} position={[0, -0.55, 0]}>
+      <primitive object={cloned} />
+      {/* Emblema FM sobre o painel de vidro do modelo */}
+      <mesh position={[0, 0, 0.72]}>
+        <planeGeometry args={[0.85, 0.85]} />
+        <meshBasicMaterial map={glassTexture} transparent toneMapped={false} depthTest={false} />
       </mesh>
-
-      {/* Aro frontal levemente recuado */}
-      <mesh rotation={[Math.PI / 2, 0, 0]} position={[0, 0, 0.66]}>
-        <cylinderGeometry args={[1.02, 1.02, 0.06, 8, 1]} />
-        <meshStandardMaterial color="#0d151f" metalness={0.6} roughness={0.5} />
-      </mesh>
-
-      {/* Face de vidro azul/ciano */}
-      <mesh rotation={[Math.PI / 2, 0, 0]} position={[0, 0, 0.7]}>
-        <cylinderGeometry args={[0.92, 0.92, 0.1, 8, 1]} />
-        <meshPhysicalMaterial
-          color={GLASS_COLOR}
-          transmission={0.92}
-          roughness={0.08}
-          thickness={0.6}
-          ior={1.4}
-          clearcoat={1}
-          envMapIntensity={1.2}
-        />
-      </mesh>
-
-      {/* Emblema FM */}
-      <mesh position={[0, 0, 0.77]}>
-        <planeGeometry args={[1.15, 1.15]} />
-        <meshBasicMaterial map={labelTexture} transparent toneMapped={false} />
-      </mesh>
-
-      {/* Eixo energético central */}
-      <mesh position={[0, 0.95, 0]}>
-        <cylinderGeometry args={[0.018, 0.018, 0.7, 8]} />
-        <meshBasicMaterial color={CYAN_BRIGHT} toneMapped={false} transparent opacity={0.75} />
-      </mesh>
-
-      {/* Anéis orbitais */}
-      <mesh ref={ring1} rotation={[Math.PI / 2.25, 0.3, 0]}>
-        <torusGeometry args={[1.58, 0.065, 16, ringSegments]} />
-        <meshStandardMaterial color="#d7e2ee" metalness={0.9} roughness={0.24} envMapIntensity={1.5} />
-      </mesh>
-      <mesh ref={ring2} rotation={[Math.PI / 2.6, -0.4, 0.2]}>
-        <torusGeometry args={[1.88, 0.038, 16, ringSegments]} />
-        <meshStandardMaterial color={CYAN} metalness={0.55} roughness={0.18} emissive={CYAN} emissiveIntensity={0.32} envMapIntensity={1.2} />
-      </mesh>
-      <mesh ref={ring3} rotation={[Math.PI / 1.9, 0.15, -0.25]}>
-        <torusGeometry args={[1.36, 0.05, 16, ringSegments]} />
-        <meshStandardMaterial color="#9aa8b8" metalness={0.92} roughness={0.3} envMapIntensity={1.4} />
-      </mesh>
-      <mesh ref={ring4} rotation={[Math.PI / 2.05, 0.55, 0.4]}>
-        <torusGeometry args={[1.7, 0.024, 12, ringSegments]} />
-        <meshStandardMaterial color={CYAN_BRIGHT} metalness={0.5} roughness={0.2} emissive={CYAN_BRIGHT} emissiveIntensity={0.32} />
-      </mesh>
-      <mesh ref={ring5} rotation={[Math.PI / 1.75, -0.25, 0.55]}>
-        <torusGeometry args={[2.05, 0.03, 12, ringSegments]} />
-        <meshStandardMaterial color="#c3d3e3" metalness={0.88} roughness={0.34} envMapIntensity={1.3} />
-      </mesh>
-
-      {/* Estrutura neural superior */}
-      <group ref={neuralRef} position={[0, 1.32, 0]}>
-        <mesh>
-          <icosahedronGeometry args={[nodeRadius, icoDetail]} />
-          <meshStandardMaterial
-            color={CYAN}
-            wireframe
-            transparent
-            opacity={0.45}
-            emissive={CYAN}
-            emissiveIntensity={0.5}
-          />
-        </mesh>
-        <mesh>
-          <sphereGeometry args={[0.58, 24, 24]} />
-          <meshBasicMaterial color={CYAN_BRIGHT} transparent opacity={0.05} toneMapped={false} />
-        </mesh>
-        <points>
-          <bufferGeometry>
-            <bufferAttribute attach="attributes-position" args={[nodePositions, 3]} />
-          </bufferGeometry>
-          <pointsMaterial
-            ref={nodesMaterialRef}
-            color="#ffffff"
-            size={0.032}
-            sizeAttenuation
-            transparent
-            opacity={0.95}
-            toneMapped={false}
-          />
-        </points>
-        <lineSegments>
-          <bufferGeometry>
-            <bufferAttribute attach="attributes-position" args={[nodeEdges, 3]} />
-          </bufferGeometry>
-          <lineBasicMaterial color={CYAN} transparent opacity={0.35} toneMapped={false} />
-        </lineSegments>
-      </group>
     </group>
   )
 }
+
+useGLTF.preload(coreModelUrl)
