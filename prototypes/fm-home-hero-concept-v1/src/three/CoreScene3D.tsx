@@ -22,27 +22,27 @@ export default function CoreScene3D({ quality, reducedMotion }: SceneProps) {
     <Canvas
       dpr={[1, isLow ? 1.5 : 2]}
       gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
-      camera={{ position: [1.35, 0.35, 6.1], fov: 32 }}
+      camera={{ position: [1.15, 0.2, 5.4], fov: 34 }}
       frameloop={reducedMotion ? 'demand' : 'always'}
       style={{ position: 'absolute', inset: 0 }}
     >
-      <ambientLight intensity={0.32} color="#9fc4ea" />
-      <directionalLight position={[3, 4, 5]} intensity={1.8} color="#ffffff" />
-      <pointLight position={[-3.2, 1.2, -1.8]} intensity={12} color="#4fb0ff" distance={11} />
-      <pointLight position={[2.2, -1.8, 3]} intensity={4} color="#bfe6ff" distance={9} />
+      <ambientLight intensity={0.3} color="#9fc4ea" />
+      <directionalLight position={[3, 4, 5]} intensity={1.4} color="#ffffff" />
+      <pointLight position={[-3.2, 1.2, -1.8]} intensity={7} color="#4fb0ff" distance={11} />
+      <pointLight position={[2.2, -1.8, 3]} intensity={2} color="#bfe6ff" distance={9} />
 
       <Environment resolution={isLow ? 128 : 256} frames={1}>
-        <Lightformer form="rect" intensity={4} color="#eaf6ff" position={[2, 3, 3]} scale={[5, 3, 1]} rotation={[0, -Math.PI / 4, 0]} />
-        <Lightformer form="rect" intensity={3} color="#4fb0ff" position={[-4, 0.5, 2]} scale={[4, 2.5, 1]} rotation={[0, Math.PI / 3, 0]} />
-        <Lightformer form="rect" intensity={1.6} color="#ffffff" position={[0, -3, 2]} scale={[6, 2, 1]} rotation={[Math.PI / 4, 0, 0]} />
-        <Lightformer form="ring" intensity={1.2} color="#bfe6ff" position={[4, 1, -2]} scale={3.5} />
+        <Lightformer form="rect" intensity={2.2} color="#eaf6ff" position={[2, 3, 3]} scale={[5, 3, 1]} rotation={[0, -Math.PI / 4, 0]} />
+        <Lightformer form="rect" intensity={1.6} color="#4fb0ff" position={[-4, 0.5, 2]} scale={[4, 2.5, 1]} rotation={[0, Math.PI / 3, 0]} />
+        <Lightformer form="rect" intensity={0.9} color="#ffffff" position={[0, -3, 2]} scale={[6, 2, 1]} rotation={[Math.PI / 4, 0, 0]} />
+        <Lightformer form="ring" intensity={0.7} color="#bfe6ff" position={[4, 1, -2]} scale={3.5} />
       </Environment>
 
       <CoreGroup quality={quality} reducedMotion={reducedMotion} />
 
       {!isLow && (
         <EffectComposer>
-          <Bloom mipmapBlur intensity={0.55} luminanceThreshold={0.42} luminanceSmoothing={0.25} radius={0.6} />
+          <Bloom mipmapBlur intensity={0.45} luminanceThreshold={0.58} luminanceSmoothing={0.22} radius={0.55} />
         </EffectComposer>
       )}
     </Canvas>
@@ -54,32 +54,60 @@ function CoreGroup({ quality }: { quality: 'high' | 'low'; reducedMotion: boolea
   const ring1 = useRef<THREE.Mesh>(null)
   const ring2 = useRef<THREE.Mesh>(null)
   const ring3 = useRef<THREE.Mesh>(null)
+  const ring4 = useRef<THREE.Mesh>(null)
+  const ring5 = useRef<THREE.Mesh>(null)
   const neuralRef = useRef<THREE.Group>(null)
   const nodesMaterialRef = useRef<THREE.PointsMaterial>(null)
   const pointer = useRef({ x: 0, y: 0 })
 
   const isLow = quality === 'low'
   const ringSegments = isLow ? 48 : 96
-  const icoDetail = isLow ? 1 : 2
+  const icoDetail = isLow ? 2 : 3
 
   const labelTexture = useMemo(() => createFmLabelTexture(), [])
 
+  const nodeRadius = 0.66
+
   const nodePositions = useMemo(() => {
-    const count = isLow ? 60 : 140
+    const count = isLow ? 90 : 220
     const positions = new Float32Array(count * 3)
-    const radius = 0.62
     for (let i = 0; i < count; i++) {
       // distribuição aproximadamente esférica (Fibonacci sphere)
       const t = i / Math.max(1, count - 1)
       const inclination = Math.acos(1 - 2 * t)
       const azimuth = Math.PI * (1 + Math.sqrt(5)) * i
-      const r = radius * (0.86 + 0.14 * Math.sin(i * 12.9898))
+      const r = nodeRadius * (0.86 + 0.14 * Math.sin(i * 12.9898))
       positions[i * 3] = r * Math.sin(inclination) * Math.cos(azimuth)
       positions[i * 3 + 1] = r * Math.sin(inclination) * Math.sin(azimuth) * 0.85 + 0.15
       positions[i * 3 + 2] = r * Math.cos(inclination)
     }
     return positions
   }, [isLow])
+
+  // Conexões entre nós próximos — dá a leitura de "rede neural", não só poeira de pontos.
+  const nodeEdges = useMemo(() => {
+    const count = nodePositions.length / 3
+    const segments: number[] = []
+    const maxDist = 0.34
+    const maxEdgesPerNode = 3
+    for (let i = 0; i < count; i++) {
+      const ax = nodePositions[i * 3]
+      const ay = nodePositions[i * 3 + 1]
+      const az = nodePositions[i * 3 + 2]
+      let added = 0
+      for (let j = i + 1; j < count && added < maxEdgesPerNode; j++) {
+        const bx = nodePositions[j * 3]
+        const by = nodePositions[j * 3 + 1]
+        const bz = nodePositions[j * 3 + 2]
+        const d = Math.hypot(ax - bx, ay - by, az - bz)
+        if (d < maxDist) {
+          segments.push(ax, ay, az, bx, by, bz)
+          added++
+        }
+      }
+    }
+    return new Float32Array(segments)
+  }, [nodePositions])
 
   useFrame((state, delta) => {
     const { pointer: ptr } = state
@@ -99,6 +127,8 @@ function CoreGroup({ quality }: { quality: 'high' | 'low'; reducedMotion: boolea
     if (ring1.current) ring1.current.rotation.z += delta * 0.11
     if (ring2.current) ring2.current.rotation.z -= delta * 0.07
     if (ring3.current) ring3.current.rotation.z += delta * 0.045
+    if (ring4.current) ring4.current.rotation.z -= delta * 0.085
+    if (ring5.current) ring5.current.rotation.z += delta * 0.03
 
     const t = state.clock.elapsedTime
     if (neuralRef.current) {
@@ -119,10 +149,10 @@ function CoreGroup({ quality }: { quality: 'high' | 'low'; reducedMotion: boolea
         <meshPhysicalMaterial
           color={METAL_COLOR}
           metalness={0.92}
-          roughness={0.3}
-          clearcoat={0.5}
-          clearcoatRoughness={0.2}
-          envMapIntensity={2.4}
+          roughness={0.32}
+          clearcoat={0.45}
+          clearcoatRoughness={0.22}
+          envMapIntensity={1.6}
         />
       </mesh>
 
@@ -161,21 +191,29 @@ function CoreGroup({ quality }: { quality: 'high' | 'low'; reducedMotion: boolea
       {/* Anéis orbitais */}
       <mesh ref={ring1} rotation={[Math.PI / 2.25, 0.3, 0]}>
         <torusGeometry args={[1.58, 0.065, 16, ringSegments]} />
-        <meshStandardMaterial color="#d7e2ee" metalness={0.9} roughness={0.22} envMapIntensity={2.2} />
+        <meshStandardMaterial color="#d7e2ee" metalness={0.9} roughness={0.24} envMapIntensity={1.5} />
       </mesh>
       <mesh ref={ring2} rotation={[Math.PI / 2.6, -0.4, 0.2]}>
         <torusGeometry args={[1.88, 0.038, 16, ringSegments]} />
-        <meshStandardMaterial color={CYAN} metalness={0.55} roughness={0.15} emissive={CYAN} emissiveIntensity={0.6} envMapIntensity={1.8} />
+        <meshStandardMaterial color={CYAN} metalness={0.55} roughness={0.18} emissive={CYAN} emissiveIntensity={0.32} envMapIntensity={1.2} />
       </mesh>
       <mesh ref={ring3} rotation={[Math.PI / 1.9, 0.15, -0.25]}>
         <torusGeometry args={[1.36, 0.05, 16, ringSegments]} />
-        <meshStandardMaterial color="#9aa8b8" metalness={0.92} roughness={0.28} envMapIntensity={2} />
+        <meshStandardMaterial color="#9aa8b8" metalness={0.92} roughness={0.3} envMapIntensity={1.4} />
+      </mesh>
+      <mesh ref={ring4} rotation={[Math.PI / 2.05, 0.55, 0.4]}>
+        <torusGeometry args={[1.7, 0.024, 12, ringSegments]} />
+        <meshStandardMaterial color={CYAN_BRIGHT} metalness={0.5} roughness={0.2} emissive={CYAN_BRIGHT} emissiveIntensity={0.32} />
+      </mesh>
+      <mesh ref={ring5} rotation={[Math.PI / 1.75, -0.25, 0.55]}>
+        <torusGeometry args={[2.05, 0.03, 12, ringSegments]} />
+        <meshStandardMaterial color="#c3d3e3" metalness={0.88} roughness={0.34} envMapIntensity={1.3} />
       </mesh>
 
       {/* Estrutura neural superior */}
       <group ref={neuralRef} position={[0, 1.32, 0]}>
         <mesh>
-          <icosahedronGeometry args={[0.64, icoDetail]} />
+          <icosahedronGeometry args={[nodeRadius, icoDetail]} />
           <meshStandardMaterial
             color={CYAN}
             wireframe
@@ -196,13 +234,19 @@ function CoreGroup({ quality }: { quality: 'high' | 'low'; reducedMotion: boolea
           <pointsMaterial
             ref={nodesMaterialRef}
             color="#ffffff"
-            size={0.03}
+            size={0.032}
             sizeAttenuation
             transparent
-            opacity={0.9}
+            opacity={0.95}
             toneMapped={false}
           />
         </points>
+        <lineSegments>
+          <bufferGeometry>
+            <bufferAttribute attach="attributes-position" args={[nodeEdges, 3]} />
+          </bufferGeometry>
+          <lineBasicMaterial color={CYAN} transparent opacity={0.35} toneMapped={false} />
+        </lineSegments>
       </group>
     </group>
   )
