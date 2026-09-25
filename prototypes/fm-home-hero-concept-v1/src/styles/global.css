@@ -374,17 +374,21 @@ button {
   animation: hero-breathe 7s ease-in-out infinite;
 }
 
-.hero-visual__canvas-wrap {
+.hero-visual__video-wrap {
   position: absolute;
   inset: 0;
-  -webkit-mask-image: radial-gradient(circle at 50% 46%, black 56%, transparent 84%);
-  mask-image: radial-gradient(circle at 50% 46%, black 56%, transparent 84%);
-  filter: drop-shadow(0 30px 60px rgba(2, 8, 16, 0.55));
+  transform: translate3d(var(--shift-x-soft), var(--shift-y-soft), 0);
+  transition: transform 0.05s linear;
 }
 
-.hero-visual__canvas-wrap canvas {
+.hero-visual__video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   display: block;
-  touch-action: none;
+  filter: drop-shadow(0 30px 60px rgba(2, 8, 16, 0.55));
+  -webkit-mask-image: radial-gradient(circle at 50% 46%, black 60%, transparent 88%);
+  mask-image: radial-gradient(circle at 50% 46%, black 60%, transparent 88%);
 }
 
 @keyframes hero-breathe {

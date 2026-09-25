@@ -1,13 +1,17 @@
-import { Suspense, lazy, useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import heroCore from '../assets/hero-core.webp'
-import { CanvasErrorBoundary } from '../three/CanvasErrorBoundary'
-import { useIsCompactViewport, useReducedMotion, useWebGLSupport } from '../hooks/useMediaFlags'
+import coreLoopVideo from '../assets/core-loop.webm'
+import { useReducedMotion } from '../hooks/useMediaFlags'
 
 /**
- * V4 do visual do Hero: o asset 2D (V2/V3) dá lugar a uma cena 3D real
- * (three.js via @react-three/fiber) do Core — mesma composição, mesma
- * máscara/glow/partículas, mesmas placas operacionais ao redor. Cai para
- * a imagem estática quando WebGL não está disponível ou falha em runtime.
+ * V6 do visual do Hero: em vez de reconstruir o Core ao vivo em WebGL
+ * (teto de fidelidade do tempo real — ver V4/V4.1/V5 no histórico do
+ * git), o MESMO modelo 3D modelado no Blender (blender/build_core.py)
+ * é renderizado offline em Cycles (path-tracing) e usado como um loop
+ * de vídeo curto — luz/vidro/reflexo muito mais próximos da V3, ainda
+ * vindos de um asset 3D real. Cai para a imagem estática se o vídeo
+ * falhar ao carregar, ou fica parado no primeiro frame com
+ * prefers-reduced-motion.
  */
 const PLATES = [
   { label: 'Atendimento', position: 'top' },
@@ -18,18 +22,33 @@ const PLATES = [
   { label: 'Clientes', position: 'upper-left' },
 ] as const
 
-const CoreScene3D = lazy(() => import('../three/CoreScene3D'))
-
 export default function HeroVisual() {
   const stageRef = useRef<HTMLDivElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
   const rafRef = useRef<number | null>(null)
   const target = useRef({ x: 0, y: 0 })
   const current = useRef({ x: 0, y: 0 })
 
-  const hasWebGL = useWebGLSupport()
   const reducedMotion = useReducedMotion()
-  const isCompact = useIsCompactViewport()
-  const use3D = hasWebGL
+  const [videoFailed, setVideoFailed] = useState(false)
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+    if (reducedMotion) {
+      // mantém a cena visível (primeiro frame), só para a animação
+      const pauseAtStart = () => {
+        video.currentTime = 0
+        video.pause()
+      }
+      if (video.readyState >= 1) pauseAtStart()
+      else video.addEventListener('loadedmetadata', pauseAtStart, { once: true })
+    } else {
+      video.play().catch(() => {
+        /* autoplay bloqueado por alguma política do navegador — segue com o poster */
+      })
+    }
+  }, [reducedMotion])
 
   useEffect(() => {
     const stage = stageRef.current
@@ -70,8 +89,10 @@ export default function HeroVisual() {
     }
   }, [])
 
+  const useVideo = !videoFailed
+
   return (
-    <div className="hero-visual" ref={stageRef} data-mode={use3D ? '3d' : 'image'}>
+    <div className="hero-visual" ref={stageRef} data-mode={useVideo ? 'video' : 'image'}>
       <div className="hero-visual__glow" aria-hidden="true" />
 
       <div className="hero-visual__particles" aria-hidden="true">
@@ -80,13 +101,21 @@ export default function HeroVisual() {
         <span className="hv-particle hv-particle--2" />
       </div>
 
-      {use3D ? (
-        <div className="hero-visual__canvas-wrap">
-          <CanvasErrorBoundary fallback={<StaticCoreImage />}>
-            <Suspense fallback={null}>
-              <CoreScene3D quality={isCompact ? 'low' : 'high'} reducedMotion={reducedMotion} />
-            </Suspense>
-          </CanvasErrorBoundary>
+      {useVideo ? (
+        <div className="hero-visual__video-wrap">
+          <video
+            ref={videoRef}
+            className="hero-visual__video"
+            src={coreLoopVideo}
+            poster={heroCore}
+            muted
+            loop
+            playsInline
+            autoPlay
+            preload="auto"
+            aria-label="FM Core — inteligência artificial conectando dados e operação"
+            onError={() => setVideoFailed(true)}
+          />
         </div>
       ) : (
         <StaticCoreImage />

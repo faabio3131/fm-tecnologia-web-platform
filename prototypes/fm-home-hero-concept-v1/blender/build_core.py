@@ -237,10 +237,37 @@ nodes_joined = bpy.context.active_object
 nodes_joined.name = "NeuralNodes"
 
 # ==================================================================
-# 5. EMBLEMA FM — textura simples no painel de vidro (canvas gerado)
+# 5. EMBLEMA FM — texto 3D real (fonte padrão do Blender), não textura
 # ==================================================================
-# (o texto "FM" já é resolvido no lado do three.js via CanvasTexture,
-# igual V4 — não duplicar aqui para não depender de fontes no Blender)
+# Necessário para o pipeline de vídeo renderizado (Cycles não tem como
+# compor uma CanvasTexture do lado do three.js). O three.js também usa
+# este texto embutido no GLB agora, em vez de duplicar com uma textura
+# separada.
+
+MAT_EMBLEM = new_material("emblem", (1.0, 1.0, 1.0), metallic=0.0, roughness=0.2,
+                           emission_color=(0.85, 0.95, 1.0), emission_strength=2.4)
+
+
+def add_text(body, size, y_pos, z_pos, extrude=0.012):
+    bpy.ops.object.text_add(location=(0, y_pos, z_pos))
+    txt = bpy.context.active_object
+    txt.data.body = body
+    txt.data.size = size
+    txt.data.extrude = extrude
+    txt.data.align_x = 'CENTER'
+    txt.data.align_y = 'CENTER'
+    txt.rotation_euler = (math.radians(90), 0, 0)
+    bpy.ops.object.convert(target='MESH')
+    txt.data.materials.append(MAT_EMBLEM)
+    return txt
+
+
+# z_pos aqui é a altura no rosto do painel (Blender Z, centrado em 0 —
+# o mesmo Z do centro do vidro), não a altura do Core como um todo.
+emblem_fm = add_text("FM", 0.34, -0.635, 0.1, extrude=0.014)
+emblem_fm.name = "Emblem_FM"
+emblem_sub = add_text("FM TECNOLOGIA", 0.075, -0.62, -0.2, extrude=0.008)
+emblem_sub.name = "Emblem_Sub"
 
 # ==================================================================
 # 6. NOMEAR / ORGANIZAR E EXPORTAR
