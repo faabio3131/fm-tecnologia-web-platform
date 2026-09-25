@@ -1,13 +1,21 @@
-import type React from 'react'
 import { useEffect, useRef } from 'react'
 import heroCore from '../assets/hero-core.webp'
 
 /**
- * V2 do visual do Hero: usa uma imagem premium/renderizada como asset
- * principal (fornecida pela FM), em vez de reconstruir o "Core" em
- * SVG/CSS ou WebGL. Em torno dela: glow controlado, partículas discretas,
- * parallax leve por ponteiro e 2-3 cards flutuantes em HTML/CSS.
+ * V3 do visual do Hero: mantém a imagem premium como asset principal
+ * (V2) e adiciona as placas operacionais aprovadas ao redor do Core,
+ * um sweep de luz sutil para reforçar a sensação de "banner vivo", e
+ * mantém glow/partículas/parallax controlados.
  */
+const PLATES = [
+  { label: 'Atendimento', position: 'top' },
+  { label: 'Vendas', position: 'upper-right' },
+  { label: 'Estoque', position: 'lower-right' },
+  { label: 'Produção', position: 'bottom' },
+  { label: 'Financeiro', position: 'lower-left' },
+  { label: 'Clientes', position: 'upper-left' },
+] as const
+
 export default function HeroVisual() {
   const stageRef = useRef<HTMLDivElement>(null)
   const rafRef = useRef<number | null>(null)
@@ -71,69 +79,21 @@ export default function HeroVisual() {
           width={1536}
           height={1536}
         />
+        <div className="hero-visual__sweep" aria-hidden="true" />
         <div className="hero-visual__reflection" aria-hidden="true" />
       </div>
 
-      <FloatingCard className="float-card float-card--metrics" delay="0s">
-        <BarIcon />
-        <div>
-          <span className="float-card__label">Operação</span>
-          <span className="float-card__value">+34% eficiência</span>
-        </div>
-      </FloatingCard>
-
-      <FloatingCard className="float-card float-card--trend" delay="1.4s">
-        <TrendIcon />
-        <div>
-          <span className="float-card__label">Decisões</span>
-          <span className="float-card__value">Tempo real</span>
-        </div>
-      </FloatingCard>
-
-      <FloatingCard className="float-card float-card--ai" delay="0.7s">
-        <SparkIcon />
-        <span className="float-card__label">IA aplicada</span>
-      </FloatingCard>
+      <div className="hero-plates" aria-label="Áreas conectadas pelo FM Core">
+        {PLATES.map((plate, index) => (
+          <span
+            key={plate.label}
+            className={`hero-plate hero-plate--${plate.position}`}
+            style={{ animationDelay: `${0.5 + index * 0.12}s` }}
+          >
+            {plate.label}
+          </span>
+        ))}
+      </div>
     </div>
-  )
-}
-
-function FloatingCard({
-  children,
-  className,
-  delay,
-}: {
-  children: React.ReactNode
-  className: string
-  delay: string
-}) {
-  return (
-    <div className={className} style={{ animationDelay: delay }} aria-hidden="true">
-      {children}
-    </div>
-  )
-}
-
-function BarIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="float-card__icon" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-      <path d="M5 19V10M12 19V5M19 19v-6" />
-    </svg>
-  )
-}
-
-function TrendIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="float-card__icon" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 16 9.5 10.5 13.5 14.5 20 8M20 8h-4.5M20 8v4.5" />
-    </svg>
-  )
-}
-
-function SparkIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="float-card__icon" fill="currentColor">
-      <path d="M12 2.5c.6 3.6 2.4 5.4 6 6-3.6.6-5.4 2.4-6 6-.6-3.6-2.4-5.4-6-6 3.6-.6 5.4-2.4 6-6Z" />
-    </svg>
   )
 }

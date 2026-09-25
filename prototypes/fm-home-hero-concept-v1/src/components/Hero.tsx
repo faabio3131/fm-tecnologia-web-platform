@@ -10,20 +10,27 @@ const differentiators = [
 export default function Hero() {
   return (
     <section className="hero" id="top">
+      <div className="hero__ambient" aria-hidden="true">
+        <span className="hero__ambient-blob hero__ambient-blob--a" />
+        <span className="hero__ambient-blob hero__ambient-blob--b" />
+      </div>
+
       <div className="hero__grid">
         <div className="hero__content">
-          <p className="eyebrow">FM TECNOLOGIA · IA · AUTOMAÇÃO · SOFTWARE</p>
+          <p className="eyebrow reveal-in" style={{ animationDelay: '0.05s' }}>
+            FM TECNOLOGIA · IA · AUTOMAÇÃO · SOFTWARE
+          </p>
 
-          <h1 className="hero__headline">
+          <h1 className="hero__headline reveal-in" style={{ animationDelay: '0.15s' }}>
             Tecnologia que conecta operação, dados e inteligência.
           </h1>
 
-          <p className="hero__description">
+          <p className="hero__description reveal-in" style={{ animationDelay: '0.25s' }}>
             Desenvolvemos produtos inteligentes para transformar processos,
             acelerar decisões e preparar operações para crescer.
           </p>
 
-          <div className="hero__actions">
+          <div className="hero__actions reveal-in" style={{ animationDelay: '0.35s' }}>
             <button className="btn btn--primary btn--lg" type="button">
               Conhecer produtos
             </button>
@@ -32,7 +39,7 @@ export default function Hero() {
             </button>
           </div>
 
-          <ul className="hero__differentiators">
+          <ul className="hero__differentiators reveal-in" style={{ animationDelay: '0.45s' }}>
             {differentiators.map((item) => (
               <li key={item.label}>
                 <Icon name={item.icon} />
@@ -42,7 +49,7 @@ export default function Hero() {
           </ul>
         </div>
 
-        <div className="hero__visual">
+        <div className="hero__visual reveal-in" style={{ animationDelay: '0.2s' }}>
           <HeroVisual />
         </div>
       </div>
