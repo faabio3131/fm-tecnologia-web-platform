@@ -1,18 +1,25 @@
 import { useEffect, useRef, useState } from 'react'
 import heroCore from '../assets/hero-core.webp'
-import coreLoopVideo from '../assets/core-loop.webm'
+import coreKordena from '../assets/core-captions/core-kordena.webp'
+import coreGerenteIa from '../assets/core-captions/core-gerente-ia.webp'
+import coreFmTecnologia from '../assets/core-captions/core-fm-tecnologia.webp'
+import coreTotalControle from '../assets/core-captions/core-total-controle.webp'
 import { useReducedMotion } from '../hooks/useMediaFlags'
 
 /**
- * V6 do visual do Hero: em vez de reconstruir o Core ao vivo em WebGL
- * (teto de fidelidade do tempo real — ver V4/V4.1/V5 no histórico do
- * git), o MESMO modelo 3D modelado no Blender (blender/build_core.py)
- * é renderizado offline em Cycles (path-tracing) e usado como um loop
- * de vídeo curto — luz/vidro/reflexo muito mais próximos da V3, ainda
- * vindos de um asset 3D real. Cai para a imagem estática se o vídeo
- * falhar ao carregar, ou fica parado no primeiro frame com
- * prefers-reduced-motion.
+ * V7 do visual do Hero: a MESMA imagem aprovada da V3, em 4 cópias —
+ * cada uma só com uma legenda diferente sobreposta (Kordena, Gerente IA,
+ * FM Tecnologia, Total controle). Nenhum pixel novo do Core foi gerado.
+ * O "giro" é um carrossel com flip 3D (perspective + rotateY) trocando
+ * entre as 4, não uma reconstrução 3D da cena.
  */
+const SLIDES = [
+  { src: coreKordena, label: 'Kordena' },
+  { src: coreGerenteIa, label: 'Gerente IA' },
+  { src: coreFmTecnologia, label: 'FM Tecnologia' },
+  { src: coreTotalControle, label: 'Total controle' },
+] as const
+
 const PLATES = [
   { label: 'Atendimento', position: 'top' },
   { label: 'Vendas', position: 'upper-right' },
@@ -22,33 +29,25 @@ const PLATES = [
   { label: 'Clientes', position: 'upper-left' },
 ] as const
 
+const SLIDE_INTERVAL_MS = 3600
+
 export default function HeroVisual() {
   const stageRef = useRef<HTMLDivElement>(null)
-  const videoRef = useRef<HTMLVideoElement>(null)
   const rafRef = useRef<number | null>(null)
   const target = useRef({ x: 0, y: 0 })
   const current = useRef({ x: 0, y: 0 })
 
   const reducedMotion = useReducedMotion()
-  const [videoFailed, setVideoFailed] = useState(false)
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [failed, setFailed] = useState(false)
 
   useEffect(() => {
-    const video = videoRef.current
-    if (!video) return
-    if (reducedMotion) {
-      // mantém a cena visível (primeiro frame), só para a animação
-      const pauseAtStart = () => {
-        video.currentTime = 0
-        video.pause()
-      }
-      if (video.readyState >= 1) pauseAtStart()
-      else video.addEventListener('loadedmetadata', pauseAtStart, { once: true })
-    } else {
-      video.play().catch(() => {
-        /* autoplay bloqueado por alguma política do navegador — segue com o poster */
-      })
-    }
-  }, [reducedMotion])
+    if (reducedMotion || failed) return
+    const id = setInterval(() => {
+      setActiveIndex((i) => (i + 1) % SLIDES.length)
+    }, SLIDE_INTERVAL_MS)
+    return () => clearInterval(id)
+  }, [reducedMotion, failed])
 
   useEffect(() => {
     const stage = stageRef.current
@@ -70,8 +69,6 @@ export default function HeroVisual() {
       current.current.x += (target.current.x - current.current.x) * 0.05
       current.current.y += (target.current.y - current.current.y) * 0.05
 
-      stage.style.setProperty('--shift-x', `${current.current.x * 14}px`)
-      stage.style.setProperty('--shift-y', `${current.current.y * 10}px`)
       stage.style.setProperty('--shift-x-soft', `${current.current.x * 6}px`)
       stage.style.setProperty('--shift-y-soft', `${current.current.y * 4}px`)
 
@@ -89,10 +86,8 @@ export default function HeroVisual() {
     }
   }, [])
 
-  const useVideo = !videoFailed
-
   return (
-    <div className="hero-visual" ref={stageRef} data-mode={useVideo ? 'video' : 'image'}>
+    <div className="hero-visual" ref={stageRef} data-mode={failed ? 'image' : 'carousel'}>
       <div className="hero-visual__glow" aria-hidden="true" />
 
       <div className="hero-visual__particles" aria-hidden="true">
@@ -101,25 +96,36 @@ export default function HeroVisual() {
         <span className="hv-particle hv-particle--2" />
       </div>
 
-      {useVideo ? (
-        <div className="hero-visual__video-wrap">
-          <video
-            ref={videoRef}
-            className="hero-visual__video"
-            src={coreLoopVideo}
-            poster={heroCore}
-            muted
-            loop
-            playsInline
-            autoPlay
-            preload="auto"
-            aria-label="FM Core — inteligência artificial conectando dados e operação"
-            onError={() => setVideoFailed(true)}
-          />
-        </div>
-      ) : (
+      {failed ? (
         <StaticCoreImage />
+      ) : (
+        <div className="hero-visual__flip-wrap">
+          {SLIDES.map((slide, i) => {
+            const offset = i - activeIndex
+            const state = offset === 0 ? 'active' : offset === -1 || offset === SLIDES.length - 1 ? 'prev' : 'next'
+            return (
+              <img
+                key={slide.label}
+                src={slide.src}
+                alt={
+                  i === 0
+                    ? 'FM Core — inteligência artificial conectando dados e operação'
+                    : ''
+                }
+                aria-hidden={i === 0 ? undefined : true}
+                className={`hero-visual__flip-slide hero-visual__flip-slide--${state}`}
+                width={1536}
+                height={1536}
+                onError={() => setFailed(true)}
+              />
+            )
+          })}
+        </div>
       )}
+
+      <p className="sr-only" aria-live="polite">
+        {SLIDES[activeIndex].label}
+      </p>
 
       <div className="hero-plates" aria-label="Áreas conectadas pelo FM Core">
         {PLATES.map((plate, index) => (
