@@ -1,13 +1,11 @@
-import { Suspense, lazy, useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import heroCore from '../assets/hero-core.webp'
-import { CanvasErrorBoundary } from '../three/CanvasErrorBoundary'
-import { useIsCompactViewport, useReducedMotion, useWebGLSupport } from '../hooks/useMediaFlags'
 
 /**
- * V4 do visual do Hero: o asset 2D (V2/V3) dá lugar a uma cena 3D real
- * (three.js via @react-three/fiber) do Core — mesma composição, mesma
- * máscara/glow/partículas, mesmas placas operacionais ao redor. Cai para
- * a imagem estática quando WebGL não está disponível ou falha em runtime.
+ * V3 do visual do Hero: mantém a imagem premium como asset principal
+ * (V2) e adiciona as placas operacionais aprovadas ao redor do Core,
+ * um sweep de luz sutil para reforçar a sensação de "banner vivo", e
+ * mantém glow/partículas/parallax controlados.
  */
 const PLATES = [
   { label: 'Atendimento', position: 'top' },
@@ -18,18 +16,11 @@ const PLATES = [
   { label: 'Clientes', position: 'upper-left' },
 ] as const
 
-const CoreScene3D = lazy(() => import('../three/CoreScene3D'))
-
 export default function HeroVisual() {
   const stageRef = useRef<HTMLDivElement>(null)
   const rafRef = useRef<number | null>(null)
   const target = useRef({ x: 0, y: 0 })
   const current = useRef({ x: 0, y: 0 })
-
-  const hasWebGL = useWebGLSupport()
-  const reducedMotion = useReducedMotion()
-  const isCompact = useIsCompactViewport()
-  const use3D = hasWebGL
 
   useEffect(() => {
     const stage = stageRef.current
@@ -71,7 +62,7 @@ export default function HeroVisual() {
   }, [])
 
   return (
-    <div className="hero-visual" ref={stageRef} data-mode={use3D ? '3d' : 'image'}>
+    <div className="hero-visual" ref={stageRef}>
       <div className="hero-visual__glow" aria-hidden="true" />
 
       <div className="hero-visual__particles" aria-hidden="true">
@@ -80,17 +71,17 @@ export default function HeroVisual() {
         <span className="hv-particle hv-particle--2" />
       </div>
 
-      {use3D ? (
-        <div className="hero-visual__canvas-wrap">
-          <CanvasErrorBoundary fallback={<StaticCoreImage />}>
-            <Suspense fallback={null}>
-              <CoreScene3D quality={isCompact ? 'low' : 'high'} reducedMotion={reducedMotion} />
-            </Suspense>
-          </CanvasErrorBoundary>
-        </div>
-      ) : (
-        <StaticCoreImage />
-      )}
+      <div className="hero-visual__image-wrap">
+        <img
+          src={heroCore}
+          alt="FM Core — inteligência artificial conectando dados e operação"
+          className="hero-visual__image"
+          width={1536}
+          height={1536}
+        />
+        <div className="hero-visual__sweep" aria-hidden="true" />
+        <div className="hero-visual__reflection" aria-hidden="true" />
+      </div>
 
       <div className="hero-plates" aria-label="Áreas conectadas pelo FM Core">
         {PLATES.map((plate, index) => (
@@ -103,22 +94,6 @@ export default function HeroVisual() {
           </span>
         ))}
       </div>
-    </div>
-  )
-}
-
-function StaticCoreImage() {
-  return (
-    <div className="hero-visual__image-wrap">
-      <img
-        src={heroCore}
-        alt="FM Core — inteligência artificial conectando dados e operação"
-        className="hero-visual__image"
-        width={1536}
-        height={1536}
-      />
-      <div className="hero-visual__sweep" aria-hidden="true" />
-      <div className="hero-visual__reflection" aria-hidden="true" />
     </div>
   )
 }
