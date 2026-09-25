@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import heroCore from '../assets/hero-core.webp'
+import coreCore from '../assets/core-captions/core-core.webp'
 import coreKordena from '../assets/core-captions/core-kordena.webp'
 import coreGerenteIa from '../assets/core-captions/core-gerente-ia.webp'
 import coreFmTecnologia from '../assets/core-captions/core-fm-tecnologia.webp'
@@ -7,13 +8,15 @@ import coreTotalControle from '../assets/core-captions/core-total-controle.webp'
 import { useReducedMotion } from '../hooks/useMediaFlags'
 
 /**
- * V7 do visual do Hero: a MESMA imagem aprovada da V3, em 4 cópias —
- * cada uma só com uma legenda diferente sobreposta (Kordena, Gerente IA,
- * FM Tecnologia, Total controle). Nenhum pixel novo do Core foi gerado.
+ * V7 do visual do Hero: a MESMA imagem aprovada da V3, em 5 cópias —
+ * cada uma só com um selo/legenda diferente sobreposto (Core — em
+ * destaque, Kordena, Gerente IA, FM Tecnologia, Total controle). Nenhum
+ * pixel novo do Core em si foi gerado, só o selo de texto por cima.
  * O "giro" é um carrossel com flip 3D (perspective + rotateY) trocando
- * entre as 4, não uma reconstrução 3D da cena.
+ * entre as 5, não uma reconstrução 3D da cena.
  */
 const SLIDES = [
+  { src: coreCore, label: 'Core' },
   { src: coreKordena, label: 'Kordena' },
   { src: coreGerenteIa, label: 'Gerente IA' },
   { src: coreFmTecnologia, label: 'FM Tecnologia' },

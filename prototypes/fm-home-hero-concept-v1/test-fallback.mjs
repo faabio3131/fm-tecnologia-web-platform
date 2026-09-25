@@ -5,7 +5,7 @@ const browser = await chromium.launch({
 })
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } })
 // Simula falha ao carregar as imagens do carrossel (arquivo corrompido/indisponível).
-await page.route('**/core-kordena*', (route) => route.abort())
+await page.route('**/core-core*', (route) => route.abort())
 
 const errors = []
 page.on('pageerror', (e) => errors.push(e.message))
