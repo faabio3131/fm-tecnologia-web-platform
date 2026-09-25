@@ -6,17 +6,17 @@ const suggestions = [
 ]
 
 /**
- * Demonstração puramente visual do conceito de assistente do Core.
+ * Demonstração puramente visual do conceito do Core.
  * Sem integração com LLM, API ou backend — apenas composição estática.
  */
 export default function CoreAssistant() {
   return (
-    <section className="assistant" id="core-assistant" aria-label="Demonstração do Core, assistente de IA da FM">
+    <section className="assistant" id="core-assistant" aria-label="Demonstração do Core, gerente de IA da FM">
       <div className="assistant__intro">
-        <p className="eyebrow">ASSISTENTE DE IA</p>
+        <p className="eyebrow">GERENTE DE IA</p>
         <h2>Converse com o Core</h2>
         <p className="assistant__intro-text">
-          Uma camada de inteligência que conhece o ecossistema FM e ajuda a
+          Uma inteligência cognitiva que conhece o ecossistema FM e ajuda a
           encontrar o caminho certo dentro dele — em segundos.
         </p>
       </div>
@@ -37,9 +37,9 @@ export default function CoreAssistant() {
         </header>
 
         <div className="assistant__bubble">
-          <p className="assistant__greeting">Olá, eu sou o Core.</p>
+          <p className="assistant__greeting">Olá, eu sou o Core, seu gerente de IA.</p>
           <p className="assistant__text">
-            Sou a camada de inteligência da FM Tecnologia. Posso ajudar você a
+            Sou a inteligência cognitiva da FM Tecnologia. Posso ajudar você a
             conhecer nossos produtos, encontrar a solução mais adequada para
             sua empresa e explorar nosso ecossistema.
           </p>
