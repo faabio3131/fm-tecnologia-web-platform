@@ -1707,3 +1707,12 @@ body::before {
     border-color: rgba(79, 176, 255, 0.23);
   }
 }
+
+
+.hero__headline-accent {
+  display: inline;
+  color: #35c9ff;
+  text-shadow:
+    0 0 18px rgba(0, 183, 255, 0.16),
+    0 0 34px rgba(0, 115, 255, 0.08);
+}
