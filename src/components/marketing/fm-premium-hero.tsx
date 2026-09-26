@@ -60,11 +60,6 @@ export function FmPremiumHero() {
               className="fm-core-approved__image"
             />
 
-            <div className="fm-core-approved__plaque-copy" aria-label="Texto integrado à placa original: Core — Gerente de IA">
-              <strong>GERENTE IA</strong>
-              <span>CORE · inteligência cognitiva</span>
-            </div>
-
             <div className="fm-core-approved__plates" aria-hidden="true">
               {capabilityPlates.map(([label, position]) => (
                 <span key={label} className={"fm-core-approved__plate fm-core-approved__plate--" + position}>
@@ -74,6 +69,11 @@ export function FmPremiumHero() {
               ))}
             </div>
           </div>
+
+          <p className="fm-core-approved__caption">
+            <strong>CORE</strong>
+            <span>Gerente de IA da FM Tecnologia</span>
+          </p>
         </aside>
       </div>
     </section>

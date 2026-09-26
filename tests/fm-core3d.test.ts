@@ -13,8 +13,14 @@ const home = readFileSync(new URL("../app/page.tsx", import.meta.url), "utf8");
 test("approved Home Hero uses the approved Core artwork instead of the rejected procedural WebGL reconstruction", () => {
   assert.match(hero, /fm-core-approved\.webp/);
   assert.doesNotMatch(hero, /FmCore3D/);
-  assert.match(hero, /GERENTE IA/);
-  assert.match(hero, /CORE · inteligência cognitiva/);
+});
+
+test("Core identification sits outside the original plaque, never overlaid on the artwork", () => {
+  assert.doesNotMatch(hero, /plaque-copy/);
+  assert.doesNotMatch(approvedCss, /plaque-copy/);
+  assert.match(hero, /fm-core-approved__caption/);
+  assert.match(hero, />CORE</);
+  assert.match(hero, /Gerente de IA da FM Tecnologia/);
 });
 
 test("approved Core artwork is committed as a real local asset", () => {
