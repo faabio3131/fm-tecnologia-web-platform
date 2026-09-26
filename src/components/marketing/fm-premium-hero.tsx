@@ -55,6 +55,7 @@ export function FmPremiumHero() {
               width={1536}
               height={1536}
               priority
+              unoptimized
               sizes="(max-width: 680px) 96vw, (max-width: 1024px) 72vw, 48vw"
               className="fm-core-approved__image"
             />
