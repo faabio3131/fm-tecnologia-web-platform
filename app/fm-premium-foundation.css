@@ -37,8 +37,9 @@
   --fm-space-6: 3rem;
   --fm-space-7: 4.5rem;
 
-  --fm-font-sans: "Segoe UI Variable", "Segoe UI", Inter, Arial, sans-serif;
-  --fm-font-display: "Segoe UI Variable Display", "Segoe UI", Inter, Arial, sans-serif;
+  /* Preserve the approved/original FM typography. Premium changes color and finish, not the brand voice. */
+  --fm-font-sans: var(--font-body, Arial, sans-serif);
+  --fm-font-display: var(--font-display, Arial, sans-serif);
 
   --fm-ease-standard: cubic-bezier(.2, .75, .25, 1);
   --fm-ease-emphasized: cubic-bezier(.16, 1, .3, 1);
