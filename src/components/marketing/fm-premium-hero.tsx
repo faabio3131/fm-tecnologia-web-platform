@@ -60,7 +60,7 @@ export function FmPremiumHero() {
               className="fm-core-approved__image"
             />
 
-            <div className="fm-core-approved__identity" aria-label="Core — Gerente de IA">
+            <div className="fm-core-approved__plaque-copy" aria-label="Texto integrado à placa original: Core — Gerente de IA">
               <strong>GERENTE IA</strong>
               <span>CORE · inteligência cognitiva</span>
             </div>
