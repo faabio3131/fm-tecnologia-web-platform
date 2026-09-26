@@ -15,16 +15,16 @@ test("approved Home Hero uses the approved Core artwork instead of the rejected 
   assert.doesNotMatch(hero, /FmCore3D/);
 });
 
-test("Core identification sits outside the original plaque, never overlaid on the artwork", () => {
+test("Core identity is baked into the approved static artwork, with no HTML overlay", () => {
   assert.doesNotMatch(hero, /plaque-copy/);
+  assert.doesNotMatch(hero, /fm-core-approved__caption/);
   assert.doesNotMatch(approvedCss, /plaque-copy/);
-  assert.match(hero, /fm-core-approved__caption/);
-  assert.match(hero, />CORE</);
-  assert.match(hero, /Gerente de IA da FM Tecnologia/);
+  assert.doesNotMatch(approvedCss, /fm-core-approved__caption/);
+  assert.match(hero, /fm-core-gerente-ia\.webp/);
 });
 
-test("approved Core artwork is committed as a real local asset", () => {
-  const asset = new URL("../public/brand/fm-core-approved.webp", import.meta.url);
+test("approved Gerente IA Core artwork is committed as a real local asset", () => {
+  const asset = new URL("../public/brand/fm-core-gerente-ia.webp", import.meta.url);
   assert.equal(existsSync(asset), true);
   assert.ok(statSync(asset).size > 300_000);
 });

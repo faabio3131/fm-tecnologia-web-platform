@@ -50,7 +50,7 @@ export function FmPremiumHero() {
 
           <div className="fm-core-approved__visual">
             <Image
-              src="/brand/fm-core-approved.webp"
+              src="/brand/fm-core-gerente-ia.webp"
               alt="Core, gerente de IA da FM Tecnologia, conectando atendimento, vendas, estoque, produção, financeiro e clientes"
               width={1536}
               height={1536}
@@ -69,11 +69,6 @@ export function FmPremiumHero() {
               ))}
             </div>
           </div>
-
-          <p className="fm-core-approved__caption">
-            <strong>CORE</strong>
-            <span>Gerente de IA da FM Tecnologia</span>
-          </p>
         </aside>
       </div>
     </section>

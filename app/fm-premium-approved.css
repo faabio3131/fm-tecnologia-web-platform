@@ -163,34 +163,6 @@
 }
 
 
-/* Editorial caption identifying the Core, kept OUTSIDE the artwork and
-   its original plaque — never drawn over the image. */
-.fm-core-approved__caption {
-  position: relative;
-  z-index: 1;
-  align-self: start;
-  justify-self: start;
-  margin: 0;
-  padding-left: .85rem;
-  border-left: 2px solid rgba(97, 199, 255, .45);
-  display: grid;
-  gap: .18rem;
-  text-align: left;
-}
-
-.fm-core-approved__caption strong {
-  color: #f7fbff;
-  font: 800 .8rem/1 var(--font-display, Arial, sans-serif);
-  letter-spacing: .12em;
-}
-
-.fm-core-approved__caption span {
-  color: #8fb6db;
-  font-size: .72rem;
-  font-weight: 500;
-  letter-spacing: .01em;
-}
-
 .fm-core-approved__plate {
   position: absolute;
   z-index: 6;
@@ -319,17 +291,7 @@
   .fm-core-approved__visual {
     width: min(112vw, 520px);
     margin-inline: -6vw;
-  }
-  .fm-core-approved__caption {
-    align-self: center;
-    justify-self: center;
-    text-align: center;
-    padding-left: 0;
-    border-left: 0;
-    border-top: 2px solid rgba(97, 199, 255, .45);
-    padding-top: .5rem;
-  }
-  .fm-core-approved__plate {
+  }  .fm-core-approved__plate {
     font-size: .58rem;
     min-height: 26px;
     padding: .28rem .5rem;
