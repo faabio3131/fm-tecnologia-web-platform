@@ -33,8 +33,10 @@ assert.ok(!home.includes("Tecnologia inteligente para empresas que querem ir al�
 assert.ok(!home.includes("Tecnologia para <em>construir o próximo."), "home: older superseded hero copy must be absent");
 assert.ok(!home.includes("FM Tecnologia — Soluções reais para um grande amanhã"), "home: superseded metadata title must be absent");
 assert.ok(!home.includes("FM Tecnologia — Tecnologia para construir o próximo"), "home: older superseded metadata title must be absent");
-assert.ok(home.includes("Kordena, Iron Fit Core e NFCore."), "home: principal product trio must be present");
-assert.ok(home.includes("NFCore"), "home: NFCore must be present");
+assert.ok(home.includes("Soluções inteligentes para cada frente da operação."), "home: approved product section positioning must be present");
+for (const productName of ["Kordena", "Iron Fit Core", "NFCore"]) {
+  assert.ok(home.includes(productName), `home: principal product must be present: ${productName}`);
+}
 assert.ok(!home.includes("FM NFCORE"), "home: deprecated NFCore naming must be absent");
 
 const sitemap = await text("/sitemap.xml");

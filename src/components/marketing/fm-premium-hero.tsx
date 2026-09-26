@@ -1,7 +1,5 @@
-import Link from "next/link";
-import { products } from "@/src/catalog/products";
+import Image from "next/image";
 import { ButtonLink } from "@/src/components/ui/button-link";
-import { FmCore3D } from "@/src/components/marketing/fm-core-3d";
 
 const proofPoints = [
   "IA + automação",
@@ -9,57 +7,70 @@ const proofPoints = [
   "Arquitetura preparada para crescer",
 ] as const;
 
+const capabilityPlates = [
+  ["Atendimento", "top"],
+  ["Vendas", "upper-right"],
+  ["Estoque", "lower-right"],
+  ["Produção", "bottom"],
+  ["Financeiro", "lower-left"],
+  ["Clientes", "upper-left"],
+] as const;
+
 export function FmPremiumHero() {
   return (
-    <section className="fm-premium-hero" aria-labelledby="fm-premium-hero-title">
+    <section className="fm-premium-hero fm-premium-hero--approved" aria-labelledby="fm-premium-hero-title">
       <div className="fm-premium-hero__atmosphere" aria-hidden="true" />
+
       <div className="container fm-premium-container fm-premium-hero__layout">
         <div className="fm-premium-hero__copy">
-          <p className="fm-premium-hero__kicker">
-            FM Tecnologia
-            <small>IA · automação · software</small>
-          </p>
+          <p className="fm-premium-hero__kicker">FM Tecnologia · IA · automação · software</p>
+
           <h1 id="fm-premium-hero-title">
-            Tecnologia que conecta operação,
-            <span>dados e inteligência.</span>
+            Tecnologia que conecta
+            <span>operação, dados e inteligência.</span>
           </h1>
+
           <p className="fm-premium-hero__lead">
-            Criamos plataformas inteligentes para transformar processos complexos em gestão mais clara,
-            decisões melhores e operações preparadas para crescer.
+            Desenvolvemos produtos inteligentes para transformar processos, acelerar decisões
+            e preparar operações para crescer.
           </p>
-          <p className="fm-premium-hero__core-line">
-            No centro, uma linguagem de Core conecta contexto, automação e inteligência entre produtos
-            especializados — sem esconder a operação atrás da tecnologia.
-          </p>
+
           <div className="actions">
-            <ButtonLink href="/produtos" className="fm-hero-primary">Explorar ecossistema</ButtonLink>
+            <ButtonLink href="/produtos" className="fm-hero-primary">Conhecer produtos</ButtonLink>
             <ButtonLink href="/contato" variant="secondary" className="fm-hero-secondary">Falar com a FM</ButtonLink>
           </div>
-          <div className="fm-premium-hero__proof" aria-label="Diferenciais da plataforma">
+
+          <div className="fm-premium-hero__proof" aria-label="Diferenciais da FM Tecnologia">
             {proofPoints.map((point) => <span key={point}>{point}</span>)}
           </div>
         </div>
 
-        <aside className="fm-core-visual" aria-label="Core tridimensional da FM Tecnologia">
-          <div className="fm-core-visual__telemetry fm-core-visual__telemetry--left" aria-hidden="true">
-            <span>Automação</span><i /><i /><i /><i />
+        <aside className="fm-core-approved" aria-label="Core, gerente de IA da FM Tecnologia">
+          <div className="fm-core-approved__glow" aria-hidden="true" />
+
+          <div className="fm-core-approved__visual">
+            <Image
+              src="/brand/fm-core-gerente-ia.webp"
+              alt="Core, gerente de IA da FM Tecnologia, conectando atendimento, vendas, estoque, produção, financeiro e clientes"
+              width={1536}
+              height={1536}
+              priority
+              unoptimized
+              sizes="(max-width: 680px) 96vw, (max-width: 1024px) 72vw, 48vw"
+              className="fm-core-approved__image"
+            />
+
+            <div className="fm-core-approved__plates" aria-hidden="true">
+              {capabilityPlates.map(([label, position]) => (
+                <span key={label} className={"fm-core-approved__plate fm-core-approved__plate--" + position}>
+                  <i />
+                  {label}
+                </span>
+              ))}
+            </div>
           </div>
-          <div className="fm-core-visual__telemetry fm-core-visual__telemetry--right" aria-hidden="true">
-            <span>Inteligência</span><b /><b /><b />
-          </div>
-          <FmCore3D />
         </aside>
       </div>
-
-      <nav className="container fm-premium-container fm-premium-hero__ecosystem" aria-label="Explore o ecossistema FM">
-        <span>Ecossistema FM</span>
-        <div>
-          {products.map((product) => (
-            <Link key={product.id} href={"/produtos/" + product.slug}>{product.name}</Link>
-          ))}
-        </div>
-      </nav>
-      <div className="fm-premium-hero__handoff" aria-hidden="true" />
     </section>
   );
 }

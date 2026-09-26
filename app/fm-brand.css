@@ -36,7 +36,7 @@
 .logo-slogan {
   display: block;
   margin-top: .5rem;
-  color: #b7f43c;
+  color: #2f91ff;
   font-size: .56rem;
   font-weight: 700;
   line-height: 1.15;
@@ -57,14 +57,14 @@
 
 .site-header .desktop-nav a:hover,
 .site-header .header-actions > a:first-child:hover {
-  color: var(--lime);
-  border-color: var(--lime);
+  color: #2f91ff;
+  border-color: #2f91ff;
 }
 
 .site-header .button--primary {
-  background: var(--lime);
+  background: #2f91ff;
   color: var(--ink);
-  border-color: var(--lime);
+  border-color: #2f91ff;
   box-shadow: 0 8px 24px rgba(183, 244, 60, .12);
 }
 
@@ -80,7 +80,7 @@
 }
 
 .site-header :focus-visible {
-  outline-color: var(--lime);
+  outline-color: #2f91ff;
 }
 
 /* Shared responsive safety: prevent grid/flex children from forcing horizontal overflow. */
@@ -121,7 +121,7 @@
 }
 
 .site-footer .logo-slogan {
-  color: #b7f43c;
+  color: #2f91ff;
   font-size: .45rem;
 }
 

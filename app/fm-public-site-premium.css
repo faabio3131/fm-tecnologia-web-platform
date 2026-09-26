@@ -1,0 +1,400 @@
+/* FM Tecnologia — public-site premium unification.
+   Scoped to public/institutional/commercial surfaces only.
+   Operational SaaS routes are intentionally excluded by SiteChrome. */
+
+.fm-public-site {
+  --ink: #f7fbff;
+  --ink-2: #dcecff;
+  --paper: #050b14;
+  --white: #0b1729;
+  --lime: #2f91ff;
+  --mint: #67d6ff;
+  --line: rgba(113, 166, 222, .18);
+  --muted: #9fb0c5;
+  --shadow: 0 18px 46px rgba(0, 7, 25, .28);
+  min-height: 100vh;
+  color: #f7fbff;
+  background:
+    radial-gradient(circle at 82% 2%, rgba(47,145,255,.11), transparent 28rem),
+    linear-gradient(180deg, #050b14 0%, #071225 42%, #050b14 100%);
+}
+
+.fm-public-site #conteudo {
+  min-height: 60vh;
+  background: transparent;
+}
+
+.fm-public-site ::selection {
+  background: #2f91ff;
+  color: #fff;
+}
+
+.fm-public-site :focus-visible {
+  outline-color: #58baff;
+}
+
+/* Header / navigation */
+.fm-public-site .site-header {
+  background: rgba(4, 11, 23, .95);
+  color: #eef7ff;
+  border-bottom-color: rgba(100, 166, 230, .17);
+  backdrop-filter: blur(14px);
+}
+
+.fm-public-site .desktop-nav a,
+.fm-public-site .header-actions > a:first-child {
+  color: #dce8f5;
+}
+
+.fm-public-site .desktop-nav a:hover,
+.fm-public-site .header-actions > a:first-child:hover {
+  border-color: #58baff;
+  color: #fff;
+}
+
+.fm-public-site .mobile-menu-toggle,
+.fm-public-site .mobile-menu-close {
+  border-color: rgba(114,168,224,.28);
+  background: #081629;
+  color: #eef7ff;
+}
+
+.fm-public-site .mobile-dialog {
+  background: #050b14;
+  color: #eef7ff;
+}
+
+.fm-public-site .mobile-dialog::backdrop {
+  background: rgba(1,5,12,.88);
+}
+
+.fm-public-site .mobile-dialog-header,
+.fm-public-site .mobile-dialog-nav > a {
+  border-color: rgba(114,168,224,.16);
+}
+
+.fm-public-site .mobile-dialog-nav > a:hover {
+  background: #0b1b31;
+}
+
+/* Buttons */
+.fm-public-site .button {
+  border-color: rgba(120,174,229,.42);
+  color: #f4f9ff;
+}
+
+.fm-public-site .button--primary,
+.fm-public-site .landing-primary {
+  background: linear-gradient(135deg, #2f91ff, #1977df);
+  border-color: #2f91ff;
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(47,145,255,.23);
+}
+
+.fm-public-site .button--primary:hover,
+.fm-public-site .landing-primary:hover {
+  background: linear-gradient(135deg, #43a0ff, #2585eb);
+  border-color: #58baff;
+}
+
+.fm-public-site .button--secondary {
+  background: rgba(5,16,33,.42);
+  color: #edf7ff;
+  border-color: rgba(120,174,229,.38);
+}
+
+.fm-public-site .button--secondary:hover {
+  background: rgba(47,145,255,.11);
+  border-color: rgba(103,214,255,.5);
+}
+
+/* Generic page heroes */
+.fm-public-site .page-hero,
+.fm-public-site .product-hero {
+  color: #fff;
+  background:
+    radial-gradient(circle at 78% 18%, rgba(47,145,255,.13), transparent 24rem),
+    linear-gradient(135deg, #040a14 0%, #071326 58%, #0a1c33 100%);
+  border-bottom: 1px solid rgba(100,166,230,.13);
+}
+
+.fm-public-site .page-hero .lead,
+.fm-public-site .product-hero .lead,
+.fm-public-site .product-description,
+.fm-public-site .availability,
+.fm-public-site .landing-release {
+  color: #aabbd0;
+}
+
+.fm-public-site .badge,
+.fm-public-site .eyebrow,
+.fm-public-site .page-hero .badge,
+.fm-public-site .product-hero .badge,
+.fm-public-site .landing-hero .eyebrow {
+  color: #67d6ff;
+}
+
+.fm-public-site .back-link {
+  color: #9eb0c6;
+}
+
+.fm-public-site .back-link:hover {
+  color: #67d6ff;
+}
+
+/* Sections / editorial surfaces */
+.fm-public-site .section {
+  background: transparent;
+}
+
+.fm-public-site .section--surface {
+  background: rgba(11, 27, 49, .74);
+  border-block: 1px solid rgba(100,166,230,.11);
+}
+
+.fm-public-site .section-heading h2,
+.fm-public-site .landing-heading h2,
+.fm-public-site .split h2,
+.fm-public-site .value-grid h2,
+.fm-public-site .catalog-group > h2,
+.fm-public-site .research-panel h2,
+.fm-public-site .price-card h2,
+.fm-public-site .product-conditions h2,
+.fm-public-site .form-shell h2 {
+  color: #f7fbff;
+}
+
+.fm-public-site .section-heading p,
+.fm-public-site .landing-heading > p:last-child:not(.eyebrow),
+.fm-public-site .value-grid p,
+.fm-public-site .research-panel p,
+.fm-public-site .muted {
+  color: #9fb0c5;
+}
+
+/* Cards */
+.fm-public-site .product-card,
+.fm-public-site .price-card,
+.fm-public-site .landing-scenario,
+.fm-public-site .product-conditions,
+.fm-public-site .form-shell form,
+.fm-public-site .empty-state {
+  background: linear-gradient(145deg, rgba(12,29,52,.96), rgba(6,18,34,.96));
+  color: #f5f9ff;
+  border-color: rgba(100,166,230,.20);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.025);
+}
+
+.fm-public-site .product-card:hover,
+.fm-public-site .product-card:focus-within,
+.fm-public-site .price-card:hover {
+  border-color: rgba(103,214,255,.42);
+  box-shadow: 0 18px 44px rgba(0,7,25,.26), 0 0 0 1px rgba(47,145,255,.08);
+}
+
+.fm-public-site .product-card p,
+.fm-public-site .price-card > p,
+.fm-public-site .landing-scenario-description,
+.fm-public-site .landing-scenario ol,
+.fm-public-site .landing-features p {
+  color: #9fb0c5;
+}
+
+.fm-public-site .text-link {
+  color: #eaf6ff;
+  border-top-color: rgba(100,166,230,.18);
+}
+
+.fm-public-site .text-link span {
+  color: #67d6ff;
+}
+
+.fm-public-site .text-link:hover {
+  color: #fff;
+}
+
+.fm-public-site .price-card > span,
+.fm-public-site .price-card li::before,
+.fm-public-site .landing-step {
+  color: #67d6ff;
+}
+
+/* Research and value blocks */
+.fm-public-site .research-panel {
+  color: #f4f9ff;
+  background: linear-gradient(135deg, #0b1b31, #081629);
+  border-color: rgba(100,166,230,.22);
+}
+
+.fm-public-site .value-grid {
+  border-top-color: rgba(100,166,230,.18);
+}
+
+.fm-public-site .value-grid article {
+  border-color: rgba(100,166,230,.15);
+}
+
+/* Pricing / trials */
+.fm-public-site .trial-note {
+  color: #adc0d5;
+  background: rgba(47,145,255,.08);
+  border-left-color: #58baff;
+}
+
+.fm-public-site .trial-note strong {
+  color: #f7fbff;
+}
+
+.fm-public-site .enterprise-line,
+.fm-public-site .price-card ul {
+  border-color: rgba(100,166,230,.18);
+}
+
+/* Forms / contact / login */
+.fm-public-site .form-shell input,
+.fm-public-site .form-shell textarea {
+  background: #071629;
+  color: #f6fbff;
+  border-color: rgba(117,169,222,.30);
+}
+
+.fm-public-site .form-shell input::placeholder,
+.fm-public-site .form-shell textarea::placeholder {
+  color: #72869d;
+}
+
+.fm-public-site .account-page,
+.fm-public-site .account-panel {
+  background: #06101e;
+  color: #f6fbff;
+}
+
+.fm-public-site .account-note {
+  background: #0b1729;
+  border-left-color: #58baff;
+}
+
+.fm-public-site .account-page aside {
+  background: linear-gradient(145deg, #071426, #0a1d36);
+}
+
+/* Generic product landing */
+.fm-public-site .landing-hero h1 > span,
+.fm-public-site .landing-journey li > span {
+  color: #67d6ff;
+}
+
+.fm-public-site .landing-journey {
+  background: linear-gradient(145deg, #0b1c33, #071629);
+  border-color: rgba(100,166,230,.24);
+}
+
+.fm-public-site .landing-journey li,
+.fm-public-site .landing-index {
+  border-color: rgba(100,166,230,.16);
+}
+
+.fm-public-site .landing-features article {
+  border-top-color: #2f91ff;
+}
+
+.fm-public-site .landing-contact {
+  color: #f5f9ff;
+  background: linear-gradient(135deg, #0b1b31, #081629);
+  border-color: rgba(100,166,230,.20);
+}
+
+.fm-public-site .landing-faq details {
+  border-color: rgba(100,166,230,.17);
+}
+
+/* Kordena marketing — neutralize legacy green without changing layout. */
+.fm-public-site .product-landing--kordena,
+.fm-public-site .product-landing--kordena .kordena-story-panel,
+.fm-public-site .product-landing--kordena .kordena-governance-section,
+.fm-public-site .product-landing--kordena .kordena-value-section,
+.fm-public-site .product-landing--kordena .kordena-integrations-section {
+  --lime: #2f91ff;
+  --mint: #67d6ff;
+}
+
+.fm-public-site .product-landing--kordena .kordena-hero-core,
+.fm-public-site .product-landing--kordena .kordena-core-map,
+.fm-public-site .product-landing--kordena .kordena-story-panel--dark,
+.fm-public-site .product-landing--kordena .kordena-integrations-section,
+.fm-public-site .product-landing--kordena .kordena-governance-section,
+.fm-public-site .product-landing--kordena .kordena-value-section,
+.fm-public-site .product-landing--kordena .kordena-enterprise-section {
+  background: linear-gradient(145deg, #071426, #0b203a) !important;
+  border-color: rgba(100,166,230,.22) !important;
+}
+
+.fm-public-site .product-landing--kordena .kordena-integration-card,
+.fm-public-site .product-landing--kordena .kordena-governance-pills article,
+.fm-public-site .product-landing--kordena .kordena-enterprise-grid article,
+.fm-public-site .product-landing--kordena .kordena-value-chain {
+  background: #0a1a30 !important;
+  border-color: rgba(100,166,230,.22) !important;
+}
+
+.fm-public-site .product-landing--kordena .kordena-governance-pills article > span,
+.fm-public-site .product-landing--kordena .kordena-value-chain b,
+.fm-public-site .product-landing--kordena .kordena-core-center {
+  background: rgba(47,145,255,.16) !important;
+  color: #8edcff !important;
+  border-color: rgba(103,214,255,.36) !important;
+}
+
+.fm-public-site .product-landing--kordena .kordena-flow span,
+.fm-public-site .product-landing--kordena .kordena-check-list li::before,
+.fm-public-site .product-landing--kordena .kordena-question-grid span {
+  color: #67d6ff !important;
+  border-color: #2f91ff !important;
+}
+
+/* Iron Fit marketing — bring lime/green legacy into FM blue system. */
+.fm-public-site .ironfit-landing,
+.fm-public-site [class*="ironfit-"] {
+  --ironfit-accent: #2f91ff;
+}
+
+.fm-public-site .ironfit-landing .button--primary,
+.fm-public-site [class*="ironfit-"] .button--primary {
+  background: #2f91ff !important;
+  border-color: #2f91ff !important;
+  color: #fff !important;
+}
+
+.fm-public-site [class*="ironfit-"] .eyebrow {
+  color: #67d6ff !important;
+}
+
+/* Footer */
+.fm-public-site .site-footer {
+  background: #030811;
+  color: #eef7ff;
+  border-top: 1px solid rgba(100,166,230,.14);
+}
+
+.fm-public-site .footer-top > div > p,
+.fm-public-site .footer-grid h2,
+.fm-public-site .site-footer .muted,
+.fm-public-site .footer-bottom {
+  color: #8fa4ba;
+}
+
+.fm-public-site .footer-grid a:hover {
+  color: #67d6ff;
+}
+
+.fm-public-site .footer-bottom {
+  border-top-color: rgba(100,166,230,.14);
+}
+
+@media (max-width: 760px) {
+  .fm-public-site .product-card,
+  .fm-public-site .price-card,
+  .fm-public-site .product-conditions {
+    box-shadow: none;
+  }
+}

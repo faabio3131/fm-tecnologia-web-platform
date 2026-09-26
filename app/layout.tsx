@@ -18,6 +18,8 @@ import "./ironfit-final-audit.css";
 import "./fm-brand.css";
 import "./fm-premium-foundation.css";
 import "./fm-premium-hero.css";
+import "./fm-premium-approved.css";
+import "./fm-public-site-premium.css";
 import { SiteChrome } from "@/src/components/layout/site-chrome";
 import { siteConfig } from "@/src/config/site";
 

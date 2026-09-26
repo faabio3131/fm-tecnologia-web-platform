@@ -1,5 +1,5 @@
 .kordena-tour-section {
-  background: #f4f7f4;
+  background: #f4f9ff;
 }
 
 .kordena-tour-grid {
@@ -11,7 +11,7 @@
 
 .kordena-tour-card {
   overflow: hidden;
-  border: 1px solid #c9d8ce;
+  border: 1px solid #c7d8e8;
   border-radius: 1.35rem;
   background: #fff;
   box-shadow: 0 14px 38px rgba(8,32,24,.06);
@@ -27,7 +27,7 @@
   padding: 1rem;
   background:
     radial-gradient(circle at 82% 16%,rgba(183,244,60,.08),transparent 28%),
-    linear-gradient(145deg,#081410,#10241c 55%,#0a1712);
+    linear-gradient(145deg,#071528,#0d2846 55%,#081a2f);
   color: white;
 }
 
@@ -38,7 +38,7 @@
   height: 28px;
   padding: 0 .25rem;
   border-bottom: 1px solid rgba(255,255,255,.08);
-  color: #91a89b;
+  color: #8fa5bb;
   font-size: .7rem;
 }
 
@@ -89,7 +89,7 @@
   position: absolute;
   right: 1rem;
   bottom: .85rem;
-  color: #a9bdb2;
+  color: #a7bbcf;
   font-size: .72rem;
   font-style: normal;
 }
@@ -99,7 +99,7 @@
 }
 
 .kordena-tour-copy>span {
-  color: #397255;
+  color: #58baff;
   font-size: .68rem;
   font-weight: 800;
   letter-spacing: .12em;
