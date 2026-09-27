@@ -1374,3 +1374,44 @@
     font-size: .62rem;
   }
 }
+
+
+/* 2026-09-27 — NFCore typography normalization to the FM site display system. */
+.nfcore-wordmark__nf,
+.nfcore-wordmark__core,
+.nfcore-mini-wordmark__nf,
+.nfcore-mini-wordmark__core,
+.nfcore-core-brand-wordmark__nf,
+.nfcore-core-brand-wordmark__core {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 800;
+  transform: none;
+  letter-spacing: -.055em;
+}
+
+.nfcore-wordmark__nf,
+.nfcore-core-brand-wordmark__nf {
+  color: #f4f7fb;
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: currentColor;
+}
+
+.nfcore-wordmark__core,
+.nfcore-core-brand-wordmark__core {
+  color: transparent;
+  background: linear-gradient(90deg,var(--nf-blue),var(--nf-cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nfcore-mini-wordmark__nf {
+  color: #f4f7fb;
+}
+
+.nfcore-mini-wordmark__core {
+  color: var(--nf-cyan);
+}
