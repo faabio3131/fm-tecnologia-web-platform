@@ -324,3 +324,56 @@
     width: min(100%, 360px);
   }
 }
+
+
+/* 2026-09-27 — final approved high-resolution NFCore identity assets. */
+.nfcore-mark-card--approved {
+  width: min(94%, 525px);
+  max-width: 525px;
+}
+
+.nfcore-mark-card--approved .nfcore-approved-brand {
+  width: 100%;
+  max-width: 525px;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  image-rendering: auto;
+}
+
+.nfcore-core-center--approved {
+  width: 300px;
+  height: 300px;
+  padding: .7rem;
+}
+
+.nfcore-core-center--approved .nfcore-core-approved-brand {
+  width: 230px;
+  max-width: 78%;
+  height: 230px;
+  margin: 0 auto .3rem;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 0;
+  image-rendering: auto;
+}
+
+@media(max-width:760px){
+  .nfcore-mark-card--approved,
+  .nfcore-mark-card--approved .nfcore-approved-brand {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .nfcore-core-center--approved {
+    width: 100%;
+    height: auto;
+    min-height: 280px;
+  }
+
+  .nfcore-core-center--approved .nfcore-core-approved-brand {
+    width: min(72vw, 290px);
+    max-width: 82%;
+    height: auto;
+  }
+}

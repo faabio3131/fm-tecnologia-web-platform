@@ -57,10 +57,10 @@ export function NFCoreLanding() {
               <div className="nfcore-mark-card nfcore-mark-card--approved">
                 <Image
                   className="nfcore-approved-brand"
-                  src="/brand/nfcore-brand-approved.webp"
+                  src="/brand/nfcore-logo-approved.png"
                   alt="NFCore — Infrastructure Mission Control"
-                  width={1400}
-                  height={521}
+                  width={2172}
+                  height={724}
                   priority
                   unoptimized
                 />
@@ -119,10 +119,10 @@ export function NFCoreLanding() {
             <div className="nfcore-core-center nfcore-core-center--approved">
               <Image
                 className="nfcore-core-approved-brand"
-                src="/brand/nfcore-brand-approved.webp"
-                alt="NFCore — Infrastructure Mission Control"
-                width={1400}
-                height={521}
+                src="/brand/nfcore-emblem-approved.png"
+                alt="Símbolo NFCore"
+                width={1254}
+                height={1254}
                 unoptimized
               />
               <span>Core Fiscal</span>
