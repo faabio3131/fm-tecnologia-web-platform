@@ -41,9 +41,32 @@ const publishedApprovedOffer = {
     public_message: "Oferta aprovada para preparação final.",
     commercially_approved: true,
   },
-  checkout: { status: "unconfigured" },
+  checkout: {
+    status: "unconfigured",
+    provider: "cakto",
+    processing_status: "unconfigured",
+    items: [],
+  },
   purchase_enabled: false,
   trial_enabled: false,
+} as const;
+
+const purchasableOffer = {
+  ...publishedApprovedOffer,
+  checkout: {
+    status: "configured",
+    provider: "cakto",
+    processing_status: "configured",
+    items: [
+      {
+        plan_id: "nfcore-core",
+        price_id: "nfcore-monthly",
+        provider: "cakto",
+        checkout_url: "https://pay.cakto.com.br/offer-monthly",
+      },
+    ],
+  },
+  purchase_enabled: true,
 } as const;
 
 test("fallback comercial NFCore é invariavelmente fail-closed", () => {
@@ -52,6 +75,9 @@ test("fallback comercial NFCore é invariavelmente fail-closed", () => {
   assert.equal(fallback.release.commercially_approved, false);
   assert.equal(fallback.pricing.status, "unpriced");
   assert.equal(fallback.checkout.status, "unconfigured");
+  assert.equal(fallback.checkout.provider, "cakto");
+  assert.equal(fallback.checkout.processing_status, "unconfigured");
+  assert.deepEqual(fallback.checkout.items, []);
   assert.equal(fallback.purchase_enabled, false);
   assert.equal(fallback.trial_enabled, false);
 });
@@ -78,14 +104,64 @@ test("status comercial não pode fingir aprovação", () => {
   );
 });
 
-test("site recusa compra até existir contrato explícito de checkout", () => {
+test("contrato aceita compra somente quando todos os gates Cakto estão coerentes", () => {
+  const parsed = parseNFCoreCommercialOffer(purchasableOffer);
+  assert.equal(parsed.purchase_enabled, true);
+  assert.equal(parsed.checkout.status, "configured");
+  assert.equal(parsed.checkout.processing_status, "configured");
+  assert.equal(
+    parsed.checkout.items[0]?.checkout_url,
+    "https://pay.cakto.com.br/offer-monthly",
+  );
+});
+
+test("site rejeita URL de checkout fora do host canônico Cakto", () => {
   assert.throws(
     () =>
       parseNFCoreCommercialOffer({
-        ...publishedApprovedOffer,
-        purchase_enabled: true,
+        ...purchasableOffer,
+        checkout: {
+          ...purchasableOffer.checkout,
+          items: [
+            {
+              ...purchasableOffer.checkout.items[0],
+              checkout_url: "https://example.com/offer-monthly",
+            },
+          ],
+        },
       }),
-    /purchase must remain disabled/,
+    /canonical Cakto checkout URL/,
+  );
+});
+
+test("site rejeita compra habilitada sem processamento Cakto configurado", () => {
+  assert.throws(
+    () =>
+      parseNFCoreCommercialOffer({
+        ...purchasableOffer,
+        checkout: {
+          ...purchasableOffer.checkout,
+          processing_status: "unconfigured",
+          items: [
+            {
+              ...purchasableOffer.checkout.items[0],
+              checkout_url: null,
+            },
+          ],
+        },
+      }),
+    /purchase-enabled offer is inconsistent/,
+  );
+});
+
+test("site rejeita URL exposta quando compra continua bloqueada", () => {
+  assert.throws(
+    () =>
+      parseNFCoreCommercialOffer({
+        ...purchasableOffer,
+        purchase_enabled: false,
+      }),
+    /checkout URLs must stay hidden/,
   );
 });
 
@@ -103,5 +179,8 @@ test("BFF usa variável server-side e não expõe endpoint NFCore ao navegador",
   assert.match(route, /failClosedNFCoreCommercialOffer/);
   assert.match(route, /status: 503/);
   assert.match(component, /\/api\/nfcore\/commercial-offer/);
+  assert.match(component, /offer\.purchase_enabled/);
+  assert.match(component, /checkoutUrl/);
   assert.doesNotMatch(component, /NFCORE_API_URL/);
+  assert.doesNotMatch(component, /pay\.cakto\.com\.br/);
 });
