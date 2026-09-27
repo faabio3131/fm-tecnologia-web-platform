@@ -1315,3 +1315,100 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* 2026-09-27 FINAL PUBLIC COLOR LOCK
+   Scoped to .fm-public-site so operational /app/iron-fit keeps its own theme. */
+.fm-public-site .logo-slogan,
+.fm-public-site .site-footer .logo-slogan {
+  color: #67d6ff !important;
+  text-shadow: 0 0 14px rgba(103,214,255,.12);
+}
+
+.fm-public-site .hero-kicker > span,
+.fm-public-site .hero h1 em,
+.fm-public-site .portfolio-map > .eyebrow,
+.fm-public-site .portfolio-map-group a:hover,
+.fm-public-site .page-hero .badge,
+.fm-public-site .product-hero .badge,
+.fm-public-site .landing-hero .eyebrow,
+.fm-public-site .landing-hero h1 > span,
+.fm-public-site .landing-journey li > span,
+.fm-public-site .landing-step,
+.fm-public-site .price-card > span,
+.fm-public-site .price-card li::before {
+  color: #67d6ff;
+  border-color: #67d6ff;
+}
+
+.fm-public-site .hero-kicker > span {
+  border-top-color: #67d6ff;
+}
+
+.fm-public-site .portfolio-map {
+  border-color: rgba(103,214,255,.20);
+  background: linear-gradient(135deg,#0b203a,#071629);
+}
+
+.fm-public-site .portfolio-map-group,
+.fm-public-site .landing-journey,
+.fm-public-site .landing-journey li {
+  border-color: rgba(103,214,255,.18);
+}
+
+.fm-public-site .landing-journey {
+  background: linear-gradient(145deg,#0a1b31,#071528);
+}
+
+.fm-public-site .landing-features article {
+  border-top-color: #2f91ff;
+}
+
+.fm-public-site .trial-note,
+.fm-public-site .account-note {
+  border-left-color: #58baff;
+}
+
+.fm-public-site .site-footer a:hover,
+.fm-public-site .footer-grid a:hover,
+.fm-public-site .back-link:hover {
+  color: #67d6ff;
+}
+
+.fm-public-site .site-header .button--primary,
+.fm-public-site .hero .button--primary,
+.fm-public-site .landing-primary,
+.fm-public-site .skip-link {
+  background: linear-gradient(135deg,#2f91ff,#1977df);
+  border-color: #2f91ff;
+  color: #fff;
+}
+
+.fm-public-site .site-header .button--primary:hover,
+.fm-public-site .hero .button--primary:hover,
+.fm-public-site .landing-primary:hover {
+  background: linear-gradient(135deg,#43a0ff,#2585eb);
+  border-color: #58baff;
+}
+
+.fm-public-site .button--secondary:hover {
+  background: rgba(47,145,255,.11);
+  border-color: rgba(103,214,255,.50);
+}
+
+.fm-public-site .product-card:hover,
+.fm-public-site .product-card:focus-within {
+  border-color: rgba(103,214,255,.42);
+}
+
+.fm-public-site .mobile-dialog-nav > a:hover {
+  background: rgba(47,145,255,.10);
+  color: #f7fbff;
+}
+
+.fm-public-site :focus-visible,
+.fm-public-site .hero :focus-visible,
+.fm-public-site .product-hero :focus-visible,
+.fm-public-site .site-footer :focus-visible {
+  outline-color: #58baff;
+}
