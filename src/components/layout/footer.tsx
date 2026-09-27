@@ -1,6 +1,6 @@
 import { siteConfig } from "@/src/config/site";
 import Link from "next/link";
-import { Logo, PremiumLogo } from "./logo";
+import { Logo } from "./logo";
 
 const groups = [
   { title: "Produtos", links: [["Portfólio", "/produtos"], ["Kordena", "/produtos/kordena"], ["Iron Fit Core", "/produtos/iron-fit"], ["NFCore", "/produtos/nfcore"]] },
@@ -16,7 +16,7 @@ export function Footer({ premiumHome = false }: { premiumHome?: boolean }) {
       <div className="container">
         <div className="footer-top">
           <div>
-            {premiumHome ? <PremiumLogo showSlogan /> : <Logo />}
+            <Logo />
             <p>Tecnologia inteligente para transformar<br />operações, decisões e resultados.</p>
             <p><a style={{ overflowWrap: "anywhere" }} href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a></p>
             <p><a href={`https://wa.me/${siteConfig.whatsapp.number}`}>WhatsApp: {siteConfig.whatsapp.label}</a></p>
