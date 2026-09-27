@@ -6,7 +6,7 @@ export type NFCoreCommercialReleaseStatus =
   | "ready_for_commercial_review"
   | "commercial_approved";
 
-export type NFCoreCheckoutStatus = "unconfigured" | "configured";
+export type NFCoreCheckoutStatus = "unconfigured";
 
 export interface NFCoreCommercialPrice {
   price_id: string;
@@ -61,10 +61,7 @@ const releaseStatuses = new Set<NFCoreCommercialReleaseStatus>([
   "commercial_approved",
 ]);
 
-const checkoutStatuses = new Set<NFCoreCheckoutStatus>([
-  "unconfigured",
-  "configured",
-]);
+const checkoutStatuses = new Set<NFCoreCheckoutStatus>(["unconfigured"]);
 
 const cadences = new Set<NFCoreCommercialPrice["cadence"]>([
   "monthly",
@@ -237,11 +234,8 @@ export function parseNFCoreCommercialOffer(value: unknown): NFCoreCommercialOffe
 
   const purchaseEnabled = booleanValue(root.purchase_enabled, "purchase_enabled");
   const trialEnabled = booleanValue(root.trial_enabled, "trial_enabled");
-  if (checkoutStatus === "unconfigured" && purchaseEnabled) {
-    throw new Error("purchase cannot be enabled while checkout is unconfigured");
-  }
-  if (!commerciallyApproved && purchaseEnabled) {
-    throw new Error("purchase cannot be enabled without commercial approval");
+  if (purchaseEnabled) {
+    throw new Error("purchase must remain disabled until a checkout contract is implemented");
   }
 
   return {
