@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const intelligenceAxes = [
   ["Contexto", "Dados da operação organizados pelo Core Vertical para preservar o contexto correto."],
   ["Insights", "Arquitetura preparada para interpretar sinais e padrões sem tornar a IA uma dependência dos fluxos essenciais."],
@@ -6,6 +8,7 @@ const intelligenceAxes = [
 ] as const;
 
 const hubCapabilities = ["Elegibilidade", "Agenda", "Check-in", "Acesso", "Reconciliação", "Providers"] as const;
+const officialLockup = "/iron-fit-core-official-lockup.webp";
 
 const securityPillars = [
   ["Isolamento entre academias", "Dados e operações são vinculados ao contexto correto da academia e da unidade."],
@@ -30,7 +33,7 @@ export function IronFitIntelligenceEcosystemSecurity() {
               </div>
             </div>
             <div className="ironfit-intelligence-network" aria-label="Quatro eixos da Iron Intelligence">
-              <div className="ironfit-intelligence-core"><span>IRON</span><strong>INTELLIGENCE</strong><small>Core + contexto</small></div>
+              <div className="ironfit-intelligence-core"><Image className="ironfit-intelligence-brand" src={officialLockup} alt="Iron Fit Core" width={520} height={308} unoptimized /><small>Core + contexto</small></div>
               {intelligenceAxes.map(([title, text], index) => (
                 <article key={title} className={`ironfit-intelligence-node ironfit-intelligence-node--${index + 1}`}>
                   <span>0{index + 1}</span><h3>{title}</h3><p>{text}</p>
@@ -53,7 +56,7 @@ export function IronFitIntelligenceEcosystemSecurity() {
             <p>O Aggregator Hub concentra a arquitetura de integração com ecossistemas de benefícios, acesso, agenda e parceiros fitness sem fragmentar a operação.</p>
           </div>
           <div className="ironfit-hub-diagram" aria-label="Fluxo conceitual do Aggregator Hub">
-            <div className="ironfit-hub-core"><span>IRON FIT</span><strong>CORE</strong></div>
+            <div className="ironfit-hub-core ironfit-hub-core--brand"><Image className="ironfit-hub-brand" src={officialLockup} alt="Iron Fit Core" width={520} height={308} unoptimized /></div>
             <i aria-hidden="true">↔</i>
             <div className="ironfit-hub-center"><span>AGGREGATOR</span><strong>HUB</strong><small>camada de integração</small></div>
             <i aria-hidden="true">↔</i>
