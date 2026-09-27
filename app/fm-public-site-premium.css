@@ -618,3 +618,100 @@
     border-bottom: 0;
   }
 }
+
+
+/* 2026-09-27 mobile hardening + product palette correction */
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.fm-public-site {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  background: #030811;
+}
+
+.fm-public-site main,
+.fm-public-site section,
+.fm-public-site nav,
+.fm-public-site footer,
+.fm-public-site .container {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.fm-public-site .product-landing--kordena {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  background: #030811;
+}
+
+.fm-public-site .product-landing--kordena img,
+.fm-public-site .product-landing--kordena video,
+.fm-public-site .product-landing--kordena svg,
+.fm-public-site .product-landing--kordena canvas {
+  max-width: 100%;
+}
+
+.fm-public-site .product-landing--kordena .landing-features article,
+.fm-public-site .product-landing--kordena .landing-features article:first-child {
+  color: #f3f8ff !important;
+  background: linear-gradient(145deg, #0b203a, #08182d) !important;
+  border: 1px solid rgba(103,214,255,.22) !important;
+  border-top: 2px solid #2f91ff !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.025);
+}
+
+.fm-public-site .product-landing--kordena .landing-features article h3,
+.fm-public-site .product-landing--kordena .landing-features article:first-child h3 {
+  color: #f4f9ff !important;
+}
+
+.fm-public-site .product-landing--kordena .landing-features article p,
+.fm-public-site .product-landing--kordena .landing-features article:first-child p {
+  color: #a9bfd3 !important;
+}
+
+.fm-public-site .product-landing--kordena .landing-index,
+.fm-public-site .product-landing--kordena .kordena-value-chain,
+.fm-public-site .product-landing--kordena .kordena-media-placeholder,
+.fm-public-site .product-landing--kordena .kordena-core-map,
+.fm-public-site .product-landing--kordena .kordena-premium-core-visual {
+  max-width: 100%;
+}
+
+@media (max-width: 760px) {
+  .fm-public-site .product-landing--kordena,
+  .fm-public-site .product-landing--kordena > *,
+  .fm-public-site .product-landing--kordena .container {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .fm-public-site .product-landing--kordena .landing-index {
+    width: var(--container);
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+  }
+
+  .fm-public-site .product-landing--kordena .kordena-value-chain {
+    overflow: hidden;
+  }
+
+  .fm-public-site .product-landing--kordena .landing-features article {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* Iron Fit keeps its existing artwork/composition; only the green identity is shifted to FM blue. */
+.fm-public-site .ironfit-approved-lockup img,
+.fm-public-site .ironfit-core-mark img,
+.fm-public-site .ironfit-mini-brand img,
+.fm-public-site .ironfit-phone__brand img {
+  filter: hue-rotate(108deg) saturate(1.12) brightness(1.04) !important;
+}
