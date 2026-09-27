@@ -84,6 +84,8 @@
   grid-column: 2;
   grid-row: 5;
   justify-self: center;
+  align-self: end;
+  transform: translateY(14px);
   width: var(--k-core-integrations-w);
   min-width: var(--k-core-integrations-w);
   max-width: var(--k-core-integrations-w);
