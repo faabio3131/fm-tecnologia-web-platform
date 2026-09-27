@@ -27,7 +27,7 @@ test("NFCore uses the final high-resolution approved brand pair", async () => {
 });
 
 
-test("NFCore Hero keeps symmetric domain columns and Core Fiscal branded plaque", async () => {
+test("NFCore Hero keeps symmetric domain columns and the approved Core Fiscal signature", async () => {
   const landing = await readFile("src/components/marketing/nfcore-landing.tsx", "utf8");
   assert.match(landing, /nfcore-domain-column--left/);
   assert.match(landing, /nfcore-domain-column--right/);
@@ -37,8 +37,10 @@ test("NFCore Hero keeps symmetric domain columns and Core Fiscal branded plaque"
   assert.match(landing, />Documentos<\/span>/);
   assert.match(landing, />Reconciliação<\/span>/);
   assert.match(landing, />Governança<\/span>/);
-  assert.match(landing, /nfcore-core-brand-plaque/);
-  assert.match(landing, /nfcore-core-brand-plaque__nf">NF/);
-  assert.match(landing, /nfcore-core-brand-plaque__core">CORE/);
+  assert.match(landing, /nfcore-core-brand-lockup/);
+  assert.match(landing, /nfcore-core-brand-wordmark__nf">NF/);
+  assert.match(landing, /nfcore-core-brand-wordmark__core">CORE/);
+  assert.match(landing, /nfcore-core-slogan">Infraestrutura fiscal inteligente/);
   assert.match(landing, /nfcore-core-caption">Core Fiscal/);
+  assert.doesNotMatch(landing, /nfcore-core-brand-plaque/);
 });
