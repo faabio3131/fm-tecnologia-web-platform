@@ -56,7 +56,7 @@ export function ProductLanding({ product }: { product: Product }) {
                 <div className="kordena-premium-core-visual">
                   <Image
                     className="kordena-premium-core-image"
-                    src="/brand/fm-core-gerente-ia.webp"
+                    src="/brand/fm-core-kordena.webp"
                     alt="Gerente IA Core conectando atendimento, vendas, estoque, produção, financeiro e clientes"
                     width={1536}
                     height={1536}

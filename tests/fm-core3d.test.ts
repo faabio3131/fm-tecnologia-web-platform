@@ -3,6 +3,7 @@ import { existsSync, statSync, readFileSync } from "node:fs";
 import test from "node:test";
 
 const hero = readFileSync(new URL("../src/components/marketing/fm-premium-hero.tsx", import.meta.url), "utf8");
+const coreCarousel = readFileSync(new URL("../src/components/marketing/fm-core-visual-carousel.tsx", import.meta.url), "utf8");
 const header = readFileSync(new URL("../src/components/layout/header.tsx", import.meta.url), "utf8");
 const footer = readFileSync(new URL("../src/components/layout/footer.tsx", import.meta.url), "utf8");
 const foundation = readFileSync(new URL("../app/fm-premium-foundation.css", import.meta.url), "utf8");
@@ -11,8 +12,11 @@ const chrome = readFileSync(new URL("../src/components/layout/site-chrome.tsx", 
 const home = readFileSync(new URL("../app/page.tsx", import.meta.url), "utf8");
 
 test("approved Home Hero uses the approved Core artwork instead of the rejected procedural WebGL reconstruction", () => {
-  assert.match(hero, /fm-core-gerente-ia\.webp/);
+  assert.match(hero, /FmCoreVisualCarousel/);
   assert.doesNotMatch(hero, /FmCore3D/);
+  for (const asset of ["fm-core-core.webp", "fm-core-gerente-ia.webp", "fm-core-kordena.webp", "fm-core-total-controle.webp"]) {
+    assert.ok(coreCarousel.includes(asset), "Missing approved Core carousel asset: " + asset);
+  }
 });
 
 test("Core identity is baked into the approved static artwork, with no HTML overlay", () => {
@@ -20,13 +24,15 @@ test("Core identity is baked into the approved static artwork, with no HTML over
   assert.doesNotMatch(hero, /fm-core-approved__caption/);
   assert.doesNotMatch(approvedCss, /plaque-copy/);
   assert.doesNotMatch(approvedCss, /fm-core-approved__caption/);
-  assert.match(hero, /fm-core-gerente-ia\.webp/);
+  assert.doesNotMatch(coreCarousel, /plaque-copy|fm-core-approved__caption/);
 });
 
-test("approved Gerente IA Core artwork is committed as a real local asset", () => {
-  const asset = new URL("../public/brand/fm-core-gerente-ia.webp", import.meta.url);
-  assert.equal(existsSync(asset), true);
-  assert.ok(statSync(asset).size > 300_000);
+test("all four approved Core carousel artworks are committed as real local assets", () => {
+  for (const filename of ["fm-core-core.webp", "fm-core-gerente-ia.webp", "fm-core-kordena.webp", "fm-core-total-controle.webp"]) {
+    const asset = new URL("../public/brand/" + filename, import.meta.url);
+    assert.equal(existsSync(asset), true, "Missing asset: " + filename);
+    assert.ok(statSync(asset).size > 300_000, "Asset unexpectedly small: " + filename);
+  }
 });
 
 test("Home Hero keeps the approved institutional capability plates", () => {

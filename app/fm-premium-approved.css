@@ -336,3 +336,20 @@
 .fm-premium-home .product-card .text-link:focus-visible span {
   color: #9ae8ff;
 }
+
+
+/* Approved four-state Core carousel from the original Claude visual assets. */
+.fm-core-approved__image--carousel {
+  animation: fm-core-carousel-enter 520ms var(--fm-ease-emphasized, ease-out) both;
+}
+
+@keyframes fm-core-carousel-enter {
+  from { opacity: .22; transform: scale(.975); filter: saturate(1.02) contrast(1.02) blur(1.5px); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fm-core-approved__image--carousel {
+    animation: none;
+  }
+}

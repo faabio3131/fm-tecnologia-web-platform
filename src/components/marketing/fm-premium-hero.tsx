@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { ButtonLink } from "@/src/components/ui/button-link";
+import { FmCoreVisualCarousel } from "@/src/components/marketing/fm-core-visual-carousel";
 
 const proofPoints = [
   "IA + automação",
@@ -49,16 +49,7 @@ export function FmPremiumHero() {
           <div className="fm-core-approved__glow" aria-hidden="true" />
 
           <div className="fm-core-approved__visual">
-            <Image
-              src="/brand/fm-core-gerente-ia.webp"
-              alt="Core, gerente de IA da FM Tecnologia, conectando atendimento, vendas, estoque, produção, financeiro e clientes"
-              width={1536}
-              height={1536}
-              priority
-              unoptimized
-              sizes="(max-width: 680px) 96vw, (max-width: 1024px) 72vw, 48vw"
-              className="fm-core-approved__image"
-            />
+            <FmCoreVisualCarousel />
 
             <div className="fm-core-approved__plates" aria-hidden="true">
               {capabilityPlates.map(([label, position]) => (
