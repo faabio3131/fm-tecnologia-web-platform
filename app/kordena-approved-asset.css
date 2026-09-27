@@ -14,7 +14,7 @@
   position: absolute;
   inset: -30px -32px;
   border-radius: 44%;
-  background: radial-gradient(circle at 50% 45%, rgba(210,255,95,.24), rgba(179,255,52,.10) 36%, transparent 70%);
+  background: radial-gradient(circle at 50% 45%, rgba(103,214,255,.24), rgba(103,214,255,.10) 36%, transparent 70%);
   filter: blur(20px);
   opacity: .9;
   z-index: -1;
@@ -30,7 +30,7 @@
   height: 58px;
   transform: translateX(-50%);
   border-radius: 50%;
-  background: radial-gradient(ellipse, rgba(190,255,65,.20), rgba(178,255,66,.04) 46%, transparent 73%);
+  background: radial-gradient(ellipse, rgba(103,214,255,.20), rgba(103,214,255,.04) 46%, transparent 73%);
   filter: blur(12px);
   z-index: -1;
 }
@@ -44,8 +44,8 @@
   pointer-events: none;
   filter:
     drop-shadow(0 12px 22px rgba(0,0,0,.32))
-    drop-shadow(0 0 12px rgba(196,255,74,.28))
-    drop-shadow(0 0 30px rgba(177,255,54,.14));
+    drop-shadow(0 0 12px rgba(103,214,255,.28))
+    drop-shadow(0 0 30px rgba(103,214,255,.14));
 }
 
 /* Hero: mesma arte oficial, com rotação/flutuação claramente perceptível e elegante. */
@@ -61,21 +61,21 @@
 .kordena-hero-core--v2 .kordena-v2-energy {
   opacity: .48;
   border-width: .6px;
-  border-color: rgba(197,255,87,.18);
-  box-shadow: 0 0 12px rgba(185,249,75,.025);
+  border-color: rgba(103,214,255,.18);
+  box-shadow: 0 0 12px rgba(103,214,255,.025);
 }
 
 .kordena-hero-core--v2 .kordena-v2-energy::before {
   width: 3px;
   height: 3px;
-  background: #dcff7b;
-  box-shadow: 0 0 8px rgba(215,255,112,.85), 0 0 16px rgba(185,255,73,.34);
+  background: #67d6ff;
+  box-shadow: 0 0 8px rgba(103,214,255,.85), 0 0 16px rgba(103,214,255,.34);
 }
 
 .kordena-hero-core--v2 .kordena-v2-core-glow {
   width: 250px;
   height: 250px;
-  background: radial-gradient(circle, rgba(196,255,74,.17), rgba(128,225,69,.045) 44%, transparent 74%);
+  background: radial-gradient(circle, rgba(103,214,255,.17), rgba(103,214,255,.045) 44%, transparent 74%);
   filter: blur(19px);
 }
 
@@ -94,7 +94,7 @@
   position: absolute;
   inset: -18px;
   border-radius: 38%;
-  background: radial-gradient(circle, rgba(191,255,65,.16), rgba(177,255,54,.05) 45%, transparent 72%);
+  background: radial-gradient(circle, rgba(103,214,255,.16), rgba(103,214,255,.05) 45%, transparent 72%);
   filter: blur(15px);
   z-index: -1;
 }
