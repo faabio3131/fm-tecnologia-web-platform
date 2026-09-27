@@ -443,3 +443,242 @@
     max-width: 92%;
   }
 }
+
+
+/* 2026-09-27 — NFCore visual closure: symmetric Hero + branded Core Fiscal plaque. */
+.nfcore-hero__visual {
+  min-height: 420px;
+  padding: 24px 20px;
+}
+
+.nfcore-hero-visual-layout {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 124px minmax(0, 1fr) 124px;
+  gap: 14px;
+  align-items: center;
+}
+
+.nfcore-domain-column {
+  display: grid;
+  grid-template-rows: repeat(3, 44px);
+  gap: 18px;
+  align-content: center;
+}
+
+.nfcore-domain-column .nfcore-domain {
+  position: static !important;
+  width: 124px;
+  min-width: 124px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0,229,255,.28);
+  border-radius: 999px;
+  background: linear-gradient(135deg,#0f3155,#0a2440);
+  color: #eef8ff;
+  font-size: .72rem;
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+  box-shadow: inset 0 0 18px rgba(47,145,255,.035);
+}
+
+.nfcore-domain-column--left {
+  justify-items: end;
+}
+
+.nfcore-domain-column--right {
+  justify-items: start;
+}
+
+.nfcore-hero-visual-layout .nfcore-mark-card--approved {
+  position: static;
+  z-index: 5;
+  width: 100%;
+  max-width: 520px;
+  min-width: 0;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+}
+
+.nfcore-hero-visual-layout .nfcore-approved-brand {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+/* Core Fiscal hierarchy:
+   emblem -> NF CORE brand plate -> secondary Core Fiscal caption. */
+.nfcore-core-center--approved {
+  width: 330px;
+  height: 342px;
+  padding: 16px 18px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-color: rgba(0,229,255,.26);
+  background: linear-gradient(155deg,#071523,#091b2e);
+  box-shadow:
+    0 0 0 1px rgba(37,99,255,.07) inset,
+    0 0 52px rgba(37,99,255,.12);
+}
+
+.nfcore-core-center--approved .nfcore-core-approved-brand {
+  width: 214px;
+  max-width: 78%;
+  height: auto;
+  margin: 0 auto 10px;
+  border-radius: 18px;
+  object-fit: contain;
+}
+
+.nfcore-core-brand-plaque {
+  width: min(100%, 250px);
+  min-height: 54px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid rgba(0,229,255,.42);
+  border-radius: 10px;
+  background:
+    linear-gradient(180deg,rgba(12,31,52,.98),rgba(4,14,26,.98));
+  box-shadow:
+    inset 0 0 22px rgba(47,145,255,.08),
+    0 8px 24px rgba(0,0,0,.20);
+}
+
+.nfcore-core-brand-plaque__nf,
+.nfcore-core-brand-plaque__core {
+  display: inline-block;
+  font-family: "Arial Black", "Arial Narrow", Arial, sans-serif;
+  font-style: italic;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -.055em;
+}
+
+.nfcore-core-brand-plaque__nf {
+  color: #f5f8fb;
+  font-size: 1.55rem;
+  transform: skewX(-7deg) scaleX(.97);
+  transform-origin: left bottom;
+  text-shadow:
+    0 1px 0 #a9bfd0,
+    0 0 10px rgba(255,255,255,.08);
+}
+
+.nfcore-core-brand-plaque__core {
+  font-size: 1.58rem;
+  color: #00e5ff;
+  background: linear-gradient(90deg,#2f91ff,#00e5ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nfcore-core-center--approved > .nfcore-core-caption {
+  display: block;
+  margin-top: 8px;
+  color: #7f9ab3;
+  font-size: .70rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+/* Tablet: preserve 3 / logo / 3 geometry while there is room. */
+@media (max-width: 1100px) and (min-width: 761px) {
+  .nfcore-hero__visual {
+    padding-inline: 16px;
+  }
+
+  .nfcore-hero-visual-layout {
+    grid-template-columns: 112px minmax(0, 1fr) 112px;
+    gap: 10px;
+  }
+
+  .nfcore-domain-column {
+    grid-template-rows: repeat(3, 42px);
+    gap: 14px;
+  }
+
+  .nfcore-domain-column .nfcore-domain {
+    width: 112px;
+    min-width: 112px;
+    height: 42px;
+    min-height: 42px;
+    font-size: .68rem;
+  }
+
+  .nfcore-hero-visual-layout .nfcore-mark-card--approved,
+  .nfcore-hero-visual-layout .nfcore-approved-brand {
+    max-width: 460px;
+  }
+}
+
+/* Mobile: clean grid, no horizontal overflow. */
+@media (max-width: 760px) {
+  .nfcore-hero__visual {
+    padding: 14px;
+  }
+
+  .nfcore-hero-visual-layout {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 10px;
+  }
+
+  .nfcore-hero-visual-layout .nfcore-mark-card--approved {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .nfcore-domain-column {
+    display: contents;
+  }
+
+  .nfcore-domain-column .nfcore-domain {
+    position: static !important;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: 44px;
+    padding: 9px 8px;
+  }
+
+  .nfcore-domain-column--left .nfcore-domain:nth-child(1) { grid-column: 1; grid-row: 2; }
+  .nfcore-domain-column--right .nfcore-domain:nth-child(1) { grid-column: 2; grid-row: 2; }
+  .nfcore-domain-column--left .nfcore-domain:nth-child(2) { grid-column: 1; grid-row: 3; }
+  .nfcore-domain-column--right .nfcore-domain:nth-child(2) { grid-column: 2; grid-row: 3; }
+  .nfcore-domain-column--left .nfcore-domain:nth-child(3) { grid-column: 1; grid-row: 4; }
+  .nfcore-domain-column--right .nfcore-domain:nth-child(3) { grid-column: 2; grid-row: 4; }
+
+  .nfcore-core-center--approved {
+    width: 100%;
+    min-height: 360px;
+    height: auto;
+  }
+
+  .nfcore-core-center--approved .nfcore-core-approved-brand {
+    width: min(72vw, 250px);
+    max-width: 82%;
+  }
+
+  .nfcore-core-brand-plaque {
+    width: min(88%, 280px);
+  }
+}
