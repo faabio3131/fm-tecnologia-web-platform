@@ -109,7 +109,7 @@
   padding: 1.2rem;
   border: 1px solid #b8c9da;
   border-radius: 1rem;
-  background: rgba(255,255,255,.72);
+  background: linear-gradient(145deg,#0b203a,#0a1a30); color: #eff7ff; border-color: rgba(103,214,255,.22);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -349,7 +349,7 @@
   font-size: .68rem;
   font-weight: 800;
   text-align: center;
-  box-shadow: 0 10px 24px rgba(0,0,0,.18), inset 0 0 14px rgba(183,244,60,.02);
+  box-shadow: 0 10px 24px rgba(0,0,0,.18), inset 0 0 14px rgba(47,145,255,.02);
   backdrop-filter: blur(4px);
 }
 .kordena-v2-node::after {
