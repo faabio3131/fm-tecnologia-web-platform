@@ -50,23 +50,19 @@ export function ProductLanding({ product }: { product: Product }) {
               )}
             </div>
             {isKordena ? (
-              <aside className="kordena-hero-core kordena-hero-core--v2" aria-label="Demonstração visual do Gerente IA Core conectando a operação">
+              <aside className="kordena-hero-core kordena-hero-core--premium" aria-label="Demonstração visual do Gerente IA Core conectando a operação">
                 <p className="eyebrow">Gerente IA Core</p>
                 <h2>Uma inteligência central para conectar toda a operação.</h2>
-                <div className="kordena-v2-scene" aria-hidden="true">
-                  <span className="kordena-v2-node kordena-v2-node--atendimento">Atendimento</span>
-                  <span className="kordena-v2-node kordena-v2-node--vendas">Vendas</span>
-                  <span className="kordena-v2-node kordena-v2-node--estoque">Estoque</span>
-                  <span className="kordena-v2-node kordena-v2-node--producao">Produção</span>
-                  <span className="kordena-v2-node kordena-v2-node--financeiro">Financeiro</span>
-                  <span className="kordena-v2-node kordena-v2-node--clientes">Clientes</span>
-                  <div className="kordena-v2-energy kordena-v2-energy--one" />
-                  <div className="kordena-v2-energy kordena-v2-energy--two" />
-                  <div className="kordena-v2-energy kordena-v2-energy--three" />
-                  <div className="kordena-v2-core-glow" />
-                  <div className="kordena-v2-cube-wrap kordena-v2-cube-wrap--asset">
-                    <Image className="kordena-core-brandmark kordena-core-brandmark--hero" src="/kordena-core-approved.webp" alt="" width={240} height={250} priority unoptimized />
-                  </div>
+                <div className="kordena-premium-core-visual">
+                  <Image
+                    className="kordena-premium-core-image"
+                    src="/brand/fm-core-kordena.png"
+                    alt="Kordena conectado ao Gerente IA Core, atendimento, vendas, estoque, produção, financeiro e clientes"
+                    width={1536}
+                    height={1536}
+                    priority
+                    unoptimized
+                  />
                 </div>
                 <p>Atendimento, produção, estoque, vendas, financeiro e clientes conectados ao mesmo núcleo de inteligência.</p>
               </aside>

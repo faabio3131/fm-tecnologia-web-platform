@@ -128,7 +128,7 @@
       },
       {
         "title": "Operação conectada",
-        "text": "Salão, balcão, PDV, delivery próprio e integrações de venda reunidos em uma mesma visão operacional."
+        "text": "Salão, balcão, PDV, delivery próprio e pedidos de canais como iFood, Keeta e 99Food reunidos em uma mesma visão operacional."
       },
       {
         "title": "Produção conectada",
@@ -144,7 +144,7 @@
       },
       {
         "title": "Delivery e rotas",
-        "text": "Gestão da entrega própria com endereço, área atendida, taxas, Google Maps, distância, rota e estimativa de chegada."
+        "text": "Delivery próprio com endereço, área atendida, taxas, Google Maps, distância, rota e estimativa de chegada, conectado à mesma operação dos demais canais de venda."
       },
       {
         "title": "Marketing orgânico com IA",
@@ -156,7 +156,7 @@
       }
     ],
     "headline": "Inteligência no centro. Gestão de ponta a ponta.",
-    "intro": "Da operação diária à gestão financeira, o Kordena conecta vendas, atendimento, produção, delivery, estoque, clientes, marketing e financeiro em uma única plataforma coordenada pelo Gerente IA Core.",
+    "intro": "Da operação diária à gestão financeira, o Kordena conecta vendas, atendimento, produção, estoque, clientes, marketing e financeiro — com delivery próprio e integrações com iFood, Keeta e 99Food — em uma única plataforma coordenada pelo Gerente IA Core.",
     "journey": [
       "Operação e canais de venda",
       "Estoque, produção e entregas",
