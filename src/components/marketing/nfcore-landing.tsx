@@ -40,7 +40,7 @@ export function NFCoreLanding() {
             <div className="nfcore-hero__copy">
               <p className="eyebrow">Infrastructure Mission Control · Gestão Fiscal</p>
               <div className="nfcore-status">Produto Principal · Em desenvolvimento</div>
-              <h1 id="nfcore-title">NF<span>CORE</span></h1>
+              <h1 id="nfcore-title" className="nfcore-wordmark"><span className="nfcore-wordmark__nf">NF</span><span className="nfcore-wordmark__core">CORE</span></h1>
               <p className="nfcore-tagline">Infraestrutura fiscal. Sob controle.</p>
               <p className="lead">Reduza erros humanos, diminua o retrabalho operacional e centralize a gestão fiscal em uma infraestrutura coordenada pelo Core.</p>
               <p className="nfcore-support">O NFCore organiza regras, documentos, emissão, eventos, reconciliação e auditoria sem transferir autoridade crítica para a IA.</p>
@@ -58,7 +58,7 @@ export function NFCoreLanding() {
                 <Image src="/brand/fm-nfcore-mark.svg" alt="FM NFCore" width={192} height={192} priority unoptimized />
                 <div>
                   <span>FM</span>
-                  <strong>NFCORE</strong>
+                  <strong className="nfcore-mini-wordmark"><span className="nfcore-mini-wordmark__nf">NF</span><span className="nfcore-mini-wordmark__core">CORE</span></strong>
                   <small>Infrastructure Mission Control</small>
                 </div>
               </div>
