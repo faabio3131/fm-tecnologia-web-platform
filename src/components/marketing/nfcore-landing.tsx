@@ -54,13 +54,16 @@ export function NFCoreLanding() {
             <div className="nfcore-hero__visual" aria-label="Identidade NFCore e principais domínios da infraestrutura fiscal">
               <div className="nfcore-orbit nfcore-orbit--one" aria-hidden="true" />
               <div className="nfcore-orbit nfcore-orbit--two" aria-hidden="true" />
-              <div className="nfcore-mark-card">
-                <Image src="/brand/fm-nfcore-mark.svg" alt="FM NFCore" width={192} height={192} priority unoptimized />
-                <div>
-                  <span>FM</span>
-                  <strong className="nfcore-mini-wordmark"><span className="nfcore-mini-wordmark__nf">NF</span><span className="nfcore-mini-wordmark__core">CORE</span></strong>
-                  <small>Infrastructure Mission Control</small>
-                </div>
+              <div className="nfcore-mark-card nfcore-mark-card--approved">
+                <Image
+                  className="nfcore-approved-brand"
+                  src="/brand/nfcore-brand-approved.webp"
+                  alt="NFCore — Infrastructure Mission Control"
+                  width={1400}
+                  height={521}
+                  priority
+                  unoptimized
+                />
               </div>
               <span className="nfcore-domain nfcore-domain--1">Regras</span>
               <span className="nfcore-domain nfcore-domain--2">Documentos</span>
@@ -113,9 +116,15 @@ export function NFCoreLanding() {
             <p>O NFCore pode compreender o contexto operacional e fiscal, relacionar sinais e apoiar decisões, enquanto serviços previsíveis preservam validação e autoridade nas operações críticas.</p>
           </div>
           <div className="nfcore-core-stage">
-            <div className="nfcore-core-center">
-              <Image src="/brand/fm-nfcore-mark.svg" alt="" width={128} height={128} unoptimized />
-              <strong>NFCORE</strong>
+            <div className="nfcore-core-center nfcore-core-center--approved">
+              <Image
+                className="nfcore-core-approved-brand"
+                src="/brand/nfcore-brand-approved.webp"
+                alt="NFCore — Infrastructure Mission Control"
+                width={1400}
+                height={521}
+                unoptimized
+              />
               <span>Core Fiscal</span>
             </div>
             <div className="nfcore-core-pillar nfcore-core-pillar--1"><b>Contexto</b><span>empresa · unidade · jurisdição</span></div>

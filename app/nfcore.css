@@ -262,3 +262,62 @@
   .nfcore-contact{grid-template-columns:1fr}
   .nfcore-contact__actions .button{width:100%}
 }
+
+
+/* 2026-09-27 — director-approved NFCore cognitive identity. */
+.nfcore-mark-card--approved {
+  width: min(90%, 455px);
+  height: auto;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 24px;
+  background: transparent;
+  box-shadow:
+    0 26px 76px rgba(0,0,0,.30),
+    0 0 52px rgba(37,99,255,.11);
+  overflow: visible;
+}
+
+.nfcore-approved-brand {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 20px;
+}
+
+.nfcore-core-center--approved {
+  width: 320px;
+  height: 190px;
+  padding: .65rem;
+  border-color: rgba(0,229,255,.22);
+}
+
+.nfcore-core-approved-brand {
+  display: block;
+  width: 282px;
+  height: auto;
+  margin: 0 auto .28rem;
+  object-fit: contain;
+  border-radius: 14px;
+}
+
+.nfcore-core-center--approved > span {
+  margin-top: .12rem;
+}
+
+@media(max-width:760px){
+  .nfcore-mark-card--approved {
+    width: 100%;
+  }
+
+  .nfcore-core-center--approved {
+    width: 100%;
+    height: auto;
+  }
+
+  .nfcore-core-approved-brand {
+    width: min(100%, 360px);
+  }
+}

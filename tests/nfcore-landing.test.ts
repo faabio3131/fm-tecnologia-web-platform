@@ -17,3 +17,10 @@ test("NFCore landing preserves commercial and fiscal readiness boundaries", asyn
   assert.match(landing, /Produção fiscal real depende de homologação, credenciais e autorização/);
   assert.doesNotMatch(landing, /PRODUCTION_APPROVED|100% homologado|produção liberada/i);
 });
+
+
+test("NFCore uses the director-approved cognitive brand asset", async () => {
+  const landing = await readFile("src/components/marketing/nfcore-landing.tsx", "utf8");
+  await access("public/brand/nfcore-brand-approved.webp");
+  assert.match(landing, /nfcore-brand-approved\.webp/);
+});
