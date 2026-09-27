@@ -36,7 +36,7 @@ const releaseCopy: Record<NFCoreCommercialReleaseStatus, string> = {
   ready_for_commercial_review:
     "A oferta está em revisão comercial final. Compra e trial permanecem bloqueados até liberação explícita.",
   commercial_approved:
-    "A decisão comercial foi aprovada, mas contratação online e operação fiscal continuam sujeitas aos próprios gates.",
+    "A decisão comercial foi aprovada. Checkout e operação fiscal continuam sujeitos às próprias autoridades e gates.",
 };
 
 const cadenceLabels: Record<NFCoreCommercialPrice["cadence"], string> = {
@@ -68,12 +68,37 @@ function pricingRows(offer: NFCoreCommercialOffer) {
   }
 
   const prices = new Map(catalog.prices.map((price) => [price.price_id, price]));
+  const checkoutUrls = new Map(
+    offer.checkout.items
+      .filter((item) => item.checkout_url !== null)
+      .map((item) => [
+        `${item.plan_id}:${item.price_id}`,
+        item.checkout_url as string,
+      ]),
+  );
   return catalog.plans.flatMap((plan) =>
     plan.price_ids.flatMap((priceId) => {
       const price = prices.get(priceId);
-      return price ? [{ plan, price }] : [];
+      return price
+        ? [
+            {
+              plan,
+              price,
+              checkoutUrl:
+                checkoutUrls.get(`${plan.plan_id}:${price.price_id}`) ?? null,
+            },
+          ]
+        : [];
     }),
   );
+}
+
+function checkoutLabel(offer: NFCoreCommercialOffer) {
+  if (offer.checkout.status === "unconfigured") return "Não configurado";
+  if (offer.checkout.status === "partial") return "Configuração parcial";
+  return offer.checkout.processing_status === "configured"
+    ? "Configurado"
+    : "Mapeado · processamento pendente";
 }
 
 export function NFCoreCommercialStatus() {
@@ -116,7 +141,9 @@ export function NFCoreCommercialStatus() {
   const loading = state.kind === "loading";
   const message = sourceUnavailable
     ? "A disponibilidade oficial não pôde ser confirmada agora. Por segurança, contratação e trial permanecem bloqueados."
-    : offer.release.public_message || releaseCopy[offer.release.status];
+    : offer.purchase_enabled
+      ? "A contratação online está habilitada pelo NFCore. A autoridade fiscal de produção permanece separada e continua sujeita à homologação e ativação próprias."
+      : offer.release.public_message || releaseCopy[offer.release.status];
 
   const whatsappMessage =
     "Olá! Quero conhecer o NFCore e entender disponibilidade, implantação e condições comerciais.";
@@ -160,7 +187,7 @@ export function NFCoreCommercialStatus() {
         </div>
         <div>
           <span>Checkout</span>
-          <strong>Não configurado</strong>
+          <strong>{sourceUnavailable ? "Indisponível" : checkoutLabel(offer)}</strong>
         </div>
         <div>
           <span>Compra online</span>
@@ -174,7 +201,7 @@ export function NFCoreCommercialStatus() {
 
       {rows.length > 0 && (
         <div className="nfcore-commercial__pricing" aria-label="Planos comerciais publicados">
-          {rows.map(({ plan, price }) => (
+          {rows.map(({ plan, price, checkoutUrl }) => (
             <article key={`${plan.plan_id}:${price.price_id}`}>
               <span>{plan.display_name}</span>
               <strong>
@@ -190,6 +217,14 @@ export function NFCoreCommercialStatus() {
                 <p>Setup: {money(price.setup_amount, price.currency)}</p>
               )}
               {plan.trial_days > 0 && <p>Trial configurado: {plan.trial_days} dias</p>}
+              {offer.purchase_enabled && checkoutUrl && (
+                <a
+                  className="button button--primary nfcore-commercial__checkout"
+                  href={checkoutUrl}
+                >
+                  Contratar NFCore <span aria-hidden="true">↗</span>
+                </a>
+              )}
             </article>
           ))}
         </div>
