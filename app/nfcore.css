@@ -377,3 +377,69 @@
     height: auto;
   }
 }
+
+
+/* 2026-09-27 — final director-approved high-resolution NFCore assets. */
+.nfcore-mark-card--approved {
+  width: min(96%, 510px);
+  max-width: 510px;
+  min-height: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.nfcore-mark-card--approved .nfcore-approved-brand {
+  width: 100%;
+  max-width: 510px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 18px;
+  object-fit: contain;
+  image-rendering: auto;
+}
+
+.nfcore-core-center--approved {
+  width: 330px;
+  height: 300px;
+  padding: .5rem;
+  display: grid;
+  place-content: center;
+}
+
+.nfcore-core-center--approved .nfcore-core-approved-brand {
+  width: 245px;
+  max-width: 86%;
+  height: auto;
+  margin: 0 auto .25rem;
+  border-radius: 18px;
+  object-fit: contain;
+  image-rendering: auto;
+}
+
+@media(max-width:1000px){
+  .nfcore-mark-card--approved,
+  .nfcore-mark-card--approved .nfcore-approved-brand {
+    width: min(100%, 560px);
+    max-width: 560px;
+  }
+}
+
+@media(max-width:760px){
+  .nfcore-mark-card--approved,
+  .nfcore-mark-card--approved .nfcore-approved-brand {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .nfcore-core-center--approved {
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+  }
+
+  .nfcore-core-center--approved .nfcore-core-approved-brand {
+    width: min(82vw, 420px);
+    max-width: 92%;
+  }
+}

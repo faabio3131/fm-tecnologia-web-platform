@@ -25,3 +25,12 @@ test("NFCore uses the director-approved cognitive brand assets", async () => {
   assert.match(landing, /nfcore-logo-approved\.png/);
   assert.match(landing, /nfcore-emblem-approved\.png/);
 });
+
+
+test("NFCore uses the final high-resolution approved brand pair", async () => {
+  const landing = await readFile("src/components/marketing/nfcore-landing.tsx", "utf8");
+  await access("public/brand/nfcore-brand-hero-final.png");
+  await access("public/brand/nfcore-emblem-final.png");
+  assert.match(landing, /nfcore-brand-hero-final\.png/);
+  assert.match(landing, /nfcore-emblem-final\.png/);
+});
