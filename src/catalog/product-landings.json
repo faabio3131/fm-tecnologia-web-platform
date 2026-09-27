@@ -1,0 +1,221 @@
+{
+  "iron-fit": {
+    "audience": "Para academias",
+    "faqs": [
+      {
+        "a": "Para academias que querem conectar a organização de alunos à experiência de treino, agenda e check-in. A equipe FM pode avaliar a adequação à sua operação.",
+        "q": "Para quem o Iron Fit está sendo preparado?"
+      },
+      {
+        "a": "O aplicativo possui áreas para consultar treinos, acompanhar a agenda e registrar check-in. A disponibilização para sua academia será alinhada com a equipe no lançamento.",
+        "q": "O aluno terá uma experiência própria?"
+      },
+      {
+        "a": "A política prevista é de 30 dias sem cartão e máximo de 15 alunos durante o teste. A ativação pelo site ainda não está disponível.",
+        "q": "Como será o teste grátis?"
+      },
+      {
+        "a": "A disponibilidade de cada integração deve ser confirmada com a equipe. Esta página não anuncia compatibilidade com equipamentos ou parceiros específicos.",
+        "q": "As integrações com catracas e agregadores estão incluídas?"
+      },
+      {
+        "a": "Fale com a FM pelo WhatsApp ou e-mail. Informe que o interesse é no Iron Fit e conte como funciona sua academia para alinhar disponibilidade, implantação e suporte.",
+        "q": "Como começar a conversar sobre o Iron Fit?"
+      }
+    ],
+    "features": [
+      {
+        "text": "Identificação do aluno, convite de acesso e consulta pela equipe autorizada.",
+        "title": "Cadastro de alunos"
+      },
+      {
+        "text": "Sessões e exercícios com séries, repetições e intervalos definidos.",
+        "title": "Treinos organizados"
+      },
+      {
+        "text": "Consulta dos horários reservados e das informações disponíveis sobre as aulas.",
+        "title": "Agenda do aluno"
+      },
+      {
+        "text": "Registro de entrada com retorno sobre o resultado da solicitação.",
+        "title": "Check-in no aplicativo"
+      }
+    ],
+    "headline": "A rotina da academia, mais perto do aluno.",
+    "intro": "Conecte o cadastro de alunos à experiência de consultar treinos, acompanhar a agenda e registrar o check-in com o Iron Fit.",
+    "journey": [
+      "Cadastro do aluno",
+      "Treinos e agenda",
+      "Registro de check-in"
+    ],
+    "journeyTitle": "Da academia ao treino",
+    "scenarios": [
+      {
+        "description": "Reúna o cadastro e o acesso do aluno no contexto da academia.",
+        "steps": [
+          "Cadastre o aluno na academia.",
+          "Organize seu ingresso pelo convite de acesso.",
+          "Consulte o cadastro de acordo com as permissões da equipe."
+        ],
+        "title": "Organizar os alunos"
+      },
+      {
+        "description": "O aluno encontra os treinos disponibilizados e os detalhes dos exercícios.",
+        "steps": [
+          "Acesse os treinos liberados para o aluno.",
+          "Consulte as sessões e os exercícios.",
+          "Veja séries, repetições e intervalos quando informados no treino."
+        ],
+        "title": "Consultar o treino"
+      },
+      {
+        "description": "A área do aluno reúne horários reservados e a ação de check-in.",
+        "steps": [
+          "Consulte os horários que aparecem na agenda.",
+          "Registre o check-in pelo aplicativo.",
+          "Confira a confirmação ou a orientação exibida quando a entrada não puder ser registrada."
+        ],
+        "title": "Acompanhar agenda e entrada"
+      }
+    ],
+    "summary": "Alunos, treinos, agenda e check-in para conectar a academia à rotina do aluno.",
+    "workflowIntro": "Veja como a organização da academia se relaciona com a experiência do aluno.",
+    "workflowTitle": "Conheça a rotina no Iron Fit",
+    "primaryCta": "Conhecer a rotina",
+    "featuresTitle": "O essencial para a sua rotina.",
+    "featuresIntro": ""
+  },
+  "kordena": {
+    "audience": "Para restaurantes, pizzarias, bares, padarias, hamburguerias, pastelarias e outros negócios do setor alimentício",
+    "faqs": [
+      {
+        "q": "O Kordena atende somente restaurantes?",
+        "a": "Não. O Kordena foi desenvolvido para restaurantes, pizzarias, bares, padarias, hamburguerias, pastelarias, casas de espetinhos e outros negócios do setor alimentício que precisam integrar operação, vendas e gestão."
+      },
+      {
+        "q": "O que torna o Kordena diferente?",
+        "a": "O Gerente IA Core é o cérebro da plataforma. Ele conecta dados e processos de atendimento, pedidos, produção, estoque, delivery, clientes, marketing e financeiro para coordenar a gestão de ponta a ponta e transformar áreas isoladas em uma visão integrada do negócio."
+      },
+      {
+        "q": "Como o Kordena ajuda a reduzir perdas no estoque?",
+        "a": "O sistema acompanha inventário, movimentações, quantidades disponíveis, níveis mínimos e validades. Ele identifica riscos de falta e itens próximos do vencimento e pode sugerir ações promocionais para favorecer o aproveitamento e a venda desses produtos dentro do prazo adequado."
+      },
+      {
+        "q": "O proprietário acompanha a gestão financeira?",
+        "a": "Sim. A área administrativa reúne gestão financeira em tempo real, incluindo faturamento, valores recebidos e pendentes, estornos, ticket médio, valor em estoque, custos, lucros reais e previsões, conforme os dados registrados pela operação."
+      },
+      {
+        "q": "O Kordena pode reduzir trabalho manual e custos operacionais?",
+        "a": "O Kordena centraliza e automatiza atividades como conferências, acompanhamento de estoque, cruzamento de informações, relatórios e monitoramento operacional. Isso pode reduzir retrabalho, diminuir a dependência de controles paralelos e melhorar o aproveitamento da equipe, sem prometer uma redução específica de quadro ou percentual de economia."
+      },
+      {
+        "q": "Quais canais e integrações fazem parte do ecossistema?",
+        "a": "O Kordena reúne salão, balcão e delivery próprio e prevê integrações com iFood, Keeta e 99Food dentro da mesma visão operacional. Também utiliza Google Maps no delivery próprio e conecta canais de relacionamento e marketing como WhatsApp, Facebook e Instagram. A ativação de integrações e credenciais acontece conforme a implantação de cada operação."
+      },
+      {
+        "q": "O Kordena cria campanhas de marketing?",
+        "a": "Sim. Na V1, o foco é a gestão das redes sociais, a criação de campanhas orgânicas e publicações com auxílio de IA, além de ações de relacionamento, recuperação de clientes e cashback. Gestão de tráfego pago não faz parte desta versão."
+      },
+      {
+        "q": "Como funciona o teste grátis?",
+        "a": "A política prevista para o Kordena é de 30 dias sem cartão. A ativação online pelo site está em preparação; enquanto isso, o interessado pode registrar seu interesse diretamente com a FM Tecnologia."
+      }
+    ],
+    "features": [
+      {
+        "title": "Gerente IA Core",
+        "text": "O cérebro da plataforma: conecta operação e gestão, identifica riscos, relaciona informações e apoia decisões com contexto do negócio."
+      },
+      {
+        "title": "Operação conectada",
+        "text": "Salão, balcão, PDV, delivery próprio e integrações de venda reunidos em uma mesma visão operacional."
+      },
+      {
+        "title": "Produção conectada",
+        "text": "Mesas, comandas, pedidos, KDS e expedição organizados para dar clareza à equipe em cada etapa."
+      },
+      {
+        "title": "Estoque preditivo",
+        "text": "Inventário em tempo real, validades, sinais de risco e sugestões de ações para ajudar a reduzir perdas."
+      },
+      {
+        "title": "Financeiro em tempo real",
+        "text": "Faturamento, recebimentos, pendências, valor em estoque, custos, margens, lucros reais e previsões para o proprietário."
+      },
+      {
+        "title": "Delivery e rotas",
+        "text": "Gestão da entrega própria com endereço, área atendida, taxas, Google Maps, distância, rota e estimativa de chegada."
+      },
+      {
+        "title": "Marketing orgânico com IA",
+        "text": "Criação de campanhas e publicações para Facebook, Instagram e WhatsApp, com revisão e aprovação."
+      },
+      {
+        "title": "CRM e fidelização",
+        "text": "Histórico de clientes, cashback e recuperação de inativos para fortalecer o relacionamento e estimular novas vendas."
+      }
+    ],
+    "headline": "Inteligência no centro. Gestão de ponta a ponta.",
+    "intro": "Da operação diária à gestão financeira, o Kordena conecta vendas, atendimento, produção, delivery, estoque, clientes, marketing e financeiro em uma única plataforma coordenada pelo Gerente IA Core.",
+    "journey": [
+      "Operação e canais de venda",
+      "Estoque, produção e entregas",
+      "Financeiro e visão do proprietário",
+      "Marketing, clientes e inteligência artificial"
+    ],
+    "journeyTitle": "O Gerente IA Core conecta toda a gestão",
+    "primaryCta": "Conhecer o Kordena",
+    "scenarios": [
+      {
+        "title": "Comandar a operação de ponta a ponta",
+        "description": "Transforme canais e equipes diferentes em uma operação coordenada pelo Gerente IA Core.",
+        "steps": [
+          "Centralize pedidos do salão, balcão, delivery próprio e integrações como iFood, Keeta e 99Food.",
+          "Conecte mesas, comandas e PDV à produção organizada pelo KDS.",
+          "Acompanhe preparo, expedição e entrega com informações compartilhadas entre as áreas."
+        ]
+      },
+      {
+        "title": "Antecipar perdas e proteger a margem",
+        "description": "Use inventário e inteligência para agir antes que falta ou vencimento se transforme em prejuízo.",
+        "steps": [
+          "Acompanhe em tempo real insumos, movimentações, quantidades disponíveis, reservas, estoque mínimo e validades.",
+          "Identifique produtos e insumos próximos do vencimento e riscos de falta ou perda.",
+          "Receba sugestões de ações promocionais para favorecer a saída de itens dentro do prazo adequado e transformar risco em oportunidade de venda."
+        ]
+      },
+      {
+        "title": "Gerir o resultado financeiro em tempo real",
+        "description": "Leve as informações da operação para uma visão completa do proprietário.",
+        "steps": [
+          "Acompanhe faturamento, recebimentos, pagamentos pendentes, estornos e ticket médio.",
+          "Visualize os valores mantidos em estoque e a relação entre vendas, custos e margens.",
+          "Consulte lucros reais e previsões para apoiar decisões financeiras e operacionais."
+        ]
+      },
+      {
+        "title": "Vender mais e fortalecer o relacionamento",
+        "description": "Conecte clientes, fidelização e presença digital à realidade do negócio.",
+        "steps": [
+          "Utilize histórico de compras, cashback e identificação de clientes inativos para criar novas oportunidades.",
+          "Crie campanhas orgânicas e publicações com auxílio de IA para Facebook, Instagram e WhatsApp.",
+          "Aproveite sinais da operação e do estoque para comunicar ofertas relevantes, com revisão e aprovação da equipe."
+        ]
+      },
+      {
+        "title": "Atender, entregar e decidir com inteligência",
+        "description": "Coloque IA a serviço da equipe, do cliente e de quem administra.",
+        "steps": [
+          "Personalize o Assistente de Atendimento para interpretar texto e áudio, consultar o cardápio e organizar pedidos para confirmação.",
+          "Use Google Maps no delivery próprio para apoiar endereços, distâncias, rotas e estimativas de chegada.",
+          "Consulte o Core sobre pedidos, atrasos, estoque, entregas e resultados; receba relatórios, alertas e recomendações mantendo as decisões sob controle humano."
+        ]
+      }
+    ],
+    "summary": "Gestão inteligente de ponta a ponta para negócios do setor alimentício.",
+    "workflowIntro": "Explore como o Gerente IA Core relaciona operação, estoque, financeiro, clientes e inteligência para transformar informação em ação.",
+    "workflowTitle": "Uma plataforma para operar, decidir e crescer",
+    "featuresTitle": "Tudo conectado ao centro da gestão.",
+    "featuresIntro": "Recursos que trabalham juntos para simplificar a rotina, antecipar riscos, proteger a margem, reduzir trabalho manual e fortalecer o crescimento do negócio."
+  }
+}

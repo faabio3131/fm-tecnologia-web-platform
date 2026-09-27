@@ -1,0 +1,169 @@
+/* Kordena Core — identidade visual única oficial.
+   A mesma arte-base é usada no Hero (animada) e na seção Core (fixa). */
+
+.kordena-hero-core--v2 .kordena-v2-cube-wrap--asset {
+  width: 236px;
+  height: 246px;
+  perspective: 900px;
+  filter: none;
+  z-index: 5;
+}
+
+.kordena-hero-core--v2 .kordena-v2-cube-wrap--asset::before {
+  content: "";
+  position: absolute;
+  inset: -30px -32px;
+  border-radius: 44%;
+  background: radial-gradient(circle at 50% 45%, rgba(210,255,95,.24), rgba(179,255,52,.10) 36%, transparent 70%);
+  filter: blur(20px);
+  opacity: .9;
+  z-index: -1;
+  animation: kordena-approved-aura 4.8s ease-in-out infinite;
+}
+
+.kordena-hero-core--v2 .kordena-v2-cube-wrap--asset::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 3%;
+  width: 190px;
+  height: 58px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(190,255,65,.20), rgba(178,255,66,.04) 46%, transparent 73%);
+  filter: blur(12px);
+  z-index: -1;
+}
+
+.kordena-core-brandmark {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+  filter:
+    drop-shadow(0 12px 22px rgba(0,0,0,.32))
+    drop-shadow(0 0 12px rgba(196,255,74,.28))
+    drop-shadow(0 0 30px rgba(177,255,54,.14));
+}
+
+/* Hero: mesma arte oficial, com rotação/flutuação claramente perceptível e elegante. */
+.kordena-core-brandmark--hero {
+  transform-origin: 50% 52%;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform;
+  animation: kordena-core-hero-motion 6s ease-in-out infinite;
+}
+
+/* O asset já contém seus orbitais. Os orbitais vivos do Hero ficam discretos. */
+.kordena-hero-core--v2 .kordena-v2-energy {
+  opacity: .48;
+  border-width: .6px;
+  border-color: rgba(197,255,87,.18);
+  box-shadow: 0 0 12px rgba(185,249,75,.025);
+}
+
+.kordena-hero-core--v2 .kordena-v2-energy::before {
+  width: 3px;
+  height: 3px;
+  background: #dcff7b;
+  box-shadow: 0 0 8px rgba(215,255,112,.85), 0 0 16px rgba(185,255,73,.34);
+}
+
+.kordena-hero-core--v2 .kordena-v2-core-glow {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(196,255,74,.17), rgba(128,225,69,.045) 44%, transparent 74%);
+  filter: blur(19px);
+}
+
+/* Seção "O cérebro que conecta...": mesma marca oficial, fixa e sem rotação. */
+.kordena-core-center--brandmark {
+  width: 224px;
+  height: 234px;
+  border-radius: 22px;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.kordena-core-center--brandmark::before {
+  content: "";
+  position: absolute;
+  inset: -18px;
+  border-radius: 38%;
+  background: radial-gradient(circle, rgba(191,255,65,.16), rgba(177,255,54,.05) 45%, transparent 72%);
+  filter: blur(15px);
+  z-index: -1;
+}
+
+.kordena-core-brandmark--static {
+  animation: none !important;
+  transform: none !important;
+  will-change: auto;
+}
+
+@keyframes kordena-core-hero-motion {
+  0%, 100% {
+    transform: perspective(900px) translateY(4px) rotateX(2deg) rotateY(-10deg) rotateZ(-.7deg) scale(.995);
+  }
+  25% {
+    transform: perspective(900px) translateY(-2px) rotateX(-1deg) rotateY(-3deg) rotateZ(-.2deg) scale(1.006);
+  }
+  50% {
+    transform: perspective(900px) translateY(-7px) rotateX(-2deg) rotateY(10deg) rotateZ(.7deg) scale(1.016);
+  }
+  75% {
+    transform: perspective(900px) translateY(-2px) rotateX(1deg) rotateY(3deg) rotateZ(.2deg) scale(1.006);
+  }
+}
+
+@keyframes kordena-approved-aura {
+  0%,100% { opacity: .70; transform: scale(.98); }
+  50% { opacity: 1; transform: scale(1.035); }
+}
+
+@media (max-width: 760px) {
+  .kordena-hero-core--v2 .kordena-v2-cube-wrap--asset {
+    width: 204px;
+    height: 213px;
+  }
+  .kordena-core-center--brandmark {
+    width: 190px;
+    height: 198px;
+  }
+}
+
+@media (max-width: 560px) {
+  .kordena-hero-core--v2 .kordena-v2-cube-wrap--asset {
+    width: 176px;
+    height: 184px;
+  }
+  .kordena-hero-core--v2 .kordena-v2-core-glow {
+    width: 198px;
+    height: 198px;
+  }
+  .kordena-core-center--brandmark {
+    width: 154px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 420px) {
+  .kordena-core-center--brandmark {
+    width: 138px;
+    height: 144px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kordena-core-brandmark--hero,
+  .kordena-hero-core--v2 .kordena-v2-cube-wrap--asset::before {
+    animation: none;
+  }
+  .kordena-core-brandmark--hero {
+    transform: none;
+  }
+}

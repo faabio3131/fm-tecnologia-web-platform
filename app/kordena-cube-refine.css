@@ -1,0 +1,248 @@
+/* Kordena Hero — approved brain cube fidelity layer
+   Scope: cube, brain, glow and orbitals only. */
+
+.kordena-hero-core--v2 .kordena-v2-scene {
+  background:
+    radial-gradient(circle at 50% 48%, rgba(191,255,58,.13), transparent 24%),
+    radial-gradient(circle at 50% 56%, rgba(45,220,129,.04), transparent 46%),
+    linear-gradient(180deg,#07140f 0%,#020806 100%);
+}
+
+.kordena-hero-core--v2 .kordena-v2-scene::after {
+  width: 264px;
+  height: 264px;
+  background: radial-gradient(circle,rgba(196,255,63,.18),rgba(101,218,62,.035) 42%,transparent 72%);
+  filter: blur(16px);
+}
+
+.kordena-hero-core--v2 .kordena-v2-core-glow {
+  width: 236px;
+  height: 236px;
+  background: radial-gradient(circle,rgba(202,255,59,.27),rgba(127,224,57,.07) 40%,transparent 72%);
+  filter: blur(17px);
+}
+
+.kordena-hero-core--v2 .kordena-v2-energy {
+  border-width: .85px;
+  border-color: rgba(198,255,74,.32);
+  box-shadow: 0 0 14px rgba(191,255,58,.06);
+  opacity: .95;
+}
+
+.kordena-hero-core--v2 .kordena-v2-energy::before {
+  width: 4px;
+  height: 4px;
+  background: #e4ff8c;
+  box-shadow: 0 0 8px #d4ff58,0 0 18px rgba(192,255,62,.7);
+}
+
+.kordena-hero-core--v2 .kordena-v2-energy--one { width: 282px; height: 138px; animation-duration: 13s; }
+.kordena-hero-core--v2 .kordena-v2-energy--two { width: 252px; height: 156px; border-color: rgba(83,230,151,.20); animation-duration: 17s; }
+.kordena-hero-core--v2 .kordena-v2-energy--three { width: 224px; height: 112px; border-color: rgba(221,255,148,.14); animation-duration: 21s; }
+
+.kordena-hero-core--v2 .kordena-v2-cube-wrap {
+  width: 142px;
+  height: 142px;
+  perspective: 1120px;
+  filter:
+    drop-shadow(0 18px 28px rgba(0,0,0,.50))
+    drop-shadow(0 0 12px rgba(199,255,54,.48))
+    drop-shadow(0 0 28px rgba(187,255,48,.23));
+}
+
+.kordena-hero-core--v2 .kordena-v2-cube-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -30px;
+  border-radius: 36px;
+  background:
+    radial-gradient(circle at 28% 22%,rgba(223,255,129,.19),transparent 23%),
+    radial-gradient(circle at 78% 24%,rgba(200,255,71,.17),transparent 23%),
+    radial-gradient(circle at 50% 77%,rgba(187,255,50,.13),transparent 30%);
+  filter: blur(18px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.kordena-hero-core--v2 .kordena-v2-cube-wrap::after {
+  width: 166px;
+  height: 58px;
+  background: radial-gradient(ellipse,rgba(198,255,61,.20),rgba(180,255,48,.035) 46%,transparent 72%);
+  filter: blur(12px);
+}
+
+.kordena-hero-core--v2 .kordena-v2-cube {
+  transform: rotateX(-21deg) rotateY(24deg);
+  animation: kordena-approved-rotate 12s ease-in-out infinite;
+}
+
+@keyframes kordena-approved-rotate {
+  0%   { transform: rotateX(-22deg) rotateY(18deg) translateY(1px); }
+  25%  { transform: rotateX(-18deg) rotateY(38deg) translateY(-2px); }
+  50%  { transform: rotateX(-20deg) rotateY(66deg) translateY(-1px); }
+  75%  { transform: rotateX(-18deg) rotateY(38deg) translateY(-2px); }
+  100% { transform: rotateX(-22deg) rotateY(18deg) translateY(1px); }
+}
+
+.kordena-hero-core--v2 .kordena-v2-face {
+  border-width: 1px;
+  border-color: rgba(211,255,104,.72);
+  border-radius: 12px;
+  color: #e7ff9a;
+  box-shadow:
+    inset 0 0 34px rgba(178,255,52,.055),
+    inset 0 -22px 34px rgba(0,0,0,.42),
+    0 0 9px rgba(205,255,69,.30),
+    0 0 24px rgba(184,255,48,.14);
+}
+
+.kordena-hero-core--v2 .kordena-v2-face::before {
+  background:
+    linear-gradient(120deg,rgba(255,255,255,.055),transparent 30%),
+    radial-gradient(circle at 34% 20%,rgba(207,255,92,.07),transparent 40%);
+}
+
+.kordena-hero-core--v2 .kordena-v2-face::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 14px;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 0 0,rgba(231,255,145,.58),transparent 13%),
+    radial-gradient(circle at 100% 0,rgba(218,255,112,.50),transparent 13%),
+    radial-gradient(circle at 0 100%,rgba(204,255,76,.30),transparent 15%),
+    radial-gradient(circle at 100% 100%,rgba(204,255,76,.28),transparent 15%);
+  filter: blur(4px);
+  mix-blend-mode: screen;
+  opacity: .98;
+}
+
+.kordena-hero-core--v2 .kordena-v2-face strong {
+  font-size: 1.22rem;
+  font-weight: 820;
+  letter-spacing: -.03em;
+  text-shadow: 0 0 4px rgba(239,255,192,.95),0 0 10px rgba(206,255,81,.88),0 0 20px rgba(185,255,49,.52);
+}
+
+.kordena-hero-core--v2 .kordena-v2-face span {
+  margin-top: .24rem;
+  font-size: .48rem;
+  font-weight: 740;
+  letter-spacing: .09em;
+  color: rgba(221,255,128,.80);
+  text-shadow: 0 0 8px rgba(189,255,56,.32);
+}
+
+.kordena-hero-core--v2 .kordena-v2-face--front {
+  transform: translateZ(71px);
+  background:
+    radial-gradient(circle at 48% 34%,rgba(38,92,46,.14),transparent 45%),
+    linear-gradient(145deg,#09140e 0%,#050b08 48%,#010403 100%);
+  border-color: rgba(220,255,111,.94);
+  box-shadow:
+    inset 0 0 36px rgba(188,255,61,.07),
+    inset 0 -22px 38px rgba(0,0,0,.55),
+    0 0 13px rgba(207,255,76,.42),
+    0 0 34px rgba(188,255,50,.18);
+}
+
+.kordena-hero-core--v2 .kordena-v2-face--back {
+  transform: rotateY(180deg) translateZ(71px);
+  background: linear-gradient(145deg,#070e0a,#010302);
+}
+
+.kordena-hero-core--v2 .kordena-v2-face--right {
+  transform: rotateY(90deg) translateZ(71px);
+  background:
+    radial-gradient(circle at 45% 32%,rgba(32,79,39,.10),transparent 45%),
+    linear-gradient(150deg,#08120d 0%,#040a07 52%,#010302 100%);
+  color: #dcff84;
+}
+
+.kordena-hero-core--v2 .kordena-v2-face--left {
+  transform: rotateY(-90deg) translateZ(71px);
+  background: linear-gradient(150deg,#07100b,#010302);
+}
+
+.kordena-hero-core--v2 .kordena-v2-face--top {
+  transform: rotateX(90deg) translateZ(71px);
+  background:
+    radial-gradient(ellipse at 50% 49%,rgba(198,255,70,.20),transparent 50%),
+    linear-gradient(145deg,#0a190f 0%,#061008 55%,#020604 100%);
+  border-color: rgba(227,255,128,.98);
+  box-shadow:
+    inset 0 0 38px rgba(202,255,74,.14),
+    0 0 13px rgba(217,255,101,.45),
+    0 0 34px rgba(190,255,52,.22);
+}
+
+.kordena-hero-core--v2 .kordena-v2-face--top > strong { opacity: 0; pointer-events: none; }
+
+/* Approved top-face symbol: bright neural-brain linework, integrated into the plane. */
+.kordena-hero-core--v2 .kordena-v2-face--top::before {
+  content: "";
+  position: absolute;
+  inset: 2% 4% 1%;
+  z-index: 3;
+  pointer-events: none;
+  background: center / 92% 92% no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 120'%3E%3Cg fill='none' stroke='%23eeff9f' stroke-width='5.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M80 102c-11 0-19-7-20-17-11 3-22-4-23-15-11-2-17-12-12-22 3-7 8-11 16-12 0-13 10-22 23-21 6-8 17-11 26-5 10-7 23-3 29 8 12-1 23 9 23 21 10 5 14 16 9 26 5 11-3 24-16 24-3 11-13 18-24 13-7 7-19 7-31 0Z'/%3E%3Cpath d='M62 19c-2 10 5 18 14 20-10 2-17 9-17 18 0 9 6 16 15 19-9 3-15 10-15 20M94 13c8 7 9 17 3 25 10 0 18 7 20 17 1 9-4 17-12 22 9 3 15 10 15 20M45 35c10 0 17 7 19 16M115 33c-10 1-16 8-17 16M36 62c10-5 21 0 26 8M124 57c-10-3-19 1-24 9M76 40c10 3 15 11 13 21M74 78c6-6 15-8 24-6M80 102c3-11 1-22-6-30M98 38c-5 9-3 18 5 25'/%3E%3Ccircle cx='53' cy='44' r='3'/%3E%3Ccircle cx='107' cy='47' r='3'/%3E%3Ccircle cx='70' cy='65' r='3'/%3E%3Ccircle cx='96' cy='70' r='3'/%3E%3C/g%3E%3C/svg%3E");
+  filter:
+    drop-shadow(0 0 2px rgba(255,255,224,1))
+    drop-shadow(0 0 5px rgba(229,255,139,1))
+    drop-shadow(0 0 11px rgba(204,255,73,.98))
+    drop-shadow(0 0 22px rgba(183,255,48,.82));
+  opacity: 1;
+}
+
+.kordena-hero-core--v2 .kordena-v2-face--top::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 48%,rgba(238,255,166,.42) 0%,rgba(205,255,79,.19) 27%,rgba(184,255,50,.07) 47%,transparent 70%),
+    radial-gradient(circle at 0 0,rgba(230,255,141,.50),transparent 13%),
+    radial-gradient(circle at 100% 0,rgba(222,255,119,.46),transparent 13%);
+  filter: blur(4px);
+  mix-blend-mode: screen;
+  opacity: 1;
+}
+
+.kordena-hero-core--v2 .kordena-v2-face--bottom {
+  transform: rotateX(-90deg) translateZ(71px);
+  background: linear-gradient(145deg,#050c08,#010302);
+  color: rgba(205,255,118,.44);
+}
+
+@media (max-width: 760px) {
+  .kordena-hero-core--v2 .kordena-v2-cube-wrap { width: 118px; height: 118px; }
+  .kordena-hero-core--v2 .kordena-v2-face { border-radius: 10px; }
+  .kordena-hero-core--v2 .kordena-v2-face--front { transform: translateZ(59px); }
+  .kordena-hero-core--v2 .kordena-v2-face--back { transform: rotateY(180deg) translateZ(59px); }
+  .kordena-hero-core--v2 .kordena-v2-face--right { transform: rotateY(90deg) translateZ(59px); }
+  .kordena-hero-core--v2 .kordena-v2-face--left { transform: rotateY(-90deg) translateZ(59px); }
+  .kordena-hero-core--v2 .kordena-v2-face--top { transform: rotateX(90deg) translateZ(59px); }
+  .kordena-hero-core--v2 .kordena-v2-face--bottom { transform: rotateX(-90deg) translateZ(59px); }
+}
+
+@media (max-width: 560px) {
+  .kordena-hero-core--v2 .kordena-v2-cube-wrap { width: 106px; height: 106px; }
+  .kordena-hero-core--v2 .kordena-v2-face--front { transform: translateZ(53px); }
+  .kordena-hero-core--v2 .kordena-v2-face--back { transform: rotateY(180deg) translateZ(53px); }
+  .kordena-hero-core--v2 .kordena-v2-face--right { transform: rotateY(90deg) translateZ(53px); }
+  .kordena-hero-core--v2 .kordena-v2-face--left { transform: rotateY(-90deg) translateZ(53px); }
+  .kordena-hero-core--v2 .kordena-v2-face--top { transform: rotateX(90deg) translateZ(53px); }
+  .kordena-hero-core--v2 .kordena-v2-face--bottom { transform: rotateX(-90deg) translateZ(53px); }
+  .kordena-hero-core--v2 .kordena-v2-energy--one { width: 226px; height: 110px; }
+  .kordena-hero-core--v2 .kordena-v2-energy--two { width: 200px; height: 126px; }
+  .kordena-hero-core--v2 .kordena-v2-energy--three { width: 176px; height: 92px; }
+  .kordena-hero-core--v2 .kordena-v2-core-glow { width: 178px; height: 178px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kordena-hero-core--v2 .kordena-v2-cube,
+  .kordena-hero-core--v2 .kordena-v2-energy { animation: none; }
+  .kordena-hero-core--v2 .kordena-v2-cube { transform: rotateX(-21deg) rotateY(28deg); }
+}
