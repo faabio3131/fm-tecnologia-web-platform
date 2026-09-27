@@ -27,7 +27,7 @@ test("NFCore uses the final high-resolution approved brand pair", async () => {
 });
 
 
-test("NFCore Hero keeps symmetric 5x5 capability columns and the approved Core Fiscal signature", async () => {
+test("NFCore Hero keeps symmetric 7x7 capability columns, no orbit, and the approved Core Fiscal signature", async () => {
   const landing = await readFile("src/components/marketing/nfcore-landing.tsx", "utf8");
   assert.match(landing, /nfcore-domain-column--left/);
   assert.match(landing, /nfcore-domain-column--right/);
@@ -36,11 +36,16 @@ test("NFCore Hero keeps symmetric 5x5 capability columns and the approved Core F
   assert.match(landing, />Regras Fiscais<\/span>/);
   assert.match(landing, />Reconciliação<\/span>/);
   assert.match(landing, />Readiness<\/span>/);
+  assert.match(landing, />Cancelamento<\/span>/);
+  assert.match(landing, />Inutilização<\/span>/);
   assert.match(landing, />Providers<\/span>/);
   assert.match(landing, />Integrações<\/span>/);
   assert.match(landing, />Webhooks<\/span>/);
   assert.match(landing, />Auditoria<\/span>/);
   assert.match(landing, />Governança<\/span>/);
+  assert.match(landing, />Certificados<\/span>/);
+  assert.match(landing, />Control Plane<\/span>/);
+  assert.doesNotMatch(landing, /nfcore-orbit/);
   assert.match(landing, /nfcore-core-brand-lockup/);
   assert.match(landing, /nfcore-core-brand-wordmark__nf">NF/);
   assert.match(landing, /nfcore-core-brand-wordmark__core">CORE/);
@@ -63,4 +68,13 @@ test("NFCore landing exposes its real functional depth without inventing product
   assert.match(landing, /Dependências externas \/ humanas antes do Go-Live/);
   assert.match(landing, /documento × operação × UF\/município × provider × ambiente/);
   assert.doesNotMatch(landing, /100% homologado|produção liberada|todas as jurisdições homologadas/i);
+});
+
+
+test("NFCore Hero CSS contains no legacy orbit/radar selectors and preserves responsive 7x7 geometry", async () => {
+  const css = await readFile("app/nfcore.css", "utf8");
+  assert.doesNotMatch(css, /\.nfcore-orbit/);
+  assert.match(css, /repeat\(7,27px\)/);
+  assert.match(css, /nth-child\(7\)/);
+  assert.match(css, /grid-template-columns:\s*78px minmax\(0,1fr\) 78px/);
 });
