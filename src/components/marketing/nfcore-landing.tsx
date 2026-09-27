@@ -133,9 +133,12 @@ export function NFCoreLanding() {
                 height={1254}
                 unoptimized
               />
-              <div className="nfcore-core-brand-plaque" aria-label="NF CORE">
-                <span className="nfcore-core-brand-plaque__nf">NF</span>
-                <span className="nfcore-core-brand-plaque__core">CORE</span>
+              <div className="nfcore-core-brand-lockup" aria-label="NF CORE — Infraestrutura fiscal inteligente">
+                <div className="nfcore-core-brand-wordmark" aria-hidden="true">
+                  <span className="nfcore-core-brand-wordmark__nf">NF</span>
+                  <span className="nfcore-core-brand-wordmark__core">CORE</span>
+                </div>
+                <span className="nfcore-core-slogan">Infraestrutura fiscal inteligente</span>
               </div>
               <span className="nfcore-core-caption">Core Fiscal</span>
             </div>
