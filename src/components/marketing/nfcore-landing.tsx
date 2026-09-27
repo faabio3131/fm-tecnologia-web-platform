@@ -72,7 +72,7 @@ const externalPending = [
   "Providers fiscais e endpoints oficiais aplicáveis",
   "Homologação por documento × operação × jurisdição × provider",
   "Piloto fiscal controlado com evidência externa",
-  "Go/No-Go humano e PRODUCTION_APPROVED",
+  "Go/No-Go humano e aprovação formal de produção",
   "Deploy, DNS/cutover e smoke de produção autorizados",
 ] as const;
 
