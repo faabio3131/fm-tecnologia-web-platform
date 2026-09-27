@@ -14,8 +14,15 @@ test("NFCore public route uses its dedicated premium landing", async () => {
 test("NFCore landing preserves commercial and fiscal readiness boundaries", async () => {
   const landing = await readFile("src/components/marketing/nfcore-landing.tsx", "utf8");
   assert.match(landing, /Produto Principal · Infrastructure Mission Control/);
-  assert.match(landing, /Disponibilidade comercial, checkout e produção fiscal são autoridades independentes/);
-  assert.match(landing, /NFCoreCommercialStatus/);\n  assert.doesNotMatch(landing, /PRODUCTION_APPROVED|100% homologado|produção liberada/i);
+  assert.match(
+    landing,
+    /Disponibilidade comercial, checkout e produção fiscal são autoridades independentes/,
+  );
+  assert.match(landing, /NFCoreCommercialStatus/);
+  assert.doesNotMatch(
+    landing,
+    /PRODUCTION_APPROVED|100% homologado|produção liberada/i,
+  );
 });
 
 test("NFCore uses the director-approved cognitive brand assets", async () => {
