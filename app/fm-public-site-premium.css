@@ -823,3 +823,138 @@ body {
     font-size: .68rem;
   }
 }
+
+
+/* 2026-09-27 Kordena Core geometry lock — proportional desktop/tablet layout */
+.fm-public-site .product-landing--kordena .kordena-core-map {
+  --k-core-chip-w: 146px;
+  --k-core-chip-h: 46px;
+  --k-core-center-size: 220px;
+  --k-core-col-gap: 16px;
+  --k-core-row-gap: 8px;
+  --k-core-integrations-w: 250px;
+  min-height: 360px;
+  padding: 1.25rem;
+}
+
+.fm-public-site .product-landing--kordena .kordena-core-center--brandmark,
+.fm-public-site .product-landing--kordena .kordena-core-brandmark--static {
+  width: var(--k-core-center-size);
+  height: var(--k-core-center-size);
+}
+
+.fm-public-site .product-landing--kordena .kordena-core-areas {
+  inset: 1.1rem;
+  grid-template-columns:
+    var(--k-core-chip-w)
+    var(--k-core-center-size)
+    var(--k-core-chip-w);
+  grid-template-rows:
+    repeat(4,var(--k-core-chip-h))
+    54px;
+  column-gap: var(--k-core-col-gap);
+  row-gap: var(--k-core-row-gap);
+  justify-content: center;
+  align-content: center;
+}
+
+.fm-public-site .product-landing--kordena .kordena-core-area,
+.fm-public-site .product-landing--kordena .kordena-core-area--left,
+.fm-public-site .product-landing--kordena .kordena-core-area--right {
+  width: var(--k-core-chip-w);
+  min-width: var(--k-core-chip-w);
+  max-width: var(--k-core-chip-w);
+  height: var(--k-core-chip-h);
+  min-height: var(--k-core-chip-h);
+  padding: .45rem .7rem;
+  font-size: .74rem;
+  line-height: 1.08;
+  justify-self: stretch;
+  white-space: normal;
+}
+
+.fm-public-site .product-landing--kordena .kordena-core-area--left {
+  grid-column: 1;
+}
+
+.fm-public-site .product-landing--kordena .kordena-core-area--right {
+  grid-column: 3;
+}
+
+.fm-public-site .product-landing--kordena .kordena-core-area--integrations {
+  grid-column: 2;
+  grid-row: 5;
+  width: var(--k-core-integrations-w);
+  min-width: var(--k-core-integrations-w);
+  max-width: var(--k-core-integrations-w);
+  height: 54px;
+  min-height: 54px;
+  justify-self: center;
+  border-radius: .9rem;
+}
+
+.fm-public-site .product-landing--kordena .kordena-core-area--integrations strong {
+  font-size: .75rem;
+  line-height: 1;
+}
+
+.fm-public-site .product-landing--kordena .kordena-core-area--integrations small {
+  font-size: .66rem;
+  line-height: 1;
+}
+
+@media (max-width: 1180px) and (min-width: 701px) {
+  .fm-public-site .product-landing--kordena .kordena-core-map {
+    --k-core-chip-w: 132px;
+    --k-core-chip-h: 44px;
+    --k-core-center-size: 200px;
+    --k-core-col-gap: 12px;
+    --k-core-row-gap: 7px;
+    --k-core-integrations-w: 226px;
+    min-height: 340px;
+  }
+
+  .fm-public-site .product-landing--kordena .kordena-core-area {
+    font-size: .7rem;
+    padding-inline: .55rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .fm-public-site .product-landing--kordena .kordena-core-map {
+    --k-core-center-size: 184px;
+    min-height: auto;
+  }
+
+  .fm-public-site .product-landing--kordena .kordena-core-areas {
+    position: static;
+    inset: auto;
+    width: 100%;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    grid-template-rows: none;
+    gap: .55rem;
+  }
+
+  .fm-public-site .product-landing--kordena .kordena-core-area,
+  .fm-public-site .product-landing--kordena .kordena-core-area--left,
+  .fm-public-site .product-landing--kordena .kordena-core-area--right {
+    grid-column: auto;
+    grid-row: auto !important;
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    height: auto;
+    min-height: 46px;
+    font-size: .72rem;
+  }
+
+  .fm-public-site .product-landing--kordena .kordena-core-area--integrations {
+    grid-column: 1 / -1;
+    grid-row: auto !important;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    height: auto;
+    min-height: 56px;
+  }
+}
