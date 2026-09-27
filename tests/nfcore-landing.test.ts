@@ -78,3 +78,36 @@ test("NFCore Hero CSS contains no legacy orbit/radar selectors and preserves res
   assert.match(css, /nth-child\(7\)/);
   assert.match(css, /grid-template-columns:\s*78px minmax\(0,1fr\) 78px/);
 });
+
+
+test("NFCore Core Fiscal mission block exposes eight real capabilities around the approved center", async () => {
+  const landing = await readFile("src/components/marketing/nfcore-landing.tsx", "utf8");
+  const coreStageMatch = landing.match(/<div className="nfcore-core-stage">([\s\S]*?)<\/div>\s*<\/div>\s*<\/section>/);
+  assert.ok(coreStageMatch, "Core Fiscal stage must exist");
+  const coreStage = coreStageMatch[1];
+
+  for (const label of [
+    "Contexto",
+    "Operação",
+    "Reconciliação",
+    "Integrações",
+    "Regras",
+    "Readiness",
+    "Providers",
+    "Evidência",
+  ]) {
+    assert.match(coreStage, new RegExp(">" + label + "<"));
+  }
+
+  assert.match(coreStage, /nfcore-core-pillar-column--left/);
+  assert.match(coreStage, /nfcore-core-pillar-column--right/);
+  assert.match(coreStage, /nfcore-core-center--approved/);
+});
+
+test("NFCore Core Fiscal CSS uses stable 4 + center + 4 geometry", async () => {
+  const css = await readFile("app/nfcore.css", "utf8");
+  assert.match(css, /grid-template-columns:\s*minmax\(150px,190px\)\s+minmax\(320px,360px\)\s+minmax\(150px,190px\)/);
+  assert.match(css, /grid-template-rows:\s*repeat\(4,minmax\(0,1fr\)\)/);
+  assert.match(css, /nfcore-core-pillar-column--left/);
+  assert.match(css, /nfcore-core-pillar-column--right/);
+});
