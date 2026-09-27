@@ -111,3 +111,14 @@ test("NFCore Core Fiscal CSS uses stable 4 + center + 4 geometry", async () => {
   assert.match(css, /nfcore-core-pillar-column--left/);
   assert.match(css, /nfcore-core-pillar-column--right/);
 });
+
+
+test("NFCore wordmarks use the shared FM display typography", async () => {
+  const css = await readFile("app/nfcore.css", "utf8");
+  assert.match(css, /\.nfcore-wordmark__nf,[\s\S]*font-family:\s*var\(--font-display\)/);
+  assert.match(css, /\.nfcore-core-brand-wordmark__core[\s\S]*font-family:\s*var\(--font-display\)/);
+  const finalTypographyBlock = css.slice(css.lastIndexOf("NFCore typography normalization"));
+  assert.doesNotMatch(finalTypographyBlock, /Arial Black|Arial Narrow/);
+  assert.match(finalTypographyBlock, /font-style:\s*normal/);
+  assert.match(finalTypographyBlock, /transform:\s*none/);
+});
