@@ -1412,3 +1412,34 @@ body {
 .fm-public-site .site-footer :focus-visible {
   outline-color: #58baff;
 }
+
+
+/* 2026-09-27 FM approved logo color lock.
+   The approved SVG embeds the legacy green raster; public chrome shifts only that
+   embedded chroma into the approved FM blue/cyan range, preserving geometry/type. */
+.fm-public-site .logo.logo--approved .logo-image {
+  filter:
+    hue-rotate(108deg)
+    saturate(1.32)
+    brightness(1.04)
+    contrast(1.04)
+    drop-shadow(0 0 10px rgba(47,145,255,.10)) !important;
+}
+
+.fm-public-site .site-header--premium-home .logo.logo--approved .logo-image {
+  filter:
+    hue-rotate(108deg)
+    saturate(1.32)
+    brightness(1.04)
+    contrast(1.04)
+    drop-shadow(0 0 10px rgba(47,145,255,.14)) !important;
+}
+
+.fm-public-site .site-footer .logo.logo--approved .logo-image {
+  filter:
+    hue-rotate(108deg)
+    saturate(1.32)
+    brightness(1.04)
+    contrast(1.04)
+    drop-shadow(0 0 9px rgba(47,145,255,.10)) !important;
+}
