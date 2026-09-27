@@ -1,0 +1,452 @@
+/* FM Tecnologia — approved identity integration
+   Keeps the approved artwork intact and adapts only its surrounding chrome. */
+
+.site-header {
+  height: 100px;
+  background: #090d0b;
+  border-bottom-color: rgba(103,214,255,.14);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, .12);
+}
+
+.site-header .header-inner {
+  gap: 1.6rem;
+}
+
+.logo.logo--approved {
+  flex: 0 0 auto;
+  width: 272px;
+  min-height: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: visible;
+  line-height: 0;
+}
+
+.logo.logo--approved .logo-image {
+  display: block;
+  width: 100%;
+  height: 60px;
+  object-fit: contain;
+  object-position: left center;
+  mix-blend-mode: screen;
+}
+
+.logo-slogan {
+  display: block;
+  margin-top: .5rem;
+  color: #2f91ff;
+  font-size: .56rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: .085em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.site-header .desktop-nav,
+.site-header .header-actions {
+  color: #f7faf8;
+}
+
+.site-header .desktop-nav a,
+.site-header .header-actions > a:first-child {
+  color: #f7faf8;
+}
+
+.site-header .desktop-nav a:hover,
+.site-header .header-actions > a:first-child:hover {
+  color: #2f91ff;
+  border-color: #2f91ff;
+}
+
+.site-header .button--primary {
+  background: #2f91ff;
+  color: var(--ink);
+  border-color: #2f91ff;
+  box-shadow: 0 8px 24px rgba(103,214,255,.12);
+}
+
+.site-header .button--primary:hover {
+  background: #43a0ff;
+  border-color: #58baff;
+}
+
+.site-header .mobile-menu-toggle {
+  border-color: rgba(255, 255, 255, .22);
+  background: rgba(255, 255, 255, .035);
+  color: white;
+}
+
+.site-header :focus-visible {
+  outline-color: #2f91ff;
+}
+
+/* Shared responsive safety: prevent grid/flex children from forcing horizontal overflow. */
+.hero-content,
+.portfolio-map,
+.section-heading > *,
+.product-card,
+.research-panel > *,
+.footer-top > *,
+.footer-grid > * {
+  min-width: 0;
+}
+
+/* Product cards — softer action area to reduce excessive white space. */
+.product-card .text-link {
+  margin: auto -1.5rem -1.5rem;
+  padding: 1rem 1.5rem;
+  min-height: 58px;
+  border-top: 1px solid rgba(103, 214, 255, .20);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  background: linear-gradient(135deg, #0b203a, #081629);
+  color: #f4f9ff;
+  transition: background .2s, color .2s;
+}
+
+.product-card .text-link:hover,
+.product-card .text-link:focus-visible {
+  background: linear-gradient(135deg, #10325a, #0b2544);
+  color: #ffffff;
+}
+
+.site-footer .logo.logo--approved {
+  width: 250px;
+  min-height: 68px;
+  margin-bottom: .8rem;
+}
+
+.site-footer .logo.logo--approved .logo-image {
+  height: 57px;
+}
+
+.site-footer .logo-slogan {
+  color: #2f91ff;
+  font-size: .45rem;
+}
+
+/* Notebook / compact desktop: preserve brand presence without crowding navigation. */
+@media (max-width: 1120px) {
+  .site-header {
+    height: 96px;
+  }
+
+  .site-header .header-inner {
+    gap: 1.1rem;
+  }
+
+  .site-header .logo.logo--approved {
+    width: 242px;
+    min-height: 68px;
+  }
+
+  .site-header .logo.logo--approved .logo-image {
+    height: 55px;
+  }
+
+  .site-header .logo-slogan {
+    font-size: .5rem;
+    letter-spacing: .075em;
+  }
+}
+
+/* Tablet portrait / compact landscape: stack the home hero and avoid 3 cramped product columns. */
+@media (max-width: 900px) {
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .hero-content {
+    max-width: 720px;
+  }
+
+  .portfolio-map {
+    width: 100%;
+  }
+
+  .cards--three {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Tablet: navigation is already collapsed by the shared shell at 1000px. */
+@media (max-width: 860px) {
+  .site-header {
+    height: 94px;
+  }
+
+  .site-header .header-inner {
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .site-header .logo.logo--approved {
+    width: 232px;
+    min-height: 66px;
+  }
+
+  .site-header .logo.logo--approved .logo-image {
+    height: 53px;
+  }
+
+  .site-header .logo-slogan {
+    margin-top: .44rem;
+    font-size: .48rem;
+    letter-spacing: .065em;
+  }
+}
+
+/* Phones and narrow tablets: cards become one-column before copy starts to feel compressed. */
+@media (max-width: 680px) {
+  .cards--three,
+  .cards--two {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-layout {
+    padding-block: 1.75rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.15rem, 10vw, 3rem);
+  }
+
+  .hero .actions .button {
+    flex: 1 1 190px;
+  }
+}
+
+/* Small phones: keep the complete lockup readable while leaving room for menu control. */
+@media (max-width: 560px) {
+  .site-header {
+    height: 92px;
+  }
+
+  .site-header .header-inner {
+    gap: .65rem;
+  }
+
+  .site-header .logo.logo--approved {
+    width: min(218px, calc(100vw - 112px));
+    min-width: 178px;
+    min-height: 64px;
+  }
+
+  .site-header .logo.logo--approved .logo-image {
+    height: 50px;
+  }
+
+  .site-header .logo-slogan {
+    margin-top: .42rem;
+    font-size: clamp(.4rem, 1.65vw, .46rem);
+    letter-spacing: .045em;
+  }
+
+  .product-card .text-link {
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+    margin-bottom: -1.25rem;
+    min-height: 60px;
+    padding: 1rem 1.25rem;
+  }
+
+  .site-footer .logo.logo--approved {
+    width: 218px;
+    min-height: 66px;
+  }
+
+  .site-footer .logo.logo--approved .logo-image {
+    height: 50px;
+  }
+
+  .site-footer .logo-slogan {
+    font-size: .4rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .site-header .logo.logo--approved {
+    width: min(202px, calc(100vw - 102px));
+    min-width: 166px;
+  }
+
+  .site-header .logo.logo--approved .logo-image {
+    height: 47px;
+  }
+
+  .site-header .logo-slogan {
+    font-size: .39rem;
+    letter-spacing: .035em;
+  }
+
+  .hero .actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .hero .actions .button {
+    width: 100%;
+  }
+}
+
+
+/* Premium Home checkpoint refinement — isolated to the institutional Home header. */
+.site-header.site-header--premium-home {
+  height: 88px;
+  background:
+    linear-gradient(180deg, rgba(4, 10, 24, .98), rgba(5, 11, 26, .94));
+  border-bottom: 1px solid rgba(96, 165, 255, .16);
+  box-shadow: 0 14px 44px rgba(0, 6, 20, .28);
+  backdrop-filter: blur(18px);
+}
+
+.site-header--premium-home .header-inner {
+  gap: 1.35rem;
+}
+
+.site-header--premium-home .logo.logo--approved {
+  width: 246px;
+  min-height: 66px;
+}
+
+.site-header--premium-home .logo.logo--approved .logo-image {
+  height: 52px;
+  mix-blend-mode: normal;
+  filter: grayscale(1) brightness(2.55) contrast(1.08) drop-shadow(0 0 10px rgba(96, 165, 255, .16));
+  opacity: .96;
+}
+
+.site-header--premium-home .logo-slogan {
+  margin-top: .34rem;
+  color: #7fc8ff;
+  font-size: .48rem;
+  letter-spacing: .09em;
+  text-shadow: 0 0 16px rgba(0, 210, 255, .14);
+}
+
+.site-header--premium-home .desktop-nav,
+.site-header--premium-home .header-actions {
+  color: #dbeafe;
+}
+
+.site-header--premium-home .desktop-nav a,
+.site-header--premium-home .header-actions > a:first-child {
+  color: #d5e2f3;
+  border-bottom-color: transparent;
+}
+
+.site-header--premium-home .desktop-nav a:hover,
+.site-header--premium-home .header-actions > a:first-child:hover {
+  color: #8eeaff;
+  border-color: rgba(0, 210, 255, .6);
+}
+
+.site-header--premium-home .button--primary {
+  border-color: #1b6fff;
+  background: linear-gradient(135deg, #0b5cff, #147dff);
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(11, 92, 255, .24), inset 0 1px 0 rgba(255,255,255,.18);
+}
+
+.site-header--premium-home .button--primary:hover {
+  border-color: #4c95ff;
+  background: linear-gradient(135deg, #1768ff, #2387ff);
+  box-shadow: 0 14px 36px rgba(11, 92, 255, .3), inset 0 1px 0 rgba(255,255,255,.22);
+}
+
+.site-header--premium-home .mobile-menu-toggle {
+  border-color: rgba(96, 165, 255, .3);
+  background: rgba(16, 35, 66, .55);
+  color: #eaf5ff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+.site-header--premium-home :focus-visible {
+  outline-color: #00d2ff;
+}
+
+.site-header--premium-home .mobile-dialog {
+  background:
+    radial-gradient(circle at 80% 8%, rgba(11, 92, 255, .14), transparent 35%),
+    #050b1a;
+  color: #e6eef9;
+}
+
+.site-header--premium-home .mobile-dialog::backdrop {
+  background: #050b1a;
+}
+
+.site-header--premium-home .mobile-dialog-header,
+.site-header--premium-home .mobile-dialog-nav > a {
+  border-color: rgba(96, 165, 255, .14);
+}
+
+.site-header--premium-home .mobile-dialog-nav > a:hover {
+  background: rgba(11, 92, 255, .09);
+  color: #8eeaff;
+}
+
+.site-header--premium-home .mobile-menu-close {
+  border-color: rgba(96, 165, 255, .26);
+  background: rgba(14, 31, 62, .72);
+  color: #eaf5ff;
+}
+
+.site-header--premium-home .mobile-dialog-actions .button--secondary {
+  border-color: rgba(96, 165, 255, .36);
+  color: #eaf5ff;
+}
+
+@media (max-width: 1120px) {
+  .site-header.site-header--premium-home {
+    height: 84px;
+  }
+
+  .site-header--premium-home .logo.logo--approved {
+    width: 224px;
+    min-height: 62px;
+  }
+
+  .site-header--premium-home .logo.logo--approved .logo-image {
+    height: 48px;
+  }
+}
+
+@media (max-width: 860px) {
+  .site-header.site-header--premium-home {
+    height: 80px;
+  }
+
+  .site-header--premium-home .logo.logo--approved {
+    width: 215px;
+    min-height: 58px;
+  }
+
+  .site-header--premium-home .logo.logo--approved .logo-image {
+    height: 46px;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header.site-header--premium-home {
+    height: 76px;
+  }
+
+  .site-header--premium-home .logo.logo--approved {
+    width: min(205px, calc(100vw - 105px));
+    min-width: 166px;
+    min-height: 54px;
+  }
+
+  .site-header--premium-home .logo.logo--approved .logo-image {
+    height: 43px;
+  }
+
+  .site-header--premium-home .logo-slogan {
+    margin-top: .26rem;
+    font-size: clamp(.37rem, 1.5vw, .43rem);
+  }
+}
