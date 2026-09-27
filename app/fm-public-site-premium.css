@@ -958,3 +958,360 @@ body {
     min-height: 56px;
   }
 }
+
+
+/* 2026-09-27 IRON FIT CORE — premium commercial visual pass */
+.fm-public-site .ironfit-landing {
+  --ironfit-blue: #2f91ff;
+  --ironfit-cyan: #67d6ff;
+  --ironfit-surface: #071528;
+  --ironfit-surface-2: #0a1b31;
+  --ironfit-line: rgba(103,214,255,.16);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  background:
+    radial-gradient(circle at 78% 8%, rgba(47,145,255,.08), transparent 30rem),
+    #030811;
+  color: #eef7ff;
+}
+
+/* Hero — same premium density as the FM/Kordena system. */
+.fm-public-site .ironfit-landing .ironfit-hero {
+  min-height: 520px;
+  padding: 30px 0 42px;
+  background:
+    radial-gradient(circle at 76% 40%, rgba(47,145,255,.15), transparent 25rem),
+    linear-gradient(135deg,#030811 0%,#071629 56%,#050b14 100%);
+  border-bottom-color: rgba(103,214,255,.14);
+}
+
+.fm-public-site .ironfit-landing .ironfit-hero__grid {
+  grid-template-columns: minmax(0,1.06fr) minmax(380px,.94fr);
+  gap: clamp(1.75rem,3.5vw,3rem);
+  margin-top: 22px;
+}
+
+.fm-public-site .ironfit-landing .ironfit-hero__copy {
+  max-width: 620px;
+}
+
+.fm-public-site .ironfit-landing .ironfit-hero h1 {
+  margin: 10px 0 8px;
+  font-size: clamp(3rem,5.3vw,5rem);
+  line-height: .91;
+}
+
+.fm-public-site .ironfit-landing .ironfit-tagline {
+  margin-bottom: 18px;
+  font-size: clamp(1.15rem,1.8vw,1.55rem);
+}
+
+.fm-public-site .ironfit-landing .ironfit-hero .lead {
+  font-size: clamp(1rem,1.3vw,1.15rem);
+  line-height: 1.58;
+}
+
+.fm-public-site .ironfit-landing .ironfit-support {
+  margin-top: 12px;
+  line-height: 1.58;
+  color: #91a5bb;
+}
+
+.fm-public-site .ironfit-landing .ironfit-actions {
+  margin-top: 22px;
+}
+
+.fm-public-site .ironfit-landing .ironfit-byline {
+  margin-top: 15px;
+  color: #7890a8;
+}
+
+.fm-public-site .ironfit-landing .ironfit-hero__visual {
+  min-height: 380px;
+}
+
+.fm-public-site .ironfit-landing .ironfit-approved-lockup {
+  max-width: 520px;
+}
+
+.fm-public-site .ironfit-landing .ironfit-hero__visual img {
+  width: min(100%,520px);
+}
+
+.fm-public-site .ironfit-landing .ironfit-halo--one {
+  width: 360px;
+  height: 360px;
+}
+
+.fm-public-site .ironfit-landing .ironfit-halo--two {
+  width: 455px;
+  height: 455px;
+}
+
+/* Sticky local navigation */
+.fm-public-site .ironfit-landing .ironfit-index {
+  top: 88px;
+  background: rgba(3,10,20,.94);
+  border-color: rgba(103,214,255,.12);
+  backdrop-filter: blur(16px);
+}
+
+.fm-public-site .ironfit-landing .ironfit-index .container {
+  gap: .25rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.fm-public-site .ironfit-landing .ironfit-index .container::-webkit-scrollbar {
+  display: none;
+}
+
+.fm-public-site .ironfit-landing .ironfit-index a {
+  flex: 0 0 auto;
+  padding: .58rem .72rem;
+  color: #dce9f6;
+  font-size: .76rem;
+  letter-spacing: .02em;
+  border-radius: .55rem;
+}
+
+.fm-public-site .ironfit-landing .ironfit-index a:hover,
+.fm-public-site .ironfit-landing .ironfit-index a:focus-visible {
+  color: #fff;
+  background: rgba(47,145,255,.10);
+}
+
+/* Core geometry — equal chips, mirrored rows, controlled center. */
+.fm-public-site .ironfit-landing .ironfit-core-section {
+  padding: 54px 0 60px;
+  background:
+    radial-gradient(circle at 50% 52%,rgba(47,145,255,.09),transparent 24rem),
+    linear-gradient(180deg,#050b14,#071629);
+}
+
+.fm-public-site .ironfit-landing .ironfit-core-heading {
+  max-width: 760px;
+  margin-bottom: 28px;
+}
+
+.fm-public-site .ironfit-landing .ironfit-core-stage {
+  --iron-chip-w: 144px;
+  --iron-chip-h: 44px;
+  --iron-center-w: 260px;
+  min-height: 430px;
+  max-width: 980px;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(47,145,255,.09),transparent 33%),
+    linear-gradient(145deg,#08182d,#050b14);
+  border-color: rgba(103,214,255,.17);
+}
+
+.fm-public-site .ironfit-landing .ironfit-core-mark {
+  width: var(--iron-center-w);
+}
+
+.fm-public-site .ironfit-landing .ironfit-domain {
+  width: var(--iron-chip-w);
+  min-width: var(--iron-chip-w);
+  height: var(--iron-chip-h);
+  min-height: var(--iron-chip-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .45rem .7rem;
+  border-color: rgba(103,214,255,.38);
+  background: linear-gradient(135deg,rgba(18,64,105,.94),rgba(9,36,64,.97));
+  color: #f0f8ff;
+  font-size: .7rem;
+  line-height: 1.05;
+  text-align: center;
+}
+
+.fm-public-site .ironfit-landing .ironfit-domain--1,
+.fm-public-site .ironfit-landing .ironfit-domain--3,
+.fm-public-site .ironfit-landing .ironfit-domain--5,
+.fm-public-site .ironfit-landing .ironfit-domain--7 {
+  left: 5%;
+  right: auto;
+}
+
+.fm-public-site .ironfit-landing .ironfit-domain--2,
+.fm-public-site .ironfit-landing .ironfit-domain--4,
+.fm-public-site .ironfit-landing .ironfit-domain--6,
+.fm-public-site .ironfit-landing .ironfit-domain--8 {
+  right: 5%;
+  left: auto;
+}
+
+.fm-public-site .ironfit-landing .ironfit-domain--1,
+.fm-public-site .ironfit-landing .ironfit-domain--2 { top: 16%; }
+.fm-public-site .ironfit-landing .ironfit-domain--3,
+.fm-public-site .ironfit-landing .ironfit-domain--4 { top: 36%; }
+.fm-public-site .ironfit-landing .ironfit-domain--5,
+.fm-public-site .ironfit-landing .ironfit-domain--6 { top: 56%; bottom: auto; }
+.fm-public-site .ironfit-landing .ironfit-domain--7,
+.fm-public-site .ironfit-landing .ironfit-domain--8 { top: 76%; bottom: auto; }
+
+.fm-public-site .ironfit-landing .ironfit-core-flow {
+  margin-top: 18px;
+}
+
+/* Main editorial and operational surfaces */
+.fm-public-site .ironfit-landing .ironfit-management,
+.fm-public-site .ironfit-landing .ironfit-student,
+.fm-public-site .ironfit-landing .ironfit-training,
+.fm-public-site .ironfit-landing .ironfit-equipment,
+.fm-public-site .ironfit-landing .ironfit-operations,
+.fm-public-site .ironfit-landing .ironfit-finance,
+.fm-public-site .ironfit-landing .ironfit-intelligence,
+.fm-public-site .ironfit-landing .ironfit-ecosystem,
+.fm-public-site .ironfit-landing .ironfit-security,
+.fm-public-site .ironfit-landing .ironfit-demo,
+.fm-public-site .ironfit-landing .ironfit-tour,
+.fm-public-site .ironfit-landing .ironfit-pricing,
+.fm-public-site .ironfit-landing .ironfit-faq {
+  color: #eef7ff;
+}
+
+.fm-public-site .ironfit-landing .ironfit-management-grid article,
+.fm-public-site .ironfit-landing .ironfit-training-facts article,
+.fm-public-site .ironfit-landing .ironfit-operations-grid article,
+.fm-public-site .ironfit-landing .ironfit-finance-panel > div,
+.fm-public-site .ironfit-landing .ironfit-security-grid article,
+.fm-public-site .ironfit-landing .ironfit-security-details article,
+.fm-public-site .ironfit-landing .ironfit-tour-card,
+.fm-public-site .ironfit-landing .ironfit-faq details {
+  background: linear-gradient(145deg,#0a1b31,#071528);
+  border-color: rgba(103,214,255,.15);
+  color: #eef7ff;
+}
+
+.fm-public-site .ironfit-landing .ironfit-management-grid p,
+.fm-public-site .ironfit-landing .ironfit-training-facts p,
+.fm-public-site .ironfit-landing .ironfit-operations-grid p,
+.fm-public-site .ironfit-landing .ironfit-finance-panel span,
+.fm-public-site .ironfit-landing .ironfit-security-grid p,
+.fm-public-site .ironfit-landing .ironfit-security-details p,
+.fm-public-site .ironfit-landing .ironfit-tour-card p,
+.fm-public-site .ironfit-landing .ironfit-faq details p {
+  color: #91a5bb;
+}
+
+.fm-public-site .ironfit-landing .ironfit-intelligence-network,
+.fm-public-site .ironfit-landing .ironfit-hub-diagram > div,
+.fm-public-site .ironfit-landing .ironfit-pricing-panel,
+.fm-public-site .ironfit-landing .ironfit-demo-frame {
+  background: linear-gradient(145deg,#08182d,#050b14);
+  border-color: rgba(103,214,255,.16);
+}
+
+.fm-public-site .ironfit-landing .ironfit-phone {
+  background: linear-gradient(160deg,#071629,#0b203a);
+  border-color: rgba(103,214,255,.22);
+  box-shadow: 0 22px 54px rgba(0,7,25,.32);
+}
+
+/* Keep the official lockup geometry, only harmonize the green accent to the approved FM blue. */
+.fm-public-site .ironfit-approved-lockup img,
+.fm-public-site .ironfit-core-mark img,
+.fm-public-site .ironfit-mini-brand img,
+.fm-public-site .ironfit-phone__brand img {
+  filter: hue-rotate(108deg) saturate(1.10) brightness(1.04) drop-shadow(0 16px 28px rgba(0,7,25,.25)) !important;
+}
+
+@media (max-width: 1100px) {
+  .fm-public-site .ironfit-landing .ironfit-hero {
+    min-height: auto;
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-hero__grid {
+    grid-template-columns: minmax(0,1fr) minmax(340px,.82fr);
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-core-stage {
+    --iron-chip-w: 132px;
+    --iron-chip-h: 42px;
+    --iron-center-w: 235px;
+    min-height: 410px;
+  }
+}
+
+@media (max-width: 900px) {
+  .fm-public-site .ironfit-landing .ironfit-hero__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-hero__visual {
+    min-height: 300px;
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-index {
+    top: 72px;
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-core-stage {
+    min-height: 560px;
+  }
+}
+
+@media (max-width: 760px) {
+  .fm-public-site .ironfit-landing .ironfit-hero {
+    padding: 22px 0 30px;
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-hero__grid {
+    margin-top: 16px;
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-hero h1 {
+    font-size: clamp(2.65rem,12vw,3.35rem);
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-hero__visual {
+    min-height: 240px;
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-approved-lockup {
+    max-width: 390px;
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-core-stage {
+    min-height: auto;
+    padding: 20px 14px;
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-core-mark {
+    width: min(100%,280px);
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-core-domains {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: .55rem;
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-domain,
+  .fm-public-site .ironfit-landing .ironfit-domain--1,
+  .fm-public-site .ironfit-landing .ironfit-domain--2,
+  .fm-public-site .ironfit-landing .ironfit-domain--3,
+  .fm-public-site .ironfit-landing .ironfit-domain--4,
+  .fm-public-site .ironfit-landing .ironfit-domain--5,
+  .fm-public-site .ironfit-landing .ironfit-domain--6,
+  .fm-public-site .ironfit-landing .ironfit-domain--7,
+  .fm-public-site .ironfit-landing .ironfit-domain--8 {
+    position: static;
+    width: auto;
+    min-width: 0;
+    height: auto;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 460px) {
+  .fm-public-site .ironfit-landing .ironfit-core-domains {
+    grid-template-columns: 1fr;
+  }
+}
