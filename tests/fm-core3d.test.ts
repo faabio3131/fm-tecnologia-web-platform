@@ -14,9 +14,10 @@ const home = readFileSync(new URL("../app/page.tsx", import.meta.url), "utf8");
 test("approved Home Hero uses the approved Core artwork instead of the rejected procedural WebGL reconstruction", () => {
   assert.match(hero, /FmCoreVisualCarousel/);
   assert.doesNotMatch(hero, /FmCore3D/);
-  for (const asset of ["fm-core-core.webp", "fm-core-gerente-ia.webp", "fm-core-kordena.webp", "fm-core-total-controle.webp"]) {
-    assert.ok(coreCarousel.includes(asset), "Missing approved Core carousel asset: " + asset);
+  for (const asset of ["fm-core-core.webp", "fm-core-gerente-ia.webp", "fm-core-total-controle.webp"]) {
+    assert.ok(coreCarousel.includes(asset), "Missing approved institutional Core carousel asset: " + asset);
   }
+  assert.doesNotMatch(coreCarousel, /fm-core-kordena\.webp/, "Home Hero must remain institutional; Kordena keeps its own product narrative.");
 });
 
 test("Core identity is baked into the approved static artwork, with no HTML overlay", () => {
