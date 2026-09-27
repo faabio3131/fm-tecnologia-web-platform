@@ -12,7 +12,7 @@ export type NFCoreCheckoutProcessingStatus = "unconfigured" | "configured";
 export interface NFCoreCheckoutItem {
   plan_id: string;
   price_id: string;
-  provider: "cakto";
+  provider: string;
   checkout_url: string | null;
 }
 
@@ -55,7 +55,7 @@ export interface NFCoreCommercialOffer {
   };
   checkout: {
     status: NFCoreCheckoutStatus;
-    provider: "cakto";
+    provider: string | null;
     processing_status: NFCoreCheckoutProcessingStatus;
     items: NFCoreCheckoutItem[];
   };
@@ -192,7 +192,15 @@ function parseCatalog(value: unknown): NFCoreCommercialCatalog {
   };
 }
 
-function canonicalCaktoCheckoutUrl(value: unknown, field: string): string {
+function checkoutProviderValue(value: unknown, field: string): string {
+  const provider = stringValue(value, field).trim().toLowerCase();
+  if (!/^[a-z0-9][a-z0-9._-]{0,63}$/.test(provider)) {
+    throw new Error(`${field} must be a valid provider identifier`);
+  }
+  return provider;
+}
+
+function safeCheckoutUrl(value: unknown, field: string): string {
   const raw = stringValue(value, field);
   let url: URL;
   try {
@@ -200,35 +208,30 @@ function canonicalCaktoCheckoutUrl(value: unknown, field: string): string {
   } catch {
     throw new Error(`${field} must be a valid URL`);
   }
-  const segments = url.pathname.split("/").filter(Boolean);
   if (
     url.protocol !== "https:" ||
-    url.hostname !== "pay.cakto.com.br" ||
-    url.port ||
+    !url.hostname ||
     url.username ||
-    url.password ||
-    url.search ||
-    url.hash ||
-    segments.length !== 1
+    url.password
   ) {
-    throw new Error(`${field} must be a canonical Cakto checkout URL`);
+    throw new Error(`${field} must be an absolute HTTPS URL without credentials`);
   }
   return url.href;
 }
 
 function parseCheckoutItem(value: unknown, index: number): NFCoreCheckoutItem {
   const item = objectValue(value, `checkout.items[${index}]`);
-  if (item.provider !== "cakto") {
-    throw new Error("checkout item provider must be cakto");
-  }
   return {
     plan_id: stringValue(item.plan_id, `checkout.items[${index}].plan_id`),
     price_id: stringValue(item.price_id, `checkout.items[${index}].price_id`),
-    provider: "cakto",
+    provider: checkoutProviderValue(
+      item.provider,
+      `checkout.items[${index}].provider`,
+    ),
     checkout_url:
       item.checkout_url === null
         ? null
-        : canonicalCaktoCheckoutUrl(
+        : safeCheckoutUrl(
             item.checkout_url,
             `checkout.items[${index}].checkout_url`,
           ),
@@ -262,7 +265,7 @@ export function failClosedNFCoreCommercialOffer(): NFCoreCommercialOffer {
     },
     checkout: {
       status: "unconfigured",
-      provider: "cakto",
+      provider: null,
       processing_status: "unconfigured",
       items: [],
     },
@@ -309,9 +312,10 @@ export function parseNFCoreCommercialOffer(value: unknown): NFCoreCommercialOffe
   if (!checkoutStatuses.has(checkoutStatus as NFCoreCheckoutStatus)) {
     throw new Error("checkout status is unsupported");
   }
-  if (checkout.provider !== "cakto") {
-    throw new Error("checkout provider must be cakto");
-  }
+  const checkoutProvider =
+    checkout.provider === null
+      ? null
+      : checkoutProviderValue(checkout.provider, "checkout.provider");
   const processingStatus = stringValue(
     checkout.processing_status,
     "checkout.processing_status",
@@ -327,6 +331,18 @@ export function parseNFCoreCommercialOffer(value: unknown): NFCoreCommercialOffe
     throw new Error("checkout.items must be an array");
   }
   const checkoutItems = checkout.items.map(parseCheckoutItem);
+  if (
+    checkoutProvider === null &&
+    (checkoutStatus !== "unconfigured" || checkoutItems.length !== 0)
+  ) {
+    throw new Error("checkout without provider must remain unconfigured and empty");
+  }
+  if (
+    checkoutProvider !== null &&
+    checkoutItems.some((item) => item.provider !== checkoutProvider)
+  ) {
+    throw new Error("checkout items must match the selected provider");
+  }
   const expectedPairs = expectedCheckoutPairs(catalog);
   const itemPairs = new Set<string>();
   for (const item of checkoutItems) {
@@ -369,6 +385,7 @@ export function parseNFCoreCommercialOffer(value: unknown): NFCoreCommercialOffe
     (!commerciallyApproved ||
       pricingStatus !== "published" ||
       checkoutStatus !== "configured" ||
+      checkoutProvider === null ||
       processingStatus !== "configured" ||
       checkoutItems.length === 0 ||
       checkoutItems.some((item) => item.checkout_url === null))
@@ -390,7 +407,7 @@ export function parseNFCoreCommercialOffer(value: unknown): NFCoreCommercialOffe
     },
     checkout: {
       status: checkoutStatus as NFCoreCheckoutStatus,
-      provider: "cakto",
+      provider: checkoutProvider,
       processing_status: processingStatus as NFCoreCheckoutProcessingStatus,
       items: checkoutItems,
     },
