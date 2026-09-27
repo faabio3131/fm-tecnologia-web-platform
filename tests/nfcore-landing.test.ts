@@ -27,15 +27,19 @@ test("NFCore uses the final high-resolution approved brand pair", async () => {
 });
 
 
-test("NFCore Hero keeps symmetric domain columns and the approved Core Fiscal signature", async () => {
+test("NFCore Hero keeps symmetric 5x5 capability columns and the approved Core Fiscal signature", async () => {
   const landing = await readFile("src/components/marketing/nfcore-landing.tsx", "utf8");
   assert.match(landing, /nfcore-domain-column--left/);
   assert.match(landing, /nfcore-domain-column--right/);
-  assert.match(landing, />Regras<\/span>/);
-  assert.match(landing, />Gateways<\/span>/);
-  assert.match(landing, />Auditoria<\/span>/);
+  assert.match(landing, />Emissão<\/span>/);
   assert.match(landing, />Documentos<\/span>/);
+  assert.match(landing, />Regras Fiscais<\/span>/);
   assert.match(landing, />Reconciliação<\/span>/);
+  assert.match(landing, />Readiness<\/span>/);
+  assert.match(landing, />Providers<\/span>/);
+  assert.match(landing, />Integrações<\/span>/);
+  assert.match(landing, />Webhooks<\/span>/);
+  assert.match(landing, />Auditoria<\/span>/);
   assert.match(landing, />Governança<\/span>/);
   assert.match(landing, /nfcore-core-brand-lockup/);
   assert.match(landing, /nfcore-core-brand-wordmark__nf">NF/);
@@ -43,4 +47,20 @@ test("NFCore Hero keeps symmetric domain columns and the approved Core Fiscal si
   assert.match(landing, /nfcore-core-slogan">Infraestrutura fiscal inteligente/);
   assert.match(landing, /nfcore-core-caption">Core Fiscal/);
   assert.doesNotMatch(landing, /nfcore-core-brand-plaque/);
+});
+
+test("NFCore landing exposes its real functional depth without inventing production readiness", async () => {
+  const landing = await readFile("src/components/marketing/nfcore-landing.tsx", "utf8");
+  assert.match(landing, /NF-e, NFC-e e NFS-e/);
+  assert.match(landing, /Cancelamento e inutilização/);
+  assert.match(landing, /Contingência/);
+  assert.match(landing, /Capability & Readiness/);
+  assert.match(landing, /Bridge e API versionada/);
+  assert.match(landing, /Integrações multiproduto/);
+  assert.match(landing, /Onboarding governado/);
+  assert.match(landing, /Planos, entitlements e uso/);
+  assert.match(landing, /Pricing, liberação e checkout/);
+  assert.match(landing, /Dependências externas \/ humanas antes do Go-Live/);
+  assert.match(landing, /documento × operação × UF\/município × provider × ambiente/);
+  assert.doesNotMatch(landing, /100% homologado|produção liberada|todas as jurisdições homologadas/i);
 });
