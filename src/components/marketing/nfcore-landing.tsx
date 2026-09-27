@@ -54,23 +54,31 @@ export function NFCoreLanding() {
             <div className="nfcore-hero__visual" aria-label="Identidade NFCore e principais domínios da infraestrutura fiscal">
               <div className="nfcore-orbit nfcore-orbit--one" aria-hidden="true" />
               <div className="nfcore-orbit nfcore-orbit--two" aria-hidden="true" />
-              <div className="nfcore-mark-card nfcore-mark-card--approved">
-                <Image
-                  className="nfcore-approved-brand"
-                  src="/brand/nfcore-brand-hero-final.png"
-                  alt="NFCore — Infrastructure Mission Control"
-                  width={1672}
-                  height={941}
-                  priority
-                  unoptimized
-                />
+              <div className="nfcore-hero-visual-layout">
+                <div className="nfcore-domain-column nfcore-domain-column--left" aria-label="Domínios NFCore à esquerda">
+                  <span className="nfcore-domain">Regras</span>
+                  <span className="nfcore-domain">Gateways</span>
+                  <span className="nfcore-domain">Auditoria</span>
+                </div>
+
+                <div className="nfcore-mark-card nfcore-mark-card--approved">
+                  <Image
+                    className="nfcore-approved-brand"
+                    src="/brand/nfcore-brand-hero-final.png"
+                    alt="NFCore — Controle de missão e gerenciamento inteligente"
+                    width={1672}
+                    height={941}
+                    priority
+                    unoptimized
+                  />
+                </div>
+
+                <div className="nfcore-domain-column nfcore-domain-column--right" aria-label="Domínios NFCore à direita">
+                  <span className="nfcore-domain">Documentos</span>
+                  <span className="nfcore-domain">Reconciliação</span>
+                  <span className="nfcore-domain">Governança</span>
+                </div>
               </div>
-              <span className="nfcore-domain nfcore-domain--1">Regras</span>
-              <span className="nfcore-domain nfcore-domain--2">Documentos</span>
-              <span className="nfcore-domain nfcore-domain--3">Gateways</span>
-              <span className="nfcore-domain nfcore-domain--4">Reconciliação</span>
-              <span className="nfcore-domain nfcore-domain--5">Auditoria</span>
-              <span className="nfcore-domain nfcore-domain--6">Governança</span>
             </div>
           </div>
         </div>
@@ -125,7 +133,11 @@ export function NFCoreLanding() {
                 height={1254}
                 unoptimized
               />
-              <span>Core Fiscal</span>
+              <div className="nfcore-core-brand-plaque" aria-label="NF CORE">
+                <span className="nfcore-core-brand-plaque__nf">NF</span>
+                <span className="nfcore-core-brand-plaque__core">CORE</span>
+              </div>
+              <span className="nfcore-core-caption">Core Fiscal</span>
             </div>
             <div className="nfcore-core-pillar nfcore-core-pillar--1"><b>Contexto</b><span>empresa · unidade · jurisdição</span></div>
             <div className="nfcore-core-pillar nfcore-core-pillar--2"><b>Regras</b><span>versão · aplicabilidade · vigência</span></div>
