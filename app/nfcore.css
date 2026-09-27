@@ -288,6 +288,9 @@
 }
 .nfcore-commercial__pricing small { margin-left:.25rem; color:#8aa7c1; font-size:.72rem; font-weight:500; }
 .nfcore-commercial__pricing p { margin:.25rem 0 0; color:#83a0ba; font-size:.76rem; line-height:1.45; }
+.nfcore-commercial__checkout {
+  width:100%; margin-top:.85rem; justify-content:center; text-align:center;
+}
 .nfcore-commercial__footnote {
   margin:0; padding-top:.85rem; border-top:1px solid rgba(75,131,185,.16);
   color:#7694af!important; font-size:.76rem; line-height:1.55!important;
