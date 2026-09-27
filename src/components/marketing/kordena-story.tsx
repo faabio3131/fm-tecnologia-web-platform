@@ -1,7 +1,16 @@
 import Image from "next/image";
 import { KordenaTour } from "./kordena-tour";
 
-const coreAreas = ["Atendimento","Salão e comandas","PDV e vendas","Produção e KDS","Delivery próprio","Estoque","Financeiro","CRM e marketing"];
+const coreAreas = [
+  { label: "Atendimento", side: "left", row: 1 },
+  { label: "PDV e vendas", side: "left", row: 2 },
+  { label: "Delivery próprio", side: "left", row: 3 },
+  { label: "Financeiro", side: "left", row: 4 },
+  { label: "Salão e comandas", side: "right", row: 1 },
+  { label: "Produção e KDS", side: "right", row: 2 },
+  { label: "Estoque", side: "right", row: 3 },
+  { label: "CRM e marketing", side: "right", row: 4 },
+] as const;
 const orderFlow = ["Pedido","Produção","Consumo de insumos","Estoque","Pagamento","Receita e custo","Margem","Financeiro","Gestão"];
 const coreQuestions = ["Quais produtos apresentam maior risco de perda?","Quais insumos estão próximos do vencimento?","Qual o valor financeiro atual do meu estoque?","Como está meu faturamento hoje?","Qual é meu lucro real?","Existe algum pedido atrasado?","Quais clientes estão há mais tempo sem comprar?","Existe oportunidade de promoção baseada no estoque atual?"];
 
@@ -9,7 +18,26 @@ export function KordenaStory() {
   return <>
     <section id="core" className="section kordena-core-section"><div className="container kordena-core-grid">
       <div className="kordena-core-copy"><p className="eyebrow">Gerente IA Core</p><h2>O cérebro que conecta toda a sua operação.</h2><p>O Kordena não trata atendimento, produção, estoque, financeiro e delivery como áreas isoladas. O Gerente IA Core conecta o delivery próprio aos demais canais da operação e reúne pedidos de integrações como iFood, Keeta e 99Food para ajudar sua equipe a acompanhar o que está acontecendo, identificar riscos e transformar informação em decisão.</p><p>Um pedido pode movimentar o caixa, gerar produção, consumir insumos, alterar estoque, criar receita, gerar custo e impactar a margem. O Core conecta essas consequências para que o proprietário enxergue o negócio de ponta a ponta.</p></div>
-      <div className="kordena-core-map" aria-label="Áreas conectadas pelo Gerente IA Core"><div className="kordena-core-center kordena-core-center--brandmark" aria-hidden="true"><Image className="kordena-core-brandmark kordena-core-brandmark--static" src="/brand/fm-core-core.png" alt="" width={420} height={420} unoptimized /></div><div className="kordena-core-areas">{coreAreas.map(area => <span key={area}>{area}</span>)}</div></div>
+      <div className="kordena-core-map" aria-label="Áreas conectadas pelo Gerente IA Core">
+        <div className="kordena-core-center kordena-core-center--brandmark" aria-hidden="true">
+          <Image className="kordena-core-brandmark kordena-core-brandmark--static" src="/brand/fm-core-core.png" alt="" width={420} height={420} unoptimized />
+        </div>
+        <div className="kordena-core-areas">
+          {coreAreas.map(area => (
+            <span
+              key={area.label}
+              className={`kordena-core-area kordena-core-area--${area.side}`}
+              style={{ gridRow: area.row }}
+            >
+              {area.label}
+            </span>
+          ))}
+          <span className="kordena-core-area kordena-core-area--integrations">
+            <strong>Integrações de delivery</strong>
+            <small>iFood · 99Food · Keeta</small>
+          </span>
+        </div>
+      </div>
     </div></section>
 
     <section id="demo" className="section kordena-demo-section"><div className="container kordena-media-slot">
