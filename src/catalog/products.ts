@@ -76,7 +76,7 @@ export const products: readonly Product[] = [
     trialReleaseStatus: "unavailable",
     pricingStatus: "not_for_public_offer",
     productionHomologationStatus: pending,
-    publicLabel: "Produto Principal · Em desenvolvimento",
+    publicLabel: "Produto Principal · Infrastructure Mission Control",
     shortDescription: "Reduz erros humanos, diminui o retrabalho operacional e centraliza a gestão fiscal no Core.",
     positioning: "Infraestrutura fiscal inteligente da FM Tecnologia para automatizar rotinas, ampliar o controle e governar a operação fiscal pelo Core.",
     cta: { specialist: true },
