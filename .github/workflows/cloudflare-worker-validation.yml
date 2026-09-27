@@ -1,0 +1,28 @@
+name: Cloudflare Worker validation
+
+on:
+  push:
+    branches:
+      - feat/fm-premium-uxui-v1
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-worker-runtime:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.23.2'
+          cache: npm
+      - run: npm ci
+      - name: Build for Cloudflare Workers
+        run: npm run build:cloudflare
+      - name: Verify Worker artifact
+        shell: bash
+        run: |
+          test -f .open-next/worker.js
+          test -d .open-next/assets
