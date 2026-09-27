@@ -3,7 +3,6 @@ import { existsSync, statSync, readFileSync } from "node:fs";
 import test from "node:test";
 
 const hero = readFileSync(new URL("../src/components/marketing/fm-premium-hero.tsx", import.meta.url), "utf8");
-const coreCarousel = readFileSync(new URL("../src/components/marketing/fm-core-visual-carousel.tsx", import.meta.url), "utf8");
 const header = readFileSync(new URL("../src/components/layout/header.tsx", import.meta.url), "utf8");
 const footer = readFileSync(new URL("../src/components/layout/footer.tsx", import.meta.url), "utf8");
 const foundation = readFileSync(new URL("../app/fm-premium-foundation.css", import.meta.url), "utf8");
@@ -11,13 +10,10 @@ const approvedCss = readFileSync(new URL("../app/fm-premium-approved.css", impor
 const chrome = readFileSync(new URL("../src/components/layout/site-chrome.tsx", import.meta.url), "utf8");
 const home = readFileSync(new URL("../app/page.tsx", import.meta.url), "utf8");
 
-test("approved Home Hero uses the approved Core artwork instead of the rejected procedural WebGL reconstruction", () => {
-  assert.match(hero, /FmCoreVisualCarousel/);
+test("approved Home Hero uses one fixed Gerente IA artwork with the correct central plaque", () => {
+  assert.match(hero, /fm-core-gerente-ia\.png/);
+  assert.doesNotMatch(hero, /FmCoreVisualCarousel/);
   assert.doesNotMatch(hero, /FmCore3D/);
-  for (const asset of ["fm-core-core.webp", "fm-core-gerente-ia.webp", "fm-core-total-controle.webp"]) {
-    assert.ok(coreCarousel.includes(asset), "Missing approved institutional Core carousel asset: " + asset);
-  }
-  assert.doesNotMatch(coreCarousel, /fm-core-kordena\.webp/, "Home Hero must remain institutional; Kordena keeps its own product narrative.");
 });
 
 test("Core identity is baked into the approved static artwork, with no HTML overlay", () => {
@@ -25,14 +21,14 @@ test("Core identity is baked into the approved static artwork, with no HTML over
   assert.doesNotMatch(hero, /fm-core-approved__caption/);
   assert.doesNotMatch(approvedCss, /plaque-copy/);
   assert.doesNotMatch(approvedCss, /fm-core-approved__caption/);
-  assert.doesNotMatch(coreCarousel, /plaque-copy|fm-core-approved__caption/);
+  assert.doesNotMatch(hero, /plaque-copy|fm-core-approved__caption/);
 });
 
-test("all four approved Core carousel artworks are committed as real local assets", () => {
-  for (const filename of ["fm-core-core.webp", "fm-core-gerente-ia.webp", "fm-core-kordena.webp", "fm-core-total-controle.webp"]) {
+test("the three corrected PNG Core artworks are committed as real local assets", () => {
+  for (const filename of ["fm-core-gerente-ia.png", "fm-core-core.png", "fm-core-kordena.png"]) {
     const asset = new URL("../public/brand/" + filename, import.meta.url);
     assert.equal(existsSync(asset), true, "Missing asset: " + filename);
-    assert.ok(statSync(asset).size > 300_000, "Asset unexpectedly small: " + filename);
+    assert.ok(statSync(asset).size > 1_000_000, "Asset unexpectedly small: " + filename);
   }
 });
 
@@ -84,4 +80,13 @@ test("site-wide public premium theme is scoped away from operational Iron Fit ap
   assert.match(premium, /\.fm-public-site/);
   assert.match(premium, /#2f91ff/);
   assert.match(premium, /#67d6ff/);
+});
+
+test("Kordena uses its context-specific corrected Core assets", () => {
+  const landing = readFileSync(new URL("../src/components/marketing/product-landing.tsx", import.meta.url), "utf8");
+  const story = readFileSync(new URL("../src/components/marketing/kordena-story.tsx", import.meta.url), "utf8");
+  assert.match(landing, /fm-core-kordena\.png/);
+  assert.match(story, /fm-core-core\.png/);
+  assert.doesNotMatch(landing, /fm-core-gerente-ia\.webp/);
+  assert.doesNotMatch(story, /fm-core-gerente-ia\.webp/);
 });
