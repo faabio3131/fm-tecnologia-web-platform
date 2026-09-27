@@ -445,7 +445,7 @@
 }
 
 
-/* 2026-09-27 — NFCore visual closure: symmetric Hero + branded Core Fiscal plaque. */
+/* 2026-09-27 — NFCore visual closure: symmetric Hero + director-approved Core Fiscal signature. */
 .nfcore-hero__visual {
   min-height: 420px;
   padding: 24px 20px;
@@ -489,13 +489,8 @@
   box-shadow: inset 0 0 18px rgba(47,145,255,.035);
 }
 
-.nfcore-domain-column--left {
-  justify-items: end;
-}
-
-.nfcore-domain-column--right {
-  justify-items: start;
-}
+.nfcore-domain-column--left { justify-items: end; }
+.nfcore-domain-column--right { justify-items: start; }
 
 .nfcore-hero-visual-layout .nfcore-mark-card--approved {
   position: static;
@@ -517,92 +512,136 @@
 }
 
 /* Core Fiscal hierarchy:
-   emblem -> NF CORE brand plate -> secondary Core Fiscal caption. */
+   emblem -> open NF CORE lockup -> approved slogan -> bottom Core Fiscal caption. */
 .nfcore-core-center--approved {
-  width: 330px;
-  height: 342px;
-  padding: 16px 18px 14px;
+  width: 360px;
+  height: 390px;
+  padding: 16px 20px 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  border-color: rgba(0,229,255,.26);
+  justify-content: flex-start;
+  border-color: rgba(0,229,255,.28);
   background: linear-gradient(155deg,#071523,#091b2e);
   box-shadow:
     0 0 0 1px rgba(37,99,255,.07) inset,
-    0 0 52px rgba(37,99,255,.12);
+    0 0 58px rgba(37,99,255,.13);
 }
 
 .nfcore-core-center--approved .nfcore-core-approved-brand {
-  width: 214px;
-  max-width: 78%;
+  width: 236px;
+  max-width: 82%;
   height: auto;
-  margin: 0 auto 10px;
+  margin: 0 auto 4px;
   border-radius: 18px;
   object-fit: contain;
 }
 
-.nfcore-core-brand-plaque {
-  width: min(100%, 250px);
-  min-height: 54px;
-  padding: 8px 16px;
+.nfcore-core-brand-lockup {
+  width: 100%;
+  max-width: 330px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.nfcore-core-brand-wordmark {
+  width: 100%;
   display: flex;
   align-items: baseline;
   justify-content: center;
-  gap: 7px;
-  border: 1px solid rgba(0,229,255,.42);
-  border-radius: 10px;
-  background:
-    linear-gradient(180deg,rgba(12,31,52,.98),rgba(4,14,26,.98));
-  box-shadow:
-    inset 0 0 22px rgba(47,145,255,.08),
-    0 8px 24px rgba(0,0,0,.20);
+  gap: .08em;
+  white-space: nowrap;
+  line-height: .88;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,.24));
 }
 
-.nfcore-core-brand-plaque__nf,
-.nfcore-core-brand-plaque__core {
+.nfcore-core-brand-wordmark__nf,
+.nfcore-core-brand-wordmark__core {
   display: inline-block;
   font-family: "Arial Black", "Arial Narrow", Arial, sans-serif;
   font-style: italic;
   font-weight: 900;
-  line-height: 1;
-  letter-spacing: -.055em;
+  line-height: .92;
 }
 
-.nfcore-core-brand-plaque__nf {
-  color: #f5f8fb;
-  font-size: 1.55rem;
-  transform: skewX(-7deg) scaleX(.97);
+.nfcore-core-brand-wordmark__nf {
+  font-size: clamp(2.55rem,4.2vw,3.45rem);
+  letter-spacing: -.105em;
+  color: transparent;
+  background: linear-gradient(180deg,#ffffff 0%,#f5f8fb 34%,#a9bfd0 70%,#eef7ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  transform: skewX(-6deg) scaleX(.98);
   transform-origin: left bottom;
-  text-shadow:
-    0 1px 0 #a9bfd0,
-    0 0 10px rgba(255,255,255,.08);
+  text-shadow: 0 0 14px rgba(255,255,255,.04);
 }
 
-.nfcore-core-brand-plaque__core {
-  font-size: 1.58rem;
-  color: #00e5ff;
-  background: linear-gradient(90deg,#2f91ff,#00e5ff);
+.nfcore-core-brand-wordmark__core {
+  font-size: clamp(2.6rem,4.35vw,3.55rem);
+  letter-spacing: -.045em;
+  color: transparent;
+  background: linear-gradient(90deg,#2f91ff 0%,#00c8ff 52%,#00e5ff 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+.nfcore-core-slogan {
+  position: relative;
+  width: 100%;
+  margin-top: 9px;
+  padding: 8px 30px 9px;
+  color: #f4f9ff;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -.015em;
+  text-align: center;
+  border-bottom: 1px solid rgba(0,229,255,.48);
+  background: linear-gradient(90deg,transparent,rgba(0,229,255,.05),transparent);
+  box-shadow: 0 8px 16px -13px rgba(0,229,255,.95);
+}
+
+.nfcore-core-slogan::before,
+.nfcore-core-slogan::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  width: 34px;
+  height: 2px;
+  background: linear-gradient(90deg,transparent,#00e5ff);
+  box-shadow: 0 0 8px rgba(0,229,255,.72);
+}
+
+.nfcore-core-slogan::before {
+  left: 0;
+}
+
+.nfcore-core-slogan::after {
+  right: 0;
+  transform: scaleX(-1);
+}
+
 .nfcore-core-center--approved > .nfcore-core-caption {
   display: block;
-  margin-top: 8px;
-  color: #7f9ab3;
-  font-size: .70rem;
-  font-weight: 600;
-  letter-spacing: .06em;
+  margin-top: auto;
+  padding-top: 10px;
+  color: #83dfff;
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .24em;
   text-transform: uppercase;
 }
 
 /* Tablet: preserve 3 / logo / 3 geometry while there is room. */
 @media (max-width: 1100px) and (min-width: 761px) {
-  .nfcore-hero__visual {
-    padding-inline: 16px;
-  }
+  .nfcore-hero__visual { padding-inline: 16px; }
 
   .nfcore-hero-visual-layout {
     grid-template-columns: 112px minmax(0, 1fr) 112px;
@@ -626,13 +665,16 @@
   .nfcore-hero-visual-layout .nfcore-approved-brand {
     max-width: 460px;
   }
+
+  .nfcore-core-center--approved {
+    width: 340px;
+    height: 380px;
+  }
 }
 
 /* Mobile: clean grid, no horizontal overflow. */
 @media (max-width: 760px) {
-  .nfcore-hero__visual {
-    padding: 14px;
-  }
+  .nfcore-hero__visual { padding: 14px; }
 
   .nfcore-hero-visual-layout {
     display: grid;
@@ -647,9 +689,7 @@
     max-width: 100%;
   }
 
-  .nfcore-domain-column {
-    display: contents;
-  }
+  .nfcore-domain-column { display: contents; }
 
   .nfcore-domain-column .nfcore-domain {
     position: static !important;
@@ -669,8 +709,9 @@
 
   .nfcore-core-center--approved {
     width: 100%;
-    min-height: 360px;
+    min-height: 390px;
     height: auto;
+    padding-inline: 16px;
   }
 
   .nfcore-core-center--approved .nfcore-core-approved-brand {
@@ -678,7 +719,21 @@
     max-width: 82%;
   }
 
-  .nfcore-core-brand-plaque {
-    width: min(88%, 280px);
+  .nfcore-core-brand-lockup {
+    width: min(94%, 340px);
+    max-width: 340px;
+  }
+
+  .nfcore-core-brand-wordmark__nf {
+    font-size: clamp(2.4rem,13vw,3.2rem);
+  }
+
+  .nfcore-core-brand-wordmark__core {
+    font-size: clamp(2.45rem,13.4vw,3.28rem);
+  }
+
+  .nfcore-core-slogan {
+    padding-inline: 22px;
+    font-size: .94rem;
   }
 }
