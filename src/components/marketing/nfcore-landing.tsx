@@ -101,9 +101,7 @@ export function NFCoreLanding() {
               <p className="nfcore-release">Lançamento em preparação. Produção fiscal real depende de homologação, credenciais e autorização aplicáveis.</p>
             </div>
 
-            <div className="nfcore-hero__visual" aria-label="Identidade NFCore e dez macrocapacidades da infraestrutura fiscal">
-              <div className="nfcore-orbit nfcore-orbit--one" aria-hidden="true" />
-              <div className="nfcore-orbit nfcore-orbit--two" aria-hidden="true" />
+            <div className="nfcore-hero__visual" aria-label="Identidade NFCore e quatorze macrocapacidades da infraestrutura fiscal">
               <div className="nfcore-hero-visual-layout">
                 <div className="nfcore-domain-column nfcore-domain-column--left" aria-label="Capacidades NFCore à esquerda">
                   <span className="nfcore-domain">Emissão</span>
@@ -111,6 +109,8 @@ export function NFCoreLanding() {
                   <span className="nfcore-domain">Regras Fiscais</span>
                   <span className="nfcore-domain">Reconciliação</span>
                   <span className="nfcore-domain">Readiness</span>
+                  <span className="nfcore-domain">Cancelamento</span>
+                  <span className="nfcore-domain">Inutilização</span>
                 </div>
 
                 <div className="nfcore-mark-card nfcore-mark-card--approved">
@@ -131,6 +131,8 @@ export function NFCoreLanding() {
                   <span className="nfcore-domain">Webhooks</span>
                   <span className="nfcore-domain">Auditoria</span>
                   <span className="nfcore-domain">Governança</span>
+                  <span className="nfcore-domain">Certificados</span>
+                  <span className="nfcore-domain">Control Plane</span>
                 </div>
               </div>
             </div>
