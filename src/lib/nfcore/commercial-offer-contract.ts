@@ -333,9 +333,15 @@ export function parseNFCoreCommercialOffer(value: unknown): NFCoreCommercialOffe
   const checkoutItems = checkout.items.map(parseCheckoutItem);
   if (
     checkoutProvider === null &&
-    (checkoutStatus !== "unconfigured" || checkoutItems.length !== 0)
+    (
+      checkoutStatus !== "unconfigured" ||
+      processingStatus !== "unconfigured" ||
+      checkoutItems.length !== 0
+    )
   ) {
-    throw new Error("checkout without provider must remain unconfigured and empty");
+    throw new Error(
+      "checkout without provider must remain unconfigured, unprocessed and empty",
+    );
   }
   if (
     checkoutProvider !== null &&
