@@ -18,15 +18,6 @@ test("NFCore landing preserves commercial and fiscal readiness boundaries", asyn
   assert.doesNotMatch(landing, /PRODUCTION_APPROVED|100% homologado|produção liberada/i);
 });
 
-test("NFCore uses the director-approved cognitive brand assets", async () => {
-  const landing = await readFile("src/components/marketing/nfcore-landing.tsx", "utf8");
-  await access("public/brand/nfcore-logo-approved.png");
-  await access("public/brand/nfcore-emblem-approved.png");
-  assert.match(landing, /nfcore-logo-approved\.png/);
-  assert.match(landing, /nfcore-emblem-approved\.png/);
-});
-
-
 test("NFCore uses the final high-resolution approved brand pair", async () => {
   const landing = await readFile("src/components/marketing/nfcore-landing.tsx", "utf8");
   await access("public/brand/nfcore-brand-hero-final.png");
