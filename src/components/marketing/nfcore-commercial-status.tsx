@@ -47,6 +47,8 @@ const cadenceLabels: Record<NFCoreCommercialPrice["cadence"], string> = {
   one_time: "pagamento único",
 };
 
+const failClosedOffer = failClosedNFCoreCommercialOffer();
+
 function money(amount: string, currency: string) {
   return new Intl.NumberFormat("pt-BR", {
     style: "currency",
@@ -75,10 +77,9 @@ function pricingRows(offer: NFCoreCommercialOffer) {
 }
 
 export function NFCoreCommercialStatus() {
-  const fallback = failClosedNFCoreCommercialOffer();
   const [state, setState] = useState<OfferLoadState>({
     kind: "loading",
-    offer: fallback,
+    offer: failClosedOffer,
   });
 
   useEffect(() => {
@@ -100,7 +101,7 @@ export function NFCoreCommercialStatus() {
         }
       } catch {
         if (!controller.signal.aborted) {
-          setState({ kind: "fail_closed", offer: fallback });
+          setState({ kind: "fail_closed", offer: failClosedOffer });
         }
       }
     }
