@@ -3,6 +3,7 @@ import { existsSync, statSync, readFileSync } from "node:fs";
 import test from "node:test";
 
 const hero = readFileSync(new URL("../src/components/marketing/fm-premium-hero.tsx", import.meta.url), "utf8");
+const coreCarousel = readFileSync(new URL("../src/components/marketing/fm-core-visual-carousel.tsx", import.meta.url), "utf8");
 const header = readFileSync(new URL("../src/components/layout/header.tsx", import.meta.url), "utf8");
 const footer = readFileSync(new URL("../src/components/layout/footer.tsx", import.meta.url), "utf8");
 const foundation = readFileSync(new URL("../app/fm-premium-foundation.css", import.meta.url), "utf8");
@@ -11,22 +12,28 @@ const chrome = readFileSync(new URL("../src/components/layout/site-chrome.tsx", 
 const home = readFileSync(new URL("../app/page.tsx", import.meta.url), "utf8");
 
 test("approved Home Hero uses the approved Core artwork instead of the rejected procedural WebGL reconstruction", () => {
-  assert.match(hero, /fm-core-approved\.webp/);
+  assert.match(hero, /FmCoreVisualCarousel/);
   assert.doesNotMatch(hero, /FmCore3D/);
+  for (const asset of ["fm-core-core.webp", "fm-core-gerente-ia.webp", "fm-core-total-controle.webp"]) {
+    assert.ok(coreCarousel.includes(asset), "Missing approved institutional Core carousel asset: " + asset);
+  }
+  assert.doesNotMatch(coreCarousel, /fm-core-kordena\.webp/, "Home Hero must remain institutional; Kordena keeps its own product narrative.");
 });
 
-test("Core identification sits outside the original plaque, never overlaid on the artwork", () => {
+test("Core identity is baked into the approved static artwork, with no HTML overlay", () => {
   assert.doesNotMatch(hero, /plaque-copy/);
+  assert.doesNotMatch(hero, /fm-core-approved__caption/);
   assert.doesNotMatch(approvedCss, /plaque-copy/);
-  assert.match(hero, /fm-core-approved__caption/);
-  assert.match(hero, />CORE</);
-  assert.match(hero, /Gerente de IA da FM Tecnologia/);
+  assert.doesNotMatch(approvedCss, /fm-core-approved__caption/);
+  assert.doesNotMatch(coreCarousel, /plaque-copy|fm-core-approved__caption/);
 });
 
-test("approved Core artwork is committed as a real local asset", () => {
-  const asset = new URL("../public/brand/fm-core-approved.webp", import.meta.url);
-  assert.equal(existsSync(asset), true);
-  assert.ok(statSync(asset).size > 300_000);
+test("all four approved Core carousel artworks are committed as real local assets", () => {
+  for (const filename of ["fm-core-core.webp", "fm-core-gerente-ia.webp", "fm-core-kordena.webp", "fm-core-total-controle.webp"]) {
+    const asset = new URL("../public/brand/" + filename, import.meta.url);
+    assert.equal(existsSync(asset), true, "Missing asset: " + filename);
+    assert.ok(statSync(asset).size > 300_000, "Asset unexpectedly small: " + filename);
+  }
 });
 
 test("Home Hero keeps the approved institutional capability plates", () => {
@@ -64,4 +71,17 @@ test("Hero preserves the approved FM commercial message and calls to action", ()
   assert.match(hero, /operação, dados e inteligência/);
   assert.match(hero, /Conhecer produtos/);
   assert.match(hero, /Falar com a FM/);
+});
+
+
+test("site-wide public premium theme is scoped away from operational Iron Fit app", () => {
+  const siteChrome = readFileSync(new URL("../src/components/layout/site-chrome.tsx", import.meta.url), "utf8");
+  const layout = readFileSync(new URL("../app/layout.tsx", import.meta.url), "utf8");
+  const premium = readFileSync(new URL("../app/fm-public-site-premium.css", import.meta.url), "utf8");
+  assert.match(siteChrome, /pathname\.startsWith\("\/app\/iron-fit"\)/);
+  assert.match(siteChrome, /className="fm-public-site"/);
+  assert.match(layout, /fm-public-site-premium\.css/);
+  assert.match(premium, /\.fm-public-site/);
+  assert.match(premium, /#2f91ff/);
+  assert.match(premium, /#67d6ff/);
 });

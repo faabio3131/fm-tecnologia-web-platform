@@ -7,9 +7,18 @@ import { Footer } from "@/src/components/layout/footer";
 
 export function SiteChrome({ children }: { children: ReactNode }) {
   const pathname = usePathname();
+
   if (pathname.startsWith("/app/iron-fit")) {
     return <>{children}</>;
   }
+
   const premiumHome = pathname === "/";
-  return <><Header premiumHome={premiumHome} /><div id="conteudo" tabIndex={-1}>{children}</div><Footer premiumHome={premiumHome} /></>;
+
+  return (
+    <div className="fm-public-site">
+      <Header premiumHome={premiumHome} />
+      <div id="conteudo" tabIndex={-1}>{children}</div>
+      <Footer premiumHome={premiumHome} />
+    </div>
+  );
 }
