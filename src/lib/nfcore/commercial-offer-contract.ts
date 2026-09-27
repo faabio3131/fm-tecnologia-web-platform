@@ -6,7 +6,15 @@ export type NFCoreCommercialReleaseStatus =
   | "ready_for_commercial_review"
   | "commercial_approved";
 
-export type NFCoreCheckoutStatus = "unconfigured";
+export type NFCoreCheckoutStatus = "unconfigured" | "partial" | "configured";
+export type NFCoreCheckoutProcessingStatus = "unconfigured" | "configured";
+
+export interface NFCoreCheckoutItem {
+  plan_id: string;
+  price_id: string;
+  provider: "cakto";
+  checkout_url: string | null;
+}
 
 export interface NFCoreCommercialPrice {
   price_id: string;
@@ -47,6 +55,9 @@ export interface NFCoreCommercialOffer {
   };
   checkout: {
     status: NFCoreCheckoutStatus;
+    provider: "cakto";
+    processing_status: NFCoreCheckoutProcessingStatus;
+    items: NFCoreCheckoutItem[];
   };
   purchase_enabled: boolean;
   trial_enabled: boolean;
@@ -61,7 +72,16 @@ const releaseStatuses = new Set<NFCoreCommercialReleaseStatus>([
   "commercial_approved",
 ]);
 
-const checkoutStatuses = new Set<NFCoreCheckoutStatus>(["unconfigured"]);
+const checkoutStatuses = new Set<NFCoreCheckoutStatus>([
+  "unconfigured",
+  "partial",
+  "configured",
+]);
+
+const checkoutProcessingStatuses = new Set<NFCoreCheckoutProcessingStatus>([
+  "unconfigured",
+  "configured",
+]);
 
 const cadences = new Set<NFCoreCommercialPrice["cadence"]>([
   "monthly",
@@ -172,6 +192,61 @@ function parseCatalog(value: unknown): NFCoreCommercialCatalog {
   };
 }
 
+function canonicalCaktoCheckoutUrl(value: unknown, field: string): string {
+  const raw = stringValue(value, field);
+  let url: URL;
+  try {
+    url = new URL(raw);
+  } catch {
+    throw new Error(`${field} must be a valid URL`);
+  }
+  const segments = url.pathname.split("/").filter(Boolean);
+  if (
+    url.protocol !== "https:" ||
+    url.hostname !== "pay.cakto.com.br" ||
+    url.port ||
+    url.username ||
+    url.password ||
+    url.search ||
+    url.hash ||
+    segments.length !== 1
+  ) {
+    throw new Error(`${field} must be a canonical Cakto checkout URL`);
+  }
+  return url.href;
+}
+
+function parseCheckoutItem(value: unknown, index: number): NFCoreCheckoutItem {
+  const item = objectValue(value, `checkout.items[${index}]`);
+  if (item.provider !== "cakto") {
+    throw new Error("checkout item provider must be cakto");
+  }
+  return {
+    plan_id: stringValue(item.plan_id, `checkout.items[${index}].plan_id`),
+    price_id: stringValue(item.price_id, `checkout.items[${index}].price_id`),
+    provider: "cakto",
+    checkout_url:
+      item.checkout_url === null
+        ? null
+        : canonicalCaktoCheckoutUrl(
+            item.checkout_url,
+            `checkout.items[${index}].checkout_url`,
+          ),
+  };
+}
+
+function expectedCheckoutPairs(catalog: NFCoreCommercialCatalog | null): Set<string> {
+  if (!catalog) return new Set();
+  const prices = new Set(catalog.prices.map((price) => price.price_id));
+  return new Set(
+    catalog.plans.flatMap((plan) =>
+      plan.price_ids
+        .filter((priceId) => prices.has(priceId))
+        .map((priceId) => `${plan.plan_id}:${priceId}`),
+    ),
+  );
+}
+
 export function failClosedNFCoreCommercialOffer(): NFCoreCommercialOffer {
   return {
     product_id: "nfcore",
@@ -187,6 +262,9 @@ export function failClosedNFCoreCommercialOffer(): NFCoreCommercialOffer {
     },
     checkout: {
       status: "unconfigured",
+      provider: "cakto",
+      processing_status: "unconfigured",
+      items: [],
     },
     purchase_enabled: false,
     trial_enabled: false,
@@ -231,11 +309,71 @@ export function parseNFCoreCommercialOffer(value: unknown): NFCoreCommercialOffe
   if (!checkoutStatuses.has(checkoutStatus as NFCoreCheckoutStatus)) {
     throw new Error("checkout status is unsupported");
   }
+  if (checkout.provider !== "cakto") {
+    throw new Error("checkout provider must be cakto");
+  }
+  const processingStatus = stringValue(
+    checkout.processing_status,
+    "checkout.processing_status",
+  );
+  if (
+    !checkoutProcessingStatuses.has(
+      processingStatus as NFCoreCheckoutProcessingStatus,
+    )
+  ) {
+    throw new Error("checkout processing status is unsupported");
+  }
+  if (!Array.isArray(checkout.items)) {
+    throw new Error("checkout.items must be an array");
+  }
+  const checkoutItems = checkout.items.map(parseCheckoutItem);
+  const expectedPairs = expectedCheckoutPairs(catalog);
+  const itemPairs = new Set<string>();
+  for (const item of checkoutItems) {
+    const pair = `${item.plan_id}:${item.price_id}`;
+    if (!expectedPairs.has(pair)) {
+      throw new Error("checkout item does not match the published pricing catalog");
+    }
+    if (itemPairs.has(pair)) {
+      throw new Error("checkout item pair must be unique");
+    }
+    itemPairs.add(pair);
+  }
+
+  if (pricingStatus === "unpriced" && checkoutStatus !== "unconfigured") {
+    throw new Error("unpriced offer cannot expose configured checkout");
+  }
+  if (checkoutStatus === "unconfigured" && checkoutItems.length !== 0) {
+    throw new Error("unconfigured checkout must not expose items");
+  }
+  if (
+    checkoutStatus === "partial" &&
+    (checkoutItems.length === 0 || checkoutItems.length >= expectedPairs.size)
+  ) {
+    throw new Error("partial checkout projection is inconsistent");
+  }
+  if (
+    checkoutStatus === "configured" &&
+    (expectedPairs.size === 0 || checkoutItems.length !== expectedPairs.size)
+  ) {
+    throw new Error("configured checkout must cover every published plan/price pair");
+  }
 
   const purchaseEnabled = booleanValue(root.purchase_enabled, "purchase_enabled");
   const trialEnabled = booleanValue(root.trial_enabled, "trial_enabled");
-  if (purchaseEnabled) {
-    throw new Error("purchase must remain disabled until a checkout contract is implemented");
+  if (!purchaseEnabled && checkoutItems.some((item) => item.checkout_url !== null)) {
+    throw new Error("checkout URLs must stay hidden while purchase is disabled");
+  }
+  if (
+    purchaseEnabled &&
+    (!commerciallyApproved ||
+      pricingStatus !== "published" ||
+      checkoutStatus !== "configured" ||
+      processingStatus !== "configured" ||
+      checkoutItems.length === 0 ||
+      checkoutItems.some((item) => item.checkout_url === null))
+  ) {
+    throw new Error("purchase-enabled offer is inconsistent with commercial checkout gates");
   }
 
   return {
@@ -252,6 +390,9 @@ export function parseNFCoreCommercialOffer(value: unknown): NFCoreCommercialOffe
     },
     checkout: {
       status: checkoutStatus as NFCoreCheckoutStatus,
+      provider: "cakto",
+      processing_status: processingStatus as NFCoreCheckoutProcessingStatus,
+      items: checkoutItems,
     },
     purchase_enabled: purchaseEnabled,
     trial_enabled: trialEnabled,
