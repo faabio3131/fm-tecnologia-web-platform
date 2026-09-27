@@ -60,7 +60,26 @@
   line-height: .9;
   letter-spacing: -.065em;
 }
-.nfcore-hero h1 span {
+.nfcore-wordmark {
+  display: flex;
+  align-items: baseline;
+  gap: .035em;
+}
+
+.nfcore-wordmark__nf {
+  display: inline-block;
+  color: #f4f7fb;
+  font-family: "Arial Black", "Arial Narrow", Arial, sans-serif;
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: -.105em;
+  transform: skewX(-8deg) scaleX(.96);
+  transform-origin: left bottom;
+  text-shadow: 0 0 18px rgba(173,211,255,.08);
+}
+
+.nfcore-wordmark__core {
+  display: inline-block;
   color: var(--nf-cyan);
   background: linear-gradient(90deg,var(--nf-blue),var(--nf-cyan));
   -webkit-background-clip: text;
@@ -105,7 +124,28 @@
 .nfcore-mark-card img { width: 112px; height: 112px; margin: 0 auto .55rem; }
 .nfcore-mark-card span,.nfcore-mark-card strong,.nfcore-mark-card small { display: block; }
 .nfcore-mark-card span { color: #dbe9f6; font-size: .66rem; letter-spacing: .18em; }
-.nfcore-mark-card strong { color: var(--nf-cyan); font-size: 1.35rem; letter-spacing: .06em; }
+.nfcore-mark-card strong { color: var(--nf-cyan); font-size: 1.35rem; letter-spacing: .025em; }
+.nfcore-mini-wordmark {
+  display: inline-flex !important;
+  align-items: baseline;
+  justify-content: center;
+  gap: .035em;
+}
+.nfcore-mini-wordmark__nf {
+  display: inline-block;
+  color: #f4f7fb;
+  font-family: "Arial Black", "Arial Narrow", Arial, sans-serif;
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: -.08em;
+  transform: skewX(-8deg) scaleX(.96);
+  transform-origin: left bottom;
+}
+.nfcore-mini-wordmark__core {
+  display: inline-block;
+  color: var(--nf-cyan);
+  letter-spacing: .045em;
+}
 .nfcore-mark-card small { margin-top: .22rem; color: #7691aa; font-size: .63rem; }
 .nfcore-domain {
   position: absolute; z-index: 3;
@@ -169,7 +209,7 @@
   box-shadow:0 0 70px rgba(37,99,255,.12);
 }
 .nfcore-core-center img { width:94px;height:94px;margin:0 auto .4rem; }
-.nfcore-core-center strong { color:var(--nf-cyan); letter-spacing:.08em; }
+.nfcore-core-center strong { color:var(--nf-cyan); letter-spacing:.025em; }
 .nfcore-core-center span { margin-top:.2rem; color:#7792aa; font-size:.72rem; }
 .nfcore-core-pillar { position:absolute; z-index:3; width:210px; padding:1rem; border:1px solid rgba(37,99,255,.17); border-radius:15px; background:#0b1c32; }
 .nfcore-core-pillar b,.nfcore-core-pillar span { display:block; }
