@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/src/config/site";
+import { NFCoreCommercialStatus } from "./nfcore-commercial-status";
 
 const capabilities = [
   ["Documentos fiscais", "Modelo canônico para organizar documentos, eventos, estados e evidências da operação fiscal."],
@@ -39,7 +40,7 @@ export function NFCoreLanding() {
           <div className="nfcore-hero__grid">
             <div className="nfcore-hero__copy">
               <p className="eyebrow">Infrastructure Mission Control · Gestão Fiscal</p>
-              <div className="nfcore-status">Produto Principal · Em desenvolvimento</div>
+              <div className="nfcore-status">Produto Principal · Infrastructure Mission Control</div>
               <h1 id="nfcore-title" className="nfcore-wordmark"><span className="nfcore-wordmark__nf">NF</span><span className="nfcore-wordmark__core">CORE</span></h1>
               <p className="nfcore-tagline">Infraestrutura fiscal. Sob controle.</p>
               <p className="lead">Reduza erros humanos, diminua o retrabalho operacional e centralize a gestão fiscal em uma infraestrutura coordenada pelo Core.</p>
@@ -48,7 +49,7 @@ export function NFCoreLanding() {
                 <a className="button button--primary" href="#mission-control">Conhecer o NFCore <span aria-hidden="true">↓</span></a>
                 <a className="button button--secondary" href={whatsapp}>Falar com a FM <span aria-hidden="true">↗</span></a>
               </div>
-              <p className="nfcore-release">Lançamento em preparação. Produção fiscal real depende de homologação, credenciais e autorização aplicáveis.</p>
+              <p className="nfcore-release">Disponibilidade comercial, checkout e produção fiscal são autoridades independentes e governadas por evidência.</p>
             </div>
 
             <div className="nfcore-hero__visual" aria-label="Identidade NFCore e principais domínios da infraestrutura fiscal">
@@ -162,16 +163,8 @@ export function NFCoreLanding() {
         </div>
       </section>
 
-      <section id="disponibilidade" className="container nfcore-contact" aria-labelledby="nfcore-contact-title">
-        <div>
-          <p className="eyebrow">Disponibilidade</p>
-          <h2 id="nfcore-contact-title">NFCore está em preparação para lançamento comercial.</h2>
-          <p>A página apresenta o posicionamento e a arquitetura do produto. Homologações, credenciais e produção fiscal continuam condicionadas às evidências e autorizações correspondentes.</p>
-        </div>
-        <div className="nfcore-contact__actions">
-          <a className="button button--primary" href={whatsapp}>Falar sobre o NFCore <span aria-hidden="true">↗</span></a>
-          <a className="button button--secondary" href={`mailto:${siteConfig.contactEmail}?subject=${encodeURIComponent("Interesse em NFCore")}`}>E-mail</a>
-        </div>
+      <section id="disponibilidade" className="container nfcore-contact" aria-label="Disponibilidade comercial do NFCore">
+        <NFCoreCommercialStatus />
       </section>
     </main>
   );
