@@ -43,7 +43,7 @@ const publishedApprovedOffer = {
   },
   checkout: {
     status: "unconfigured",
-    provider: "cakto",
+    provider: null,
     processing_status: "unconfigured",
     items: [],
   },
@@ -55,14 +55,14 @@ const purchasableOffer = {
   ...publishedApprovedOffer,
   checkout: {
     status: "configured",
-    provider: "cakto",
+    provider: "hotmart",
     processing_status: "configured",
     items: [
       {
         plan_id: "nfcore-core",
         price_id: "nfcore-monthly",
-        provider: "cakto",
-        checkout_url: "https://pay.cakto.com.br/offer-monthly",
+        provider: "hotmart",
+        checkout_url: "https://pay.hotmart.com/example?src=nfcore",
       },
     ],
   },
@@ -75,7 +75,7 @@ test("fallback comercial NFCore é invariavelmente fail-closed", () => {
   assert.equal(fallback.release.commercially_approved, false);
   assert.equal(fallback.pricing.status, "unpriced");
   assert.equal(fallback.checkout.status, "unconfigured");
-  assert.equal(fallback.checkout.provider, "cakto");
+  assert.equal(fallback.checkout.provider, null);
   assert.equal(fallback.checkout.processing_status, "unconfigured");
   assert.deepEqual(fallback.checkout.items, []);
   assert.equal(fallback.purchase_enabled, false);
@@ -104,18 +104,18 @@ test("status comercial não pode fingir aprovação", () => {
   );
 });
 
-test("contrato aceita compra somente quando todos os gates Cakto estão coerentes", () => {
+test("contrato aceita compra com provider externo não-Cakto quando os gates estão coerentes", () => {
   const parsed = parseNFCoreCommercialOffer(purchasableOffer);
   assert.equal(parsed.purchase_enabled, true);
   assert.equal(parsed.checkout.status, "configured");
   assert.equal(parsed.checkout.processing_status, "configured");
   assert.equal(
     parsed.checkout.items[0]?.checkout_url,
-    "https://pay.cakto.com.br/offer-monthly",
+    "https://pay.hotmart.com/example?src=nfcore",
   );
 });
 
-test("site rejeita URL de checkout fora do host canônico Cakto", () => {
+test("site rejeita checkout sem HTTPS mesmo para provider válido", () => {
   assert.throws(
     () =>
       parseNFCoreCommercialOffer({
@@ -125,16 +125,16 @@ test("site rejeita URL de checkout fora do host canônico Cakto", () => {
           items: [
             {
               ...purchasableOffer.checkout.items[0],
-              checkout_url: "https://example.com/offer-monthly",
+              checkout_url: "http://pay.hotmart.com/example",
             },
           ],
         },
       }),
-    /canonical Cakto checkout URL/,
+    /absolute HTTPS URL/,
   );
 });
 
-test("site rejeita compra habilitada sem processamento Cakto configurado", () => {
+test("site rejeita compra habilitada sem processamento do provider configurado", () => {
   assert.throws(
     () =>
       parseNFCoreCommercialOffer({
