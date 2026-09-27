@@ -279,26 +279,29 @@
   overflow: visible;
 }
 
-.nfcore-approved-brand {
+.nfcore-mark-card--approved .nfcore-approved-brand {
   display: block;
   width: 100%;
+  max-width: 455px;
   height: auto;
+  margin: 0 auto;
   object-fit: contain;
   border-radius: 20px;
 }
 
 .nfcore-core-center--approved {
-  width: 320px;
-  height: 190px;
-  padding: .65rem;
+  width: 360px;
+  height: 220px;
+  padding: .7rem 1rem .6rem;
   border-color: rgba(0,229,255,.22);
 }
 
-.nfcore-core-approved-brand {
+.nfcore-core-center--approved .nfcore-core-approved-brand {
   display: block;
-  width: 282px;
+  width: 320px;
+  max-width: 100%;
   height: auto;
-  margin: 0 auto .28rem;
+  margin: 0 auto .2rem;
   object-fit: contain;
   border-radius: 14px;
 }
@@ -317,7 +320,7 @@
     height: auto;
   }
 
-  .nfcore-core-approved-brand {
+  .nfcore-core-center--approved .nfcore-core-approved-brand {
     width: min(100%, 360px);
   }
 }
