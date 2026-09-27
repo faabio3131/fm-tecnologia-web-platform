@@ -4,7 +4,7 @@
 .site-header {
   height: 100px;
   background: #090d0b;
-  border-bottom-color: rgba(183, 244, 60, .14);
+  border-bottom-color: rgba(103,214,255,.14);
   box-shadow: 0 10px 26px rgba(0, 0, 0, .12);
 }
 
@@ -65,12 +65,12 @@
   background: #2f91ff;
   color: var(--ink);
   border-color: #2f91ff;
-  box-shadow: 0 8px 24px rgba(183, 244, 60, .12);
+  box-shadow: 0 8px 24px rgba(103,214,255,.12);
 }
 
 .site-header .button--primary:hover {
-  background: #c4ff4c;
-  border-color: #c4ff4c;
+  background: #43a0ff;
+  border-color: #58baff;
 }
 
 .site-header .mobile-menu-toggle {
