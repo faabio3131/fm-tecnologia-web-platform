@@ -92,16 +92,66 @@
   .kordena-flow { grid-template-columns: 1fr; }
   .kordena-flow li { min-height: auto; border-right: 0; border-bottom: 1px solid var(--line); flex-direction: row; align-items: center; justify-content: flex-start; }
   .kordena-flow li:last-child { border-bottom: 0; }
-  .kordena-core-map { min-height: 430px; padding: 1rem; }
-  .kordena-core-center { width: 135px; height: 135px; }
+
+  /* Mobile Core: keep the artwork separate from the capability labels. */
+  .kordena-core-map {
+    min-height: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .9rem;
+  }
+  .kordena-core-map:before,
+  .kordena-core-map:after { display: none; }
+  .kordena-core-center {
+    position: relative;
+    flex: 0 0 auto;
+    width: 184px;
+    height: 184px;
+    z-index: 2;
+  }
   .kordena-core-center strong { font-size: 1.6rem; }
-  .kordena-core-areas { inset: .7rem; }
-  .kordena-core-areas span { max-width: 118px; font-size: .68rem; padding: .4rem .55rem; }
+  .kordena-core-brandmark--static {
+    width: 184px;
+    height: 184px;
+    object-fit: contain;
+  }
+  .kordena-core-areas {
+    position: static;
+    inset: auto;
+    width: 100%;
+    z-index: 4;
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    align-content: normal;
+    justify-content: normal;
+    gap: .55rem;
+  }
+  .kordena-core-areas span,
+  .kordena-core-areas span:nth-child(even) {
+    justify-self: stretch;
+    max-width: none;
+    min-width: 0;
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .55rem .6rem;
+    text-align: center;
+    color: #f2f9ff;
+    background: linear-gradient(135deg,#124069,#0a2a49);
+    border-color: rgba(103,214,255,.52);
+    font-size: .72rem;
+    line-height: 1.15;
+    font-weight: 800;
+  }
   .kordena-media-placeholder { min-height: 240px; }
 }
 @media(max-width:420px) {
-  .kordena-core-map { min-height: 390px; }
-  .kordena-core-center { width: 118px; height: 118px; }
-  .kordena-core-areas span { max-width: 102px; font-size: .62rem; }
+  .kordena-core-center,
+  .kordena-core-brandmark--static { width: 166px; height: 166px; }
+  .kordena-core-areas span,
+  .kordena-core-areas span:nth-child(even) { min-height: 44px; font-size: .68rem; }
   .kordena-demo-play { width: 58px; height: 58px; }
 }
