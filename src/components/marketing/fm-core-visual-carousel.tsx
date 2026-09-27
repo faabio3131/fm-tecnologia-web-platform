@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 const frames = [
   { src: "/brand/fm-core-core.webp", alt: "Core da FM Tecnologia" },
   { src: "/brand/fm-core-gerente-ia.webp", alt: "Gerente IA da FM Tecnologia" },
-  { src: "/brand/fm-core-kordena.webp", alt: "Kordena conectado ao Core" },
   { src: "/brand/fm-core-total-controle.webp", alt: "Core representando total controle da operação" },
 ] as const;
 
