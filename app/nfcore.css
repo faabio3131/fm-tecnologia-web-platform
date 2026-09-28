@@ -207,7 +207,7 @@
 }
 .nfcore-core-center img { width:94px;height:94px;margin:0 auto .4rem; }
 .nfcore-core-center strong { color:var(--nf-cyan); letter-spacing:.025em; }
-.nfcore-core-center span { margin-top:.2rem; color:#7792aa; font-size:.72rem; }
+.nfcore-core-center > span:not(.nfcore-core-caption) { margin-top:.2rem; color:#7792aa; }
 .nfcore-core-pillar { position:absolute; z-index:3; width:210px; padding:1rem; border:1px solid rgba(37,99,255,.17); border-radius:15px; background:#0b1c32; }
 .nfcore-core-pillar b,.nfcore-core-pillar span { display:block; }
 .nfcore-core-pillar b { color:#eff7ff; }
@@ -1417,99 +1417,218 @@
 }
 
 
-/* 2026-09-28 — APPROVED Core Fiscal visual restored from the locked reference.
-   Four pillars only: Contexto / Operação / Regras / Evidência. */
+/* 2026-09-28 — NFCORE CORE FISCAL — FINAL VISUAL LOCK
+   Approved reference: 4 pillars + dominant NF CORE lockup + framed slogan.
+   Do not reinterpret this block without a new visual approval. */
 .nfcore-core-stage {
+  position: relative;
   min-height: 520px;
-  padding: 34px 42px;
+  padding: 30px 42px;
+  display: grid;
   grid-template-columns: minmax(190px,220px) minmax(360px,400px) minmax(190px,220px);
-  gap: 46px;
+  align-items: center;
+  justify-content: center;
+  gap: 44px;
+  overflow: hidden;
+  border: 1px solid rgba(0,229,255,.18);
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 50% 48%,rgba(0,128,255,.08),transparent 31%),
+    linear-gradient(145deg,rgba(10,32,56,.97),rgba(7,22,38,.99));
 }
 
+.nfcore-core-stage::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 440px;
+  height: 440px;
+  transform: translate(-50%,-50%);
+  border: 1px solid rgba(0,229,255,.07);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.nfcore-core-stage::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 560px;
+  height: 560px;
+  transform: translate(-50%,-50%);
+  border: 1px dashed rgba(37,145,255,.045);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.nfcore-core-pillar-column {
+  position: relative;
+  z-index: 3;
+  min-height: 350px;
+  display: grid;
+  grid-template-rows: repeat(2,1fr);
+  align-items: center;
+  gap: 34px;
+}
+
+.nfcore-core-pillar-column--left { justify-items: end; }
+.nfcore-core-pillar-column--right { justify-items: start; }
+
+.nfcore-core-pillar {
+  position: static !important;
+  width: 100%;
+  max-width: 220px;
+  min-height: 100px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgba(47,145,255,.22);
+  border-radius: 16px;
+  background: linear-gradient(145deg,rgba(14,37,66,.97),rgba(9,28,49,.98));
+  box-shadow: inset 0 0 22px rgba(47,145,255,.025);
+}
+
+.nfcore-core-pillar b {
+  display: block;
+  margin: 0;
+  color: #f4f8fc;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.nfcore-core-pillar span {
+  display: block;
+  margin-top: 8px;
+  color: #89a2b8;
+  font-family: var(--font-body);
+  font-size: .75rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.nfcore-core-center,
 .nfcore-core-center--approved {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  z-index: 4;
   width: 390px;
   max-width: 100%;
   height: 440px;
   min-height: 440px;
-  padding: 18px 20px 14px;
-  border-color: rgba(0,229,255,.34);
+  margin: 0 auto;
+  padding: 18px 20px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px solid rgba(0,229,255,.34);
   border-radius: 24px;
-  background: linear-gradient(155deg,#071523 0%,#091b2e 100%);
+  background: linear-gradient(155deg,#071523 0%,#081827 52%,#091b2e 100%);
   box-shadow:
-    0 0 0 1px rgba(37,99,255,.08) inset,
-    0 0 64px rgba(37,99,255,.14);
+    inset 0 0 0 1px rgba(37,145,255,.05),
+    0 0 52px rgba(37,145,255,.09);
 }
 
 .nfcore-core-center--approved .nfcore-core-approved-brand {
-  width: 260px;
-  max-width: 78%;
-  height: auto;
-  margin: 0 auto 2px;
-  border-radius: 20px;
+  display: block;
+  width: 255px !important;
+  max-width: 78% !important;
+  height: auto !important;
+  margin: 0 auto 6px !important;
+  border-radius: 18px;
+  object-fit: contain;
 }
 
 .nfcore-core-brand-lockup {
   width: 100%;
-  max-width: 350px;
+  max-width: 352px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 0;
+  background: transparent;
 }
 
 .nfcore-core-brand-wordmark {
-  margin-top: 0;
-  gap: .10em;
-  line-height: .88;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: .09em;
+  line-height: .9;
+  white-space: nowrap;
   filter:
     drop-shadow(0 6px 10px rgba(0,0,0,.34))
-    drop-shadow(0 0 10px rgba(0,174,255,.08));
+    drop-shadow(0 0 11px rgba(0,174,255,.09));
 }
 
-.nfcore-core-brand-wordmark__nf,
-.nfcore-core-brand-wordmark__core {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 900;
-  line-height: .92;
-  transform: skewX(-5deg);
+/* Higher specificity deliberately defeats legacy .nfcore-core-center span rules. */
+.nfcore-core-center .nfcore-core-brand-wordmark .nfcore-core-brand-wordmark__nf,
+.nfcore-core-center .nfcore-core-brand-wordmark .nfcore-core-brand-wordmark__core {
+  display: inline-block !important;
+  margin: 0 !important;
+  font-family: var(--font-display) !important;
+  font-style: italic !important;
+  font-weight: 900 !important;
+  line-height: .92 !important;
+  transform: none !important;
 }
 
-.nfcore-core-brand-wordmark__nf {
-  font-size: clamp(2.85rem,4.25vw,3.85rem);
-  letter-spacing: -.11em;
-  color: transparent;
-  background: linear-gradient(180deg,#ffffff 0%,#eef4f8 34%,#8ea9bc 70%,#f7fbff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* NF uses live text, therefore the N is intact: no crack/mask/clip asset is involved. */
+.nfcore-core-center .nfcore-core-brand-wordmark .nfcore-core-brand-wordmark__nf {
+  font-size: clamp(3rem,4vw,3.75rem) !important;
+  letter-spacing: -.09em !important;
+  color: transparent !important;
+  background: linear-gradient(180deg,#fff 0%,#f7f9fb 28%,#c3d0d9 54%,#92a9b9 73%,#edf5fa 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow: 0 0 10px rgba(255,255,255,.035) !important;
 }
 
-.nfcore-core-brand-wordmark__core {
-  font-size: clamp(2.9rem,4.35vw,3.95rem);
-  letter-spacing: -.055em;
-  color: transparent;
-  background: linear-gradient(90deg,#2f91ff 0%,#00c8ff 52%,#00e5ff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+.nfcore-core-center .nfcore-core-brand-wordmark .nfcore-core-brand-wordmark__core {
+  font-size: clamp(3.02rem,4.1vw,3.82rem) !important;
+  letter-spacing: -.055em !important;
+  color: transparent !important;
+  background: linear-gradient(90deg,#318fff 0%,#00baff 45%,#00e5ff 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
 }
 
-.nfcore-core-slogan {
-  position: relative;
-  width: calc(100% - 14px);
-  margin: 11px auto 0;
-  padding: 9px 32px 10px;
-  border: 1px solid rgba(0,229,255,.22);
-  border-left-color: rgba(0,229,255,.58);
-  border-right-color: rgba(0,229,255,.58);
-  border-radius: 10px;
-  color: #f5fbff;
-  background:
-    linear-gradient(90deg,rgba(0,229,255,.03),rgba(0,229,255,.08),rgba(0,229,255,.03));
+.nfcore-core-center .nfcore-core-brand-lockup .nfcore-core-slogan {
+  position: relative !important;
+  display: block !important;
+  width: calc(100% - 26px) !important;
+  margin: 12px auto 0 !important;
+  padding: 9px 24px 10px !important;
+  color: #f4f9ff !important;
+  font-family: var(--font-body) !important;
+  font-size: .94rem !important;
+  font-weight: 500 !important;
+  line-height: 1.15 !important;
+  text-align: center !important;
+  letter-spacing: -.01em !important;
+  border: 1px solid rgba(0,229,255,.30) !important;
+  border-left-color: rgba(0,229,255,.75) !important;
+  border-right-color: rgba(0,229,255,.75) !important;
+  border-radius: 9px !important;
+  background: linear-gradient(90deg,rgba(0,229,255,.02),rgba(0,155,255,.08),rgba(0,229,255,.02)) !important;
   box-shadow:
-    0 0 0 1px rgba(37,145,255,.05) inset,
-    0 0 18px rgba(0,229,255,.10),
-    0 10px 18px -16px rgba(0,229,255,.95);
-  font-size: .94rem;
-  font-weight: 500;
-  line-height: 1.15;
+    inset 0 0 12px rgba(0,229,255,.035),
+    0 0 14px rgba(0,229,255,.10) !important;
 }
 
 .nfcore-core-slogan::before,
@@ -1517,102 +1636,72 @@
   content: "";
   position: absolute;
   top: 50%;
-  width: 28px;
-  height: 14px;
+  width: 23px;
+  height: 17px;
   transform: translateY(-50%);
   border-top: 2px solid #00e5ff;
   border-bottom: 2px solid #00e5ff;
-  box-shadow: 0 0 9px rgba(0,229,255,.48);
+  box-shadow: 0 0 8px rgba(0,229,255,.52);
 }
 
 .nfcore-core-slogan::before {
-  left: -15px;
+  left: -17px;
   border-left: 2px solid #00e5ff;
-  border-radius: 5px 0 0 5px;
+  border-radius: 6px 0 0 6px;
 }
 
 .nfcore-core-slogan::after {
-  right: -15px;
+  right: -17px;
   border-right: 2px solid #00e5ff;
-  border-radius: 0 5px 5px 0;
+  border-radius: 0 6px 6px 0;
 }
 
 .nfcore-core-center--approved > .nfcore-core-caption {
-  margin-top: auto;
-  padding-top: 12px;
-  color: #82dfff;
-  font-size: .8rem;
-  font-weight: 700;
-  letter-spacing: .28em;
-}
-
-.nfcore-core-pillar-column {
-  grid-template-rows: repeat(2,minmax(96px,1fr));
-  gap: 0;
-  align-content: stretch;
-  min-height: 360px;
-}
-
-.nfcore-core-pillar-column--left,
-.nfcore-core-pillar-column--right {
-  justify-items: stretch;
-}
-
-.nfcore-core-pillar {
-  align-self: center;
-  width: 100%;
-  max-width: 220px;
-  min-height: 100px;
-  padding: 1rem 1.05rem;
-  border-radius: 16px;
-  background: linear-gradient(145deg,#0d213b,#0a1b31);
-}
-
-.nfcore-core-pillar b {
-  font-size: 1rem;
-}
-
-.nfcore-core-pillar span {
-  margin-top: .42rem;
-  font-size: .75rem;
-  line-height: 1.4;
+  display: block !important;
+  margin-top: auto !important;
+  padding-top: 13px !important;
+  color: #83dfff !important;
+  font-family: var(--font-display) !important;
+  font-size: .79rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: .28em !important;
+  text-transform: uppercase !important;
 }
 
 @media (max-width: 1000px) and (min-width: 761px) {
   .nfcore-core-stage {
     min-height: 470px;
     padding: 24px 18px;
-    grid-template-columns: minmax(150px,175px) minmax(300px,340px) minmax(150px,175px);
+    grid-template-columns: minmax(150px,175px) minmax(310px,340px) minmax(150px,175px);
     gap: 22px;
   }
 
   .nfcore-core-center--approved {
     width: 335px;
-    min-height: 390px;
-    height: 390px;
+    height: 395px;
+    min-height: 395px;
   }
 
   .nfcore-core-center--approved .nfcore-core-approved-brand {
-    width: 222px;
+    width: 218px !important;
   }
 
-  .nfcore-core-brand-wordmark__nf,
-  .nfcore-core-brand-wordmark__core {
-    font-size: clamp(2.4rem,4vw,3rem);
+  .nfcore-core-center .nfcore-core-brand-wordmark .nfcore-core-brand-wordmark__nf,
+  .nfcore-core-center .nfcore-core-brand-wordmark .nfcore-core-brand-wordmark__core {
+    font-size: 2.7rem !important;
   }
 
-  .nfcore-core-slogan {
-    font-size: .82rem;
+  .nfcore-core-center .nfcore-core-brand-lockup .nfcore-core-slogan {
+    font-size: .79rem !important;
   }
 
-  .nfcore-core-pillar-column {
-    min-height: 320px;
-  }
+  .nfcore-core-pillar-column { min-height: 315px; }
 
   .nfcore-core-pillar {
     max-width: 175px;
     min-height: 88px;
-    padding: .82rem .8rem;
+    padding: 14px;
   }
 }
 
@@ -1628,24 +1717,24 @@
     grid-row: 1;
     width: 100%;
     max-width: 390px;
-    min-height: 420px;
     height: auto;
+    min-height: 420px;
     margin-inline: auto;
   }
 
   .nfcore-core-center--approved .nfcore-core-approved-brand {
-    width: min(250px,78vw);
+    width: min(235px,76vw) !important;
   }
 
-  .nfcore-core-brand-wordmark__nf,
-  .nfcore-core-brand-wordmark__core {
-    font-size: clamp(2.35rem,12vw,3.35rem);
+  .nfcore-core-center .nfcore-core-brand-wordmark .nfcore-core-brand-wordmark__nf,
+  .nfcore-core-center .nfcore-core-brand-wordmark .nfcore-core-brand-wordmark__core {
+    font-size: clamp(2.3rem,11vw,3.1rem) !important;
   }
 
-  .nfcore-core-slogan {
-    width: calc(100% - 30px);
-    font-size: .78rem;
-    padding-inline: 20px;
+  .nfcore-core-center .nfcore-core-brand-lockup .nfcore-core-slogan {
+    width: calc(100% - 36px) !important;
+    padding-inline: 16px !important;
+    font-size: .76rem !important;
   }
 
   .nfcore-core-pillar-column {
@@ -1655,16 +1744,16 @@
     gap: 8px;
   }
 
-  .nfcore-core-pillar-column--left {
-    grid-row: 2;
-  }
-
-  .nfcore-core-pillar-column--right {
-    grid-row: 3;
-  }
+  .nfcore-core-pillar-column--left { grid-row: 2; }
+  .nfcore-core-pillar-column--right { grid-row: 3; }
 
   .nfcore-core-pillar {
     max-width: none;
     min-height: 76px;
+    padding: 12px;
   }
+
+  .nfcore-core-pillar b { font-size: .82rem; }
+  .nfcore-core-pillar span { font-size: .64rem; }
 }
+
