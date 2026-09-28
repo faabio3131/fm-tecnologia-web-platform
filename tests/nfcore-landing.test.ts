@@ -61,7 +61,7 @@ test("NFCore landing exposes its real functional depth without inventing product
   assert.match(landing, /Contingência/);
   assert.match(landing, /Capability & Readiness/);
   assert.match(landing, /Bridge e API versionada/);
-  assert.match(landing, /Integrações multiproduto/);
+  assert.match(landing, /Arquitetura integrável/);
   assert.match(landing, /Onboarding governado/);
   assert.match(landing, /Planos, entitlements e uso/);
   assert.match(landing, /Pricing, liberação e checkout/);
@@ -121,4 +121,47 @@ test("NFCore wordmarks use the shared FM display typography", async () => {
   assert.doesNotMatch(finalTypographyBlock, /Arial Black|Arial Narrow/);
   assert.match(finalTypographyBlock, /font-style:\s*normal/);
   assert.match(finalTypographyBlock, /transform:\s*none/);
+});
+
+
+test("NFCore public positioning keeps the cognitive Core and hides internal product architecture", async () => {
+  const landing = await readFile("src/components/marketing/nfcore-landing.tsx", "utf8");
+  assert.match(landing, /Core cognitivo interpreta contexto/);
+  assert.match(landing, /Core cognitivo pensa e coordena/);
+  assert.match(landing, /execução fiscal crítica permanece determinística/);
+  assert.match(landing, /SaaS · ERP · Plataformas/);
+  assert.match(landing, /autoridade fiscal independente e conectável/);
+  assert.doesNotMatch(landing, /Kordena|Iron Fit|CampaIA|Vendedor IA|Produtos FM/);
+});
+
+test("NFCore commercial checkout stays provider-neutral in public positioning", async () => {
+  const landing = await readFile("src/components/marketing/nfcore-landing.tsx", "utf8");
+  assert.match(landing, /checkout provider-neutral/);
+  assert.match(landing, /provider comercial selecionado/);
+  assert.doesNotMatch(landing, /Checkout Cakto|bindings Cakto|evento real da Cakto|Credenciais.*Cakto/i);
+});
+
+test("NFCore landing describes fiscal engineering depth and portal-capability boundaries", async () => {
+  const landing = await readFile("src/components/marketing/nfcore-landing.tsx", "utf8");
+  for (const capability of [
+    "Lifecycle fiscal",
+    "Numeração e sequência",
+    "Assinatura e validação",
+    "Resiliência operacional",
+    "Operação e incidentes",
+  ]) {
+    assert.match(landing, new RegExp(capability));
+  }
+  assert.match(landing, /capabilities abaixo pertencem ao Core\/API/);
+  assert.match(landing, /emitir, consultar, cancelar, inutilizar e reconciliar são operações diretas governadas/);
+  assert.match(landing, /contingência e archive reference permanecem capacidades da infraestrutura/);
+});
+
+test("NFCore readiness lists external commercial, communication, legal and fiscal dependencies", async () => {
+  const landing = await readFile("src/components/marketing/nfcore-landing.tsx", "utf8");
+  assert.match(landing, /Planos, preços e promoções reais aprovados/);
+  assert.match(landing, /Provider comercial selecionado/);
+  assert.match(landing, /Provider real de e-mail\/SMS/);
+  assert.match(landing, /Revisão jurídica\/LGPD operacional/);
+  assert.match(landing, /Homologação por documento × operação × jurisdição × provider/);
 });
