@@ -188,6 +188,11 @@
     align-items: center;
     gap: .9rem;
   }
+  .kordena-core-map {
+    height: auto !important;
+    overflow: visible;
+    padding-bottom: 1.75rem;
+  }
   .kordena-core-map:before,
   .kordena-core-map:after { display: none; }
   .kordena-core-center {
