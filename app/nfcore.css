@@ -1415,3 +1415,256 @@
 .nfcore-mini-wordmark__core {
   color: var(--nf-cyan);
 }
+
+
+/* 2026-09-28 — APPROVED Core Fiscal visual restored from the locked reference.
+   Four pillars only: Contexto / Operação / Regras / Evidência. */
+.nfcore-core-stage {
+  min-height: 520px;
+  padding: 34px 42px;
+  grid-template-columns: minmax(190px,220px) minmax(360px,400px) minmax(190px,220px);
+  gap: 46px;
+}
+
+.nfcore-core-center--approved {
+  width: 390px;
+  max-width: 100%;
+  height: 440px;
+  min-height: 440px;
+  padding: 18px 20px 14px;
+  border-color: rgba(0,229,255,.34);
+  border-radius: 24px;
+  background: linear-gradient(155deg,#071523 0%,#091b2e 100%);
+  box-shadow:
+    0 0 0 1px rgba(37,99,255,.08) inset,
+    0 0 64px rgba(37,99,255,.14);
+}
+
+.nfcore-core-center--approved .nfcore-core-approved-brand {
+  width: 260px;
+  max-width: 78%;
+  height: auto;
+  margin: 0 auto 2px;
+  border-radius: 20px;
+}
+
+.nfcore-core-brand-lockup {
+  width: 100%;
+  max-width: 350px;
+}
+
+.nfcore-core-brand-wordmark {
+  margin-top: 0;
+  gap: .10em;
+  line-height: .88;
+  filter:
+    drop-shadow(0 6px 10px rgba(0,0,0,.34))
+    drop-shadow(0 0 10px rgba(0,174,255,.08));
+}
+
+.nfcore-core-brand-wordmark__nf,
+.nfcore-core-brand-wordmark__core {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 900;
+  line-height: .92;
+  transform: skewX(-5deg);
+}
+
+.nfcore-core-brand-wordmark__nf {
+  font-size: clamp(2.85rem,4.25vw,3.85rem);
+  letter-spacing: -.11em;
+  color: transparent;
+  background: linear-gradient(180deg,#ffffff 0%,#eef4f8 34%,#8ea9bc 70%,#f7fbff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nfcore-core-brand-wordmark__core {
+  font-size: clamp(2.9rem,4.35vw,3.95rem);
+  letter-spacing: -.055em;
+  color: transparent;
+  background: linear-gradient(90deg,#2f91ff 0%,#00c8ff 52%,#00e5ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nfcore-core-slogan {
+  position: relative;
+  width: calc(100% - 14px);
+  margin: 11px auto 0;
+  padding: 9px 32px 10px;
+  border: 1px solid rgba(0,229,255,.22);
+  border-left-color: rgba(0,229,255,.58);
+  border-right-color: rgba(0,229,255,.58);
+  border-radius: 10px;
+  color: #f5fbff;
+  background:
+    linear-gradient(90deg,rgba(0,229,255,.03),rgba(0,229,255,.08),rgba(0,229,255,.03));
+  box-shadow:
+    0 0 0 1px rgba(37,145,255,.05) inset,
+    0 0 18px rgba(0,229,255,.10),
+    0 10px 18px -16px rgba(0,229,255,.95);
+  font-size: .94rem;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.nfcore-core-slogan::before,
+.nfcore-core-slogan::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 28px;
+  height: 14px;
+  transform: translateY(-50%);
+  border-top: 2px solid #00e5ff;
+  border-bottom: 2px solid #00e5ff;
+  box-shadow: 0 0 9px rgba(0,229,255,.48);
+}
+
+.nfcore-core-slogan::before {
+  left: -15px;
+  border-left: 2px solid #00e5ff;
+  border-radius: 5px 0 0 5px;
+}
+
+.nfcore-core-slogan::after {
+  right: -15px;
+  border-right: 2px solid #00e5ff;
+  border-radius: 0 5px 5px 0;
+}
+
+.nfcore-core-center--approved > .nfcore-core-caption {
+  margin-top: auto;
+  padding-top: 12px;
+  color: #82dfff;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .28em;
+}
+
+.nfcore-core-pillar-column {
+  grid-template-rows: repeat(2,minmax(96px,1fr));
+  gap: 0;
+  align-content: stretch;
+  min-height: 360px;
+}
+
+.nfcore-core-pillar-column--left,
+.nfcore-core-pillar-column--right {
+  justify-items: stretch;
+}
+
+.nfcore-core-pillar {
+  align-self: center;
+  width: 100%;
+  max-width: 220px;
+  min-height: 100px;
+  padding: 1rem 1.05rem;
+  border-radius: 16px;
+  background: linear-gradient(145deg,#0d213b,#0a1b31);
+}
+
+.nfcore-core-pillar b {
+  font-size: 1rem;
+}
+
+.nfcore-core-pillar span {
+  margin-top: .42rem;
+  font-size: .75rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 1000px) and (min-width: 761px) {
+  .nfcore-core-stage {
+    min-height: 470px;
+    padding: 24px 18px;
+    grid-template-columns: minmax(150px,175px) minmax(300px,340px) minmax(150px,175px);
+    gap: 22px;
+  }
+
+  .nfcore-core-center--approved {
+    width: 335px;
+    min-height: 390px;
+    height: 390px;
+  }
+
+  .nfcore-core-center--approved .nfcore-core-approved-brand {
+    width: 222px;
+  }
+
+  .nfcore-core-brand-wordmark__nf,
+  .nfcore-core-brand-wordmark__core {
+    font-size: clamp(2.4rem,4vw,3rem);
+  }
+
+  .nfcore-core-slogan {
+    font-size: .82rem;
+  }
+
+  .nfcore-core-pillar-column {
+    min-height: 320px;
+  }
+
+  .nfcore-core-pillar {
+    max-width: 175px;
+    min-height: 88px;
+    padding: .82rem .8rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .nfcore-core-stage {
+    min-height: auto;
+    padding: 14px;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .nfcore-core-center--approved {
+    grid-row: 1;
+    width: 100%;
+    max-width: 390px;
+    min-height: 420px;
+    height: auto;
+    margin-inline: auto;
+  }
+
+  .nfcore-core-center--approved .nfcore-core-approved-brand {
+    width: min(250px,78vw);
+  }
+
+  .nfcore-core-brand-wordmark__nf,
+  .nfcore-core-brand-wordmark__core {
+    font-size: clamp(2.35rem,12vw,3.35rem);
+  }
+
+  .nfcore-core-slogan {
+    width: calc(100% - 30px);
+    font-size: .78rem;
+    padding-inline: 20px;
+  }
+
+  .nfcore-core-pillar-column {
+    min-height: 0;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    grid-template-rows: none;
+    gap: 8px;
+  }
+
+  .nfcore-core-pillar-column--left {
+    grid-row: 2;
+  }
+
+  .nfcore-core-pillar-column--right {
+    grid-row: 3;
+  }
+
+  .nfcore-core-pillar {
+    max-width: none;
+    min-height: 76px;
+  }
+}
