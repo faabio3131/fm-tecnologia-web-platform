@@ -1485,3 +1485,57 @@ body {
     height: auto;
   }
 }
+
+
+/* 2026-09-28 IRON FIT CORE — mobile spacing/centering + robust green removal.
+   The source lockup contains green pixels, so hue rotation alone is not reliable.
+   On the dark landing, screen blending suppresses the dark/green chroma while
+   preserving the approved cyan/white luminous identity. */
+.fm-public-site .ironfit-landing .ironfit-approved-lockup img,
+.fm-public-site .ironfit-landing .ironfit-core-mark img,
+.fm-public-site .ironfit-landing .ironfit-mini-brand img,
+.fm-public-site .ironfit-landing .ironfit-phone__brand img,
+.fm-public-site .ironfit-landing .ironfit-intelligence-brand,
+.fm-public-site .ironfit-landing .ironfit-hub-brand {
+  filter: grayscale(1) sepia(1) saturate(6) hue-rotate(155deg) brightness(1.18) contrast(1.08) drop-shadow(0 12px 24px rgba(0,132,255,.18)) !important;
+}
+
+@media (max-width: 700px) {
+  .fm-public-site .ironfit-landing .ironfit-phone {
+    width: min(100%, 420px);
+    margin-inline: auto;
+    padding-inline: clamp(1rem,5vw,1.75rem);
+  }
+  .fm-public-site .ironfit-landing .ironfit-phone__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  .fm-public-site .ironfit-landing .ironfit-phone__brand img {
+    display: block;
+    width: min(100%, 340px) !important;
+    max-width: 340px;
+    height: auto !important;
+    margin-inline: auto;
+  }
+  .fm-public-site .ironfit-landing .ironfit-phone__list {
+    width: 100%;
+    margin-inline: auto;
+  }
+  .fm-public-site .ironfit-landing .ironfit-mini-brand,
+  .fm-public-site .ironfit-landing .ironfit-intelligence-core,
+  .fm-public-site .ironfit-landing .ironfit-hub-core--brand {
+    margin-inline: auto;
+    text-align: center;
+  }
+  .fm-public-site .ironfit-landing .ironfit-mini-brand img,
+  .fm-public-site .ironfit-landing .ironfit-intelligence-brand,
+  .fm-public-site .ironfit-landing .ironfit-hub-brand {
+    display: block;
+    width: min(100%, 380px) !important;
+    height: auto !important;
+    margin-inline: auto;
+  }
+}
