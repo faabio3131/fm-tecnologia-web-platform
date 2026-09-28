@@ -68,13 +68,10 @@ function pricingRows(offer: NFCoreCommercialOffer) {
   }
 
   const prices = new Map(catalog.prices.map((price) => [price.price_id, price]));
-  const checkoutUrls = new Map(
+  const checkoutPairs = new Set(
     offer.checkout.items
       .filter((item) => item.checkout_url !== null)
-      .map((item) => [
-        `${item.plan_id}:${item.price_id}`,
-        item.checkout_url as string,
-      ]),
+      .map((item) => `${item.plan_id}:${item.price_id}`),
   );
   return catalog.plans.flatMap((plan) =>
     plan.price_ids.flatMap((priceId) => {
@@ -84,8 +81,9 @@ function pricingRows(offer: NFCoreCommercialOffer) {
             {
               plan,
               price,
-              checkoutUrl:
-                checkoutUrls.get(`${plan.plan_id}:${price.price_id}`) ?? null,
+              checkoutAvailable: checkoutPairs.has(
+                `${plan.plan_id}:${price.price_id}`,
+              ),
             },
           ]
         : [];
@@ -201,7 +199,7 @@ export function NFCoreCommercialStatus() {
 
       {rows.length > 0 && (
         <div className="nfcore-commercial__pricing" aria-label="Planos comerciais publicados">
-          {rows.map(({ plan, price, checkoutUrl }) => (
+          {rows.map(({ plan, price, checkoutAvailable }) => (
             <article key={`${plan.plan_id}:${price.price_id}`}>
               <span>{plan.display_name}</span>
               <strong>
@@ -217,12 +215,14 @@ export function NFCoreCommercialStatus() {
                 <p>Setup: {money(price.setup_amount, price.currency)}</p>
               )}
               {plan.trial_days > 0 && <p>Trial configurado: {plan.trial_days} dias</p>}
-              {offer.purchase_enabled && checkoutUrl && (
+              {offer.purchase_enabled && checkoutAvailable && (
                 <a
                   className="button button--primary nfcore-commercial__checkout"
-                  href={checkoutUrl}
+                  href={`/produtos/nfcore/contratar?plan=${encodeURIComponent(
+                    plan.plan_id,
+                  )}&price=${encodeURIComponent(price.price_id)}`}
                 >
-                  Contratar NFCore <span aria-hidden="true">↗</span>
+                  Contratar NFCore <span aria-hidden="true">→</span>
                 </a>
               )}
             </article>

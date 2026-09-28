@@ -180,7 +180,9 @@ test("BFF usa variável server-side e não expõe endpoint NFCore ao navegador",
   assert.match(route, /status: 503/);
   assert.match(component, /\/api\/nfcore\/commercial-offer/);
   assert.match(component, /offer\.purchase_enabled/);
-  assert.match(component, /checkoutUrl/);
+  assert.match(component, /checkoutAvailable/);
+  assert.match(component, /\/produtos\/nfcore\/contratar\?plan=/);
+  assert.doesNotMatch(component, /href=\{checkoutUrl\}/);
   assert.doesNotMatch(component, /NFCORE_API_URL/);
   assert.doesNotMatch(component, /pay\.cakto\.com\.br/);
 });
