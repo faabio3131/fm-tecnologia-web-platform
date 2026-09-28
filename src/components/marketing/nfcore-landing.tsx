@@ -15,15 +15,20 @@ const fiscalCapabilities = [
   ["Webhooks e processamento assíncrono", "Inbox, outbox, entrega governada, retries e rastreabilidade para integrações e processamento em background."],
   ["Control Plane", "Administração de empresas, unidades, ambientes, perfis fiscais, capabilities, providers e configurações autorizadas."],
   ["Auditoria e observabilidade", "Audit trail, eventos, métricas, tracing, alertas, suporte a incidentes e evidência operacional."],
+  ["Lifecycle fiscal", "Estados e transições governados preservam o ciclo do documento e evitam reexecução cega após falhas ou resultados desconhecidos."],
+  ["Numeração e sequência", "Reserva e autoridade de sequência reduzem colisões, duplicidade e gaps operacionais sob concorrência."],
+  ["Assinatura e validação", "Assinatura digital, validações documentais e boundaries criptográficos mantêm chaves e certificados fora do fluxo cognitivo e do navegador."],
+  ["Resiliência operacional", "Retries limitados, leases, dead-letter, idempotência, backpressure e recuperação de falhas protegem a continuidade da operação."],
+  ["Operação e incidentes", "Service health, severidades e runbooks orientam resposta a indisponibilidade de provider, SEFAZ/NFS-e, certificado, fila, sequência e segurança."],
 ] as const;
 
 const platformCapabilities = [
-  ["Bridge e API versionada", "Contratos públicos versionados permitem que produtos consumidores integrem o NFCore sem copiar regras fiscais para cada SaaS."],
-  ["Integrações multiproduto", "Contract packs e fronteiras host-neutral permitem atender Kordena, Iron, CampaIA e novos produtos sem fundir autoridades."],
+  ["Bridge e API versionada", "Contratos públicos versionados permitem integrar SaaS, ERPs e plataformas digitais sem replicar regras fiscais em cada sistema consumidor."],
+  ["Arquitetura integrável", "Fronteiras host-neutral e contratos versionados permitem conectar diferentes sistemas e modelos de negócio preservando isolamento e autoridade fiscal."],
   ["Identidade e acesso", "Login, sessão, recuperação de senha, RBAC, CSRF e escopo de tenant/unidade derivados da autoridade autenticada."],
   ["Onboarding governado", "Configuração progressiva de organização, empresa, unidade, ambiente e referências fiscais sem expor segredo no navegador."],
   ["Planos, entitlements e uso", "Camada comercial separa plano, entitlement, quota, medição de uso e billing da autoridade fiscal determinística."],
-  ["Pricing, liberação e checkout", "Catálogo comercial versionado, decisão humana de liberação e bindings Cakto governados com compra fail-closed."],
+  ["Pricing, liberação e checkout", "Catálogo comercial versionado, decisão humana de liberação e checkout provider-neutral permitem integrar provedores externos sem transformar nenhum deles em autoridade canônica do NFCore."],
 ] as const;
 
 const fiscalActions = [
@@ -38,7 +43,7 @@ const fiscalActions = [
 
 const authorityFlow = [
   ["01", "Contexto fiscal", "Empresa, unidade, documento, jurisdição, ambiente e configuração autorizada."],
-  ["02", "NFCore", "Interpreta contexto, coordena capacidades e apresenta a intenção operacional."],
+  ["02", "Core cognitivo", "Interpreta o contexto fiscal, correlaciona sinais, identifica capacidades aplicáveis e coordena a intenção operacional."],
   ["03", "Capability & política", "Verifica se aquela ação está explicitamente permitida para o contexto e o nível de readiness."],
   ["04", "Serviço determinístico", "Executa contratos, validações, idempotência, lifecycle, assinatura e operação autorizada."],
   ["05", "Provider / autoridade externa", "Processa a integração externa somente com credenciais, ambiente e homologação aplicáveis."],
@@ -47,7 +52,7 @@ const authorityFlow = [
 
 const governance = [
   ["Fail-closed por padrão", "Ausência, ambiguidade ou insuficiência de capability/readiness bloqueia a ação em vez de inferir autorização."],
-  ["Autoridade separada", "IA pode apoiar contexto e decisão; emissão, cancelamento, assinatura e demais mutações críticas permanecem determinísticas."],
+  ["Autoridade cognitiva + execução determinística", "O Core interpreta contexto, correlaciona sinais, recomenda e coordena; emissão, cancelamento, assinatura e demais mutações críticas passam por regras e serviços determinísticos."],
   ["Isolamento e acesso", "Tenant, unidade, RBAC, sessão, CSRF e permissões impedem que o frontend declare sua própria autoridade."],
   ["Segredos protegidos", "Certificados, CSC, tokens e chaves são tratados por referências e boundaries de Vault/Secret Manager, não pelo browser."],
   ["Idempotência e concorrência", "Reservas, lifecycle e sequence authority reduzem duplicidade, replay inseguro e inconsistência sob concorrência."],
@@ -62,16 +67,20 @@ const internalReady = [
   "Worker assíncrono, inbox/outbox e reconciliação",
   "Control Plane e Capability/Readiness",
   "Portal premium, pricing e liberação comercial governada",
-  "Checkout Cakto governado em configuração interna",
+  "Checkout provider-neutral governado em configuração interna",
 ] as const;
 
 const externalPending = [
   "Infraestrutura real de staging/produção e Secret Manager",
-  "Credenciais, callbacks e evento real da Cakto",
+  "Planos, preços e promoções reais aprovados para o lançamento",
+  "Provider comercial selecionado, identificadores reais de produto/oferta e configuração correspondente",
+  "Credenciais, callbacks e eventos autenticados do provider comercial selecionado, quando aplicável",
+  "Provider real de e-mail/SMS para recuperação de senha e comunicações operacionais, quando aplicável",
   "Certificados, CSC e credenciais fiscais reais",
   "Providers fiscais e endpoints oficiais aplicáveis",
   "Homologação por documento × operação × jurisdição × provider",
   "Piloto fiscal controlado com evidência externa",
+  "Revisão jurídica/LGPD operacional quando aplicável",
   "Go/No-Go humano e aprovação formal de produção",
   "Deploy, DNS/cutover e smoke de produção autorizados",
 ] as const;
@@ -92,8 +101,8 @@ export function NFCoreLanding() {
               <div className="nfcore-status">Produto Principal · Em desenvolvimento</div>
               <h1 id="nfcore-title" className="nfcore-wordmark"><span className="nfcore-wordmark__nf">NF</span><span className="nfcore-wordmark__core">CORE</span></h1>
               <p className="nfcore-tagline">Infraestrutura fiscal. Sob controle.</p>
-              <p className="lead">Reduza erros humanos, diminua o retrabalho operacional e centralize a gestão fiscal em uma infraestrutura coordenada pelo Core.</p>
-              <p className="nfcore-support">O NFCore conecta documentos, regras, emissão, providers, integrações, readiness, reconciliação e auditoria sem transferir autoridade fiscal crítica para a IA.</p>
+              <p className="lead">Projetado para reduzir erros humanos, retrabalho operacional e fragmentação da gestão fiscal em uma infraestrutura coordenada pelo Core.</p>
+              <p className="nfcore-support">O Core cognitivo interpreta contexto, correlaciona sinais e coordena capacidades fiscais. A autoridade crítica permanece protegida por regras, readiness, serviços determinísticos, assinatura, providers e evidências auditáveis.</p>
               <div className="actions nfcore-actions">
                 <a className="button button--primary" href="#mission-control">Conhecer o NFCore <span aria-hidden="true">↓</span></a>
                 <a className="button button--secondary" href={whatsapp}>Falar com a FM <span aria-hidden="true">↗</span></a>
@@ -157,11 +166,11 @@ export function NFCoreLanding() {
           <div>
             <p className="eyebrow">Mission Control fiscal</p>
             <h2>Uma camada para enxergar, coordenar e governar a operação fiscal.</h2>
-            <p>O NFCore é uma infraestrutura fiscal horizontal da FM Tecnologia. Ele centraliza contexto, documentos, regras, integrações, estados operacionais e evidências para reduzir fragmentação e trabalho manual entre produtos, equipes e providers.</p>
-            <p>Em vez de cada SaaS reconstruir emissão, readiness, auditoria ou regras de integração, o NFCore oferece uma autoridade fiscal compartilhada por contratos versionados e boundaries explícitos.</p>
+            <p>O NFCore é uma plataforma fiscal inteligente e independente. Ele centraliza contexto, documentos, regras, integrações, estados operacionais e evidências para reduzir fragmentação e trabalho manual entre sistemas, equipes e providers.</p>
+            <p>SaaS, ERPs e plataformas digitais podem integrar uma mesma autoridade fiscal por APIs e contratos versionados, evitando replicar emissão, readiness, auditoria e regras críticas em cada sistema consumidor.</p>
             <div className="nfcore-assurance">
-              <strong>O Core coordena. A autoridade crítica permanece determinística.</strong>
-              <span>Recomendação de IA não substitui validação, política, assinatura, autorização, homologação, capability ou execução fiscal.</span>
+              <strong>O Core cognitivo pensa e coordena. A execução fiscal crítica permanece determinística.</strong>
+              <span>O Core interpreta contexto, correlaciona sinais, recomenda e orquestra; policies, capability/readiness, lifecycle, numeração, assinatura e autorização continuam impondo os gates obrigatórios da execução.</span>
             </div>
           </div>
           <div className="nfcore-mission-panel">
@@ -180,7 +189,7 @@ export function NFCoreLanding() {
           <div className="nfcore-heading">
             <p className="eyebrow">Core Fiscal</p>
             <h2>Inteligência com contexto. Execução com controle.</h2>
-            <p>O NFCore pode compreender o contexto operacional e fiscal, relacionar sinais e apoiar decisões, enquanto serviços previsíveis preservam a autoridade nas operações críticas.</p>
+            <p>O Core cognitivo compreende o contexto operacional e fiscal, correlaciona sinais, identifica capacidades aplicáveis, recomenda caminhos e coordena a execução. Validação, lifecycle, numeração, assinatura e mutações fiscais críticas permanecem em serviços determinísticos, auditáveis e governados.</p>
           </div>
           <div className="nfcore-core-stage">
             <div className="nfcore-core-pillar-column nfcore-core-pillar-column--left" aria-label="Capacidades do Core Fiscal à esquerda">
@@ -225,6 +234,7 @@ export function NFCoreLanding() {
             <p className="eyebrow">Operação fiscal governada</p>
             <h2>NF-e, NFC-e e NFS-e dentro de um lifecycle controlado.</h2>
             <p>O NFCore modela documentos e operações fiscais como capacidades explícitas. A família documental, por si só, não autoriza uma ação: emissão, cancelamento, contingência ou qualquer outra mutação depende do contexto e do readiness correspondente.</p>
+            <p>As capabilities abaixo pertencem ao Core/API. No portal humano atual, emitir, consultar, cancelar, inutilizar e reconciliar são operações diretas governadas; contingência e archive reference permanecem capacidades da infraestrutura e só entram em ação quando o contexto autorizado exige.</p>
           </div>
           <div className="nfcore-action-strip" aria-label="Ações fiscais governadas">
             {fiscalActions.map(([label, action]) => (
@@ -245,7 +255,7 @@ export function NFCoreLanding() {
           <div className="nfcore-heading">
             <p className="eyebrow">Capacidades do NFCore</p>
             <h2>Da regra fiscal à evidência operacional.</h2>
-            <p>A arquitetura é organizada por capacidades independentes e versionadas. Isso permite evoluir documentos, jurisdições, providers e produtos consumidores sem duplicar a autoridade fiscal.</p>
+            <p>A arquitetura é organizada por capacidades independentes e versionadas. Isso permite evoluir documentos, jurisdições, providers e sistemas consumidores sem duplicar a autoridade fiscal.</p>
           </div>
           <div className="nfcore-capability-grid nfcore-capability-grid--extended">
             {fiscalCapabilities.map(([title, text], index) => (
@@ -259,16 +269,16 @@ export function NFCoreLanding() {
         <div className="container">
           <div className="nfcore-heading">
             <p className="eyebrow">Plataforma e ecossistema</p>
-            <h2>Uma infraestrutura fiscal para vários produtos, não um motor preso a um único SaaS.</h2>
-            <p>O NFCore foi estruturado como autoridade fiscal horizontal da FM Tecnologia. Produtos consumidores se integram por contratos e adapters, preservando isolamento, versionamento e governança.</p>
+            <h2>Uma infraestrutura fiscal integrável a SaaS, ERPs e plataformas digitais.</h2>
+            <p>O NFCore funciona como uma autoridade fiscal independente e conectável. Sistemas consumidores se integram por APIs, contratos versionados e adapters, preservando isolamento, evolução e governança sem carregar regras fiscais críticas para dentro de cada aplicação.</p>
           </div>
           <div className="nfcore-platform-grid">
             {platformCapabilities.map(([title, text]) => (
               <article key={title}><h3>{title}</h3><p>{text}</p></article>
             ))}
           </div>
-          <div className="nfcore-platform-flow" aria-label="Fluxo multiproduto do NFCore">
-            <span>Produtos FM</span><b>→</b><span>Bridge / API</span><b>→</b><span>NFCore</span><b>→</b><span>Providers fiscais</span>
+          <div className="nfcore-platform-flow" aria-label="Fluxo de integração comercial do NFCore">
+            <span>SaaS · ERP · Plataformas</span><b>→</b><span>Bridge / API</span><b>→</b><span>NFCore</span><b>→</b><span>Providers fiscais</span>
           </div>
         </div>
       </section>
