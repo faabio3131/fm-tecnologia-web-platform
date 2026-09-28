@@ -1443,3 +1443,45 @@ body {
     contrast(1.04)
     drop-shadow(0 0 9px rgba(47,145,255,.10)) !important;
 }
+
+
+/* 2026-09-28 IRON FIT CORE — mobile logo correction.
+   The legacy lockup is a raster asset with green baked into the pixels.
+   Apply the approved blue/cyan treatment consistently and keep secondary
+   placements large enough to preserve brand legibility on phones. */
+.fm-public-site .ironfit-landing .ironfit-approved-lockup img,
+.fm-public-site .ironfit-landing .ironfit-core-mark img,
+.fm-public-site .ironfit-landing .ironfit-mini-brand img,
+.fm-public-site .ironfit-landing .ironfit-phone__brand img,
+.fm-public-site .ironfit-landing .ironfit-intelligence-brand,
+.fm-public-site .ironfit-landing .ironfit-hub-brand {
+  filter: hue-rotate(108deg) saturate(1.18) brightness(1.08) drop-shadow(0 16px 28px rgba(0,7,25,.25)) !important;
+}
+
+@media (max-width: 700px) {
+  .fm-public-site .ironfit-landing .ironfit-core-mark {
+    width: min(100%, 360px);
+  }
+  .fm-public-site .ironfit-landing .ironfit-mini-brand {
+    width: min(100%, 420px);
+  }
+  .fm-public-site .ironfit-landing .ironfit-mini-brand img {
+    width: 100%;
+    height: auto;
+  }
+  .fm-public-site .ironfit-landing .ironfit-phone__brand img {
+    width: min(100%, 300px);
+    height: auto;
+  }
+  .fm-public-site .ironfit-landing .ironfit-intelligence-core {
+    width: 100%;
+  }
+  .fm-public-site .ironfit-landing .ironfit-intelligence-brand {
+    width: min(100%, 340px);
+    height: auto;
+  }
+  .fm-public-site .ironfit-landing .ironfit-hub-brand {
+    width: min(100%, 360px);
+    height: auto;
+  }
+}
