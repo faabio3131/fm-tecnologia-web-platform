@@ -100,15 +100,20 @@ test("NFCore Core Fiscal mission block keeps the approved four-pillar compositio
   assert.match(coreStage, /nfcore-core-caption">Core Fiscal/);
 });
 
-test("NFCore Core Fiscal CSS locks the approved 2 + center + 2 geometry and luminous slogan frame", async () => {
+test("NFCore Core Fiscal CSS locks the final approved visual and protects the intact large N", async () => {
   const css = await readFile("app/nfcore.css", "utf8");
-  const approvedBlock = css.slice(css.lastIndexOf("APPROVED Core Fiscal visual restored"));
-  assert.match(approvedBlock, /grid-template-columns:\s*minmax\(190px,220px\)\s+minmax\(360px,400px\)\s+minmax\(190px,220px\)/);
-  assert.match(approvedBlock, /grid-template-rows:\s*repeat\(2,minmax\(96px,1fr\)\)/);
-  assert.match(approvedBlock, /nfcore-core-brand-wordmark__nf/);
-  assert.match(approvedBlock, /nfcore-core-brand-wordmark__core/);
-  assert.match(approvedBlock, /nfcore-core-slogan::before/);
-  assert.match(approvedBlock, /nfcore-core-slogan::after/);
+  const finalBlock = css.slice(css.lastIndexOf("NFCORE CORE FISCAL — FINAL VISUAL LOCK"));
+
+  assert.match(finalBlock, /grid-template-columns:\s*minmax\(190px,220px\)\s+minmax\(360px,400px\)\s+minmax\(190px,220px\)/);
+  assert.match(finalBlock, /grid-template-rows:\s*repeat\(2,1fr\)/);
+  assert.match(finalBlock, /font-size:\s*clamp\(3rem,4vw,3\.75rem\)\s*!important/);
+  assert.match(finalBlock, /nfcore-core-brand-wordmark__nf/);
+  assert.match(finalBlock, /nfcore-core-brand-wordmark__core/);
+  assert.match(finalBlock, /transform:\s*none\s*!important/);
+  assert.match(finalBlock, /NF uses live text, therefore the N is intact/);
+  assert.match(finalBlock, /nfcore-core-slogan::before/);
+  assert.match(finalBlock, /nfcore-core-slogan::after/);
+  assert.doesNotMatch(css, /\.nfcore-core-center span\s*\{[^}]*font-size:\s*\.72rem/);
 });
 
 
@@ -163,4 +168,20 @@ test("NFCore readiness lists external commercial, communication, legal and fisca
   assert.match(landing, /Provider real de e-mail\/SMS/);
   assert.match(landing, /Revisão jurídica\/LGPD operacional/);
   assert.match(landing, /Homologação por documento × operação × jurisdição × provider/);
+});
+
+
+test("NFCore Core Fiscal final lock keeps only four visual pillars", async () => {
+  const landing = await readFile("src/components/marketing/nfcore-landing.tsx", "utf8");
+  const coreStageMatch = landing.match(/<div className="nfcore-core-stage">([\s\S]*?)<\/div>\s*<\/div>\s*<\/section>/);
+  assert.ok(coreStageMatch, "Core Fiscal stage must exist");
+  const coreStage = coreStageMatch[1];
+
+  const pillarCount = (coreStage.match(/className="nfcore-core-pillar"/g) || []).length;
+  assert.equal(pillarCount, 4);
+
+  assert.match(coreStage, />Contexto<\/b>/);
+  assert.match(coreStage, />Operação<\/b>/);
+  assert.match(coreStage, />Regras<\/b>/);
+  assert.match(coreStage, />Evidência<\/b>/);
 });
