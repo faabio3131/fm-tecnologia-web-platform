@@ -80,36 +80,35 @@ test("NFCore Hero CSS contains no legacy orbit/radar selectors and preserves res
 });
 
 
-test("NFCore Core Fiscal mission block exposes eight real capabilities around the approved center", async () => {
+test("NFCore Core Fiscal mission block keeps the approved four-pillar composition", async () => {
   const landing = await readFile("src/components/marketing/nfcore-landing.tsx", "utf8");
   const coreStageMatch = landing.match(/<div className="nfcore-core-stage">([\s\S]*?)<\/div>\s*<\/div>\s*<\/section>/);
   assert.ok(coreStageMatch, "Core Fiscal stage must exist");
   const coreStage = coreStageMatch[1];
 
-  for (const label of [
-    "Contexto",
-    "Operação",
-    "Reconciliação",
-    "Integrações",
-    "Regras",
-    "Readiness",
-    "Providers",
-    "Evidência",
-  ]) {
+  for (const label of ["Contexto", "Operação", "Regras", "Evidência"]) {
     assert.match(coreStage, new RegExp(">" + label + "<"));
   }
 
-  assert.match(coreStage, /nfcore-core-pillar-column--left/);
-  assert.match(coreStage, /nfcore-core-pillar-column--right/);
+  assert.doesNotMatch(coreStage, />Reconciliação<|>Integrações<|>Readiness<|>Providers</);
+  assert.match(coreStage, /documentos · eventos · estados/);
+  assert.match(coreStage, /logs · reconciliação · auditoria/);
   assert.match(coreStage, /nfcore-core-center--approved/);
+  assert.match(coreStage, /nfcore-core-brand-wordmark__nf">NF/);
+  assert.match(coreStage, /nfcore-core-brand-wordmark__core">CORE/);
+  assert.match(coreStage, /nfcore-core-slogan">Infraestrutura fiscal inteligente/);
+  assert.match(coreStage, /nfcore-core-caption">Core Fiscal/);
 });
 
-test("NFCore Core Fiscal CSS uses stable 4 + center + 4 geometry", async () => {
+test("NFCore Core Fiscal CSS locks the approved 2 + center + 2 geometry and luminous slogan frame", async () => {
   const css = await readFile("app/nfcore.css", "utf8");
-  assert.match(css, /grid-template-columns:\s*minmax\(150px,190px\)\s+minmax\(320px,360px\)\s+minmax\(150px,190px\)/);
-  assert.match(css, /grid-template-rows:\s*repeat\(4,minmax\(0,1fr\)\)/);
-  assert.match(css, /nfcore-core-pillar-column--left/);
-  assert.match(css, /nfcore-core-pillar-column--right/);
+  const approvedBlock = css.slice(css.lastIndexOf("APPROVED Core Fiscal visual restored"));
+  assert.match(approvedBlock, /grid-template-columns:\s*minmax\(190px,220px\)\s+minmax\(360px,400px\)\s+minmax\(190px,220px\)/);
+  assert.match(approvedBlock, /grid-template-rows:\s*repeat\(2,minmax\(96px,1fr\)\)/);
+  assert.match(approvedBlock, /nfcore-core-brand-wordmark__nf/);
+  assert.match(approvedBlock, /nfcore-core-brand-wordmark__core/);
+  assert.match(approvedBlock, /nfcore-core-slogan::before/);
+  assert.match(approvedBlock, /nfcore-core-slogan::after/);
 });
 
 
