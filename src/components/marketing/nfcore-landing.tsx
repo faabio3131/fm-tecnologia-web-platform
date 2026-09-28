@@ -192,11 +192,9 @@ export function NFCoreLanding() {
             <p>O Core cognitivo compreende o contexto operacional e fiscal, correlaciona sinais, identifica capacidades aplicáveis, recomenda caminhos e coordena a execução. Validação, lifecycle, numeração, assinatura e mutações fiscais críticas permanecem em serviços determinísticos, auditáveis e governados.</p>
           </div>
           <div className="nfcore-core-stage">
-            <div className="nfcore-core-pillar-column nfcore-core-pillar-column--left" aria-label="Capacidades do Core Fiscal à esquerda">
+            <div className="nfcore-core-pillar-column nfcore-core-pillar-column--left" aria-label="Pilares do Core Fiscal à esquerda">
               <div className="nfcore-core-pillar"><b>Contexto</b><span>empresa · unidade · jurisdição</span></div>
-              <div className="nfcore-core-pillar"><b>Operação</b><span>emissão · consulta · cancelamento</span></div>
-              <div className="nfcore-core-pillar"><b>Reconciliação</b><span>estado · divergência · recuperação</span></div>
-              <div className="nfcore-core-pillar"><b>Integrações</b><span>webhooks · inbox · outbox</span></div>
+              <div className="nfcore-core-pillar"><b>Operação</b><span>documentos · eventos · estados</span></div>
             </div>
 
             <div className="nfcore-core-center nfcore-core-center--approved">
@@ -218,11 +216,9 @@ export function NFCoreLanding() {
               <span className="nfcore-core-caption">Core Fiscal</span>
             </div>
 
-            <div className="nfcore-core-pillar-column nfcore-core-pillar-column--right" aria-label="Capacidades do Core Fiscal à direita">
+            <div className="nfcore-core-pillar-column nfcore-core-pillar-column--right" aria-label="Pilares do Core Fiscal à direita">
               <div className="nfcore-core-pillar"><b>Regras</b><span>versão · aplicabilidade · vigência</span></div>
-              <div className="nfcore-core-pillar"><b>Readiness</b><span>capability · homologação · produção</span></div>
-              <div className="nfcore-core-pillar"><b>Providers</b><span>gateways · certificados · bindings</span></div>
-              <div className="nfcore-core-pillar"><b>Evidência</b><span>logs · auditoria · proveniência</span></div>
+              <div className="nfcore-core-pillar"><b>Evidência</b><span>logs · reconciliação · auditoria</span></div>
             </div>
           </div>
         </div>
