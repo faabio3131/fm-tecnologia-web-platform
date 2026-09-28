@@ -3,42 +3,42 @@
 
 .kordena-hero-core--v2 .kordena-v2-scene {
   background:
-    radial-gradient(circle at 50% 48%, rgba(191,255,58,.13), transparent 24%),
-    radial-gradient(circle at 50% 56%, rgba(45,220,129,.04), transparent 46%),
+    radial-gradient(circle at 50% 48%, rgba(103,214,255,.13), transparent 24%),
+    radial-gradient(circle at 50% 56%, rgba(103,214,255,.04), transparent 46%),
     linear-gradient(180deg,#07140f 0%,#020806 100%);
 }
 
 .kordena-hero-core--v2 .kordena-v2-scene::after {
   width: 264px;
   height: 264px;
-  background: radial-gradient(circle,rgba(196,255,63,.18),rgba(101,218,62,.035) 42%,transparent 72%);
+  background: radial-gradient(circle,rgba(103,214,255,.18),rgba(103,214,255,.035) 42%,transparent 72%);
   filter: blur(16px);
 }
 
 .kordena-hero-core--v2 .kordena-v2-core-glow {
   width: 236px;
   height: 236px;
-  background: radial-gradient(circle,rgba(202,255,59,.27),rgba(127,224,57,.07) 40%,transparent 72%);
+  background: radial-gradient(circle,rgba(103,214,255,.27),rgba(103,214,255,.07) 40%,transparent 72%);
   filter: blur(17px);
 }
 
 .kordena-hero-core--v2 .kordena-v2-energy {
   border-width: .85px;
-  border-color: rgba(198,255,74,.32);
-  box-shadow: 0 0 14px rgba(191,255,58,.06);
+  border-color: rgba(103,214,255,.32);
+  box-shadow: 0 0 14px rgba(103,214,255,.06);
   opacity: .95;
 }
 
 .kordena-hero-core--v2 .kordena-v2-energy::before {
   width: 4px;
   height: 4px;
-  background: #e4ff8c;
-  box-shadow: 0 0 8px #d4ff58,0 0 18px rgba(192,255,62,.7);
+  background: #67d6ff;
+  box-shadow: 0 0 8px #67d6ff,0 0 18px rgba(103,214,255,.7);
 }
 
 .kordena-hero-core--v2 .kordena-v2-energy--one { width: 282px; height: 138px; animation-duration: 13s; }
-.kordena-hero-core--v2 .kordena-v2-energy--two { width: 252px; height: 156px; border-color: rgba(83,230,151,.20); animation-duration: 17s; }
-.kordena-hero-core--v2 .kordena-v2-energy--three { width: 224px; height: 112px; border-color: rgba(221,255,148,.14); animation-duration: 21s; }
+.kordena-hero-core--v2 .kordena-v2-energy--two { width: 252px; height: 156px; border-color: rgba(103,214,255,.20); animation-duration: 17s; }
+.kordena-hero-core--v2 .kordena-v2-energy--three { width: 224px; height: 112px; border-color: rgba(103,214,255,.14); animation-duration: 21s; }
 
 .kordena-hero-core--v2 .kordena-v2-cube-wrap {
   width: 142px;
@@ -46,8 +46,8 @@
   perspective: 1120px;
   filter:
     drop-shadow(0 18px 28px rgba(0,0,0,.50))
-    drop-shadow(0 0 12px rgba(199,255,54,.48))
-    drop-shadow(0 0 28px rgba(187,255,48,.23));
+    drop-shadow(0 0 12px rgba(103,214,255,.48))
+    drop-shadow(0 0 28px rgba(103,214,255,.23));
 }
 
 .kordena-hero-core--v2 .kordena-v2-cube-wrap::before {
@@ -56,9 +56,9 @@
   inset: -30px;
   border-radius: 36px;
   background:
-    radial-gradient(circle at 28% 22%,rgba(223,255,129,.19),transparent 23%),
-    radial-gradient(circle at 78% 24%,rgba(200,255,71,.17),transparent 23%),
-    radial-gradient(circle at 50% 77%,rgba(187,255,50,.13),transparent 30%);
+    radial-gradient(circle at 28% 22%,rgba(103,214,255,.19),transparent 23%),
+    radial-gradient(circle at 78% 24%,rgba(103,214,255,.17),transparent 23%),
+    radial-gradient(circle at 50% 77%,rgba(103,214,255,.13),transparent 30%);
   filter: blur(18px);
   pointer-events: none;
   z-index: -1;
@@ -67,7 +67,7 @@
 .kordena-hero-core--v2 .kordena-v2-cube-wrap::after {
   width: 166px;
   height: 58px;
-  background: radial-gradient(ellipse,rgba(198,255,61,.20),rgba(180,255,48,.035) 46%,transparent 72%);
+  background: radial-gradient(ellipse,rgba(103,214,255,.20),rgba(103,214,255,.035) 46%,transparent 72%);
   filter: blur(12px);
 }
 
@@ -86,20 +86,20 @@
 
 .kordena-hero-core--v2 .kordena-v2-face {
   border-width: 1px;
-  border-color: rgba(211,255,104,.72);
+  border-color: rgba(103,214,255,.72);
   border-radius: 12px;
   color: #e7ff9a;
   box-shadow:
-    inset 0 0 34px rgba(178,255,52,.055),
+    inset 0 0 34px rgba(103,214,255,.055),
     inset 0 -22px 34px rgba(0,0,0,.42),
-    0 0 9px rgba(205,255,69,.30),
-    0 0 24px rgba(184,255,48,.14);
+    0 0 9px rgba(103,214,255,.30),
+    0 0 24px rgba(103,214,255,.14);
 }
 
 .kordena-hero-core--v2 .kordena-v2-face::before {
   background:
     linear-gradient(120deg,rgba(255,255,255,.055),transparent 30%),
-    radial-gradient(circle at 34% 20%,rgba(207,255,92,.07),transparent 40%);
+    radial-gradient(circle at 34% 20%,rgba(103,214,255,.07),transparent 40%);
 }
 
 .kordena-hero-core--v2 .kordena-v2-face::after {
@@ -110,9 +110,9 @@
   pointer-events: none;
   background:
     radial-gradient(circle at 0 0,rgba(231,255,145,.58),transparent 13%),
-    radial-gradient(circle at 100% 0,rgba(218,255,112,.50),transparent 13%),
-    radial-gradient(circle at 0 100%,rgba(204,255,76,.30),transparent 15%),
-    radial-gradient(circle at 100% 100%,rgba(204,255,76,.28),transparent 15%);
+    radial-gradient(circle at 100% 0,rgba(103,214,255,.50),transparent 13%),
+    radial-gradient(circle at 0 100%,rgba(103,214,255,.30),transparent 15%),
+    radial-gradient(circle at 100% 100%,rgba(103,214,255,.28),transparent 15%);
   filter: blur(4px);
   mix-blend-mode: screen;
   opacity: .98;
@@ -122,7 +122,7 @@
   font-size: 1.22rem;
   font-weight: 820;
   letter-spacing: -.03em;
-  text-shadow: 0 0 4px rgba(239,255,192,.95),0 0 10px rgba(206,255,81,.88),0 0 20px rgba(185,255,49,.52);
+  text-shadow: 0 0 4px rgba(239,255,192,.95),0 0 10px rgba(103,214,255,.88),0 0 20px rgba(103,214,255,.52);
 }
 
 .kordena-hero-core--v2 .kordena-v2-face span {
@@ -130,21 +130,21 @@
   font-size: .48rem;
   font-weight: 740;
   letter-spacing: .09em;
-  color: rgba(221,255,128,.80);
-  text-shadow: 0 0 8px rgba(189,255,56,.32);
+  color: rgba(103,214,255,.80);
+  text-shadow: 0 0 8px rgba(103,214,255,.32);
 }
 
 .kordena-hero-core--v2 .kordena-v2-face--front {
   transform: translateZ(71px);
   background:
-    radial-gradient(circle at 48% 34%,rgba(38,92,46,.14),transparent 45%),
+    radial-gradient(circle at 48% 34%,rgba(47,145,255,.14),transparent 45%),
     linear-gradient(145deg,#09140e 0%,#050b08 48%,#010403 100%);
-  border-color: rgba(220,255,111,.94);
+  border-color: rgba(103,214,255,.94);
   box-shadow:
-    inset 0 0 36px rgba(188,255,61,.07),
+    inset 0 0 36px rgba(103,214,255,.07),
     inset 0 -22px 38px rgba(0,0,0,.55),
-    0 0 13px rgba(207,255,76,.42),
-    0 0 34px rgba(188,255,50,.18);
+    0 0 13px rgba(103,214,255,.42),
+    0 0 34px rgba(103,214,255,.18);
 }
 
 .kordena-hero-core--v2 .kordena-v2-face--back {
@@ -155,9 +155,9 @@
 .kordena-hero-core--v2 .kordena-v2-face--right {
   transform: rotateY(90deg) translateZ(71px);
   background:
-    radial-gradient(circle at 45% 32%,rgba(32,79,39,.10),transparent 45%),
+    radial-gradient(circle at 45% 32%,rgba(47,145,255,.10),transparent 45%),
     linear-gradient(150deg,#08120d 0%,#040a07 52%,#010302 100%);
-  color: #dcff84;
+  color: #67d6ff;
 }
 
 .kordena-hero-core--v2 .kordena-v2-face--left {
@@ -168,13 +168,13 @@
 .kordena-hero-core--v2 .kordena-v2-face--top {
   transform: rotateX(90deg) translateZ(71px);
   background:
-    radial-gradient(ellipse at 50% 49%,rgba(198,255,70,.20),transparent 50%),
+    radial-gradient(ellipse at 50% 49%,rgba(103,214,255,.20),transparent 50%),
     linear-gradient(145deg,#0a190f 0%,#061008 55%,#020604 100%);
-  border-color: rgba(227,255,128,.98);
+  border-color: rgba(103,214,255,.98);
   box-shadow:
-    inset 0 0 38px rgba(202,255,74,.14),
-    0 0 13px rgba(217,255,101,.45),
-    0 0 34px rgba(190,255,52,.22);
+    inset 0 0 38px rgba(103,214,255,.14),
+    0 0 13px rgba(103,214,255,.45),
+    0 0 34px rgba(103,214,255,.22);
 }
 
 .kordena-hero-core--v2 .kordena-v2-face--top > strong { opacity: 0; pointer-events: none; }
@@ -190,8 +190,8 @@
   filter:
     drop-shadow(0 0 2px rgba(255,255,224,1))
     drop-shadow(0 0 5px rgba(229,255,139,1))
-    drop-shadow(0 0 11px rgba(204,255,73,.98))
-    drop-shadow(0 0 22px rgba(183,255,48,.82));
+    drop-shadow(0 0 11px rgba(103,214,255,.98))
+    drop-shadow(0 0 22px rgba(103,214,255,.82));
   opacity: 1;
 }
 
@@ -202,9 +202,9 @@
   border-radius: 18px;
   pointer-events: none;
   background:
-    radial-gradient(ellipse at 50% 48%,rgba(238,255,166,.42) 0%,rgba(205,255,79,.19) 27%,rgba(184,255,50,.07) 47%,transparent 70%),
+    radial-gradient(ellipse at 50% 48%,rgba(238,255,166,.42) 0%,rgba(103,214,255,.19) 27%,rgba(103,214,255,.07) 47%,transparent 70%),
     radial-gradient(circle at 0 0,rgba(230,255,141,.50),transparent 13%),
-    radial-gradient(circle at 100% 0,rgba(222,255,119,.46),transparent 13%);
+    radial-gradient(circle at 100% 0,rgba(103,214,255,.46),transparent 13%);
   filter: blur(4px);
   mix-blend-mode: screen;
   opacity: 1;
@@ -213,7 +213,7 @@
 .kordena-hero-core--v2 .kordena-v2-face--bottom {
   transform: rotateX(-90deg) translateZ(71px);
   background: linear-gradient(145deg,#050c08,#010302);
-  color: rgba(205,255,118,.44);
+  color: rgba(103,214,255,.44);
 }
 
 @media (max-width: 760px) {

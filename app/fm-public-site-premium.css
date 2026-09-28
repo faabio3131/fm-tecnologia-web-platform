@@ -1,0 +1,1598 @@
+/* FM Tecnologia — public-site premium unification.
+   Scoped to public/institutional/commercial surfaces only.
+   Operational SaaS routes are intentionally excluded by SiteChrome. */
+
+.fm-public-site {
+  --ink: #f7fbff;
+  --ink-2: #dcecff;
+  --paper: #050b14;
+  --white: #0b1729;
+  --lime: #2f91ff;
+  --mint: #67d6ff;
+  --line: rgba(113, 166, 222, .18);
+  --muted: #9fb0c5;
+  --shadow: 0 18px 46px rgba(0, 7, 25, .28);
+  min-height: 100vh;
+  color: #f7fbff;
+  background:
+    radial-gradient(circle at 82% 2%, rgba(47,145,255,.11), transparent 28rem),
+    linear-gradient(180deg, #050b14 0%, #071225 42%, #050b14 100%);
+}
+
+.fm-public-site #conteudo {
+  min-height: 60vh;
+  background: transparent;
+}
+
+.fm-public-site ::selection {
+  background: #2f91ff;
+  color: #fff;
+}
+
+.fm-public-site :focus-visible {
+  outline-color: #58baff;
+}
+
+/* Header / navigation */
+.fm-public-site .site-header {
+  background: rgba(4, 11, 23, .95);
+  color: #eef7ff;
+  border-bottom-color: rgba(100, 166, 230, .17);
+  backdrop-filter: blur(14px);
+}
+
+.fm-public-site .desktop-nav a,
+.fm-public-site .header-actions > a:first-child {
+  color: #dce8f5;
+}
+
+.fm-public-site .desktop-nav a:hover,
+.fm-public-site .header-actions > a:first-child:hover {
+  border-color: #58baff;
+  color: #fff;
+}
+
+.fm-public-site .mobile-menu-toggle,
+.fm-public-site .mobile-menu-close {
+  border-color: rgba(114,168,224,.28);
+  background: #081629;
+  color: #eef7ff;
+}
+
+.fm-public-site .mobile-dialog {
+  background: #050b14;
+  color: #eef7ff;
+}
+
+.fm-public-site .mobile-dialog::backdrop {
+  background: rgba(1,5,12,.88);
+}
+
+.fm-public-site .mobile-dialog-header,
+.fm-public-site .mobile-dialog-nav > a {
+  border-color: rgba(114,168,224,.16);
+}
+
+.fm-public-site .mobile-dialog-nav > a:hover {
+  background: #0b1b31;
+}
+
+/* Buttons */
+.fm-public-site .button {
+  border-color: rgba(120,174,229,.42);
+  color: #f4f9ff;
+}
+
+.fm-public-site .button--primary,
+.fm-public-site .landing-primary {
+  background: linear-gradient(135deg, #2f91ff, #1977df);
+  border-color: #2f91ff;
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(47,145,255,.23);
+}
+
+.fm-public-site .button--primary:hover,
+.fm-public-site .landing-primary:hover {
+  background: linear-gradient(135deg, #43a0ff, #2585eb);
+  border-color: #58baff;
+}
+
+.fm-public-site .button--secondary {
+  background: rgba(5,16,33,.42);
+  color: #edf7ff;
+  border-color: rgba(120,174,229,.38);
+}
+
+.fm-public-site .button--secondary:hover {
+  background: rgba(47,145,255,.11);
+  border-color: rgba(103,214,255,.5);
+}
+
+/* Generic page heroes */
+.fm-public-site .page-hero,
+.fm-public-site .product-hero {
+  color: #fff;
+  background:
+    radial-gradient(circle at 78% 18%, rgba(47,145,255,.13), transparent 24rem),
+    linear-gradient(135deg, #040a14 0%, #071326 58%, #0a1c33 100%);
+  border-bottom: 1px solid rgba(100,166,230,.13);
+}
+
+.fm-public-site .page-hero .lead,
+.fm-public-site .product-hero .lead,
+.fm-public-site .product-description,
+.fm-public-site .availability,
+.fm-public-site .landing-release {
+  color: #aabbd0;
+}
+
+.fm-public-site .badge,
+.fm-public-site .eyebrow,
+.fm-public-site .page-hero .badge,
+.fm-public-site .product-hero .badge,
+.fm-public-site .landing-hero .eyebrow {
+  color: #67d6ff;
+}
+
+.fm-public-site .back-link {
+  color: #9eb0c6;
+}
+
+.fm-public-site .back-link:hover {
+  color: #67d6ff;
+}
+
+/* Sections / editorial surfaces */
+.fm-public-site .section {
+  background: transparent;
+}
+
+.fm-public-site .section--surface {
+  background: rgba(11, 27, 49, .74);
+  border-block: 1px solid rgba(100,166,230,.11);
+}
+
+.fm-public-site .section-heading h2,
+.fm-public-site .landing-heading h2,
+.fm-public-site .split h2,
+.fm-public-site .value-grid h2,
+.fm-public-site .catalog-group > h2,
+.fm-public-site .research-panel h2,
+.fm-public-site .price-card h2,
+.fm-public-site .product-conditions h2,
+.fm-public-site .form-shell h2 {
+  color: #f7fbff;
+}
+
+.fm-public-site .section-heading p,
+.fm-public-site .landing-heading > p:last-child:not(.eyebrow),
+.fm-public-site .value-grid p,
+.fm-public-site .research-panel p,
+.fm-public-site .muted {
+  color: #9fb0c5;
+}
+
+/* Cards */
+.fm-public-site .product-card,
+.fm-public-site .price-card,
+.fm-public-site .landing-scenario,
+.fm-public-site .product-conditions,
+.fm-public-site .form-shell form,
+.fm-public-site .empty-state {
+  background: linear-gradient(145deg, rgba(12,29,52,.96), rgba(6,18,34,.96));
+  color: #f5f9ff;
+  border-color: rgba(100,166,230,.20);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.025);
+}
+
+.fm-public-site .product-card:hover,
+.fm-public-site .product-card:focus-within,
+.fm-public-site .price-card:hover {
+  border-color: rgba(103,214,255,.42);
+  box-shadow: 0 18px 44px rgba(0,7,25,.26), 0 0 0 1px rgba(47,145,255,.08);
+}
+
+.fm-public-site .product-card p,
+.fm-public-site .price-card > p,
+.fm-public-site .landing-scenario-description,
+.fm-public-site .landing-scenario ol,
+.fm-public-site .landing-features p {
+  color: #9fb0c5;
+}
+
+.fm-public-site .text-link {
+  color: #eaf6ff;
+  border-top-color: rgba(100,166,230,.18);
+}
+
+.fm-public-site .text-link span {
+  color: #67d6ff;
+}
+
+.fm-public-site .text-link:hover {
+  color: #fff;
+}
+
+.fm-public-site .price-card > span,
+.fm-public-site .price-card li::before,
+.fm-public-site .landing-step {
+  color: #67d6ff;
+}
+
+/* Research and value blocks */
+.fm-public-site .research-panel {
+  color: #f4f9ff;
+  background: linear-gradient(135deg, #0b1b31, #081629);
+  border-color: rgba(100,166,230,.22);
+}
+
+.fm-public-site .value-grid {
+  border-top-color: rgba(100,166,230,.18);
+}
+
+.fm-public-site .value-grid article {
+  border-color: rgba(100,166,230,.15);
+}
+
+/* Pricing / trials */
+.fm-public-site .trial-note {
+  color: #adc0d5;
+  background: rgba(47,145,255,.08);
+  border-left-color: #58baff;
+}
+
+.fm-public-site .trial-note strong {
+  color: #f7fbff;
+}
+
+.fm-public-site .enterprise-line,
+.fm-public-site .price-card ul {
+  border-color: rgba(100,166,230,.18);
+}
+
+/* Forms / contact / login */
+.fm-public-site .form-shell input,
+.fm-public-site .form-shell textarea {
+  background: #071629;
+  color: #f6fbff;
+  border-color: rgba(117,169,222,.30);
+}
+
+.fm-public-site .form-shell input::placeholder,
+.fm-public-site .form-shell textarea::placeholder {
+  color: #72869d;
+}
+
+.fm-public-site .account-page,
+.fm-public-site .account-panel {
+  background: #06101e;
+  color: #f6fbff;
+}
+
+.fm-public-site .account-note {
+  background: #0b1729;
+  border-left-color: #58baff;
+}
+
+.fm-public-site .account-page aside {
+  background: linear-gradient(145deg, #071426, #0a1d36);
+}
+
+/* Generic product landing */
+.fm-public-site .landing-hero h1 > span,
+.fm-public-site .landing-journey li > span {
+  color: #67d6ff;
+}
+
+.fm-public-site .landing-journey {
+  background: linear-gradient(145deg, #0b1c33, #071629);
+  border-color: rgba(100,166,230,.24);
+}
+
+.fm-public-site .landing-journey li,
+.fm-public-site .landing-index {
+  border-color: rgba(100,166,230,.16);
+}
+
+.fm-public-site .landing-features article {
+  border-top-color: #2f91ff;
+}
+
+.fm-public-site .landing-contact {
+  color: #f5f9ff;
+  background: linear-gradient(135deg, #0b1b31, #081629);
+  border-color: rgba(100,166,230,.20);
+}
+
+.fm-public-site .landing-faq details {
+  border-color: rgba(100,166,230,.17);
+}
+
+/* Kordena marketing — neutralize legacy green without changing layout. */
+.fm-public-site .product-landing--kordena,
+.fm-public-site .product-landing--kordena .kordena-story-panel,
+.fm-public-site .product-landing--kordena .kordena-governance-section,
+.fm-public-site .product-landing--kordena .kordena-value-section,
+.fm-public-site .product-landing--kordena .kordena-integrations-section {
+  --lime: #2f91ff;
+  --mint: #67d6ff;
+}
+
+.fm-public-site .product-landing--kordena .kordena-hero-core,
+.fm-public-site .product-landing--kordena .kordena-core-map,
+.fm-public-site .product-landing--kordena .kordena-story-panel--dark,
+.fm-public-site .product-landing--kordena .kordena-integrations-section,
+.fm-public-site .product-landing--kordena .kordena-governance-section,
+.fm-public-site .product-landing--kordena .kordena-value-section,
+.fm-public-site .product-landing--kordena .kordena-enterprise-section {
+  background: linear-gradient(145deg, #071426, #0b203a) !important;
+  border-color: rgba(100,166,230,.22) !important;
+}
+
+.fm-public-site .product-landing--kordena .kordena-integration-card,
+.fm-public-site .product-landing--kordena .kordena-governance-pills article,
+.fm-public-site .product-landing--kordena .kordena-enterprise-grid article,
+.fm-public-site .product-landing--kordena .kordena-value-chain {
+  background: #0a1a30 !important;
+  border-color: rgba(100,166,230,.22) !important;
+}
+
+.fm-public-site .product-landing--kordena .kordena-governance-pills article > span,
+.fm-public-site .product-landing--kordena .kordena-value-chain b,
+.fm-public-site .product-landing--kordena .kordena-core-center {
+  background: rgba(47,145,255,.16) !important;
+  color: #8edcff !important;
+  border-color: rgba(103,214,255,.36) !important;
+}
+
+.fm-public-site .product-landing--kordena .kordena-flow span,
+.fm-public-site .product-landing--kordena .kordena-check-list li::before,
+.fm-public-site .product-landing--kordena .kordena-question-grid span {
+  color: #67d6ff !important;
+  border-color: #2f91ff !important;
+}
+
+/* Iron Fit marketing — bring lime/green legacy into FM blue system. */
+.fm-public-site .ironfit-landing,
+.fm-public-site [class*="ironfit-"] {
+  --ironfit-accent: #2f91ff;
+}
+
+.fm-public-site .ironfit-landing .button--primary,
+.fm-public-site [class*="ironfit-"] .button--primary {
+  background: #2f91ff !important;
+  border-color: #2f91ff !important;
+  color: #fff !important;
+}
+
+.fm-public-site [class*="ironfit-"] .eyebrow {
+  color: #67d6ff !important;
+}
+
+/* Footer */
+.fm-public-site .site-footer {
+  background: #030811;
+  color: #eef7ff;
+  border-top: 1px solid rgba(100,166,230,.14);
+}
+
+.fm-public-site .footer-top > div > p,
+.fm-public-site .footer-grid h2,
+.fm-public-site .site-footer .muted,
+.fm-public-site .footer-bottom {
+  color: #8fa4ba;
+}
+
+.fm-public-site .footer-grid a:hover {
+  color: #67d6ff;
+}
+
+.fm-public-site .footer-bottom {
+  border-top-color: rgba(100,166,230,.14);
+}
+
+@media (max-width: 760px) {
+  .fm-public-site .product-card,
+  .fm-public-site .price-card,
+  .fm-public-site .product-conditions {
+    box-shadow: none;
+  }
+}
+
+
+/* 2026-09-26 visual compression + Kordena readability pass */
+.fm-public-site .desktop-nav {
+  font-size: 1rem;
+  gap: 1.35rem;
+}
+
+.fm-public-site .header-actions {
+  font-size: .96rem;
+}
+
+.fm-public-site .eyebrow,
+.fm-public-site .badge {
+  font-size: .78rem;
+  letter-spacing: .13em;
+}
+
+/* Kordena page: reduce vertical density without changing information architecture. */
+.fm-public-site .product-landing--kordena {
+  --section-space: clamp(1.55rem, 2.6vw, 2.6rem);
+}
+
+.fm-public-site .product-landing--kordena .landing-hero > .container {
+  padding-block: .65rem 1.75rem;
+}
+
+.fm-public-site .product-landing--kordena .landing-hero-grid {
+  grid-template-columns: minmax(0, 1.22fr) minmax(360px, .78fr);
+  gap: clamp(1.4rem, 3vw, 2.5rem);
+}
+
+.fm-public-site .product-landing--kordena .landing-hero h1 {
+  font-size: clamp(2.35rem, 3.55vw, 3.35rem);
+  margin-bottom: .7rem;
+}
+
+.fm-public-site .product-landing--kordena .landing-hero h1 > span {
+  margin-top: .4rem;
+  font-size: clamp(1.75rem, 2.65vw, 2.45rem);
+}
+
+.fm-public-site .product-landing--kordena .landing-hero .lead {
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.fm-public-site .product-landing--kordena .landing-hero .actions {
+  margin-top: 1rem;
+}
+
+.fm-public-site .product-landing--kordena .landing-release {
+  margin-top: .65rem;
+}
+
+.fm-public-site .product-landing--kordena .kordena-hero-core--premium {
+  padding: 1.15rem 1.2rem 1rem;
+  border: 1px solid rgba(103,214,255,.22);
+  border-radius: 1.25rem;
+  background: linear-gradient(145deg, #071426, #0b203a);
+  overflow: hidden;
+}
+
+.fm-public-site .product-landing--kordena .kordena-hero-core--premium h2 {
+  margin: .45rem 0 .6rem;
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+}
+
+.fm-public-site .product-landing--kordena .kordena-hero-core--premium > p:last-child {
+  color: #9fb4c8;
+  font-size: .86rem;
+  margin: .55rem 0 0;
+}
+
+.fm-public-site .product-landing--kordena .kordena-premium-core-visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 260px;
+  max-height: 320px;
+  overflow: hidden;
+  border-radius: 1rem;
+  background:
+    radial-gradient(circle at 52% 45%, rgba(47,145,255,.18), transparent 42%),
+    #030811;
+}
+
+.fm-public-site .product-landing--kordena .kordena-premium-core-image {
+  width: min(100%, 430px);
+  height: auto;
+  object-fit: contain;
+  filter: saturate(1.03) contrast(1.03) drop-shadow(0 18px 34px rgba(0,7,25,.5));
+}
+
+/* Secondary Core story uses the same new blue visual, compact and clean. */
+.fm-public-site .product-landing--kordena .kordena-core-map {
+  min-height: 330px;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(47,145,255,.16), transparent 38%),
+    linear-gradient(145deg, #071426, #0b203a) !important;
+}
+
+.fm-public-site .product-landing--kordena .kordena-core-map::before,
+.fm-public-site .product-landing--kordena .kordena-core-map::after {
+  border-color: rgba(103,214,255,.16);
+}
+
+.fm-public-site .product-landing--kordena .kordena-core-center--brandmark {
+  width: 230px;
+  height: 230px;
+}
+
+.fm-public-site .product-landing--kordena .kordena-core-brandmark--static {
+  width: 230px;
+  height: 230px;
+  object-fit: contain;
+}
+
+/* "Da primeira ação..." — dark premium process rail, never white-on-white. */
+.fm-public-site .product-landing--kordena .kordena-flow {
+  background: linear-gradient(145deg, #08182d, #0b203a);
+  border-color: rgba(103,214,255,.23);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
+}
+
+.fm-public-site .product-landing--kordena .kordena-flow li {
+  min-height: 102px;
+  color: #f4f9ff;
+  border-right-color: rgba(103,214,255,.15);
+  background: transparent;
+}
+
+.fm-public-site .product-landing--kordena .kordena-flow li:nth-child(odd) {
+  background: rgba(47,145,255,.035);
+}
+
+.fm-public-site .product-landing--kordena .kordena-flow span {
+  color: #67d6ff !important;
+  font-size: .75rem;
+}
+
+.fm-public-site .product-landing--kordena .kordena-flow strong {
+  color: #eef7ff;
+  font-size: .9rem;
+}
+
+/* "Proteção de margem" — same premium family as Estoque Inteligente. */
+.fm-public-site .product-landing--kordena .kordena-story-panel {
+  background: linear-gradient(145deg, #08182d, #0b203a) !important;
+  color: #f4f9ff;
+  border-color: rgba(103,214,255,.22) !important;
+}
+
+.fm-public-site .product-landing--kordena .kordena-story-panel h2 {
+  color: #f7fbff;
+}
+
+.fm-public-site .product-landing--kordena .kordena-story-panel p,
+.fm-public-site .product-landing--kordena .kordena-check-list li {
+  color: #b3c5d8;
+}
+
+.fm-public-site .product-landing--kordena .kordena-check-list li::before {
+  color: #67d6ff !important;
+}
+
+/* "Faturamento não é lucro" — readable financial metric cards. */
+.fm-public-site .product-landing--kordena .kordena-metric-grid span {
+  min-height: 58px;
+  padding: .75rem .9rem;
+  color: #eff7ff;
+  background: linear-gradient(145deg, #0b203a, #0a1a30);
+  border-color: rgba(103,214,255,.22);
+  box-shadow: inset 3px 0 0 rgba(47,145,255,.65);
+}
+
+.fm-public-site .product-landing--kordena .kordena-question-grid span {
+  color: #eaf5ff !important;
+  background: #0a1a30;
+  border-left-color: #2f91ff !important;
+}
+
+.fm-public-site .product-landing--kordena .kordena-prompt-grid blockquote {
+  color: #eaf5ff;
+  background: linear-gradient(145deg, #0b203a, #08182d);
+  border-color: rgba(103,214,255,.2);
+}
+
+@media (max-width: 1000px) {
+  .fm-public-site .product-landing--kordena .landing-hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .fm-public-site .product-landing--kordena .kordena-premium-core-visual {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 760px) {
+  .fm-public-site .desktop-nav {
+    font-size: .95rem;
+  }
+
+  .fm-public-site .product-landing--kordena .landing-hero > .container {
+    padding-block: .5rem 1.35rem;
+  }
+
+  .fm-public-site .product-landing--kordena .kordena-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .fm-public-site .product-landing--kordena .kordena-flow li {
+    min-height: auto;
+    border-right: 0;
+    border-bottom: 1px solid rgba(103,214,255,.15);
+  }
+
+  .fm-public-site .product-landing--kordena .kordena-flow li:last-child {
+    border-bottom: 0;
+  }
+}
+
+
+/* 2026-09-27 mobile hardening + product palette correction */
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.fm-public-site {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  background: #030811;
+}
+
+.fm-public-site main,
+.fm-public-site section,
+.fm-public-site nav,
+.fm-public-site footer,
+.fm-public-site .container {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.fm-public-site .product-landing--kordena {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  background: #030811;
+}
+
+.fm-public-site .product-landing--kordena img,
+.fm-public-site .product-landing--kordena video,
+.fm-public-site .product-landing--kordena svg,
+.fm-public-site .product-landing--kordena canvas {
+  max-width: 100%;
+}
+
+.fm-public-site .product-landing--kordena .landing-features article,
+.fm-public-site .product-landing--kordena .landing-features article:first-child {
+  color: #f3f8ff !important;
+  background: linear-gradient(145deg, #0b203a, #08182d) !important;
+  border: 1px solid rgba(103,214,255,.22) !important;
+  border-top: 2px solid #2f91ff !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.025);
+}
+
+.fm-public-site .product-landing--kordena .landing-features article h3,
+.fm-public-site .product-landing--kordena .landing-features article:first-child h3 {
+  color: #f4f9ff !important;
+}
+
+.fm-public-site .product-landing--kordena .landing-features article p,
+.fm-public-site .product-landing--kordena .landing-features article:first-child p {
+  color: #a9bfd3 !important;
+}
+
+.fm-public-site .product-landing--kordena .landing-index,
+.fm-public-site .product-landing--kordena .kordena-value-chain,
+.fm-public-site .product-landing--kordena .kordena-media-placeholder,
+.fm-public-site .product-landing--kordena .kordena-core-map,
+.fm-public-site .product-landing--kordena .kordena-premium-core-visual {
+  max-width: 100%;
+}
+
+@media (max-width: 760px) {
+  .fm-public-site .product-landing--kordena,
+  .fm-public-site .product-landing--kordena > *,
+  .fm-public-site .product-landing--kordena .container {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .fm-public-site .product-landing--kordena .landing-index {
+    width: var(--container);
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+  }
+
+  .fm-public-site .product-landing--kordena .kordena-value-chain {
+    overflow: hidden;
+  }
+
+  .fm-public-site .product-landing--kordena .landing-features article {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* Iron Fit keeps its existing artwork/composition; only the green identity is shifted to FM blue. */
+.fm-public-site .ironfit-approved-lockup img,
+.fm-public-site .ironfit-core-mark img,
+.fm-public-site .ironfit-mini-brand img,
+.fm-public-site .ironfit-phone__brand img {
+  filter: hue-rotate(108deg) saturate(1.12) brightness(1.04) !important;
+}
+
+
+/* 2026-09-27 screenshot corrections: Kordena Core labels + product card CTA */
+
+/* Product cards: remove the legacy pale action bar and keep "Conhecer produto" legible. */
+.fm-public-site .product-card .text-link {
+  margin: auto -1.5rem -1.5rem;
+  padding: 1rem 1.5rem;
+  min-height: 58px;
+  border-top: 1px solid rgba(103,214,255,.20);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  background: linear-gradient(135deg, #0b203a, #081629);
+  color: #f4f9ff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.025);
+}
+
+.fm-public-site .product-card .text-link span {
+  color: #67d6ff;
+}
+
+.fm-public-site .product-card .text-link:hover,
+.fm-public-site .product-card .text-link:focus-visible {
+  background: linear-gradient(135deg, #10325a, #0b2544);
+  color: #ffffff;
+}
+
+/* Kordena Core capability chips: stronger contrast and visual priority. */
+.fm-public-site .product-landing--kordena .kordena-core-areas {
+  z-index: 4;
+}
+
+.fm-public-site .product-landing--kordena .kordena-core-areas span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  color: #f2f9ff;
+  background: linear-gradient(135deg, rgba(18,64,105,.96), rgba(10,42,73,.98));
+  border: 1px solid rgba(103,214,255,.52);
+  box-shadow:
+    0 8px 22px rgba(0,7,25,.28),
+    inset 0 0 18px rgba(47,145,255,.08);
+  font-weight: 800;
+  letter-spacing: -.01em;
+}
+
+/* Mobile: stop the central Core artwork from covering the capability labels. */
+@media (max-width: 700px) {
+  .fm-public-site .product-landing--kordena .kordena-core-map {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .9rem;
+    min-height: auto;
+    padding: 1rem;
+  }
+
+  .fm-public-site .product-landing--kordena .kordena-core-center--brandmark {
+    position: relative;
+    z-index: 2;
+    flex: 0 0 auto;
+    width: 184px;
+    height: 184px;
+  }
+
+  .fm-public-site .product-landing--kordena .kordena-core-brandmark--static {
+    width: 184px;
+    height: 184px;
+  }
+
+  .fm-public-site .product-landing--kordena .kordena-core-areas {
+    position: static;
+    inset: auto;
+    z-index: 4;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .55rem;
+    align-content: normal;
+    justify-content: normal;
+  }
+
+  .fm-public-site .product-landing--kordena .kordena-core-areas span,
+  .fm-public-site .product-landing--kordena .kordena-core-areas span:nth-child(even) {
+    justify-self: stretch;
+    max-width: none;
+    min-width: 0;
+    min-height: 46px;
+    padding: .55rem .6rem;
+    text-align: center;
+    font-size: .72rem;
+    line-height: 1.15;
+  }
+}
+
+@media (max-width: 420px) {
+  .fm-public-site .product-landing--kordena .kordena-core-center--brandmark,
+  .fm-public-site .product-landing--kordena .kordena-core-brandmark--static {
+    width: 166px;
+    height: 166px;
+  }
+
+  .fm-public-site .product-landing--kordena .kordena-core-areas span,
+  .fm-public-site .product-landing--kordena .kordena-core-areas span:nth-child(even) {
+    min-height: 44px;
+    font-size: .68rem;
+  }
+}
+
+
+/* 2026-09-27 Kordena Core geometry lock — proportional desktop/tablet layout */
+.fm-public-site .product-landing--kordena .kordena-core-map {
+  --k-core-chip-w: 146px;
+  --k-core-chip-h: 46px;
+  --k-core-center-size: 220px;
+  --k-core-col-gap: 16px;
+  --k-core-row-gap: 8px;
+  --k-core-integrations-w: 250px;
+  min-height: 360px;
+  padding: 1.25rem;
+}
+
+.fm-public-site .product-landing--kordena .kordena-core-center--brandmark,
+.fm-public-site .product-landing--kordena .kordena-core-brandmark--static {
+  width: var(--k-core-center-size);
+  height: var(--k-core-center-size);
+}
+
+.fm-public-site .product-landing--kordena .kordena-core-areas {
+  inset: 1.1rem;
+  grid-template-columns:
+    var(--k-core-chip-w)
+    var(--k-core-center-size)
+    var(--k-core-chip-w);
+  grid-template-rows:
+    repeat(4,var(--k-core-chip-h))
+    54px;
+  column-gap: var(--k-core-col-gap);
+  row-gap: var(--k-core-row-gap);
+  justify-content: center;
+  align-content: center;
+}
+
+.fm-public-site .product-landing--kordena .kordena-core-area,
+.fm-public-site .product-landing--kordena .kordena-core-area--left,
+.fm-public-site .product-landing--kordena .kordena-core-area--right {
+  width: var(--k-core-chip-w);
+  min-width: var(--k-core-chip-w);
+  max-width: var(--k-core-chip-w);
+  height: var(--k-core-chip-h);
+  min-height: var(--k-core-chip-h);
+  padding: .45rem .7rem;
+  font-size: .74rem;
+  line-height: 1.08;
+  justify-self: stretch;
+  white-space: normal;
+}
+
+.fm-public-site .product-landing--kordena .kordena-core-area--left {
+  grid-column: 1;
+}
+
+.fm-public-site .product-landing--kordena .kordena-core-area--right {
+  grid-column: 3;
+}
+
+.fm-public-site .product-landing--kordena .kordena-core-area--integrations {
+  grid-column: 2;
+  grid-row: 5;
+  width: var(--k-core-integrations-w);
+  min-width: var(--k-core-integrations-w);
+  max-width: var(--k-core-integrations-w);
+  height: 54px;
+  min-height: 54px;
+  justify-self: center;
+  border-radius: .9rem;
+}
+
+.fm-public-site .product-landing--kordena .kordena-core-area--integrations strong {
+  font-size: .75rem;
+  line-height: 1;
+}
+
+.fm-public-site .product-landing--kordena .kordena-core-area--integrations small {
+  font-size: .66rem;
+  line-height: 1;
+}
+
+@media (max-width: 1180px) and (min-width: 701px) {
+  .fm-public-site .product-landing--kordena .kordena-core-map {
+    --k-core-chip-w: 132px;
+    --k-core-chip-h: 44px;
+    --k-core-center-size: 200px;
+    --k-core-col-gap: 12px;
+    --k-core-row-gap: 7px;
+    --k-core-integrations-w: 226px;
+    min-height: 340px;
+  }
+
+  .fm-public-site .product-landing--kordena .kordena-core-area {
+    font-size: .7rem;
+    padding-inline: .55rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .fm-public-site .product-landing--kordena .kordena-core-map {
+    --k-core-center-size: 184px;
+    min-height: auto;
+  }
+
+  .fm-public-site .product-landing--kordena .kordena-core-areas {
+    position: static;
+    inset: auto;
+    width: 100%;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    grid-template-rows: none;
+    gap: .55rem;
+  }
+
+  .fm-public-site .product-landing--kordena .kordena-core-area,
+  .fm-public-site .product-landing--kordena .kordena-core-area--left,
+  .fm-public-site .product-landing--kordena .kordena-core-area--right {
+    grid-column: auto;
+    grid-row: auto !important;
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    height: auto;
+    min-height: 46px;
+    font-size: .72rem;
+  }
+
+  .fm-public-site .product-landing--kordena .kordena-core-area--integrations {
+    grid-column: 1 / -1;
+    grid-row: auto !important;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    height: auto;
+    min-height: 56px;
+  }
+}
+
+
+/* 2026-09-27 IRON FIT CORE — premium commercial visual pass */
+.fm-public-site .ironfit-landing {
+  --ironfit-blue: #2f91ff;
+  --ironfit-cyan: #67d6ff;
+  --ironfit-surface: #071528;
+  --ironfit-surface-2: #0a1b31;
+  --ironfit-line: rgba(103,214,255,.16);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  background:
+    radial-gradient(circle at 78% 8%, rgba(47,145,255,.08), transparent 30rem),
+    #030811;
+  color: #eef7ff;
+}
+
+/* Hero — same premium density as the FM/Kordena system. */
+.fm-public-site .ironfit-landing .ironfit-hero {
+  min-height: 520px;
+  padding: 30px 0 42px;
+  background:
+    radial-gradient(circle at 76% 40%, rgba(47,145,255,.15), transparent 25rem),
+    linear-gradient(135deg,#030811 0%,#071629 56%,#050b14 100%);
+  border-bottom-color: rgba(103,214,255,.14);
+}
+
+.fm-public-site .ironfit-landing .ironfit-hero__grid {
+  grid-template-columns: minmax(0,1.06fr) minmax(380px,.94fr);
+  gap: clamp(1.75rem,3.5vw,3rem);
+  margin-top: 22px;
+}
+
+.fm-public-site .ironfit-landing .ironfit-hero__copy {
+  max-width: 620px;
+}
+
+.fm-public-site .ironfit-landing .ironfit-hero h1 {
+  margin: 10px 0 8px;
+  font-size: clamp(3rem,5.3vw,5rem);
+  line-height: .91;
+}
+
+.fm-public-site .ironfit-landing .ironfit-tagline {
+  margin-bottom: 18px;
+  font-size: clamp(1.15rem,1.8vw,1.55rem);
+}
+
+.fm-public-site .ironfit-landing .ironfit-hero .lead {
+  font-size: clamp(1rem,1.3vw,1.15rem);
+  line-height: 1.58;
+}
+
+.fm-public-site .ironfit-landing .ironfit-support {
+  margin-top: 12px;
+  line-height: 1.58;
+  color: #91a5bb;
+}
+
+.fm-public-site .ironfit-landing .ironfit-actions {
+  margin-top: 22px;
+}
+
+.fm-public-site .ironfit-landing .ironfit-byline {
+  margin-top: 15px;
+  color: #7890a8;
+}
+
+.fm-public-site .ironfit-landing .ironfit-hero__visual {
+  min-height: 380px;
+}
+
+.fm-public-site .ironfit-landing .ironfit-approved-lockup {
+  max-width: 520px;
+}
+
+.fm-public-site .ironfit-landing .ironfit-hero__visual img {
+  width: min(100%,520px);
+}
+
+.fm-public-site .ironfit-landing .ironfit-halo--one {
+  width: 360px;
+  height: 360px;
+}
+
+.fm-public-site .ironfit-landing .ironfit-halo--two {
+  width: 455px;
+  height: 455px;
+}
+
+/* Sticky local navigation */
+.fm-public-site .ironfit-landing .ironfit-index {
+  top: 88px;
+  background: rgba(3,10,20,.94);
+  border-color: rgba(103,214,255,.12);
+  backdrop-filter: blur(16px);
+}
+
+.fm-public-site .ironfit-landing .ironfit-index .container {
+  gap: .25rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.fm-public-site .ironfit-landing .ironfit-index .container::-webkit-scrollbar {
+  display: none;
+}
+
+.fm-public-site .ironfit-landing .ironfit-index a {
+  flex: 0 0 auto;
+  padding: .58rem .72rem;
+  color: #dce9f6;
+  font-size: .76rem;
+  letter-spacing: .02em;
+  border-radius: .55rem;
+}
+
+.fm-public-site .ironfit-landing .ironfit-index a:hover,
+.fm-public-site .ironfit-landing .ironfit-index a:focus-visible {
+  color: #fff;
+  background: rgba(47,145,255,.10);
+}
+
+/* Core geometry — equal chips, mirrored rows, controlled center. */
+.fm-public-site .ironfit-landing .ironfit-core-section {
+  padding: 54px 0 60px;
+  background:
+    radial-gradient(circle at 50% 52%,rgba(47,145,255,.09),transparent 24rem),
+    linear-gradient(180deg,#050b14,#071629);
+}
+
+.fm-public-site .ironfit-landing .ironfit-core-heading {
+  max-width: 760px;
+  margin-bottom: 28px;
+}
+
+.fm-public-site .ironfit-landing .ironfit-core-stage {
+  --iron-chip-w: 144px;
+  --iron-chip-h: 44px;
+  --iron-center-w: 260px;
+  min-height: 430px;
+  max-width: 980px;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(47,145,255,.09),transparent 33%),
+    linear-gradient(145deg,#08182d,#050b14);
+  border-color: rgba(103,214,255,.17);
+}
+
+.fm-public-site .ironfit-landing .ironfit-core-mark {
+  width: var(--iron-center-w);
+}
+
+.fm-public-site .ironfit-landing .ironfit-domain {
+  width: var(--iron-chip-w);
+  min-width: var(--iron-chip-w);
+  height: var(--iron-chip-h);
+  min-height: var(--iron-chip-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .45rem .7rem;
+  border-color: rgba(103,214,255,.38);
+  background: linear-gradient(135deg,rgba(18,64,105,.94),rgba(9,36,64,.97));
+  color: #f0f8ff;
+  font-size: .7rem;
+  line-height: 1.05;
+  text-align: center;
+}
+
+.fm-public-site .ironfit-landing .ironfit-domain--1,
+.fm-public-site .ironfit-landing .ironfit-domain--3,
+.fm-public-site .ironfit-landing .ironfit-domain--5,
+.fm-public-site .ironfit-landing .ironfit-domain--7 {
+  left: 5%;
+  right: auto;
+}
+
+.fm-public-site .ironfit-landing .ironfit-domain--2,
+.fm-public-site .ironfit-landing .ironfit-domain--4,
+.fm-public-site .ironfit-landing .ironfit-domain--6,
+.fm-public-site .ironfit-landing .ironfit-domain--8 {
+  right: 5%;
+  left: auto;
+}
+
+.fm-public-site .ironfit-landing .ironfit-domain--1,
+.fm-public-site .ironfit-landing .ironfit-domain--2 { top: 16%; }
+.fm-public-site .ironfit-landing .ironfit-domain--3,
+.fm-public-site .ironfit-landing .ironfit-domain--4 { top: 36%; }
+.fm-public-site .ironfit-landing .ironfit-domain--5,
+.fm-public-site .ironfit-landing .ironfit-domain--6 { top: 56%; bottom: auto; }
+.fm-public-site .ironfit-landing .ironfit-domain--7,
+.fm-public-site .ironfit-landing .ironfit-domain--8 { top: 76%; bottom: auto; }
+
+.fm-public-site .ironfit-landing .ironfit-core-flow {
+  margin-top: 18px;
+}
+
+/* Main editorial and operational surfaces */
+.fm-public-site .ironfit-landing .ironfit-management,
+.fm-public-site .ironfit-landing .ironfit-student,
+.fm-public-site .ironfit-landing .ironfit-training,
+.fm-public-site .ironfit-landing .ironfit-equipment,
+.fm-public-site .ironfit-landing .ironfit-operations,
+.fm-public-site .ironfit-landing .ironfit-finance,
+.fm-public-site .ironfit-landing .ironfit-intelligence,
+.fm-public-site .ironfit-landing .ironfit-ecosystem,
+.fm-public-site .ironfit-landing .ironfit-security,
+.fm-public-site .ironfit-landing .ironfit-demo,
+.fm-public-site .ironfit-landing .ironfit-tour,
+.fm-public-site .ironfit-landing .ironfit-pricing,
+.fm-public-site .ironfit-landing .ironfit-faq {
+  color: #eef7ff;
+}
+
+.fm-public-site .ironfit-landing .ironfit-management-grid article,
+.fm-public-site .ironfit-landing .ironfit-training-facts article,
+.fm-public-site .ironfit-landing .ironfit-operations-grid article,
+.fm-public-site .ironfit-landing .ironfit-finance-panel > div,
+.fm-public-site .ironfit-landing .ironfit-security-grid article,
+.fm-public-site .ironfit-landing .ironfit-security-details article,
+.fm-public-site .ironfit-landing .ironfit-tour-card,
+.fm-public-site .ironfit-landing .ironfit-faq details {
+  background: linear-gradient(145deg,#0a1b31,#071528);
+  border-color: rgba(103,214,255,.15);
+  color: #eef7ff;
+}
+
+.fm-public-site .ironfit-landing .ironfit-management-grid p,
+.fm-public-site .ironfit-landing .ironfit-training-facts p,
+.fm-public-site .ironfit-landing .ironfit-operations-grid p,
+.fm-public-site .ironfit-landing .ironfit-finance-panel span,
+.fm-public-site .ironfit-landing .ironfit-security-grid p,
+.fm-public-site .ironfit-landing .ironfit-security-details p,
+.fm-public-site .ironfit-landing .ironfit-tour-card p,
+.fm-public-site .ironfit-landing .ironfit-faq details p {
+  color: #91a5bb;
+}
+
+.fm-public-site .ironfit-landing .ironfit-intelligence-network,
+.fm-public-site .ironfit-landing .ironfit-hub-diagram > div,
+.fm-public-site .ironfit-landing .ironfit-pricing-panel,
+.fm-public-site .ironfit-landing .ironfit-demo-frame {
+  background: linear-gradient(145deg,#08182d,#050b14);
+  border-color: rgba(103,214,255,.16);
+}
+
+.fm-public-site .ironfit-landing .ironfit-phone {
+  background: linear-gradient(160deg,#071629,#0b203a);
+  border-color: rgba(103,214,255,.22);
+  box-shadow: 0 22px 54px rgba(0,7,25,.32);
+}
+
+/* Keep the official lockup geometry, only harmonize the green accent to the approved FM blue. */
+.fm-public-site .ironfit-approved-lockup img,
+.fm-public-site .ironfit-core-mark img,
+.fm-public-site .ironfit-mini-brand img,
+.fm-public-site .ironfit-phone__brand img {
+  filter: hue-rotate(108deg) saturate(1.10) brightness(1.04) drop-shadow(0 16px 28px rgba(0,7,25,.25)) !important;
+}
+
+@media (max-width: 1100px) {
+  .fm-public-site .ironfit-landing .ironfit-hero {
+    min-height: auto;
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-hero__grid {
+    grid-template-columns: minmax(0,1fr) minmax(340px,.82fr);
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-core-stage {
+    --iron-chip-w: 132px;
+    --iron-chip-h: 42px;
+    --iron-center-w: 235px;
+    min-height: 410px;
+  }
+}
+
+@media (max-width: 900px) {
+  .fm-public-site .ironfit-landing .ironfit-hero__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-hero__visual {
+    min-height: 300px;
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-index {
+    top: 72px;
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-core-stage {
+    min-height: 560px;
+  }
+}
+
+@media (max-width: 760px) {
+  .fm-public-site .ironfit-landing .ironfit-hero {
+    padding: 22px 0 30px;
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-hero__grid {
+    margin-top: 16px;
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-hero h1 {
+    font-size: clamp(2.65rem,12vw,3.35rem);
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-hero__visual {
+    min-height: 240px;
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-approved-lockup {
+    max-width: 390px;
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-core-stage {
+    min-height: auto;
+    padding: 20px 14px;
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-core-mark {
+    width: min(100%,280px);
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-core-domains {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: .55rem;
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-domain,
+  .fm-public-site .ironfit-landing .ironfit-domain--1,
+  .fm-public-site .ironfit-landing .ironfit-domain--2,
+  .fm-public-site .ironfit-landing .ironfit-domain--3,
+  .fm-public-site .ironfit-landing .ironfit-domain--4,
+  .fm-public-site .ironfit-landing .ironfit-domain--5,
+  .fm-public-site .ironfit-landing .ironfit-domain--6,
+  .fm-public-site .ironfit-landing .ironfit-domain--7,
+  .fm-public-site .ironfit-landing .ironfit-domain--8 {
+    position: static;
+    width: auto;
+    min-width: 0;
+    height: auto;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 460px) {
+  .fm-public-site .ironfit-landing .ironfit-core-domains {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* 2026-09-27 FINAL PUBLIC COLOR LOCK
+   Scoped to .fm-public-site so operational /app/iron-fit keeps its own theme. */
+.fm-public-site .logo-slogan,
+.fm-public-site .site-footer .logo-slogan {
+  color: #67d6ff !important;
+  text-shadow: 0 0 14px rgba(103,214,255,.12);
+}
+
+.fm-public-site .hero-kicker > span,
+.fm-public-site .hero h1 em,
+.fm-public-site .portfolio-map > .eyebrow,
+.fm-public-site .portfolio-map-group a:hover,
+.fm-public-site .page-hero .badge,
+.fm-public-site .product-hero .badge,
+.fm-public-site .landing-hero .eyebrow,
+.fm-public-site .landing-hero h1 > span,
+.fm-public-site .landing-journey li > span,
+.fm-public-site .landing-step,
+.fm-public-site .price-card > span,
+.fm-public-site .price-card li::before {
+  color: #67d6ff;
+  border-color: #67d6ff;
+}
+
+.fm-public-site .hero-kicker > span {
+  border-top-color: #67d6ff;
+}
+
+.fm-public-site .portfolio-map {
+  border-color: rgba(103,214,255,.20);
+  background: linear-gradient(135deg,#0b203a,#071629);
+}
+
+.fm-public-site .portfolio-map-group,
+.fm-public-site .landing-journey,
+.fm-public-site .landing-journey li {
+  border-color: rgba(103,214,255,.18);
+}
+
+.fm-public-site .landing-journey {
+  background: linear-gradient(145deg,#0a1b31,#071528);
+}
+
+.fm-public-site .landing-features article {
+  border-top-color: #2f91ff;
+}
+
+.fm-public-site .trial-note,
+.fm-public-site .account-note {
+  border-left-color: #58baff;
+}
+
+.fm-public-site .site-footer a:hover,
+.fm-public-site .footer-grid a:hover,
+.fm-public-site .back-link:hover {
+  color: #67d6ff;
+}
+
+.fm-public-site .site-header .button--primary,
+.fm-public-site .hero .button--primary,
+.fm-public-site .landing-primary,
+.fm-public-site .skip-link {
+  background: linear-gradient(135deg,#2f91ff,#1977df);
+  border-color: #2f91ff;
+  color: #fff;
+}
+
+.fm-public-site .site-header .button--primary:hover,
+.fm-public-site .hero .button--primary:hover,
+.fm-public-site .landing-primary:hover {
+  background: linear-gradient(135deg,#43a0ff,#2585eb);
+  border-color: #58baff;
+}
+
+.fm-public-site .button--secondary:hover {
+  background: rgba(47,145,255,.11);
+  border-color: rgba(103,214,255,.50);
+}
+
+.fm-public-site .product-card:hover,
+.fm-public-site .product-card:focus-within {
+  border-color: rgba(103,214,255,.42);
+}
+
+.fm-public-site .mobile-dialog-nav > a:hover {
+  background: rgba(47,145,255,.10);
+  color: #f7fbff;
+}
+
+.fm-public-site :focus-visible,
+.fm-public-site .hero :focus-visible,
+.fm-public-site .product-hero :focus-visible,
+.fm-public-site .site-footer :focus-visible {
+  outline-color: #58baff;
+}
+
+
+/* 2026-09-27 FM approved logo color lock.
+   The approved SVG embeds the legacy green raster; public chrome shifts only that
+   embedded chroma into the approved FM blue/cyan range, preserving geometry/type. */
+.fm-public-site .logo.logo--approved .logo-image {
+  filter:
+    hue-rotate(108deg)
+    saturate(1.32)
+    brightness(1.04)
+    contrast(1.04)
+    drop-shadow(0 0 10px rgba(47,145,255,.10)) !important;
+}
+
+.fm-public-site .site-header--premium-home .logo.logo--approved .logo-image {
+  filter:
+    hue-rotate(108deg)
+    saturate(1.32)
+    brightness(1.04)
+    contrast(1.04)
+    drop-shadow(0 0 10px rgba(47,145,255,.14)) !important;
+}
+
+.fm-public-site .site-footer .logo.logo--approved .logo-image {
+  filter:
+    hue-rotate(108deg)
+    saturate(1.32)
+    brightness(1.04)
+    contrast(1.04)
+    drop-shadow(0 0 9px rgba(47,145,255,.10)) !important;
+}
+
+
+/* 2026-09-28 IRON FIT CORE — mobile logo correction.
+   The legacy lockup is a raster asset with green baked into the pixels.
+   Apply the approved blue/cyan treatment consistently and keep secondary
+   placements large enough to preserve brand legibility on phones. */
+.fm-public-site .ironfit-landing .ironfit-approved-lockup img,
+.fm-public-site .ironfit-landing .ironfit-core-mark img,
+.fm-public-site .ironfit-landing .ironfit-mini-brand img,
+.fm-public-site .ironfit-landing .ironfit-phone__brand img,
+.fm-public-site .ironfit-landing .ironfit-intelligence-brand,
+.fm-public-site .ironfit-landing .ironfit-hub-brand {
+  filter: hue-rotate(108deg) saturate(1.18) brightness(1.08) drop-shadow(0 16px 28px rgba(0,7,25,.25)) !important;
+}
+
+@media (max-width: 700px) {
+  .fm-public-site .ironfit-landing .ironfit-core-mark {
+    width: min(100%, 360px);
+  }
+  .fm-public-site .ironfit-landing .ironfit-mini-brand {
+    width: min(100%, 420px);
+  }
+  .fm-public-site .ironfit-landing .ironfit-mini-brand img {
+    width: 100%;
+    height: auto;
+  }
+  .fm-public-site .ironfit-landing .ironfit-phone__brand img {
+    width: min(100%, 300px);
+    height: auto;
+  }
+  .fm-public-site .ironfit-landing .ironfit-intelligence-core {
+    width: 100%;
+  }
+  .fm-public-site .ironfit-landing .ironfit-intelligence-brand {
+    width: min(100%, 340px);
+    height: auto;
+  }
+  .fm-public-site .ironfit-landing .ironfit-hub-brand {
+    width: min(100%, 360px);
+    height: auto;
+  }
+}
+
+
+/* 2026-09-28 IRON FIT CORE — mobile spacing/centering + robust green removal.
+   The source lockup contains green pixels, so hue rotation alone is not reliable.
+   On the dark landing, screen blending suppresses the dark/green chroma while
+   preserving the approved cyan/white luminous identity. */
+.fm-public-site .ironfit-landing .ironfit-approved-lockup img,
+.fm-public-site .ironfit-landing .ironfit-core-mark img,
+.fm-public-site .ironfit-landing .ironfit-mini-brand img,
+.fm-public-site .ironfit-landing .ironfit-phone__brand img,
+.fm-public-site .ironfit-landing .ironfit-intelligence-brand,
+.fm-public-site .ironfit-landing .ironfit-hub-brand {
+  filter: grayscale(1) sepia(1) saturate(6) hue-rotate(155deg) brightness(1.18) contrast(1.08) drop-shadow(0 12px 24px rgba(0,132,255,.18)) !important;
+}
+
+@media (max-width: 700px) {
+  .fm-public-site .ironfit-landing .ironfit-phone {
+    width: min(100%, 420px);
+    margin-inline: auto;
+    padding-inline: clamp(1rem,5vw,1.75rem);
+  }
+  .fm-public-site .ironfit-landing .ironfit-phone__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  .fm-public-site .ironfit-landing .ironfit-phone__brand img {
+    display: block;
+    width: min(100%, 340px) !important;
+    max-width: 340px;
+    height: auto !important;
+    margin-inline: auto;
+  }
+  .fm-public-site .ironfit-landing .ironfit-phone__list {
+    width: 100%;
+    margin-inline: auto;
+  }
+  .fm-public-site .ironfit-landing .ironfit-mini-brand,
+  .fm-public-site .ironfit-landing .ironfit-intelligence-core,
+  .fm-public-site .ironfit-landing .ironfit-hub-core--brand {
+    margin-inline: auto;
+    text-align: center;
+  }
+  .fm-public-site .ironfit-landing .ironfit-mini-brand img,
+  .fm-public-site .ironfit-landing .ironfit-intelligence-brand,
+  .fm-public-site .ironfit-landing .ironfit-hub-brand {
+    display: block;
+    width: min(100%, 380px) !important;
+    height: auto !important;
+    margin-inline: auto;
+  }
+}
+
+
+/* 2026-09-28 IRON FIT CORE — final mobile composition correction.
+   Keep every branded raster in the same cyan system as the public site,
+   preserve its own framed surface, and center labels/descriptions with it. */
+.fm-public-site .ironfit-landing .ironfit-approved-lockup img,
+.fm-public-site .ironfit-landing .ironfit-core-mark img,
+.fm-public-site .ironfit-landing .ironfit-mini-brand img,
+.fm-public-site .ironfit-landing .ironfit-phone__brand img,
+.fm-public-site .ironfit-landing .ironfit-intelligence-brand,
+.fm-public-site .ironfit-landing .ironfit-hub-brand {
+  filter: grayscale(1) sepia(1) saturate(7) hue-rotate(150deg) brightness(1.12) contrast(1.12) !important;
+}
+
+@media (max-width: 700px) {
+  .fm-public-site .ironfit-landing .ironfit-core-mark,
+  .fm-public-site .ironfit-landing .ironfit-mini-brand,
+  .fm-public-site .ironfit-landing .ironfit-phone__brand,
+  .fm-public-site .ironfit-landing .ironfit-intelligence-core,
+  .fm-public-site .ironfit-landing .ironfit-hub-core--brand {
+    width: min(100%, 420px);
+    margin-inline: auto;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-core-mark img,
+  .fm-public-site .ironfit-landing .ironfit-mini-brand img,
+  .fm-public-site .ironfit-landing .ironfit-phone__brand img,
+  .fm-public-site .ironfit-landing .ironfit-intelligence-brand,
+  .fm-public-site .ironfit-landing .ironfit-hub-brand {
+    display: block;
+    width: min(100%, 360px) !important;
+    max-width: 360px;
+    height: auto !important;
+    margin-inline: auto;
+    object-fit: contain;
+    border-radius: 18px;
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-phone__brand {
+    padding: 1rem;
+    border: 1px solid rgba(80,166,255,.18);
+    border-radius: 24px;
+    background: rgba(3,16,35,.72);
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-phone__brand span,
+  .fm-public-site .ironfit-landing .ironfit-mini-brand p,
+  .fm-public-site .ironfit-landing .ironfit-intelligence-core p,
+  .fm-public-site .ironfit-landing .ironfit-hub-core--brand p {
+    display: block;
+    width: 100%;
+    margin: .85rem auto 0;
+    text-align: center !important;
+  }
+}

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { hasProductLanding, ProductLanding } from "./product-landing";
 import { IronFitCoreLanding } from "./iron-fit-core-landing";
+import { NFCoreLanding } from "./nfcore-landing";
 import type { Product } from "@/src/catalog/types";
 import { formatBRL } from "@/src/catalog/commerce";
 import { Badge } from "@/src/components/ui/badge";
@@ -8,6 +9,7 @@ import { ProductActions } from "./product-actions";
 
 export function ProductPage({ product }: { product: Product }) {
   if (product.slug === "iron-fit") return <IronFitCoreLanding />;
+  if (product.slug === "nfcore") return <NFCoreLanding />;
   if (hasProductLanding(product.slug)) return <ProductLanding product={product} />;
   return (
     <main>

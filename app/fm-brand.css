@@ -4,7 +4,7 @@
 .site-header {
   height: 100px;
   background: #090d0b;
-  border-bottom-color: rgba(183, 244, 60, .14);
+  border-bottom-color: rgba(103,214,255,.14);
   box-shadow: 0 10px 26px rgba(0, 0, 0, .12);
 }
 
@@ -36,7 +36,7 @@
 .logo-slogan {
   display: block;
   margin-top: .5rem;
-  color: #b7f43c;
+  color: #2f91ff;
   font-size: .56rem;
   font-weight: 700;
   line-height: 1.15;
@@ -57,20 +57,20 @@
 
 .site-header .desktop-nav a:hover,
 .site-header .header-actions > a:first-child:hover {
-  color: var(--lime);
-  border-color: var(--lime);
+  color: #2f91ff;
+  border-color: #2f91ff;
 }
 
 .site-header .button--primary {
-  background: var(--lime);
+  background: #2f91ff;
   color: var(--ink);
-  border-color: var(--lime);
-  box-shadow: 0 8px 24px rgba(183, 244, 60, .12);
+  border-color: #2f91ff;
+  box-shadow: 0 8px 24px rgba(103,214,255,.12);
 }
 
 .site-header .button--primary:hover {
-  background: #c4ff4c;
-  border-color: #c4ff4c;
+  background: #43a0ff;
+  border-color: #58baff;
 }
 
 .site-header .mobile-menu-toggle {
@@ -80,7 +80,7 @@
 }
 
 .site-header :focus-visible {
-  outline-color: var(--lime);
+  outline-color: #2f91ff;
 }
 
 /* Shared responsive safety: prevent grid/flex children from forcing horizontal overflow. */
@@ -99,15 +99,17 @@
   margin: auto -1.5rem -1.5rem;
   padding: 1rem 1.5rem;
   min-height: 58px;
-  border-top: 1px solid rgba(7, 20, 17, .11);
+  border-top: 1px solid rgba(103, 214, 255, .20);
   border-radius: 0 0 var(--radius-md) var(--radius-md);
-  background: #eef3ef;
+  background: linear-gradient(135deg, #0b203a, #081629);
+  color: #f4f9ff;
   transition: background .2s, color .2s;
 }
 
 .product-card .text-link:hover,
 .product-card .text-link:focus-visible {
-  background: #e5ede7;
+  background: linear-gradient(135deg, #10325a, #0b2544);
+  color: #ffffff;
 }
 
 .site-footer .logo.logo--approved {
@@ -121,7 +123,7 @@
 }
 
 .site-footer .logo-slogan {
-  color: #b7f43c;
+  color: #2f91ff;
   font-size: .45rem;
 }
 
