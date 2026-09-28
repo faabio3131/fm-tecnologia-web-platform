@@ -1539,3 +1539,60 @@ body {
     margin-inline: auto;
   }
 }
+
+
+/* 2026-09-28 IRON FIT CORE — final mobile composition correction.
+   Keep every branded raster in the same cyan system as the public site,
+   preserve its own framed surface, and center labels/descriptions with it. */
+.fm-public-site .ironfit-landing .ironfit-approved-lockup img,
+.fm-public-site .ironfit-landing .ironfit-core-mark img,
+.fm-public-site .ironfit-landing .ironfit-mini-brand img,
+.fm-public-site .ironfit-landing .ironfit-phone__brand img,
+.fm-public-site .ironfit-landing .ironfit-intelligence-brand,
+.fm-public-site .ironfit-landing .ironfit-hub-brand {
+  filter: grayscale(1) sepia(1) saturate(7) hue-rotate(150deg) brightness(1.12) contrast(1.12) !important;
+}
+
+@media (max-width: 700px) {
+  .fm-public-site .ironfit-landing .ironfit-core-mark,
+  .fm-public-site .ironfit-landing .ironfit-mini-brand,
+  .fm-public-site .ironfit-landing .ironfit-phone__brand,
+  .fm-public-site .ironfit-landing .ironfit-intelligence-core,
+  .fm-public-site .ironfit-landing .ironfit-hub-core--brand {
+    width: min(100%, 420px);
+    margin-inline: auto;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-core-mark img,
+  .fm-public-site .ironfit-landing .ironfit-mini-brand img,
+  .fm-public-site .ironfit-landing .ironfit-phone__brand img,
+  .fm-public-site .ironfit-landing .ironfit-intelligence-brand,
+  .fm-public-site .ironfit-landing .ironfit-hub-brand {
+    display: block;
+    width: min(100%, 360px) !important;
+    max-width: 360px;
+    height: auto !important;
+    margin-inline: auto;
+    object-fit: contain;
+    border-radius: 18px;
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-phone__brand {
+    padding: 1rem;
+    border: 1px solid rgba(80,166,255,.18);
+    border-radius: 24px;
+    background: rgba(3,16,35,.72);
+  }
+
+  .fm-public-site .ironfit-landing .ironfit-phone__brand span,
+  .fm-public-site .ironfit-landing .ironfit-mini-brand p,
+  .fm-public-site .ironfit-landing .ironfit-intelligence-core p,
+  .fm-public-site .ironfit-landing .ironfit-hub-core--brand p {
+    display: block;
+    width: 100%;
+    margin: .85rem auto 0;
+    text-align: center !important;
+  }
+}
