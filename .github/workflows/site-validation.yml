@@ -2,6 +2,7 @@ name: Site validation
 on:
   push:
     branches:
+      - main
       - feat/site-dev001-foundation
       - 'feat/iron-fit-*'
   pull_request:
