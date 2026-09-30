@@ -3,6 +3,7 @@ name: Cloudflare Worker validation
 on:
   push:
     branches:
+      - main
       - feat/fm-premium-uxui-v1
   pull_request:
 
