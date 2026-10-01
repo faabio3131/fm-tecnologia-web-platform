@@ -6,7 +6,7 @@ export type ProductLifecycle =
 
 export type ProductLifecycleStatus = ProductLifecycle | "pending_evidence";
 export type ProductPriority = "primary" | "standard";
-export type EvidenceStatus = "pending_evidence";
+export type EvidenceStatus = "pending_evidence" | "certified";
 export type CommercialAvailability = "pending_evidence" | "unavailable" | "available";
 export type TrialPolicyStatus = "approved_partial_contract" | "not_available";
 export type TrialReleaseStatus = "pending_evidence" | "unavailable" | "released";

@@ -1,8 +1,15 @@
 import assert from "node:assert/strict";
 
 const base = process.env.SITE_URL || "http://127.0.0.1:3100";
+async function textOf(path) {
+  const response = await fetch(`${base}${path}`);
+  assert.equal(response.status, 200, `${path}: HTTP`);
+  return response.text();
+}
+
 const pages = [
   { slug:"kordena", name:"Kordena", expected:["Comandar a operação de ponta a ponta","Antecipar perdas e proteger a margem","Gerir o resultado financeiro em tempo real","Vender mais e fortalecer o relacionamento","Atender, entregar e decidir com inteligência","Gerente IA Core","O cérebro que conecta toda a sua operação","Produto parado também é dinheiro parado","Faturamento não é lucro","Menos tarefas manuais","iFood","Keeta","99Food","Google Maps","campanhas orgânicas","30 dias grátis","Teste grátis por 30 dias"], sectionAnchors:["core","estoque-inteligente","financeiro","rotina","recursos","planos","teste","duvidas"], navAnchors:["core","estoque-inteligente","financeiro","rotina","recursos","planos","teste","duvidas"], trialState:true, emailSubject:true },
+  { slug:"command", name:"FM Command", expected:["FM Command","Comande a empresa com","dados governados e inteligência no centro.","Visão executiva","Inteligência por produto","Financeiro","Growth e Comercial","Operações e SRE","Clientes, uso e suporte","Alertas governados","Fontes e integrações","FM Cognitive Vertical Core","Fato não disponível não vira resposta inventada.","O Kordena já prova o modelo de integração do Command.","Sem SQL direto","Solicitar demonstração"], sectionAnchors:["arquitetura","capacidades","core-command","governanca","kordena-command","duvidas-command"], navAnchors:["arquitetura","capacidades","core-command","governanca","kordena-command","duvidas-command"], trialState:false, emailSubject:false },
   { slug:"iron-fit", name:"Iron Fit Core", expected:["IRON FIT","CORE","Inteligência no centro. Evolução em movimento.","Um Core para conectar toda a operação.","Da recepção à gestão, tudo no mesmo fluxo.","A academia acompanha. O aluno evolui.","Da avaliação à evolução, todo o treino no mesmo contexto.","O treino considera a estrutura real da academia.","Da reserva ao acesso, tudo conectado ao aluno.","Operação e financeiro no mesmo contexto.","IRON INTELLIGENCE","O profissional continua no controle.","Aggregator Hub","Segurança, confiança e governança","Demonstração do produto","Demonstração em preparação","Tour do produto","Dashboard da academia","Gestão de alunos","Treinos e avaliações","Equipamentos","Financeiro","App do aluno","Screenshot real em preparação","Planos para acompanhar o crescimento da academia.","269","2.690","Enterprise","Sob consulta","Para redes, múltiplas unidades e necessidades comerciais específicas.","Teste ainda não disponível para ativação.","Dúvidas frequentes","O Iron Fit Core é apenas um aplicativo para alunos?","O aluno possui aplicativo próprio?","O sistema possui gestão financeira?","O Iron Fit utiliza inteligência artificial?","O Iron Fit já está integrado ao Wellhub, TotalPass e ClassPass?","Como funciona a segurança dos dados?","Conecte gestão, operação e experiência do aluno.","Falar com a FM","Ver planos","ironfitcore.com.br","/iron-fit-core-official-lockup.webp"], sectionAnchors:["core","gestao","app","treinos","equipamentos","agenda-acesso","financeiro","inteligencia","ecossistema","seguranca","demo","tour","planos","duvidas","contato"], navAnchors:["core","gestao","app","treinos","inteligencia","seguranca","demo","planos","duvidas"], trialState:false, emailSubject:false },
 ];
 
@@ -36,4 +43,7 @@ assert.equal(asset.status, 200, "iron-fit: official lockup HTTP");
 const bytes = Buffer.from(await asset.arrayBuffer());
 assert.equal(bytes.subarray(0,4).toString("ascii"), "RIFF", "iron-fit: official lockup must be a valid RIFF WebP");
 assert.equal(bytes.subarray(8,12).toString("ascii"), "WEBP", "iron-fit: official lockup must be a valid WebP asset");
-console.log("Landing runtime smoke: Kordena + Iron Fit Core conversion structure passed");
+const commandHtml = await textOf("/produtos/command");
+assert.ok(!commandHtml.includes("Control Center"), "command: superseded public name must be absent");
+assert.ok(!commandHtml.includes("FMCC"), "command: technical namespace must stay out of public landing");
+console.log("Landing runtime smoke: Kordena + FM Command + Iron Fit Core conversion structure passed");

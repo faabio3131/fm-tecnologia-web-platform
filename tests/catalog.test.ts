@@ -2,10 +2,10 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { products, getProduct } from "../src/catalog/products.ts";
 
-test("catálogo contém exatamente os sete produtos oficiais com slugs candidatos únicos", () => {
-  assert.equal(products.length, 7);
-  assert.equal(new Set(products.map((product) => product.slug)).size, 7);
-  assert.deepEqual(products.map((product) => product.name), ["Kordena", "Iron Fit Core", "NFCore", "Vendedor IA", "CampaIA", "Super Core Extreme", "ERP Core"]);
+test("catálogo contém exatamente os oito produtos oficiais com slugs candidatos únicos", () => {
+  assert.equal(products.length, 8);
+  assert.equal(new Set(products.map((product) => product.slug)).size, 8);
+  assert.deepEqual(products.map((product) => product.name), ["Kordena", "Iron Fit Core", "NFCore", "FM Command", "Vendedor IA", "CampaIA", "Super Core Extreme", "ERP Core"]);
 });
 
 test("Kordena e Iron Fit Core preservam prioridade sem lifecycle ou disponibilidade inferidos", () => {
@@ -41,4 +41,16 @@ test("demais produtos em desenvolvimento e P&D não publicam oferta", () => {
     assert.equal(product.trialReleaseStatus, "unavailable");
     assert.equal(product.pricingStatus, "not_for_public_offer");
   }
+});
+
+
+test("FM Command usa o nome comercial oficial e preserva gates externos", () => {
+  const product = getProduct("command")!;
+  assert.equal(product.name, "FM Command");
+  assert.equal(product.priority, "primary");
+  assert.equal(product.technicalReadiness, "certified");
+  assert.equal(product.certificationStatus, "certified");
+  assert.equal(product.commercialAvailability, "pending_evidence");
+  assert.equal(product.productionHomologationStatus, "pending_evidence");
+  assert.equal(product.trialPolicyStatus, "not_available");
 });

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Logo } from "./logo";
 
 const groups = [
-  { title: "Produtos", links: [["Portfólio", "/produtos"], ["Kordena", "/produtos/kordena"], ["Iron Fit Core", "/produtos/iron-fit"], ["NFCore", "/produtos/nfcore"]] },
+  { title: "Produtos", links: [["Portfólio", "/produtos"], ["Kordena", "/produtos/kordena"], ["Iron Fit Core", "/produtos/iron-fit"], ["NFCore", "/produtos/nfcore"], ["FM Command", "/produtos/command"]] },
   { title: "Empresa", links: [["Sobre", "/empresa"], ["Contato", "/contato"]] },
   { title: "Recursos", links: [["Central de recursos", "/recursos"], ["Soluções", "/solucoes"], ["Preços", "/precos"]] },
   { title: "Suporte", links: [["Falar com especialista", "/contato"], ["Entrar", "/entrar"]] },

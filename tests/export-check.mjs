@@ -34,7 +34,7 @@ assert.ok(!home.includes("Tecnologia para <em>construir o próximo."), "home: ol
 assert.ok(!home.includes("FM Tecnologia — Soluções reais para um grande amanhã"), "home: superseded metadata title must be absent");
 assert.ok(!home.includes("FM Tecnologia — Tecnologia para construir o próximo"), "home: older superseded metadata title must be absent");
 assert.ok(home.includes("Soluções inteligentes para cada frente da operação."), "home: approved product section positioning must be present");
-for (const productName of ["Kordena", "Iron Fit Core", "NFCore"]) {
+for (const productName of ["Kordena", "Iron Fit Core", "NFCore", "FM Command"]) {
   assert.ok(home.includes(productName), `home: principal product must be present: ${productName}`);
 }
 assert.ok(!home.includes("FM NFCORE"), "home: deprecated NFCore naming must be absent");
