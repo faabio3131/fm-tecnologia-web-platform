@@ -16,6 +16,7 @@ import "./ironfit-intelligence-ecosystem-security.css";
 import "./ironfit-conversion-final.css";
 import "./ironfit-final-audit.css";
 import "./nfcore.css";
+import "./command.css";
 import "./fm-brand.css";
 import "./fm-premium-foundation.css";
 import "./fm-premium-hero.css";
