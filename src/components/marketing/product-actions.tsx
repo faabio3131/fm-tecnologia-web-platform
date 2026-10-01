@@ -1,5 +1,5 @@
 import type { Product } from "@/src/catalog/types";
-import { approvedCtaLabels, getProductActions } from "@/src/catalog/commerce";
+import { approvedCtaLabels, getProductActions, getTrialEntryHref } from "@/src/catalog/commerce";
 import { ButtonLink } from "@/src/components/ui/button-link";
 
 export function ProductActions({ product }: { product: Product }) {
@@ -16,7 +16,7 @@ export function ProductActions({ product }: { product: Product }) {
   return (
     <div className="actions">
       {actions.trial && (
-        <ButtonLink href={`/contato?produto=${product.slug}&interesse=trial`}>
+        <ButtonLink href={getTrialEntryHref(product)}>
           {approvedCtaLabels.trial}
         </ButtonLink>
       )}
