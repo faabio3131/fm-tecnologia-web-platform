@@ -6,12 +6,17 @@ export const approvedCtaLabels = {
   plans: "Conhecer planos",
 } as const;
 
+export function getTrialEntryHref(product: Product): string {
+  return `/teste-gratis/${encodeURIComponent(product.slug)}`;
+}
+
 export function canStartTrial(product: Product): boolean {
   return (
     product.commercialAvailability === "available" &&
     product.trialPolicyStatus === "approved_partial_contract" &&
     product.trialReleaseStatus === "released" &&
-    Boolean(product.trialPolicy)
+    Boolean(product.trialPolicy) &&
+    Boolean(product.trialActivationUrl)
   );
 }
 

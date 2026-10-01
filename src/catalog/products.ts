@@ -1,4 +1,5 @@
 import type { Product } from "./types.ts";
+import { trialActivationUrls } from "../config/trials.ts";
 
 const pending = "pending_evidence" as const;
 
@@ -23,6 +24,7 @@ export const products: readonly Product[] = [
     positioning: "Plataforma de gestão inteligente de ponta a ponta coordenada pelo Gerente IA Core.",
     pricing: { monthly: 299, annual: 2990, enterprise: true },
     trialPolicy: { days: 30, cardRequired: false },
+    trialActivationUrl: trialActivationUrls.kordena,
     cta: { specialist: true },
     featured: true,
     seo: {
@@ -54,6 +56,7 @@ export const products: readonly Product[] = [
       cardRequired: false,
       constraint: "Máximo de 15 alunos durante o teste.",
     },
+    trialActivationUrl: trialActivationUrls["iron-fit"],
     cta: { specialist: true },
     featured: true,
     seo: {
@@ -79,6 +82,7 @@ export const products: readonly Product[] = [
     publicLabel: "Produto Principal · Infrastructure Mission Control",
     shortDescription: "Reduz erros humanos, diminui o retrabalho operacional e centraliza a gestão fiscal no Core.",
     positioning: "Infraestrutura fiscal inteligente da FM Tecnologia para automatizar rotinas, ampliar o controle e governar a operação fiscal pelo Core.",
+    trialActivationUrl: trialActivationUrls.nfcore,
     cta: { specialist: true },
     featured: true,
     seo: {
@@ -104,6 +108,7 @@ export const products: readonly Product[] = [
     publicLabel: "Em desenvolvimento · Em breve",
     shortDescription: "Projeto em desenvolvimento pela FM Tecnologia.",
     positioning: "Projeto em desenvolvimento. Mais informações serão publicadas em breve.",
+    trialActivationUrl: trialActivationUrls["vendedor-ia"],
     cta: { specialist: true },
     featured: false,
     seo: { title: "Vendedor IA", description: "Vendedor IA, em desenvolvimento pela FM Tecnologia." },
@@ -126,6 +131,7 @@ export const products: readonly Product[] = [
     publicLabel: "Em desenvolvimento · Em breve",
     shortDescription: "Projeto em desenvolvimento pela FM Tecnologia.",
     positioning: "Projeto em desenvolvimento. Mais informações serão publicadas em breve.",
+    trialActivationUrl: trialActivationUrls.campaia,
     cta: { specialist: true },
     featured: false,
     seo: { title: "CampaIA", description: "CampaIA, em desenvolvimento pela FM Tecnologia." },
@@ -148,6 +154,7 @@ export const products: readonly Product[] = [
     publicLabel: "Tecnologia & P&D · Em desenvolvimento",
     shortDescription: "Tecnologia e pesquisa em desenvolvimento pela FM Tecnologia.",
     positioning: "Plataforma estratégica de Pesquisa & Desenvolvimento da FM Tecnologia.",
+    trialActivationUrl: trialActivationUrls["super-core-extreme"],
     cta: { specialist: false },
     featured: false,
     seo: { title: "Super Core Extreme", description: "Tecnologia e P&D em desenvolvimento na FM Tecnologia." },
@@ -170,6 +177,7 @@ export const products: readonly Product[] = [
     publicLabel: "Em desenvolvimento · Em breve",
     shortDescription: "Projeto em desenvolvimento pela FM Tecnologia.",
     positioning: "Projeto em desenvolvimento. Mais informações serão publicadas em breve.",
+    trialActivationUrl: trialActivationUrls["erp-core"],
     cta: { specialist: true },
     featured: false,
     seo: { title: "ERP Core", description: "ERP Core, em desenvolvimento pela FM Tecnologia." },

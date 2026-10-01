@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Product } from "@/src/catalog/types";
-import { formatBRL } from "@/src/catalog/commerce";
+import { canStartTrial, formatBRL, getTrialEntryHref } from "@/src/catalog/commerce";
 import { siteConfig } from "@/src/config/site";
 import { ButtonLink } from "@/src/components/ui/button-link";
 import { KordenaStory } from "./kordena-story";
@@ -20,7 +20,7 @@ export function ProductLanding({ product }: { product: Product }) {
   const whatsapp = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(message)}`;
   const trialWhatsapp = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(trialMessage)}`;
   const email = `mailto:${siteConfig.contactEmail}?subject=${encodeURIComponent("Interesse em " + product.name)}`;
-  const trialReady = product.trialReleaseStatus !== "pending_evidence" && product.trialReleaseStatus !== "unavailable";
+  const trialReady = canStartTrial(product);
   const isKordena = product.slug === "kordena";
   const audience = isKordena ? "Para negócios do setor alimentício" : page.audience;
   const trialCta = isKordena && product.trialPolicy ? `Teste grátis por ${product.trialPolicy.days} dias` : "Começar teste grátis";
@@ -123,7 +123,7 @@ export function ProductLanding({ product }: { product: Product }) {
       </section>
 
       {product.trialPolicy && (
-        <section id="teste" className="container landing-contact landing-trial" aria-labelledby="landing-trial-title"><div><p className="eyebrow">{product.trialPolicy.days} dias grátis</p><h2 id="landing-trial-title">Coloque o {product.name} para trabalhar no seu negócio.</h2><p>Experimente uma nova forma de conectar sua operação, reduzir processos manuais e administrar seu negócio com mais inteligência. {product.trialPolicy.days} dias grátis, sem cartão.</p></div><div className="landing-contact-actions">{trialReady ? <ButtonLink href="/entrar">{isKordena ? `Começar ${product.trialPolicy.days} dias grátis` : "Começar teste grátis"}</ButtonLink> : <a className="button button--primary" href={trialWhatsapp}>{isKordena ? `Quero testar grátis por ${product.trialPolicy.days} dias` : `Quero testar o ${product.name}`} <span aria-hidden="true">↗</span></a>}<a className="button button--secondary" href={whatsapp}>Falar com a FM <span aria-hidden="true">↗</span></a></div></section>
+        <section id="teste" className="container landing-contact landing-trial" aria-labelledby="landing-trial-title"><div><p className="eyebrow">{product.trialPolicy.days} dias grátis</p><h2 id="landing-trial-title">Coloque o {product.name} para trabalhar no seu negócio.</h2><p>Experimente uma nova forma de conectar sua operação, reduzir processos manuais e administrar seu negócio com mais inteligência. {product.trialPolicy.days} dias grátis, sem cartão.</p></div><div className="landing-contact-actions">{trialReady ? <ButtonLink href={getTrialEntryHref(product)}>{isKordena ? `Começar ${product.trialPolicy.days} dias grátis` : "Começar teste grátis"}</ButtonLink> : <a className="button button--primary" href={trialWhatsapp}>{isKordena ? `Quero testar grátis por ${product.trialPolicy.days} dias` : `Quero testar o ${product.name}`} <span aria-hidden="true">↗</span></a>}<a className="button button--secondary" href={whatsapp}>Falar com a FM <span aria-hidden="true">↗</span></a></div></section>
       )}
 
       {isKordena ? <KordenaEnterprise /> : <section className="container landing-contact landing-contact--secondary" aria-labelledby="landing-contact-title"><div><p className="eyebrow">Implantação e Enterprise</p><h2 id="landing-contact-title">Precisa falar com a nossa equipe?</h2><p>Estamos disponíveis para implantação, condições Enterprise e dúvidas específicas da sua operação.</p></div><div className="landing-contact-actions"><a className="button button--secondary" href={whatsapp}>WhatsApp <span aria-hidden="true">↗</span></a><ButtonLink href={email} variant="secondary">E-mail</ButtonLink></div></section>}
