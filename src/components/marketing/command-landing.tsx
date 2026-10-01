@@ -84,7 +84,7 @@ export function CommandLanding({ product }: { product: Product }) {
           <Link className="back-link" href="/produtos">← Todos os produtos</Link>
           <div className="command-hero-grid">
             <div className="command-hero-copy">
-              <p className="eyebrow">FM Command · Central Executiva</p>
+              <p className="eyebrow">{product.name} · Central Executiva</p>
               <h1>
                 Comande a empresa com
                 <span>dados governados e inteligência no centro.</span>
@@ -334,7 +334,6 @@ export function CommandLanding({ product }: { product: Product }) {
         </div>
       </section>
 
-      <span className="sr-only">{product.name}</span>
     </main>
   );
 }
