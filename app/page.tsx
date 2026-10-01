@@ -8,6 +8,7 @@ const principalDescriptions: Record<string, string> = {
   kordena: "Gestão inteligente de ponta a ponta para negócios do setor alimentício.",
   "iron-fit": "Gestão, alunos, treinos, avaliações, agenda, acesso, equipamentos e financeiro em uma operação conectada.",
   nfcore: "Automação e gestão fiscal inteligente para reduzir erros, retrabalho e centralizar a operação no Core.",
+  command: "Central executiva governada para consolidar produtos, métricas, operação e inteligência em uma única visão.",
 };
 
 export default function Home() {
