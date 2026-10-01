@@ -44,6 +44,7 @@ export interface Product {
   positioning: string;
   pricing?: Pricing;
   trialPolicy?: TrialPolicy;
+  trialActivationUrl?: string;
   cta: { specialist: boolean };
   featured: boolean;
   seo: { title: string; description: string };
