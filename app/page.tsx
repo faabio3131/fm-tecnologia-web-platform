@@ -27,7 +27,7 @@ export default function Home() {
             title="Soluções inteligentes para cada frente da operação."
             description="Produtos especializados que conectam gestão, desempenho e fiscal dentro do ecossistema FM."
           />
-          <div className="cards cards--three">
+          <div className="cards cards--four">
             {principal.map(p => (
               <ProductCard
                 key={p.id}
