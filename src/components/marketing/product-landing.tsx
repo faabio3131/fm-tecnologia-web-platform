@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Product } from "@/src/catalog/types";
 import { canStartTrial, formatBRL, getTrialEntryHref } from "@/src/catalog/commerce";
@@ -69,15 +68,15 @@ export function ProductLanding({ product }: { product: Product }) {
                       srcSet="/brand/kordena/hero/kordena-central-pedidos-hero-1280.jpg"
                       type="image/jpeg"
                     />
-                    <Image
+                    <img
                       className="kordena-premium-core-image"
                       src="/brand/kordena/hero/kordena-central-pedidos-hero-1920.jpg"
                       alt="Kordena Central de Pedidos coordenando a operação de um restaurante"
                       width={1920}
                       height={1080}
-                      sizes="(max-width: 1000px) 100vw, 50vw"
                       loading="eager"
                       fetchPriority="high"
+                      decoding="async"
                     />
                   </picture>
                 </div>
