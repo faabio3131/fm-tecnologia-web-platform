@@ -159,6 +159,9 @@
 .kordena-demo-play { width: 70px; height: 70px; margin: 1.35rem 0 1rem; border-radius: 50%; display: grid; place-items: center; padding-left: 4px; background: rgba(47,145,255,.12); border: 1px solid rgba(103,214,255,.42); color: #8edcff; font-size: 1.4rem; box-shadow: 0 0 34px rgba(47,145,255,.12), inset 0 0 24px rgba(47,145,255,.07); }
 .kordena-media-placeholder strong { color: #f4f9ff; font-size: clamp(1.35rem,2.4vw,1.95rem); margin: 0 0 .65rem; letter-spacing: -.035em; }
 .kordena-media-placeholder small { max-width: 440px; color: #9fb4c8; line-height: 1.55; }
+.kordena-demo-video-shell { position: relative; aspect-ratio: 16/9; min-height: 300px; border: 1px solid rgba(103,214,255,.24); border-radius: 1.4rem; overflow: hidden; background: #050b14; box-shadow: 0 24px 70px rgba(5,28,20,.14), inset 0 1px 0 rgba(255,255,255,.035); }
+.kordena-demo-video { display: block; width: 100%; height: 100%; object-fit: cover; background: #050b14; }
+
 .product-landing--kordena .landing-trial { background: var(--ink); color: white; border-color: var(--ink); }
 .product-landing--kordena .landing-trial .eyebrow { color: #67d6ff; }
 .product-landing--kordena .landing-trial p:last-child { color: #b6c8d9; }
