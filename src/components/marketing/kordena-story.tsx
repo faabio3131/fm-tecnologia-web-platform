@@ -41,8 +41,13 @@ export function KordenaStory() {
     </div></section>
 
     <section id="demo" className="section kordena-demo-section"><div className="container kordena-media-slot">
-      <div><p className="eyebrow">Demonstração do produto</p><h2>Veja como o Kordena conecta a operação de ponta a ponta.</h2><p>Esta área foi preparada para receber a demonstração oficial do Kordena. O vídeo mostrará como atendimento, pedidos, produção, estoque, financeiro e inteligência trabalham de forma conectada dentro da mesma plataforma.</p><p className="kordena-demo-note">Enquanto o vídeo está em produção, a landing continua apresentando abaixo os principais fluxos, recursos e benefícios da plataforma.</p></div>
-      <div className="kordena-media-placeholder" aria-label="Espaço reservado para a futura demonstração em vídeo do Kordena"><span>Demonstração Kordena</span><div className="kordena-demo-play" aria-hidden="true">▶</div><strong>Vídeo demonstrativo em preparação</strong><small>Operação • Gerente IA Core • Estoque • Financeiro • Clientes</small></div>
+      <div><p className="eyebrow">Demonstração do produto</p><h2>Veja como o Kordena conecta a operação de ponta a ponta.</h2><p>Assista ao filme demonstrativo do Kordena e veja como pedidos, salão, caixa, cozinha e gestão trabalham conectados em uma única operação, com inteligência aplicada ao contexto real do restaurante.</p><p className="kordena-demo-note">Vídeo demonstrativo institucional do Kordena.</p></div>
+      <div className="kordena-demo-video-shell">
+        <video className="kordena-demo-video" controls playsInline preload="metadata" aria-label="Vídeo demonstrativo institucional do Kordena">
+          <source src="https://resource2.heygen.ai/aws_pacific/avatar_tmp/3da2b524184e4bd38f964071e22a3702/vef33a537d108469ca834a833a1ce9ad8/caption_7b6e75dab39e49f3a3d920c781f5ec96.mp4" type="video/mp4" />
+          Seu navegador não suporta reprodução de vídeo.
+        </video>
+      </div>
     </div></section>
 
     <KordenaTour />
