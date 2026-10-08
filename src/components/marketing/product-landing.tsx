@@ -68,6 +68,7 @@ export function ProductLanding({ product }: { product: Product }) {
               </aside>
             ) : (
               <aside className="landing-journey" aria-label={page.journeyTitle}>
+                {product.slug === "atendevendeia" && <Image className="landing-journey-mark" src="/brand/atendevendeia-mark.svg" alt="" width={84} height={84} unoptimized />}
                 <h2>{page.journeyTitle}</h2>
                 <ol>{page.journey.map((step, index) => <li key={step}><span aria-hidden="true">0{index + 1}</span>{step}</li>)}</ol>
                 <p>Conheça abaixo as etapas e os recursos do produto.</p>
@@ -115,6 +116,7 @@ export function ProductLanding({ product }: { product: Product }) {
           <section id="planos" className="product-conditions" aria-labelledby="landing-plans-title">
             <p className="eyebrow">Planos e condições</p><h2 id="landing-plans-title">{product.name}</h2>
             {product.pricing && <><div className="pricing-summary"><div><span>Mensal</span><strong>{formatBRL(product.pricing.monthly)}<small>/mês</small></strong></div><div><span>Anual</span><strong>{formatBRL(product.pricing.annual)}<small>/ano</small></strong></div></div><p className="enterprise-line"><span>Enterprise</span><strong>Sob consulta</strong></p></>}
+            {!product.pricing && !product.trialPolicy && <p className="landing-release">Os planos serão divulgados no lançamento.</p>}
             {product.trialPolicy && <div className="trial-note"><strong>{trialReady ? `${product.trialPolicy.days} dias grátis disponíveis.` : `${product.trialPolicy.days} dias grátis — ativação em preparação.`}</strong><p>Sem cartão. {product.trialPolicy.constraint}</p>{!trialReady && <p>A ativação online será liberada após certificação e homologação.</p>}</div>}
             <div className="actions">{product.trialPolicy && <a className="button button--primary" href="#teste">{trialCta} <span aria-hidden="true">↓</span></a>}<a className={`button ${product.trialPolicy ? "button--secondary" : "button--primary"}`} href={whatsapp}>Falar com a FM <span aria-hidden="true">↗</span></a></div>
           </section>

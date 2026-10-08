@@ -1443,3 +1443,5 @@ body {
     contrast(1.04)
     drop-shadow(0 0 9px rgba(47,145,255,.10)) !important;
 }
+
+.landing-journey-mark { display: block; width: 84px; height: 84px; margin: 0 0 16px; filter: drop-shadow(0 0 14px rgba(42, 164, 240, 0.35)); }
