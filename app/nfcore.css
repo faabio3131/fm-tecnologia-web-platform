@@ -444,3 +444,62 @@
   .nfcore-commercial__badge{justify-self:start}
   .nfcore-commercial__gates{grid-template-columns:1fr}
 }
+
+
+/* 2026-10-08 PR28 — NFCore approved-asset presentation.
+   Keep the original high-resolution PNGs; fix only underscaling and framing. */
+@media (min-width: 901px) {
+  .nfcore-hero__grid {
+    grid-template-columns: minmax(0,.92fr) minmax(440px,1.08fr);
+    gap: clamp(1.5rem,3vw,2.5rem);
+  }
+
+  .nfcore-hero__visual {
+    min-height: 440px;
+    padding: 1rem;
+  }
+
+  .nfcore-mark-card--approved {
+    width: min(98%,620px);
+    max-width: 620px;
+  }
+
+  .nfcore-mark-card--approved .nfcore-approved-brand {
+    width: 100%;
+    max-width: 620px;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    image-rendering: auto;
+  }
+
+  .nfcore-core-center--approved {
+    width: 330px;
+    height: 330px;
+    padding: .4rem .45rem .5rem;
+  }
+
+  .nfcore-core-center--approved .nfcore-core-approved-brand {
+    width: 286px;
+    height: 286px;
+    max-width: 92%;
+    margin: 0 auto .1rem;
+    object-fit: contain;
+    object-position: center;
+    image-rendering: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .nfcore-mark-card--approved,
+  .nfcore-mark-card--approved .nfcore-approved-brand {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .nfcore-core-center--approved .nfcore-core-approved-brand {
+    width: min(86vw,320px);
+    max-width: 92%;
+    height: auto;
+  }
+}
