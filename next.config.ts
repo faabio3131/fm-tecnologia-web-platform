@@ -17,6 +17,13 @@ const csp = [
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  // O produto antes chamado "Vendedor IA" passou a se chamar AtendeVendeIA (08/10/2026).
+  async redirects() {
+    return [
+      { source: "/produtos/vendedor-ia", destination: "/produtos/atendevendeia", permanent: true },
+      { source: "/teste-gratis/vendedor-ia", destination: "/teste-gratis/atendevendeia", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {
