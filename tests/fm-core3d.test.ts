@@ -51,15 +51,19 @@ test("premium typography inherits the original FM Arial system", () => {
   assert.match(approvedCss, /font-family: var\(--font-body, Arial, sans-serif\)/);
 });
 
-test("Premium footer styling remains scoped only to the Home route", () => {
-  assert.match(chrome, /const premiumHome = pathname === "\/"/);
-  assert.match(chrome, /<Footer premiumHome=\{premiumHome\} \/>/);
+test("institutional Home uses the approved green shell without premium header/footer mode", () => {
+  assert.match(chrome, /const institutionalHome = pathname === "\/"/);
+  assert.match(chrome, /institutionalHome \? "fm-home-approved" : "fm-public-site"/);
+  assert.match(chrome, /<Header \/>/);
+  assert.match(chrome, /<Footer \/>/);
 });
 
-test("Premium Home remains scoped and uses the blue approved surface", () => {
-  assert.match(home, /className="fm-premium-home"/);
-  assert.match(approvedCss, /#3095f5/);
-  assert.match(approvedCss, /#63c7ef/);
+test("institutional Home restores the approved green composition and excludes the Core hero", () => {
+  assert.match(home, /className="hero"/);
+  assert.match(home, /IA para melhorar hoje/);
+  assert.match(home, /evoluir o amanhã/);
+  assert.doesNotMatch(home, /FmPremiumHero/);
+  assert.doesNotMatch(home, /fm-core-gerente-ia/);
 });
 
 test("Hero preserves the approved FM commercial message and calls to action", () => {
@@ -69,13 +73,12 @@ test("Hero preserves the approved FM commercial message and calls to action", ()
   assert.match(hero, /Falar com a FM/);
 });
 
-
 test("site-wide public premium theme is scoped away from operational Iron Fit app", () => {
   const siteChrome = readFileSync(new URL("../src/components/layout/site-chrome.tsx", import.meta.url), "utf8");
   const layout = readFileSync(new URL("../app/layout.tsx", import.meta.url), "utf8");
   const premium = readFileSync(new URL("../app/fm-public-site-premium.css", import.meta.url), "utf8");
   assert.match(siteChrome, /pathname\.startsWith\("\/app\/iron-fit"\)/);
-  assert.match(siteChrome, /className="fm-public-site"/);
+  assert.match(siteChrome, /institutionalHome \? "fm-home-approved" : "fm-public-site"/);
   assert.match(layout, /fm-public-site-premium\.css/);
   assert.match(premium, /\.fm-public-site/);
   assert.match(premium, /#2f91ff/);
