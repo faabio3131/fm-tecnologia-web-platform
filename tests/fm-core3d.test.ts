@@ -51,14 +51,14 @@ test("premium typography inherits the original FM Arial system", () => {
   assert.match(approvedCss, /font-family: var\(--font-body, Arial, sans-serif\)/);
 });
 
-test("institutional Home uses the approved green shell without premium header/footer mode", () => {
-  assert.match(chrome, /const institutionalHome = pathname === "\/"/);
-  assert.match(chrome, /institutionalHome \? "fm-home-approved" : "fm-public-site"/);
-  assert.match(chrome, /<Header \/>/);
-  assert.match(chrome, /<Footer \/>/);
+test("institutional Home uses the approved blue premium shell", () => {
+  assert.match(chrome, /const premiumHome = pathname === "\/"/);
+  assert.match(chrome, /className="fm-public-site"/);
+  assert.match(chrome, /<Header premiumHome=\{premiumHome\} \/>/);
+  assert.match(chrome, /<Footer premiumHome=\{premiumHome\} \/>/);
 });
 
-test("institutional Home restores the approved green composition and excludes the Core hero", () => {
+test("institutional Home keeps the approved composition in blue and excludes the Core hero", () => {
   assert.match(home, /className="hero"/);
   assert.match(home, /IA para melhorar hoje/);
   assert.match(home, /evoluir o amanhã/);
@@ -78,7 +78,7 @@ test("site-wide public premium theme is scoped away from operational Iron Fit ap
   const layout = readFileSync(new URL("../app/layout.tsx", import.meta.url), "utf8");
   const premium = readFileSync(new URL("../app/fm-public-site-premium.css", import.meta.url), "utf8");
   assert.match(siteChrome, /pathname\.startsWith\("\/app\/iron-fit"\)/);
-  assert.match(siteChrome, /institutionalHome \? "fm-home-approved" : "fm-public-site"/);
+  assert.match(siteChrome, /className="fm-public-site"/);
   assert.match(layout, /fm-public-site-premium\.css/);
   assert.match(premium, /\.fm-public-site/);
   assert.match(premium, /#2f91ff/);
