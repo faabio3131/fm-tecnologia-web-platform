@@ -5,16 +5,18 @@ import { Badge } from "@/src/components/ui/badge";
 export function ProductCard({
   product,
   description,
+  badgeLabel,
 }: {
   product: Product;
   description?: string;
+  badgeLabel?: string;
 }) {
   const priorityClass = product.priority === "primary" ? "product-card--principal" : "";
 
   return (
     <article className={`product-card ${priorityClass}`}>
       <div className="card-top">
-        <Badge>{product.publicLabel}</Badge>
+        <Badge>{badgeLabel ?? product.publicLabel}</Badge>
       </div>
       <h3>{product.name}</h3>
       <p>{description ?? product.shortDescription}</p>

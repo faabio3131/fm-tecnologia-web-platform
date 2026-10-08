@@ -1619,3 +1619,72 @@ body {
     border-bottom-color: rgba(103,214,255,.14);
   }
 }
+
+
+/* 2026-10-08 /produtos refinement — scoped catalog-only polish. */
+.fm-public-site .products-catalog-page .page-hero > .container {
+  padding-block: 1.35rem 1.55rem;
+}
+
+.fm-public-site .products-catalog-page .page-hero h1 {
+  margin: .7rem 0 .55rem;
+  max-width: 820px;
+}
+
+.fm-public-site .products-catalog-page .page-hero .lead {
+  margin: 0;
+  max-width: 760px;
+}
+
+.fm-public-site .products-catalog-page .catalog-groups {
+  padding-block: 1.55rem 2.6rem;
+  gap: 1.7rem;
+}
+
+.fm-public-site .products-catalog-page .catalog-group > h2 {
+  margin-bottom: .85rem;
+}
+
+.fm-public-site .products-catalog-page .product-card .card-top {
+  min-height: 32px;
+  align-items: center;
+}
+
+.fm-public-site .products-catalog-page .product-card .badge {
+  min-height: 32px;
+  max-width: 100%;
+  padding: .42rem .68rem;
+  white-space: nowrap;
+  line-height: 1;
+  font-size: .72rem;
+  letter-spacing: .105em;
+}
+
+.fm-public-site .products-catalog-page .product-card h3 {
+  margin-top: .9rem;
+}
+
+@media (max-width: 1100px) {
+  .fm-public-site .products-catalog-page .cards--four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .fm-public-site .products-catalog-page .page-hero > .container {
+    padding-block: 1.1rem 1.25rem;
+  }
+
+  .fm-public-site .products-catalog-page .catalog-groups {
+    padding-block: 1.25rem 2rem;
+  }
+
+  .fm-public-site .products-catalog-page .cards--four {
+    grid-template-columns: 1fr;
+  }
+
+  .fm-public-site .products-catalog-page .product-card .badge {
+    font-size: .68rem;
+    letter-spacing: .09em;
+  }
+}
