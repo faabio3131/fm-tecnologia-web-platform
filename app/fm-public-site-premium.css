@@ -1688,3 +1688,11 @@ body {
     letter-spacing: .09em;
   }
 }
+
+
+/* 2026-10-08 PR28 — Iron Fit identity consistency.
+   Intelligence + Aggregator Hub use the same approved blue treatment as every other Iron Fit lockup. */
+.fm-public-site .ironfit-intelligence-brand,
+.fm-public-site .ironfit-hub-brand {
+  filter: hue-rotate(108deg) saturate(1.10) brightness(1.04) drop-shadow(0 16px 28px rgba(0,7,25,.25)) !important;
+}
