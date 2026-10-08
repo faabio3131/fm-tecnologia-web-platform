@@ -5,7 +5,7 @@ import { products, getProduct } from "../src/catalog/products.ts";
 test("catálogo contém exatamente os oito produtos oficiais com slugs candidatos únicos", () => {
   assert.equal(products.length, 8);
   assert.equal(new Set(products.map((product) => product.slug)).size, 8);
-  assert.deepEqual(products.map((product) => product.name), ["Kordena", "Iron Fit Core", "NFCore", "FM Command", "Vendedor IA", "CampaIA", "Super Core Extreme", "ERP Core"]);
+  assert.deepEqual(products.map((product) => product.name), ["Kordena", "Iron Fit Core", "NFCore", "FM Command", "AtendeVendeIA", "CampaIA", "Super Core Extreme", "ERP Core"]);
 });
 
 test("Kordena e Iron Fit Core preservam prioridade sem lifecycle ou disponibilidade inferidos", () => {

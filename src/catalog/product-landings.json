@@ -217,5 +217,107 @@
     "workflowTitle": "Uma plataforma para operar, decidir e crescer",
     "featuresTitle": "Tudo conectado ao centro da gestão.",
     "featuresIntro": "Recursos que trabalham juntos para simplificar a rotina, antecipar riscos, proteger a margem, reduzir trabalho manual e fortalecer o crescimento do negócio."
+  },
+  "atendevendeia": {
+    "audience": "Para quem vende pelo WhatsApp",
+    "headline": "Sua IA que atende, vende e recupera.",
+    "intro": "O AtendeVendeIA responde seus clientes no WhatsApp, leva até o link de pagamento e retoma conversas e vendas paradas, sempre com o preço e o link que estão no seu cadastro.",
+    "summary": "Atende no WhatsApp, leva ao link de pagamento e retoma vendas paradas, com preço e link sempre do seu cadastro.",
+    "primaryCta": "Conhecer a rotina",
+    "journeyTitle": "Da primeira mensagem ao pagamento",
+    "journey": [
+      "Atende o cliente no WhatsApp",
+      "Apresenta a oferta e o link de pagamento",
+      "Retoma a venda que esfriou"
+    ],
+    "workflowTitle": "Conheça a rotina no AtendeVendeIA",
+    "workflowIntro": "Veja como uma conversa vira venda, e como a venda parada volta para a conversa, com a sua equipe no comando.",
+    "scenarios": [
+      {
+        "title": "Atender uma dúvida",
+        "description": "O cliente escreve no WhatsApp e recebe uma resposta curta e cordial, em português.",
+        "steps": [
+          "O cliente pergunta sobre uma oferta, um preço ou uma condição.",
+          "A IA responde com o nome, o preço e o link vindos do seu cadastro, sem inventar condição.",
+          "Se o pedido sai do que está cadastrado, a conversa passa para uma pessoa da sua equipe."
+        ]
+      },
+      {
+        "title": "Levar ao pagamento",
+        "description": "Da pergunta ao link de pagamento, na mesma conversa.",
+        "steps": [
+          "A IA identifica a oferta de interesse do cliente.",
+          "Envia o link de pagamento cadastrado por você.",
+          "Você acompanha a conversa e o resultado nos relatórios."
+        ]
+      },
+      {
+        "title": "Recuperar uma venda parada",
+        "description": "Carrinho abandonado, Pix ou boleto sem pagamento e assinatura em atraso voltam para a conversa.",
+        "steps": [
+          "Você declara o consentimento dos contatos e escolhe as sequências de mensagens.",
+          "As mensagens são aprovadas antes de serem usadas.",
+          "Quem responde SAIR deixa de receber mensagens, e a venda recuperada aparece nos relatórios."
+        ]
+      }
+    ],
+    "featuresTitle": "Controle e segurança desde o começo.",
+    "featuresIntro": "Uma IA que vende precisa de limites claros.",
+    "features": [
+      {
+        "title": "Atendimento no WhatsApp",
+        "text": "Responde na hora em que o cliente escreve, com mensagens curtas e cordiais, pela API oficial do WhatsApp Business."
+      },
+      {
+        "title": "Preço e link só do seu cadastro",
+        "text": "Nome da oferta, preço e link de pagamento vêm sempre da lista que você cadastra. A IA não inventa condição."
+      },
+      {
+        "title": "Passagem para uma pessoa",
+        "text": "Desconto, negociação, reclamação, nota fiscal ou pedido de atendimento humano vão para a sua equipe."
+      },
+      {
+        "title": "Respeito a quem não quer receber",
+        "text": "Quem responde SAIR deixa de receber mensagens."
+      },
+      {
+        "title": "Consentimento declarado",
+        "text": "A recuperação só fala com quem autorizou, e você declara o consentimento dos contatos antes de ligar."
+      },
+      {
+        "title": "Assistente virtual identificado",
+        "text": "A IA se apresenta como assistente virtual e nunca finge ser uma pessoa."
+      },
+      {
+        "title": "Relatórios e limite por plano",
+        "text": "Conversas, vendas recuperadas e uso do plano em relatórios, com limite mensal de respostas da IA por plano."
+      },
+      {
+        "title": "Segurança e privacidade",
+        "text": "Dados de cada cliente isolados, credenciais cifradas, entrada pela conta Google e opção de exportar ou apagar os dados de uma pessoa."
+      }
+    ],
+    "faqs": [
+      {
+        "q": "A IA pode inventar preço ou condição?",
+        "a": "Não. O preço, o nome da oferta e o link de pagamento vêm sempre da lista de ofertas que você cadastra. Se o cliente pede algo fora dela, a conversa passa para uma pessoa."
+      },
+      {
+        "q": "Funciona com qual WhatsApp?",
+        "a": "Com a API oficial do WhatsApp Business, da Meta. A conexão do número e das credenciais da conta é feita pelo cliente no painel, e a conta segue os requisitos da Meta."
+      },
+      {
+        "q": "O AtendeVendeIA já está disponível?",
+        "a": "Ainda não. O produto está em preparação para o lançamento. Fale com a FM para saber da disponibilidade."
+      },
+      {
+        "q": "Quanto custa?",
+        "a": "Os planos estão sendo finalizados e serão divulgados no lançamento."
+      },
+      {
+        "q": "A IA se passa por uma pessoa?",
+        "a": "Não. Ela se apresenta como assistente virtual da loja e passa a conversa para uma pessoa quando necessário."
+      }
+    ]
   }
 }
