@@ -450,3 +450,49 @@
     font-size: clamp(.37rem, 1.5vw, .43rem);
   }
 }
+
+
+/* Approved institutional home: preserve the green FM composition on "/" only.
+   Product pages remain under the blue fm-public-site shell. */
+.fm-home-approved .site-header {
+  border-bottom-color: rgba(183, 244, 60, .14);
+}
+
+.fm-home-approved .logo-slogan,
+.fm-home-approved .site-footer .logo-slogan {
+  color: #b7f43c;
+}
+
+.fm-home-approved .site-header .desktop-nav a:hover,
+.fm-home-approved .site-header .header-actions > a:first-child:hover {
+  color: var(--lime);
+  border-color: var(--lime);
+}
+
+.fm-home-approved .site-header .button--primary {
+  background: var(--lime);
+  color: var(--ink);
+  border-color: var(--lime);
+  box-shadow: 0 8px 24px rgba(183, 244, 60, .12);
+}
+
+.fm-home-approved .site-header .button--primary:hover {
+  background: #c4ff4c;
+  border-color: #c4ff4c;
+}
+
+.fm-home-approved .site-header :focus-visible {
+  outline-color: var(--lime);
+}
+
+.fm-home-approved .product-card .text-link {
+  border-top-color: rgba(7, 20, 17, .11);
+  background: #eef3ef;
+  color: var(--ink);
+}
+
+.fm-home-approved .product-card .text-link:hover,
+.fm-home-approved .product-card .text-link:focus-visible {
+  background: #e5ede7;
+  color: var(--ink);
+}

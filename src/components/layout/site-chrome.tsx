@@ -12,13 +12,13 @@ export function SiteChrome({ children }: { children: ReactNode }) {
     return <>{children}</>;
   }
 
-  const premiumHome = pathname === "/";
+  const institutionalHome = pathname === "/";
 
   return (
-    <div className="fm-public-site">
-      <Header premiumHome={premiumHome} />
+    <div className={institutionalHome ? "fm-home-approved" : "fm-public-site"}>
+      <Header />
       <div id="conteudo" tabIndex={-1}>{children}</div>
-      <Footer premiumHome={premiumHome} />
+      <Footer />
     </div>
   );
 }
