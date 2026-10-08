@@ -12,10 +12,11 @@ M1 does not merge unrelated public-site work into `main`. M1/M2/M3 are executed 
 
 ## 2. Frozen technology baseline
 
-- Next.js `15.5.25`.
+- Next.js `15.5.27`.
 - React / React DOM `19.1.1`.
 - TypeScript `5.9.2`.
-- ESLint `9.34.0` + `eslint-config-next 15.5.25`.
+- ESLint `9.34.0` + `eslint-config-next 15.5.27`.
+- Security maintenance note: the baseline moved from Next.js/ESLint config `15.5.25` to `15.5.27` as a security-only patch update; no routing, authority, tenancy, BFF or operational architecture was changed.
 - Node CI/runtime baseline: Node 24 in current Web workflow.
 - npm deterministic install via `npm ci`.
 - App Router is the routing authority.
