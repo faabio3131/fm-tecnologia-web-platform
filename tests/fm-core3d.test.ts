@@ -51,15 +51,19 @@ test("premium typography inherits the original FM Arial system", () => {
   assert.match(approvedCss, /font-family: var\(--font-body, Arial, sans-serif\)/);
 });
 
-test("Premium footer styling remains scoped only to the Home route", () => {
+test("institutional Home uses the approved blue premium shell", () => {
   assert.match(chrome, /const premiumHome = pathname === "\/"/);
+  assert.match(chrome, /className="fm-public-site"/);
+  assert.match(chrome, /<Header premiumHome=\{premiumHome\} \/>/);
   assert.match(chrome, /<Footer premiumHome=\{premiumHome\} \/>/);
 });
 
-test("Premium Home remains scoped and uses the blue approved surface", () => {
-  assert.match(home, /className="fm-premium-home"/);
-  assert.match(approvedCss, /#3095f5/);
-  assert.match(approvedCss, /#63c7ef/);
+test("institutional Home keeps the approved composition in blue and excludes the Core hero", () => {
+  assert.match(home, /className="hero"/);
+  assert.match(home, /IA para melhorar hoje/);
+  assert.match(home, /evoluir o amanhã/);
+  assert.doesNotMatch(home, /FmPremiumHero/);
+  assert.doesNotMatch(home, /fm-core-gerente-ia/);
 });
 
 test("Hero preserves the approved FM commercial message and calls to action", () => {
@@ -68,7 +72,6 @@ test("Hero preserves the approved FM commercial message and calls to action", ()
   assert.match(hero, /Conhecer produtos/);
   assert.match(hero, /Falar com a FM/);
 });
-
 
 test("site-wide public premium theme is scoped away from operational Iron Fit app", () => {
   const siteChrome = readFileSync(new URL("../src/components/layout/site-chrome.tsx", import.meta.url), "utf8");
