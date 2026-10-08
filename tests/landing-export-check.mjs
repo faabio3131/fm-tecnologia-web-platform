@@ -27,7 +27,14 @@ for (const page of pages) {
   assert.ok(html.includes("https://wa.me/5511978350851?text="), `${page.slug}: whatsapp`);
   if (page.emailSubject) assert.ok(html.includes(`subject=${encodeURIComponent("Interesse em " + page.name)}`), `${page.slug}: email subject`);
   assert.ok(!html.includes("interesse=trial"), `${page.slug}: trial must not be falsely enabled`);
-  assert.ok(!html.includes("<video"), `${page.slug}: no fabricated video`);
+  if (page.slug === "kordena") {
+    assert.ok(html.includes('<video class="kordena-demo-video"'), "kordena: approved demo video element");
+    assert.ok(html.includes("https://resource2.heygen.ai/"), "kordena: approved HeyGen video source");
+    assert.ok(html.includes('type="video/mp4"'), "kordena: demo source must be MP4");
+    assert.ok(html.includes("Vídeo demonstrativo institucional do Kordena."), "kordena: demo disclosure");
+  } else {
+    assert.ok(!html.includes("<video"), `${page.slug}: no fabricated video`);
+  }
   if (page.slug === "iron-fit") {
     assert.ok(html.includes('href="#planos"'), "iron-fit: final CTA must link back to plans");
     assert.ok(!html.includes("<iframe"), "iron-fit: no generic iframe without an approved source");
