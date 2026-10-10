@@ -1445,3 +1445,41 @@ body {
 }
 
 .landing-journey-mark { display: block; width: 84px; height: 84px; margin: 0 0 16px; filter: drop-shadow(0 0 14px rgba(42, 164, 240, 0.35)); }
+
+
+/* Institutional homepage: retain the approved green layout with FM premium blue palette.
+   Scoped only to the homepage; Kordena and other product pages are untouched. */
+.fm-public-site .fm-institutional-hero {
+  background: linear-gradient(125deg, #030b17 0%, #07172b 65%, #0b203a 100%);
+  color: #f7fbff;
+  border-bottom: 1px solid rgba(103, 214, 255, .15);
+}
+.fm-public-site .fm-institutional-hero .hero-grid {
+  background-image:
+    linear-gradient(rgba(103, 170, 230, .045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(103, 170, 230, .045) 1px, transparent 1px);
+}
+.fm-public-site .fm-institutional-hero .hero-kicker { color: #b2c8dc; }
+.fm-public-site .fm-institutional-hero .hero-kicker > span { border-color: #2f91ff; }
+.fm-public-site .fm-institutional-hero h1 em { color: #58baff; }
+.fm-public-site .fm-institutional-hero .lead { color: #b5c8da; }
+.fm-public-site .fm-institutional-hero .button--primary {
+  background: linear-gradient(135deg, #2f91ff, #1977df);
+  border-color: #2f91ff;
+  color: #fff;
+}
+.fm-public-site .fm-institutional-hero .button--secondary {
+  background: rgba(5, 16, 33, .42);
+  border-color: rgba(120, 174, 229, .42);
+  color: #edf7ff;
+}
+.fm-public-site .fm-institutional-hero .portfolio-map {
+  border-color: rgba(103, 170, 230, .28);
+  background: linear-gradient(145deg, #0c213b, #081729);
+  box-shadow: 0 18px 48px rgba(0, 7, 25, .24);
+}
+.fm-public-site .fm-institutional-hero .portfolio-map > .eyebrow { color: #67d6ff; }
+.fm-public-site .fm-institutional-hero .portfolio-map-group { border-top-color: rgba(103, 170, 230, .24); }
+.fm-public-site .fm-institutional-hero .portfolio-map-group > span { color: #9fb4c8; }
+.fm-public-site .fm-institutional-hero .portfolio-map-group a:hover,
+.fm-public-site .fm-institutional-hero .portfolio-map-group a:focus-visible { color: #67d6ff; }
