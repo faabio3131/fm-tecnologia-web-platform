@@ -489,3 +489,34 @@
     border-radius: 22px;
   }
 }
+
+
+/* Core Fiscal diagram: scale the center emblem to fit its available card. */
+.nfcore-core-stage .nfcore-core-center--approved {
+  width: 350px;
+  height: 350px;
+  padding: 18px;
+  align-content: center;
+  justify-items: center;
+}
+.nfcore-core-stage .nfcore-core-center--approved .nfcore-core-approved-brand {
+  display: block;
+  width: min(100%, 292px);
+  max-width: 100%;
+  height: auto;
+  max-height: 292px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+@media (max-width: 760px) {
+  .nfcore-core-stage .nfcore-core-center--approved {
+    width: 100%;
+    height: auto;
+    min-height: 320px;
+    padding: 18px;
+  }
+  .nfcore-core-stage .nfcore-core-center--approved .nfcore-core-approved-brand {
+    width: min(100%, 270px);
+    max-height: 270px;
+  }
+}
