@@ -82,10 +82,13 @@ test("site-wide public premium theme is scoped away from operational Iron Fit ap
   assert.match(premium, /#67d6ff/);
 });
 
-test("Kordena uses its context-specific corrected Core assets", () => {
+test("Kordena uses the approved Central de Pedidos hero while preserving Core brand assets", () => {
   const landing = readFileSync(new URL("../src/components/marketing/product-landing.tsx", import.meta.url), "utf8");
   const story = readFileSync(new URL("../src/components/marketing/kordena-story.tsx", import.meta.url), "utf8");
-  assert.match(landing, /fm-core-kordena\.png/);
+  assert.match(landing, /kordena-central-pedidos-hero-1920\.webp/);
+  assert.match(landing, /kordena-central-pedidos-hero-1280\.webp/);
+  assert.match(landing, /Kordena Central de Pedidos coordenando a operação de um restaurante/);
+  assert.ok(existsSync(new URL("../public/brand/fm-core-kordena.png", import.meta.url)));
   assert.match(story, /fm-core-core\.png/);
   assert.doesNotMatch(landing, /fm-core-gerente-ia\.webp/);
   assert.doesNotMatch(story, /fm-core-gerente-ia\.webp/);

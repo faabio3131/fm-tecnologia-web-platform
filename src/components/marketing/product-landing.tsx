@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Product } from "@/src/catalog/types";
 import { canStartTrial, formatBRL, getTrialEntryHref } from "@/src/catalog/commerce";
@@ -54,15 +53,32 @@ export function ProductLanding({ product }: { product: Product }) {
                 <p className="eyebrow">Gerente IA Core</p>
                 <h2>Uma inteligência central para conectar toda a operação.</h2>
                 <div className="kordena-premium-core-visual">
-                  <Image
-                    className="kordena-premium-core-image"
-                    src="/brand/fm-core-kordena.png"
-                    alt="Kordena conectado ao Gerente IA Core, atendimento, vendas, estoque, produção, financeiro e clientes"
-                    width={1536}
-                    height={1536}
-                    priority
-                    unoptimized
-                  />
+                  <picture>
+                    <source
+                      media="(max-width: 1000px)"
+                      srcSet="/brand/kordena/hero/kordena-central-pedidos-hero-1280.webp"
+                      type="image/webp"
+                    />
+                    <source
+                      srcSet="/brand/kordena/hero/kordena-central-pedidos-hero-1920.webp"
+                      type="image/webp"
+                    />
+                    <source
+                      media="(max-width: 1000px)"
+                      srcSet="/brand/kordena/hero/kordena-central-pedidos-hero-1280.jpg"
+                      type="image/jpeg"
+                    />
+                    <img
+                      className="kordena-premium-core-image"
+                      src="/brand/kordena/hero/kordena-central-pedidos-hero-1920.jpg"
+                      alt="Kordena Central de Pedidos coordenando a operação de um restaurante"
+                      width={1920}
+                      height={1080}
+                      loading="eager"
+                      fetchPriority="high"
+                      decoding="async"
+                    />
+                  </picture>
                 </div>
                 <p>Atendimento, produção, estoque, vendas, financeiro e clientes conectados ao mesmo núcleo de inteligência.</p>
               </aside>
