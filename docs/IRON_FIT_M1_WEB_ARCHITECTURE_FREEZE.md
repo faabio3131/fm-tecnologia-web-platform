@@ -12,10 +12,10 @@ M1 does not merge unrelated public-site work into `main`. M1/M2/M3 are executed 
 
 ## 2. Frozen technology baseline
 
-- Next.js `15.5.25`.
+- Next.js `15.5.27`.
 - React / React DOM `19.1.1`.
 - TypeScript `5.9.2`.
-- ESLint `9.34.0` + `eslint-config-next 15.5.25`.
+- ESLint `9.34.0` + `eslint-config-next 15.5.27`.
 - Node CI/runtime baseline: Node 24 in current Web workflow.
 - npm deterministic install via `npm ci`.
 - App Router is the routing authority.
@@ -196,3 +196,12 @@ Only after M3 certification may M4 differentiators be treated as the next parity
 ## 16. Freeze rule
 
 This document is the M1 architecture contract for M2/M3. If implementation reveals a genuine blocker, the change must be documented and reviewed as an explicit architecture amendment; implementation must not silently diverge from these boundaries.
+
+## Security patch and audit disposition — 2026-10-10
+
+- Security-motivated patch update from Next.js / eslint-config-next `15.5.25` to `15.5.27` and `sharp` override from `0.35.4` to `0.35.5`. This is a patch-level compatibility exception to the frozen baseline, not a redesign.
+- Local regression: 68/68 automated tests pass; lint and typecheck pass; Next.js production build succeeds. ESLint reports two pre-existing unused-symbol warnings.
+- `npm audit --omit=dev --audit-level=high`: **0 vulnerabilities** in production dependencies.
+- Full `npm audit --audit-level=high`: **5 high findings**, all chained from `eslint-config-next` → `@next/eslint-plugin-next` → `fast-glob` → `micromatch` → `braces@3.0.3` (GHSA-vfj7-8cjw-p6xm). `braces@3.0.3` is the latest published version observed. The audit's suggested `--force` downgrade to eslint-config-next 14.x is breaking and is not approved.
+- Risk classification: the flagged chain is in development-only lint tooling; no vulnerable production dependency was reported in the production-only audit. This is a **documented exception candidate**, not a security gate waiver or a claim that full audit passed.
+- Release gate remains blocked until a compatible upstream fix or an explicitly approved, technically reviewed risk acceptance and CI policy change. Do not silently skip or downgrade the full audit gate.
