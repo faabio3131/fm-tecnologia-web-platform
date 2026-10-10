@@ -39,3 +39,22 @@
     width: min(100%, 210px);
   }
 }
+
+
+/* FM staged review: consistent, legible official lockup sizes in intelligence and hub. */
+.ironfit-intelligence-core .ironfit-intelligence-brand {
+  width: min(100%, 192px);
+  max-height: 116px;
+  object-fit: contain;
+  object-position: center;
+}
+.ironfit-hub-core--brand .ironfit-hub-brand {
+  width: min(100%, 250px);
+  max-height: 150px;
+  object-fit: contain;
+  object-position: center;
+}
+@media (max-width: 700px) {
+  .ironfit-intelligence-core .ironfit-intelligence-brand { width: min(100%, 200px); }
+  .ironfit-hub-core--brand .ironfit-hub-brand { width: min(100%, 235px); }
+}
