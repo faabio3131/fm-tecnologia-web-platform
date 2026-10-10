@@ -1483,3 +1483,37 @@ body {
 .fm-public-site .fm-institutional-hero .portfolio-map-group > span { color: #9fb4c8; }
 .fm-public-site .fm-institutional-hero .portfolio-map-group a:hover,
 .fm-public-site .fm-institutional-hero .portfolio-map-group a:focus-visible { color: #67d6ff; }
+
+
+/* Kordena hero: illustration has its own space; caption sits below, not over artwork. */
+.fm-public-site .product-landing--kordena .kordena-hero-core--premium {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.fm-public-site .product-landing--kordena .kordena-premium-core-visual {
+  min-height: 0;
+  max-height: none;
+  aspect-ratio: 1.26 / 1;
+  padding: 0;
+  flex: none;
+}
+.fm-public-site .product-landing--kordena .kordena-premium-core-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center top;
+}
+.fm-public-site .product-landing--kordena .kordena-hero-core--premium > .kordena-core-caption {
+  margin: .85rem 0 .1rem;
+  padding: .15rem .15rem 0;
+  color: #9fb4c8;
+  font-size: .86rem;
+  line-height: 1.5;
+}
+@media (max-width: 760px) {
+  .fm-public-site .product-landing--kordena .kordena-premium-core-visual {
+    aspect-ratio: 1 / 1;
+  }
+}
