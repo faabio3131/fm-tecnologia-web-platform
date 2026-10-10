@@ -814,3 +814,55 @@
     animation: none !important;
   }
 }
+
+
+/* FM premium Command: compact hero and consistent dark, accessible sections. */
+.command-landing {
+  background: #06111f;
+  color: #f3f8ff;
+}
+.command-hero > .container {
+  padding-block: 1rem clamp(2.5rem, 4vw, 3.5rem);
+}
+.command-hero-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
+}
+.command-hero h1 {
+  max-width: 620px;
+  font-size: clamp(2.35rem, 3.55vw, 3.65rem);
+  line-height: 1.06;
+  letter-spacing: -.045em;
+}
+.command-hero .lead { line-height: 1.55; }
+.command-landing .command-index,
+.command-landing .command-flow-section,
+.command-landing .command-capabilities-section,
+.command-landing .command-core-section,
+.command-landing .command-governance-section,
+.command-landing .command-integration-section,
+.command-landing .command-journey-section,
+.command-landing .command-faq-section {
+  background: #071426;
+  color: #f3f8ff;
+}
+.command-landing .command-section-heading h2,
+.command-landing .command-core-grid h2,
+.command-landing .command-integration-grid h2,
+.command-landing .command-core-grid h3 {
+  color: #f3f8ff;
+}
+.command-landing .command-section-heading > p:last-child,
+.command-landing .command-core-grid > div > p:not(.eyebrow),
+.command-landing .command-integration-grid > div > p:not(.eyebrow) {
+  color: #a9c0d6;
+}
+.command-landing .command-index a { color: #c2d6e9; }
+.command-landing .command-index a:hover,
+.command-landing .command-index a:focus-visible { color: #67d6ff; }
+@media (max-width: 1100px) {
+  .command-hero-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 620px) {
+  .command-hero h1 { font-size: clamp(2rem, 9vw, 2.85rem); }
+}
