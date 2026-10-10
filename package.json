@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postinstall": "patch-package",
+    "test:security-patch": "node tests/braces-security-patch.cjs",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
@@ -31,6 +33,7 @@
     "@types/react-dom": "19.1.9",
     "eslint": "9.34.0",
     "eslint-config-next": "15.5.27",
+    "patch-package": "8.0.1",
     "typescript": "5.9.2",
     "wrangler": "^4.138.0"
   },
