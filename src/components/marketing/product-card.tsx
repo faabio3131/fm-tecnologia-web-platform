@@ -14,7 +14,7 @@ export function ProductCard({
   return (
     <article className={`product-card ${priorityClass}`}>
       <div className="card-top">
-        <Badge>{product.publicLabel}</Badge>
+        <Badge>{product.priority === "primary" ? "Produto principal" : product.publicLabel}</Badge>
       </div>
       <h3>{product.name}</h3>
       <p>{description ?? product.shortDescription}</p>
