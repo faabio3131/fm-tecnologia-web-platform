@@ -44,7 +44,7 @@ export default function Home() {
                 <div>
                   {group.items.map((product) => (
                     <Link href={`/produtos/${product.slug}`} key={product.id}>
-                      {product.slug === "atendevendeia" ? "Atende Vende IA" : product.name}
+                      {product.slug === "atendevendeia" ? "Atende e Vende IA" : product.name}
                       <span aria-hidden="true">↗</span>
                     </Link>
                   ))}
