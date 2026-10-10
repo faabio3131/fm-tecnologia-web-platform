@@ -132,7 +132,7 @@
 
 .fm-core-approved__visual {
   position: relative;
-  width: min(100%, 470px);
+  width: min(100%, 580px);
   aspect-ratio: 1;
   display: grid;
   place-items: center;
@@ -155,11 +155,10 @@
   width: 100%;
   height: auto;
   object-fit: contain;
-  filter:
-    saturate(1.06)
-    contrast(1.03)
-    drop-shadow(0 24px 44px rgba(0, 4, 20, .62))
-    drop-shadow(0 0 30px rgba(0, 157, 255, .14));
+  /* The approved source has a solid black canvas: screen removes that
+     rectangle against the navy hero without changing the original asset. */
+  mix-blend-mode: screen;
+  filter: saturate(1.08) contrast(1.02);
 }
 
 
@@ -289,8 +288,8 @@
   }
 
   .fm-core-approved__visual {
-    width: min(100vw, 430px);
-    margin-inline: -6vw;
+    width: min(100%, 430px);
+    margin-inline: auto;
   }  .fm-core-approved__plate {
     font-size: .58rem;
     min-height: 26px;
