@@ -61,7 +61,7 @@ test("Institutional Home uses the approved blue FM surface and not the Kordena C
   assert.match(home, /fm-premium-home fm-institutional-home/);
   assert.match(home, /IA para melhorar hoje e/);
   assert.match(home, /Explore o ecossistema/);
-  assert.match(home, /Atende e Vende IA/);
+  assert.match(home, /AtendeVendeIA/);
   assert.doesNotMatch(home, /<FmPremiumHero/);
   assert.match(publicCss, /\.fm-public-site \.fm-institutional-hero/);
   assert.match(publicCss, /#2f91ff/);
