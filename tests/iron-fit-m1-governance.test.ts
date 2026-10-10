@@ -57,7 +57,7 @@ test('M1 freeze pins the current framework and permanent quality pipeline', asyn
   const freeze = await text('docs/IRON_FIT_M1_WEB_ARCHITECTURE_FREEZE.md');
   const pkg = JSON.parse(await text('package.json')) as { dependencies: Record<string, string>; devDependencies: Record<string, string>; scripts: Record<string, string> };
 
-  assert.equal(pkg.dependencies.next, '15.5.25');
+  assert.equal(pkg.dependencies.next, '15.5.27');
   assert.equal(pkg.dependencies.react, '19.1.1');
   assert.equal(pkg.devDependencies.typescript, '5.9.2');
   assert.equal(pkg.scripts.test, 'node --experimental-strip-types --test tests/*.test.ts');
