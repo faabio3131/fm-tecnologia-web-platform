@@ -64,7 +64,7 @@ export function ProductLanding({ product }: { product: Product }) {
                     unoptimized
                   />
                 </div>
-                <p>Atendimento, produção, estoque, vendas, financeiro e clientes conectados ao mesmo núcleo de inteligência.</p>
+                <p className="kordena-core-caption">Atendimento, produção, estoque, vendas, financeiro e clientes conectados ao mesmo núcleo de inteligência.</p>
               </aside>
             ) : (
               <aside className="landing-journey" aria-label={page.journeyTitle}>

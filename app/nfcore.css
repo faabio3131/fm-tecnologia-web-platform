@@ -444,3 +444,79 @@
   .nfcore-commercial__badge{justify-self:start}
   .nfcore-commercial__gates{grid-template-columns:1fr}
 }
+
+
+/* FM staged review: balanced NFCore hero mark with clear, non-overlapping labels. */
+@media (min-width: 901px) {
+  .nfcore-hero__visual {
+    min-height: 470px;
+    padding: 68px 112px;
+    isolation: isolate;
+  }
+  .nfcore-hero__visual .nfcore-mark-card--approved {
+    width: min(100%, 345px);
+    max-width: 345px;
+    min-height: 220px;
+    padding: 24px 16px;
+    border: 1px solid rgba(47,145,255,.20);
+    border-radius: 24px;
+    background: rgba(6,19,36,.78);
+    box-shadow: 0 18px 50px rgba(0,7,25,.30);
+  }
+  .nfcore-hero__visual .nfcore-mark-card--approved .nfcore-approved-brand {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  .nfcore-hero__visual .nfcore-domain { z-index: 3; }
+  .nfcore-hero__visual .nfcore-domain--1 { left: 5%; top: 12%; }
+  .nfcore-hero__visual .nfcore-domain--2 { right: 5%; top: 12%; }
+  .nfcore-hero__visual .nfcore-domain--3 { left: 3%; top: 47%; }
+  .nfcore-hero__visual .nfcore-domain--4 { right: 3%; top: 47%; }
+  .nfcore-hero__visual .nfcore-domain--5 { left: 5%; bottom: 12%; }
+  .nfcore-hero__visual .nfcore-domain--6 { right: 5%; bottom: 12%; }
+}
+@media (min-width: 761px) and (max-width: 900px) {
+  .nfcore-hero__visual {
+    min-height: 480px;
+    padding: 92px 20px;
+  }
+  .nfcore-hero__visual .nfcore-mark-card--approved {
+    width: min(62%, 340px);
+    min-height: 190px;
+    padding: 16px;
+    background: rgba(6,19,36,.78);
+    border-radius: 22px;
+  }
+}
+
+
+/* Core Fiscal diagram: scale the center emblem to fit its available card. */
+.nfcore-core-stage .nfcore-core-center--approved {
+  width: 350px;
+  height: 350px;
+  padding: 18px;
+  align-content: center;
+  justify-items: center;
+}
+.nfcore-core-stage .nfcore-core-center--approved .nfcore-core-approved-brand {
+  display: block;
+  width: min(100%, 292px);
+  max-width: 100%;
+  height: auto;
+  max-height: 292px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+@media (max-width: 760px) {
+  .nfcore-core-stage .nfcore-core-center--approved {
+    width: 100%;
+    height: auto;
+    min-height: 320px;
+    padding: 18px;
+  }
+  .nfcore-core-stage .nfcore-core-center--approved .nfcore-core-approved-brand {
+    width: min(100%, 270px);
+    max-height: 270px;
+  }
+}
