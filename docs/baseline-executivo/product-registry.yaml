@@ -1,0 +1,276 @@
+# REGISTRO DOCUMENTAL. Não completar fatos sem decisão executiva, Arquitetura Mestre ou Fase 0.
+schema_version: "2.0"
+registry_status: em_revisao
+
+authority:
+  hierarchy:
+    - level: 1
+      source: decisões executivas expressas do Diretor
+    - level: 2
+      source: "01 - ARQUITETURA MESTRE - SITE COMERCIAL FM TECNOLOGIA.pdf"
+      read_status_inherited_from_phase_0: "encontrado e lido integralmente, 7 páginas"
+    - level: 3
+      source: docs/FASE_0_INVENTARIO_E_READINESS.md
+      phase_0_version: "1.3"
+      commit: 262fb3fd65c35ae89520fd262386a07ea5d576fc
+      publication_branch: docs/fase-0-inventario-readiness
+    - level: 4
+      source: docs/baseline-executivo/**
+  reconciliation_note: "O Baseline foi reconciliado contra a Fase 0 v1.3; decisões comerciais aprovadas não podem voltar a PENDENTE_EVIDENCIA, mas certificação/homologação continuam independentes."
+  cross_validation_scope: "Fase 0 v1.3 da PR #1 reconciliada com os documentos da PR #2."
+  naming_decision: DEC-04
+  brand_decision: DEC-09
+  executive_decisions: [DEC-02, DEC-04, DEC-07, DEC-08, DEC-09, DEC-11, DEC-12, DEC-13, DEC-14, DEC-15, DEC-16, DEC-17, DEC-18, DEC-19, DEC-20, DEC-21, DEC-22, DEC-23, DEC-24, DEC-25, DEC-26]
+  reconciled_at: "2026-09-08"
+  reconciled_by: Diretor + execução documental controlada
+
+status_governance:
+  independent_dimensions:
+    - portfolio_presence
+    - product_lifecycle_status
+    - website_visibility
+    - technical_readiness
+    - certification_status
+    - commercial_availability
+    - trial_policy_status
+    - trial_release_status
+    - pricing_status
+    - production_homologation_status
+  lifecycle_sequence:
+    - research_and_development
+    - in_development
+    - beta
+    - available
+  transition_rule: "A mudança de lifecycle altera conteúdo, badge, CTA e permissões comerciais; não exige redesenho estrutural do site."
+  non_inference_rule: "Produto principal, preço aprovado ou TrialPolicy aprovada não equivalem a available, produção homologada, certificação concluída, billing operacional ou liberação do CTA transacional."
+
+site_commercial_rules:
+  primary_domain:
+    value: fmtecnologia.ai
+    decision: DEC-02
+    registration_ownership_status: PENDENTE_EVIDENCIA
+  acquisition:
+    model: hybrid
+    self_service_trial: true
+    enterprise_consultative_flow: true
+    decision: DEC-22
+  account_effectiveness:
+    email_verification_required: true
+    whatsapp_verification_required: true
+    rule: "A conta só é efetivada após as duas validações obrigatórias."
+    decision: DEC-11
+  support:
+    channels: [whatsapp, email]
+    automation_24x7: true
+    human_24x7_promised: false
+    decision: DEC-12
+  institutional:
+    focus: [empresa, missao, valores]
+    founder_personal_page: false
+    decision: DEC-24
+  infrastructure_direction:
+    web: "Next.js/Vercel"
+    commercial_core_account_provisioning: AWS
+    saas_isolation: contracts_and_adapters
+    decision: DEC-13
+  ai_architecture:
+    provider_agnostic: true
+    multi_provider: true
+    multi_model: true
+    integration_pattern: ai_gateway_and_provider_adapters
+    provider_secrets_in_backend_only: true
+    governed_fallback: true
+    decision: DEC-25
+  finops:
+    decision: DEC-26
+    telemetry_dimensions: [tenant, product, task, provider, model, consumption, cost, latency, result, failure, correlation_id]
+
+# Product IDs são identificadores documentais estáveis. Slugs/URLs permanecem pendentes até a aprovação de GO-16.
+products:
+  - product_id: fm-product-kordena
+    canonical_name: Kordena
+    slug: PENDENTE_EVIDENCIA
+    category: PENDENTE_EVIDENCIA
+    marketplace_group: Produtos Principais
+    priority: produto_principal
+    positioning: PENDENTE_EVIDENCIA
+    portfolio_presence: true
+    product_lifecycle_status: PENDENTE_EVIDENCIA
+    website_visibility: public
+    dedicated_product_page: true
+    commercial_highlight: true
+    technical_readiness: PENDENTE_EVIDENCIA
+    production_homologation_status: PENDENTE_EVIDENCIA
+    commercial_availability: PENDENTE_EVIDENCIA
+    certification_status: PENDENTE_EVIDENCIA
+    trial_policy_status: approved_partial_contract
+    trial_release_status: PENDENTE_EVIDENCIA
+    trial_policy:
+      duration_days: 30
+      card_required: false
+      functional_limits: PENDENTE_EVIDENCIA
+      eligibility_and_anti_abuse: PENDENTE_EVIDENCIA
+      expiration_and_conversion: PENDENTE_EVIDENCIA
+      decision: DEC-07
+    pricing_status: approved
+    pricing:
+      currency: BRL
+      monthly: 299
+      annual: 2990
+      enterprise: quote
+      decision: DEC-08
+    allowed_ctas: PENDENTE_EVIDENCIA
+    finops_targets:
+      monthly_cost_target_brl: 50
+      attention_threshold_brl: 75
+      decision: DEC-26
+    evidence: [DEC-07, DEC-08, DEC-15, DEC-17, DEC-19, DEC-20, DEC-26]
+    notes: "Trial e pricing estão aprovados como decisões comerciais, mas a liberação comercial/CTA depende de certificação, homologação e contratos aplicáveis."
+    dependencies: PENDENTE_EVIDENCIA
+    evidence_gaps: [slug, category, positioning, lifecycle, technical_readiness, production_homologation, commercial_availability, certification, allowed_ctas, trial_contract_details, dependencies]
+
+  - product_id: fm-product-iron-fit
+    canonical_name: Iron Fit
+    slug: PENDENTE_EVIDENCIA
+    category: PENDENTE_EVIDENCIA
+    marketplace_group: Produtos Principais
+    priority: produto_principal
+    positioning: PENDENTE_EVIDENCIA
+    portfolio_presence: true
+    product_lifecycle_status: PENDENTE_EVIDENCIA
+    website_visibility: public
+    dedicated_product_page: true
+    commercial_highlight: true
+    technical_readiness: PENDENTE_EVIDENCIA
+    production_homologation_status: PENDENTE_EVIDENCIA
+    commercial_availability: PENDENTE_EVIDENCIA
+    certification_status: PENDENTE_EVIDENCIA
+    trial_policy_status: approved_partial_contract
+    trial_release_status: PENDENTE_EVIDENCIA
+    trial_policy:
+      duration_days: 30
+      card_required: false
+      max_students: 15
+      eligibility_and_anti_abuse: PENDENTE_EVIDENCIA
+      expiration_and_conversion: PENDENTE_EVIDENCIA
+      decision: DEC-07
+    pricing_status: approved
+    pricing:
+      currency: BRL
+      monthly: 269
+      annual: 2690
+      enterprise: quote
+      decision: DEC-08
+    allowed_ctas: PENDENTE_EVIDENCIA
+    finops_targets:
+      monthly_cost_target_brl: 45
+      attention_threshold_brl: 67
+      decision: DEC-26
+    evidence: [DEC-07, DEC-08, DEC-15, DEC-17, DEC-19, DEC-20, DEC-26]
+    notes: "Trial de 30 dias sem cartão e limite de 15 alunos estão aprovados; liberação comercial/CTA ainda depende de certificação, homologação e contratos."
+    dependencies: PENDENTE_EVIDENCIA
+    evidence_gaps: [slug, category, positioning, lifecycle, technical_readiness, production_homologation, commercial_availability, certification, allowed_ctas, trial_contract_details, dependencies]
+
+  - product_id: fm-product-vendedor-ia
+    canonical_name: Vendedor IA
+    slug: PENDENTE_EVIDENCIA
+    category: PENDENTE_EVIDENCIA
+    marketplace_group: O que estamos construindo
+    public_status_label: "Em desenvolvimento · Em breve"
+    priority: PENDENTE_EVIDENCIA
+    positioning: PENDENTE_EVIDENCIA
+    portfolio_presence: true
+    product_lifecycle_status: in_development
+    website_visibility: public
+    dedicated_product_page: true
+    commercial_highlight: false
+    technical_readiness: PENDENTE_EVIDENCIA
+    production_homologation_status: PENDENTE_EVIDENCIA
+    commercial_availability: false
+    certification_status: PENDENTE_EVIDENCIA
+    trial_policy_status: not_available
+    trial_release_status: false
+    pricing_status: not_for_public_offer
+    allowed_ctas: [conhecer_o_projeto, demonstrar_interesse, acompanhar_lancamento, falar_com_a_fm]
+    evidence: [DEC-15, DEC-16, DEC-19, DEC-20]
+    notes: "Exibir exatamente como Em desenvolvimento · Em breve. Não oferecer compra, assinatura ou trial."
+    dependencies: PENDENTE_EVIDENCIA
+    evidence_gaps: [slug, category, priority, positioning, technical_readiness, production_homologation, certification, dependencies]
+
+  - product_id: fm-product-campaia
+    canonical_name: CampaIA
+    slug: PENDENTE_EVIDENCIA
+    category: PENDENTE_EVIDENCIA
+    marketplace_group: O que estamos construindo
+    public_status_label: "Em desenvolvimento · Em breve"
+    priority: PENDENTE_EVIDENCIA
+    positioning: PENDENTE_EVIDENCIA
+    portfolio_presence: true
+    product_lifecycle_status: in_development
+    website_visibility: public
+    dedicated_product_page: true
+    commercial_highlight: false
+    technical_readiness: PENDENTE_EVIDENCIA
+    production_homologation_status: PENDENTE_EVIDENCIA
+    commercial_availability: false
+    certification_status: PENDENTE_EVIDENCIA
+    trial_policy_status: not_available
+    trial_release_status: false
+    pricing_status: not_for_public_offer
+    allowed_ctas: [conhecer_o_projeto, demonstrar_interesse, acompanhar_lancamento, falar_com_a_fm]
+    evidence: [DEC-15, DEC-16, DEC-19, DEC-20]
+    notes: "Exibir exatamente como Em desenvolvimento · Em breve. Não oferecer compra, assinatura ou trial."
+    dependencies: PENDENTE_EVIDENCIA
+    evidence_gaps: [slug, category, priority, positioning, technical_readiness, production_homologation, certification, dependencies]
+
+  - product_id: fm-product-super-core-extreme
+    canonical_name: Super Core Extreme
+    slug: PENDENTE_EVIDENCIA
+    category: PENDENTE_EVIDENCIA
+    marketplace_group: "Tecnologia & P&D"
+    public_status_label: "Tecnologia & P&D · Em desenvolvimento"
+    priority: PENDENTE_EVIDENCIA
+    positioning: "tecnologia/plataforma estratégica de Pesquisa & Desenvolvimento da FM Tecnologia"
+    portfolio_presence: true
+    product_lifecycle_status: research_and_development
+    website_visibility: public
+    dedicated_product_page: true
+    commercial_highlight: false
+    technical_readiness: PENDENTE_EVIDENCIA
+    production_homologation_status: PENDENTE_EVIDENCIA
+    commercial_availability: false
+    certification_status: PENDENTE_EVIDENCIA
+    trial_policy_status: not_available
+    trial_release_status: false
+    pricing_status: not_for_public_offer
+    allowed_ctas: [conhecer_o_projeto, demonstrar_interesse, acompanhar_lancamento, falar_com_a_fm]
+    evidence: [DEC-15, DEC-18, DEC-19, DEC-20]
+    notes: "Não tratar como SaaS comercial disponível. Exibir exatamente como Tecnologia & P&D · Em desenvolvimento."
+    dependencies: PENDENTE_EVIDENCIA
+    evidence_gaps: [slug, category, priority, technical_readiness, production_homologation, certification, dependencies]
+
+  - product_id: fm-product-erp-core
+    canonical_name: ERP Core
+    slug: PENDENTE_EVIDENCIA
+    category: PENDENTE_EVIDENCIA
+    marketplace_group: O que estamos construindo
+    public_status_label: "Em desenvolvimento · Em breve"
+    priority: PENDENTE_EVIDENCIA
+    positioning: PENDENTE_EVIDENCIA
+    portfolio_presence: true
+    product_lifecycle_status: in_development
+    website_visibility: public
+    dedicated_product_page: true
+    commercial_highlight: false
+    technical_readiness: PENDENTE_EVIDENCIA
+    production_homologation_status: PENDENTE_EVIDENCIA
+    commercial_availability: false
+    certification_status: PENDENTE_EVIDENCIA
+    trial_policy_status: not_available
+    trial_release_status: false
+    pricing_status: not_for_public_offer
+    allowed_ctas: [conhecer_o_projeto, demonstrar_interesse, acompanhar_lancamento, falar_com_a_fm]
+    evidence: [DEC-15, DEC-16, DEC-19, DEC-20]
+    notes: "Exibir exatamente como Em desenvolvimento · Em breve. Não oferecer compra, assinatura ou trial."
+    dependencies: PENDENTE_EVIDENCIA
+    evidence_gaps: [slug, category, priority, positioning, technical_readiness, production_homologation, certification, dependencies]
