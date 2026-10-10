@@ -866,3 +866,47 @@
 @media (max-width: 620px) {
   .command-hero h1 { font-size: clamp(2rem, 9vw, 2.85rem); }
 }
+
+/* Final staged Command surface reconciliation: real section selectors, no white islands. */
+.command-landing .command-architecture,
+.command-landing .command-governance-section,
+.command-landing .command-capabilities-section,
+.command-landing .command-journey-section,
+.command-landing .command-faq-section {
+  background: #071426;
+  color: #edf6ff;
+}
+.command-landing .command-flow,
+.command-landing .command-principles,
+.command-landing .command-capabilities article,
+.command-landing .command-journey,
+.command-landing .command-faq details {
+  background: #0b2038;
+  border-color: rgba(111, 178, 239, .19);
+  color: #eaf4ff;
+}
+.command-landing .command-flow article,
+.command-landing .command-principles article,
+.command-landing .command-journey li {
+  border-color: rgba(111, 178, 239, .19);
+}
+.command-landing .command-flow article strong,
+.command-landing .command-principles strong,
+.command-landing .command-journey strong,
+.command-landing .command-capabilities h3,
+.command-landing .command-faq summary {
+  color: #f3f8ff;
+}
+.command-landing .command-flow article p,
+.command-landing .command-capabilities p,
+.command-landing .command-journey p,
+.command-landing .command-faq details p {
+  color: #aec3d9;
+}
+.command-landing .command-section-heading .eyebrow { color: #67d6ff; }
+.command-landing .command-flow article > span { background: #123456; color: #83d6ff; }
+@media (max-width: 620px) {
+  .command-landing .command-flow article,
+  .command-landing .command-principles article,
+  .command-landing .command-journey li { border-color: rgba(111, 178, 239, .19); }
+}
