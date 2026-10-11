@@ -22,6 +22,7 @@ import "./fm-premium-foundation.css";
 import "./fm-premium-hero.css";
 import "./fm-premium-approved.css";
 import "./fm-public-site-premium.css";
+import "./ironfit-neural-preview.css";
 import { SiteChrome } from "@/src/components/layout/site-chrome";
 import { siteConfig } from "@/src/config/site";
 
