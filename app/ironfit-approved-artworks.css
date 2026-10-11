@@ -5,3 +5,11 @@
 .fm-public-site .ironfit-landing .ironfit-intelligence-network > *{display:none!important}
 .fm-public-site .ironfit-landing .ironfit-intelligence-network:before,.fm-public-site .ironfit-landing .ironfit-intelligence-network:after{display:none!important}
 @media(max-width:700px){.fm-public-site .ironfit-landing .ironfit-core-stage,.fm-public-site .ironfit-landing .ironfit-intelligence-network{aspect-ratio:1671/828!important;min-height:0!important}}
+/* Final preview layout: approved art already includes copy and module captions. */
+.fm-public-site .ironfit-landing .ironfit-intelligence-layout{display:block!important;max-width:1120px!important;margin-inline:auto!important}
+.fm-public-site .ironfit-landing .ironfit-intelligence-copy{display:none!important}
+.fm-public-site .ironfit-landing .ironfit-intelligence-network{width:100%!important;max-width:1120px!important;margin:0 auto!important}
+.fm-public-site .ironfit-landing .ironfit-intelligence-guardrail{display:none!important}
+.fm-public-site .ironfit-landing .ironfit-core-stage{width:100%!important;max-width:980px!important;margin-inline:auto!important}
+.fm-public-site .ironfit-landing .ironfit-core-flow{display:none!important}
+@media(max-width:700px){.fm-public-site .ironfit-landing .ironfit-intelligence-layout{width:100%!important}.fm-public-site .ironfit-landing .ironfit-core-stage{max-width:100%!important}}
