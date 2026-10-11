@@ -33,7 +33,8 @@ export function IronFitIntelligenceEcosystemSecurity() {
               </div>
             </div>
             <div className="ironfit-intelligence-network" aria-label="Quatro eixos da Iron Intelligence">
-              <div className="ironfit-intelligence-core"><Image className="ironfit-intelligence-brand" src={officialLockup} alt="Iron Fit Core" width={520} height={308} unoptimized /><small>Core + contexto</small></div>
+              <div className="ironfit-intelligence-brain" aria-hidden="true" />
+              <div className="ironfit-intelligence-core"><Image className="ironfit-intelligence-brand" src={officialLockup} alt="Iron Fit Core" width={520} height={308} unoptimized /></div>
               {intelligenceAxes.map(([title, text], index) => (
                 <article key={title} className={`ironfit-intelligence-node ironfit-intelligence-node--${index + 1}`}>
                   <span>0{index + 1}</span><h3>{title}</h3><p>{text}</p>

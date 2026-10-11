@@ -1,0 +1,64 @@
+/* Iron Fit Core — blue neural composition; staged PR #32 only */
+@media (min-width: 701px) {
+.ironfit-intelligence-layout{grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:26px}
+.ironfit-intelligence-network{min-height:550px;border-color:rgba(0,163,255,.55);background:radial-gradient(ellipse at 50% 49%,rgba(0,114,255,.26),transparent 47%),#031126;box-shadow:inset 0 0 60px rgba(0,140,255,.12)}
+.ironfit-intelligence-network:before{width:360px;height:360px;border:2px solid rgba(0,176,255,.55);box-shadow:0 0 30px rgba(0,149,255,.35),inset 0 0 25px rgba(0,149,255,.18)}
+.ironfit-intelligence-network:after{width:465px;height:465px;border-color:rgba(0,174,255,.48)}
+.ironfit-intelligence-core{width:245px;height:245px;border:3px solid #00b7ff;background:#020d20;box-shadow:0 0 18px #008dff,0 0 65px rgba(0,140,255,.65),inset 0 0 28px rgba(0,115,255,.24)}
+.ironfit-intelligence-brand{width:96%;height:auto;object-fit:contain}
+.ironfit-intelligence-node{width:215px;min-height:170px;padding:20px;border:1.5px solid #00aaff;background:linear-gradient(145deg,rgba(3,26,57,.98),rgba(3,12,31,.98));box-shadow:0 0 12px rgba(0,163,255,.3),inset 0 0 16px rgba(0,91,190,.16)}
+.ironfit-intelligence-node span{font-size:1.3rem;color:#00bfff}
+.ironfit-intelligence-node h3{font-size:1.05rem;color:#fff}
+.ironfit-intelligence-node p{font-size:.84rem;color:#c5d9ed}
+.ironfit-intelligence-node--1{left:2%;top:5%}.ironfit-intelligence-node--2{right:2%;top:5%}.ironfit-intelligence-node--3{left:2%;bottom:5%}.ironfit-intelligence-node--4{right:2%;bottom:5%}
+}
+.ironfit-intelligence-brain{position:absolute;z-index:1;inset:3% 12%;pointer-events:none;opacity:.7;background:radial-gradient(ellipse at 50% 47%,rgba(0,177,255,.32),transparent 54%),repeating-radial-gradient(ellipse at 50% 50%,transparent 0 16px,rgba(0,139,255,.14) 17px 18px,transparent 19px 33px);filter:drop-shadow(0 0 20px rgba(0,159,255,.5))}
+@media(max-width:700px){.ironfit-intelligence-brain{inset:10% 0;opacity:.25}.ironfit-intelligence-core{min-height:170px;border:2px solid #00aeff;box-shadow:0 0 25px rgba(0,174,255,.25)}.ironfit-intelligence-node{border-color:rgba(0,174,255,.65)}}
+
+/* Eight-module Core Vertical — luminous blue orbital layout */
+@media(min-width:901px){
+.fm-public-site .ironfit-landing .ironfit-core-stage{max-width:1400px;min-height:620px;overflow:hidden;background:radial-gradient(circle at 50% 50%,rgba(0,115,255,.22),transparent 38%),linear-gradient(125deg,#031329,#020c1e);border-color:rgba(0,153,255,.48);box-shadow:inset 0 0 70px rgba(0,128,255,.12)}
+.fm-public-site .ironfit-landing .ironfit-core-orbit .orbit--one{width:380px;height:380px;border:3px solid #00b7ff;box-shadow:0 0 22px #008cff,inset 0 0 26px rgba(0,140,255,.35)}
+.fm-public-site .ironfit-landing .ironfit-core-orbit .orbit--two{width:480px;height:480px;border:2px dashed rgba(0,163,255,.68)}
+.fm-public-site .ironfit-landing .ironfit-core-orbit .orbit--three{width:560px;height:560px;border:1px solid rgba(0,153,255,.36);opacity:1}
+.fm-public-site .ironfit-landing .ironfit-core-mark{width:310px;aspect-ratio:1;display:grid;place-items:center;border:3px solid #00b7ff;border-radius:50%;background:#020c1d;box-shadow:0 0 22px #008cff,0 0 75px rgba(0,128,255,.5);overflow:hidden}
+.fm-public-site .ironfit-landing .ironfit-core-mark img{width:100%;height:auto;object-fit:contain;border-radius:0}
+.fm-public-site .ironfit-landing .ironfit-domain{width:235px;min-width:0;min-height:74px;display:flex;align-items:center;gap:10px;padding:16px 22px;border:1.5px solid #008fff;border-radius:999px;background:linear-gradient(90deg,#03132b,#06234a);box-shadow:0 0 17px rgba(0,130,255,.28);font-size:.95rem;color:#fff}
+.fm-public-site .ironfit-landing .ironfit-domain span{font-size:1.1rem;color:#00b7ff}
+.fm-public-site .ironfit-landing .ironfit-domain--1,.fm-public-site .ironfit-landing .ironfit-domain--3,.fm-public-site .ironfit-landing .ironfit-domain--5,.fm-public-site .ironfit-landing .ironfit-domain--7{left:3%;right:auto}
+.fm-public-site .ironfit-landing .ironfit-domain--2,.fm-public-site .ironfit-landing .ironfit-domain--4,.fm-public-site .ironfit-landing .ironfit-domain--6,.fm-public-site .ironfit-landing .ironfit-domain--8{right:3%;left:auto}
+.fm-public-site .ironfit-landing .ironfit-domain--1,.fm-public-site .ironfit-landing .ironfit-domain--2{top:8%}
+.fm-public-site .ironfit-landing .ironfit-domain--3,.fm-public-site .ironfit-landing .ironfit-domain--4{top:31%}
+.fm-public-site .ironfit-landing .ironfit-domain--5,.fm-public-site .ironfit-landing .ironfit-domain--6{top:54%}
+.fm-public-site .ironfit-landing .ironfit-domain--7,.fm-public-site .ironfit-landing .ironfit-domain--8{top:77%}
+.fm-public-site .ironfit-landing .ironfit-core-flow span{padding:12px 20px;border:1px solid #008fff;background:#03152e;color:#61c8ff;font-size:.78rem}
+}
+@media(min-width:901px) and (max-width:1200px){.fm-public-site .ironfit-landing .ironfit-domain{width:190px;font-size:.8rem}.fm-public-site .ironfit-landing .ironfit-core-mark{width:260px}}
+
+/* Actual vector neural-brain asset, not CSS-only placeholder */
+.ironfit-intelligence-network .ironfit-intelligence-brain{inset:-7% 3%;opacity:.95;background:url('/ironfit-neural-brain.svg') center center / contain no-repeat;filter:drop-shadow(0 0 18px rgba(0,159,255,.58))}
+.ironfit-intelligence-network{isolation:isolate;overflow:hidden}
+.ironfit-intelligence-network .ironfit-intelligence-brain{z-index:0}
+.ironfit-intelligence-network .ironfit-intelligence-core,.ironfit-intelligence-network .ironfit-intelligence-node{z-index:2}
+@media(max-width:700px){.ironfit-intelligence-network .ironfit-intelligence-brain{inset:2%;opacity:.5}}
+
+/* Core Vertical sizing correction: protect lateral modules and central emblem */
+@media (min-width:901px){
+.fm-public-site .ironfit-landing .ironfit-core-stage{width:100%;max-width:1160px;min-height:590px;box-sizing:border-box;overflow:hidden}
+.fm-public-site .ironfit-landing .ironfit-core-mark{width:clamp(190px,23vw,260px);max-width:calc(100% - 460px);min-width:190px;aspect-ratio:1}
+.fm-public-site .ironfit-landing .ironfit-core-orbit .orbit--one{width:min(33vw,320px);height:min(33vw,320px)}
+.fm-public-site .ironfit-landing .ironfit-core-orbit .orbit--two{width:min(40vw,405px);height:min(40vw,405px)}
+.fm-public-site .ironfit-landing .ironfit-core-orbit .orbit--three{width:min(46vw,490px);height:min(46vw,490px)}
+.fm-public-site .ironfit-landing .ironfit-domain{width:clamp(155px,17vw,205px);min-height:62px;padding:12px 16px;font-size:clamp(.72rem,.95vw,.86rem);line-height:1.2;white-space:normal}
+.fm-public-site .ironfit-landing .ironfit-domain--1,.fm-public-site .ironfit-landing .ironfit-domain--3,.fm-public-site .ironfit-landing .ironfit-domain--5,.fm-public-site .ironfit-landing .ironfit-domain--7{left:2%}
+.fm-public-site .ironfit-landing .ironfit-domain--2,.fm-public-site .ironfit-landing .ironfit-domain--4,.fm-public-site .ironfit-landing .ironfit-domain--6,.fm-public-site .ironfit-landing .ironfit-domain--8{right:2%}
+.fm-public-site .ironfit-landing .ironfit-domain--1,.fm-public-site .ironfit-landing .ironfit-domain--2{top:6%}
+.fm-public-site .ironfit-landing .ironfit-domain--3,.fm-public-site .ironfit-landing .ironfit-domain--4{top:29%}
+.fm-public-site .ironfit-landing .ironfit-domain--5,.fm-public-site .ironfit-landing .ironfit-domain--6{top:52%}
+.fm-public-site .ironfit-landing .ironfit-domain--7,.fm-public-site .ironfit-landing .ironfit-domain--8{top:75%}
+}
+@media(min-width:901px) and (max-width:1100px){
+.fm-public-site .ironfit-landing .ironfit-core-mark{width:205px;min-width:0;max-width:205px}
+.fm-public-site .ironfit-landing .ironfit-domain{width:160px}
+.fm-public-site .ironfit-landing .ironfit-core-orbit .orbit--three{width:420px;height:420px}
+}

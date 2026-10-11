@@ -22,12 +22,14 @@ import "./fm-premium-foundation.css";
 import "./fm-premium-hero.css";
 import "./fm-premium-approved.css";
 import "./fm-public-site-premium.css";
+import "./ironfit-neural-preview.css";
+import "./ironfit-approved-artworks.css";
 import { SiteChrome } from "@/src/components/layout/site-chrome";
 import { siteConfig } from "@/src/config/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: { default: "FM Tecnologia — IA para melhorar hoje e evoluir o amanhã", template: "%s | FM Tecnologia" },
+  title: { default: "FM Tecnologia â€” IA para melhorar hoje e evoluir o amanhÃ£", template: "%s | FM Tecnologia" },
   description: siteConfig.description,
   alternates: { canonical: "/" },
   openGraph: { type: "website", locale: "pt_BR", siteName: siteConfig.name, title: siteConfig.name, description: siteConfig.description, url: "/" },
@@ -38,9 +40,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR">
       <body>
-        <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
+        <a className="skip-link" href="#conteudo">Pular para o conteÃºdo</a>
         <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );
 }
+
+

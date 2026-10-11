@@ -56,10 +56,16 @@ test("Premium footer styling remains scoped only to the Home route", () => {
   assert.match(chrome, /<Footer premiumHome=\{premiumHome\} \/>/);
 });
 
-test("Premium Home remains scoped and uses the blue approved surface", () => {
-  assert.match(home, /className="fm-premium-home"/);
+test("Institutional Home uses the approved blue FM surface and not the Kordena Core artwork", () => {
+  const publicCss = readFileSync(new URL("../app/fm-public-site-premium.css", import.meta.url), "utf8");
+  assert.match(home, /fm-premium-home fm-institutional-home/);
+  assert.match(home, /IA para melhorar hoje e/);
+  assert.match(home, /Explore o ecossistema/);
+  assert.match(home, /AtendeVendeIA/);
+  assert.doesNotMatch(home, /<FmPremiumHero/);
+  assert.match(publicCss, /\.fm-public-site \.fm-institutional-hero/);
+  assert.match(publicCss, /#2f91ff/);
   assert.match(approvedCss, /#3095f5/);
-  assert.match(approvedCss, /#63c7ef/);
 });
 
 test("Hero preserves the approved FM commercial message and calls to action", () => {
